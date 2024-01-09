@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" id="wrapper" ref="area">
     <el-container>
-      <el-header :class="{'bg-header': route.name === 'dashboard'}">
+      <el-header>
         <el-alert center class="alert-body">
           <template #title>
             <span class="font-16">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
@@ -20,8 +20,8 @@
           </router-view>
           <el-backtop :right="20" :bottom="50" />
         </div>
-        <v-foot v-if="route.name === 'aboutUs'" :class="{'bg': route.name === 'dashboard'}"></v-foot>
-        <v-foot-short v-else :class="{'bg': route.name === 'dashboard'}"></v-foot-short>
+        <v-foot v-if="route.name === 'dashboard' || route.name === 'aboutUs'"></v-foot>
+        <v-foot-short v-else></v-foot-short>
       </el-main>
     </el-container>
   </div>
@@ -119,7 +119,7 @@ export default defineComponent({
       right: 0;
       z-index: 999;
       background-color: transparent;
-      border-bottom: 2px solid #cddcff;
+      border-bottom: 2px solid @border-color;
       &.bg-header {
         background-color: @white-color;
       }

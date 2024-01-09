@@ -37,15 +37,32 @@
           <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
             <el-row>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">{{$t('menu.Ecosystem')}}</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4">{{$t('menu.Ecosystem')}}</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">EXPLORE</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Swan Cloud</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Lagrange</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Multi-Chain Storage</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Meta Ark</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Chainnode</router-link>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">{{$t('menu.Ecosystem')}}</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">BUILD</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Block Explorer</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Faucet</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Documentation</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">GitHub</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Tools</router-link>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">ABOUT</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">About Us</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Privacy Policy</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Terms of Use Careers</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Contact Us</router-link>
+                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Brand Kit</router-link>
+              </el-col>
+              <!-- <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a href="https://nebulablock.freshdesk.com/support/home" target="_blank" class="font-20 weight-7">{{$t('menu.Support')}}</a>
-              </el-col>
+              </el-col> -->
             </el-row>
           </el-col>
           <el-col :span="24">
@@ -76,34 +93,28 @@ export default defineComponent({
     const nebulaLogo = require(`@/assets/images/SWAN_logo_01.png`)
     const mediaData = ref([
       {
-        icon: require(`@/assets/images/dashboard/media-01.png`),
         type: 'discord',
         link: process.env.VUE_APP_BASE_DISCORD_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-02.png`),
         type: 'twitter',
         link: process.env.VUE_APP_BASE_TWITTER_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-03.png`),
         type: 'telegram',
         link: process.env.VUE_APP_BASE_T_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-04.png`),
         type: 'github',
         link: process.env.VUE_APP_BASE_GITHUB_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-05.png`),
         type: 'linkedin',
         link: process.env.VUE_APP_BASE_LINKEDIN_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-06.png`),
         type: 'medium',
-        link: process.env.VUE_APP_BASE_MEDIUM
+        link: process.env.VUE_APP_BASE_MEDIUM_LINK
       }
     ])
 
@@ -175,7 +186,7 @@ export default defineComponent({
               display: block;
               padding: 8px;
               margin: 0 12px 0 0;
-              border: 1px solid @theme-color;
+              border: 1px solid @white-color;
               border-radius: 100px;
               @media screen and (min-width: 2160px) {
                 margin: 0 10px 0 0;
@@ -187,14 +198,14 @@ export default defineComponent({
                 margin: 0 24px 0 0;
               }
               @media screen and (max-width: 540px) {
-                margin: 0 6036px 0 0;
+                margin: 0 36px 0 0;
               }
               svg {
                 display: block;
                 width: 20px;
                 height: 20px;
                 cursor: pointer;
-                fill: @theme-color;
+                fill: @white-color;
                 opacity: 1;
                 transition: all 0.2s;
                 @media screen and (min-width: 2160px) {
@@ -238,7 +249,7 @@ export default defineComponent({
           }
           .copy {
             margin: 30px 0 0;
-            color: @white-color;
+            color: @text-w-color;
             text-transform: uppercase;
             a {
               margin: 0 0 0 20px;
@@ -258,7 +269,7 @@ export default defineComponent({
               a {
                 display: block;
                 padding: 20px 0;
-                margin: 15px 0 0;
+                margin: 15px 0;
                 color: @white-color;
                 line-height: 1;
                 text-transform: uppercase;
@@ -271,10 +282,9 @@ export default defineComponent({
                 padding: 7px 0;
                 margin: 0;
                 text-transform: capitalize;
-                color: rgba(229, 235, 255, 0.56);
                 transition: all 0.2s;
                 &:hover {
-                  color: @white-color;
+                  text-decoration: underline;
                 }
               }
             }

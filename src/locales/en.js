@@ -14,8 +14,8 @@ export default {
   },
   "main": {
     "banner": {
-      "title": "BUILD WEB3 TOGETHER WITH US",
-      "describe": "Swan has a global team of dedicated, world-class talents who are committed to building the best Web3 infrastructure <br /><br />We are constantly looking for talents to join us to make Web3 better. Check below for current openings"
+      "title": "Layer 2 for Decentralized Cloud Computing",
+      "describe": "Swan Chain is an Ethereum layer 2 cloud computing network built on OP Stack, helping Web3 projects to integrate storage, computing, CDN, and payment into one suite."
     },
     "clients": {
       "title-1": "Trusted by Cients",

@@ -23,10 +23,10 @@
             <path d="M272.571429 357.142857v566.285714H84V357.142857h188.571429z m12-174.857143q0.571429 41.714286-28.857143 69.714286T178.285714 280h-1.142857q-46.857143 0-75.428571-28T73.142857 182.285714q0-42.285714 29.428572-70T179.428571 84.571429t76 27.714285T284.571429 182.285714z m666.285714 416.571429v324.571428h-188v-302.857142q0-60-23.142857-94T667.428571 492.571429q-36 0-60.285714 19.714285T570.857143 561.142857q-6.285714 17.142857-6.285714 46.285714v316H376.571429q1.142857-228 1.142857-369.714285t-0.571429-169.142857l-0.571428-27.428572h188v82.285714h-1.142858q11.428571-18.285714 23.428572-32t32.285714-29.714285 49.714286-24.857143T734.285714 344q97.714286 0 157.142857 64.857143t59.428572 190z"
               p-id="7609"></path>
           </svg>
-                <svg v-else t="1704779181965" class="icon" viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9598">
-                  <path d="M361 148.524C161.626 148.524 0 311.266 0 512s161.638 363.476 361 363.476S722 712.746 722 512 560.382 148.524 361 148.524z m576.5 21.292c-99.69 0-180.49 153.238-180.49 342.19s80.812 342.2 180.502 342.2 180.502-153.238 180.502-342.2H1118c0-189.006-80.8-342.19-180.496-342.19z m279.012 35.642c-35.052 0-63.47 137.256-63.47 306.548s28.4 306.548 63.47 306.548S1280 681.262 1280 512c0-169.298-28.43-306.542-63.484-306.542z"
-                    p-id="9599"></path>
-                </svg>
+          <svg v-else t="1704779181965" class="icon" viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9598">
+            <path d="M361 148.524C161.626 148.524 0 311.266 0 512s161.638 363.476 361 363.476S722 712.746 722 512 560.382 148.524 361 148.524z m576.5 21.292c-99.69 0-180.49 153.238-180.49 342.19s80.812 342.2 180.502 342.2 180.502-153.238 180.502-342.2H1118c0-189.006-80.8-342.19-180.496-342.19z m279.012 35.642c-35.052 0-63.47 137.256-63.47 306.548s28.4 306.548 63.47 306.548S1280 681.262 1280 512c0-169.298-28.43-306.542-63.484-306.542z"
+              p-id="9599"></path>
+          </svg>
         </a>
       </div>
       <div class="copy tit font-16 weight-4 flex-row">
@@ -51,34 +51,28 @@ export default defineComponent({
     const nebulaLogo = require(`@/assets/images/SWAN_logo_01.png`)
     const mediaData = ref([
       {
-        icon: require(`@/assets/images/dashboard/media-01.png`),
         type: 'discord',
         link: process.env.VUE_APP_BASE_DISCORD_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-02.png`),
         type: 'twitter',
         link: process.env.VUE_APP_BASE_TWITTER_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-03.png`),
         type: 'telegram',
         link: process.env.VUE_APP_BASE_T_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-04.png`),
         type: 'github',
         link: process.env.VUE_APP_BASE_GITHUB_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-05.png`),
         type: 'linkedin',
         link: process.env.VUE_APP_BASE_LINKEDIN_LINK
       },
       {
-        icon: require(`@/assets/images/dashboard/media-06.png`),
         type: 'medium',
-        link: process.env.VUE_APP_BASE_MEDIUM
+        link: process.env.VUE_APP_BASE_MEDIUM_LINK
       }
     ])
 
@@ -101,8 +95,9 @@ export default defineComponent({
   position: relative;
   width: 100%;
   padding: 40px 0;
-  background: @white-color;
+  background: @bg-color;
   background-size: auto 100%;
+  border-top: 2px solid @border-color;
   @media screen and (max-width: 768px) {
     padding: 60px 0;
   }
@@ -119,7 +114,7 @@ export default defineComponent({
     }
     .copy {
       margin: 30px 0 0;
-      color: @text-color;
+      color: @text-w-color;
       text-transform: uppercase;
       a {
         margin: 0 0 0 20px;
@@ -150,7 +145,7 @@ export default defineComponent({
           margin: 0 24px 0 0;
         }
         @media screen and (max-width: 540px) {
-          margin: 0 6036px 0 0;
+          margin: 0 36px 0 0;
         }
         svg {
           display: block;

@@ -48,7 +48,7 @@ export default defineComponent({
     const system = getCurrentInstance().appContext.config.globalProperties
     const route = useRoute()
     const router = useRouter()
-    const nebulaLogo = require("@/assets/images/SWAN_logo_02.png")
+    const nebulaLogo = require("@/assets/images/SWAN_logo_01.png")
     const scrollTopVal = ref(0)
     const activeIndex = ref('1')
     const dataShow = ref(false)
@@ -156,7 +156,7 @@ export default defineComponent({
           margin-left: 50px;
           background-color: transparent !important;
           border-bottom: 1.6px solid transparent;
-          color: @black-color;
+          color: @white-color;
           line-height: 1.5;
           text-transform: uppercase;
           @media screen and (min-width: 2160px) {

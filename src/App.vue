@@ -11,7 +11,10 @@ export default {
 </script>
 <style lang="less">
 @import "./assets/css/style.css";
-
+html,
+body {
+  background-color: @bg-color;
+}
 .mt-border {
   margin: 30px auto;
   border-top: 1px solid #8c878d;
@@ -113,6 +116,21 @@ export default {
   }
   @media screen and (max-width: 540px) {
     font-size: 140px;
+  }
+}
+.font-55 {
+  font-size: 55px;
+  @media screen and (min-width: 2160px) {
+    font-size: 27px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 82px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 110px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 127px;
   }
 }
 .font-50 {
