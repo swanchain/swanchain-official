@@ -12,6 +12,8 @@ const main = () =>
     import ("@/views/main/index");
 const about = () =>
     import ("@/views/about/index");
+const bridge = () =>
+    import ("@/views/bridge/index");
 
 const privacyPolicy = () =>
     import ("@/views/privacyPolicy/index");
@@ -37,6 +39,15 @@ const routes = [{
                 meta: {
                     keepAlive: true,
                     title: 'About Us'
+                }
+            },
+            {
+                path: '/bridge',
+                name: 'bridge',
+                component: bridge,
+                meta: {
+                    keepAlive: true,
+                    title: 'Bridge'
                 }
             },
             {

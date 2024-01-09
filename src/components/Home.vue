@@ -20,7 +20,8 @@
           </router-view>
           <el-backtop :right="20" :bottom="50" />
         </div>
-        <v-foot :class="{'bg': route.name === 'dashboard'}"></v-foot>
+        <v-foot v-if="route.name === 'aboutUs'" :class="{'bg': route.name === 'dashboard'}"></v-foot>
+        <v-foot-short v-else :class="{'bg': route.name === 'dashboard'}"></v-foot-short>
       </el-main>
     </el-container>
   </div>
@@ -29,6 +30,7 @@
 <script>
 import vHead from './Header.vue';
 import vFoot from './Footer.vue';
+import vFootShort from './FooterShort.vue';
 import { defineComponent, computed, onMounted, watch, ref, reactive, getCurrentInstance } from 'vue'
 import { useStore } from "vuex"
 import { useRouter, useRoute } from 'vue-router'
@@ -58,7 +60,7 @@ export default defineComponent({
     }
   },
   components: {
-    vFoot, vHead,
+    vFoot, vFootShort, vHead,
     ElConfigProvider, ElBacktop, ElContainer, ElHeader, ElFooter, ElMain, ElRow, ElCol, ElAlert
   }
 })
@@ -105,12 +107,13 @@ export default defineComponent({
     .el-main {
       display: flex;
       min-height: 100vh;
+      padding-top: 120px;
       align-items: flex-start;
       align-content: space-between;
       flex-wrap: wrap;
     }
     .el-header {
-      // position: absolute;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;

@@ -65,6 +65,7 @@ export default defineComponent({
     }
     async function handleSelect (key, keyPath) {
       if (key === 'Ecosystem') router.push({ name: 'aboutUs' })
+      if (key === 'Bridge') router.push({ name: 'bridge' })
       else if (key === 'blog') system.$commonFun.goLink('https://nebulablock.medium.com/')
     }
     // what-we-do
@@ -72,7 +73,8 @@ export default defineComponent({
       const nameMenu = row || route.name
       if (nameMenu.indexOf('dashboard') > -1) activeIndex.value = '1'
       else if (nameMenu.indexOf('aboutUs') > -1) activeIndex.value = 'Ecosystem'
-      else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'blog'
+      else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
+      else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'Blog'
       else activeIndex.value = '1'
     }
     function handleLogin (dia) {
