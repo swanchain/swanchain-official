@@ -10,7 +10,6 @@
             <a class="font-16 font-bold">{{ $t('about.module_1_btn') }}</a>
           </div>
         </div>
-        <!-- <div class="landing_img" :style="{'background-image': 'url('+content_img+')'}"></div> -->
         <div class="landing_img">
           <img :src="content_img" alt="">
         </div>
@@ -249,8 +248,8 @@ export default defineComponent({
   .join_today {
     padding: 103px 0 210px;
     margin: auto;
-    background: url(../../assets/images/about/background-image01.png),
-      url(../../assets/images/about/background-image04.png);
+    background: url(../../../assets/images/about/background-image01.png),
+      url(../../../assets/images/about/background-image04.png);
     background-size: 10%, 100%;
     background-position: 0 10%, left bottom;
     background-repeat: no-repeat, no-repeat;
@@ -403,7 +402,7 @@ export default defineComponent({
   }
   .aboutSwan {
     padding: 0 0 93px;
-    background: url(../../assets/images/about/background-image02.png) 148px
+    background: url(../../../assets/images/about/background-image02.png) 148px
       bottom no-repeat;
     background-size: 9.6%;
     :deep(.el-row) {

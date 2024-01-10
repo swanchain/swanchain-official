@@ -22,6 +22,7 @@
     </div>
 
     <div class="blockchain lang-max">
+      <div class="subtit font-50 font-bold text-center">{{$t('dashboard.person_title')}}</div>
       <el-row class="block-cont row-bg" justify="center">
         <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="b in fundData" :key="b">
           <img :src="b.img" />

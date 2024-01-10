@@ -13,9 +13,24 @@
           <el-menu-item index="Developers">
             <span class="mit font-16">{{$t('menu.Developers')}}</span>
           </el-menu-item>
-          <el-menu-item index="Community">
-            <span class="mit font-16">{{$t('menu.Community')}}</span>
-          </el-menu-item>
+          <el-sub-menu index="Community">
+            <template #title>
+              <span class="mit font-16">{{$t('menu.Community')}}</span>
+            </template>
+            <el-menu-item index="About">
+              <span class="mit font-16">{{$t('menu.About-Us')}}</span>
+            </el-menu-item>
+            <el-menu-item index="Faucet">
+              <span class="mit font-16">Faucet</span>
+            </el-menu-item>
+            <el-menu-item index="Event">
+              <span class="mit font-16">Event</span>
+            </el-menu-item>
+            <el-menu-item index="HelpCenter">
+              <span class="mit font-16">Help Center</span>
+            </el-menu-item>
+          </el-sub-menu>
+
           <el-menu-item index="Blog">
             <span class="mit font-16">{{$t('menu.Blog')}}</span>
           </el-menu-item>
@@ -64,15 +79,22 @@ export default defineComponent({
       activeIndex.value = '1'
     }
     async function handleSelect (key, keyPath) {
-      if (key === 'Ecosystem') router.push({ name: 'aboutUs' })
+      if (key === 'About') router.push({ name: 'aboutUs' })
+      if (key === 'Faucet') router.push({ name: 'faucet' })
+      if (key === 'Event') router.push({ name: 'event' })
+      if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
       if (key === 'Bridge') router.push({ name: 'bridge' })
-      else if (key === 'blog') system.$commonFun.goLink('https://nebulablock.medium.com/')
+      else if (key === 'Blog') router.push({ name: 'blog' })
+      // else if (key === 'blog') system.$commonFun.goLink('https://nebulablock.medium.com/')
     }
     // what-we-do
     async function activeMenu (row) {
       const nameMenu = row || route.name
       if (nameMenu.indexOf('dashboard') > -1) activeIndex.value = '1'
-      else if (nameMenu.indexOf('aboutUs') > -1) activeIndex.value = 'Ecosystem'
+      else if (nameMenu.indexOf('aboutUs') > -1) activeIndex.value = 'About'
+      else if (nameMenu.indexOf('faucet') > -1) activeIndex.value = 'Faucet'
+      else if (nameMenu.indexOf('event') > -1) activeIndex.value = 'Event'
+      else if (nameMenu.indexOf('helpCenter') > -1) activeIndex.value = 'HelpCenter'
       else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
       else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'Blog'
       else activeIndex.value = '1'

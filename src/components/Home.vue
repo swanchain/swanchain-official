@@ -107,7 +107,7 @@ export default defineComponent({
     .el-main {
       display: flex;
       min-height: 100vh;
-      padding-top: 120px;
+      padding-top: 100px;
       align-items: flex-start;
       align-content: space-between;
       flex-wrap: wrap;
@@ -118,7 +118,7 @@ export default defineComponent({
       left: 0;
       right: 0;
       z-index: 999;
-      background-color: transparent;
+      background-color: @bg-color;
       border-bottom: 2px solid @border-color;
       &.bg-header {
         background-color: @white-color;

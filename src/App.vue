@@ -193,6 +193,21 @@ body {
     font-size: 116px;
   }
 }
+.font-40 {
+  font-size: 40px;
+  @media screen and (min-width: 2160px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 60px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 90px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 110px;
+  }
+}
 .font-38 {
   font-size: 38px;
   @media screen and (min-width: 2160px) {

@@ -30,6 +30,7 @@ module.exports = {
         modifyVars: {
           'white-color': '#fff',
           'bg-color': '#010001',
+          'bg-module-color': '#1e2026',
           'black-color': '#000000',
           'text-w-color': '#636363',
           'text-w-color': '#ebeff9',
