@@ -20,7 +20,7 @@
           </router-view>
           <el-backtop :right="20" :bottom="50" />
         </div>
-        <v-foot v-if="route.name === 'dashboard' || route.name === 'aboutUs'"></v-foot>
+        <v-foot v-if="route.name === 'dashboard' || route.name === 'aboutUs' || route.name === 'blog' || route.name === 'ecosystem'"></v-foot>
         <v-foot-short v-else></v-foot-short>
       </el-main>
     </el-container>

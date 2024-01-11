@@ -4,6 +4,9 @@
       <img :src="nebulaLogo" class="logo-img" alt='Nebula Block' @click="goMain" />
       <div class="el-menu-right flex-row menu-width-mit">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :teleported="true" @select="handleSelect">
+          <el-menu-item index="Orchestrator">
+            <span class="mit font-16">Orchestrator</span>
+          </el-menu-item>
           <el-menu-item index="Ecosystem">
             <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
           </el-menu-item>
@@ -18,16 +21,35 @@
               <span class="mit font-16">{{$t('menu.Community')}}</span>
             </template>
             <el-menu-item index="About">
+              <div class="mit flex-row space-between community-menu-header">
+                <div class="head-left">
+                  <p class="font-16 weight-6">Community</p>
+                  <p class="font-14 span desc">Join Swan Chain's</p>
+                  <a class="font-14">Join Now</a>
+                </div>
+              </div>
+            </el-menu-item>
+            <!-- <el-menu-item index="About">
               <span class="mit font-16">{{$t('menu.About-Us')}}</span>
+            </el-menu-item> -->
+            <el-menu-item index="Event">
+              <div class="mit community-menu-default">
+                <div class="head-left">
+                  <p class="font-16">Events</p>
+                  <p class="font-14 span desc">Join Swan Chain's Latest Community Events</p>
+                </div>
+              </div>
             </el-menu-item>
             <el-menu-item index="Faucet">
               <span class="mit font-16">Faucet</span>
             </el-menu-item>
-            <el-menu-item index="Event">
-              <span class="mit font-16">Event</span>
-            </el-menu-item>
             <el-menu-item index="HelpCenter">
-              <span class="mit font-16">Help Center</span>
+              <div class="mit community-menu-default">
+                <div class="head-left">
+                  <p class="font-16">Help Center</p>
+                  <p class="font-14 span desc">Receive Support And Guidance</p>
+                </div>
+              </div>
             </el-menu-item>
           </el-sub-menu>
 
@@ -84,7 +106,8 @@ export default defineComponent({
       if (key === 'Event') router.push({ name: 'event' })
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
       if (key === 'Bridge') router.push({ name: 'bridge' })
-      else if (key === 'Blog') router.push({ name: 'blog' })
+      if (key === 'Blog') router.push({ name: 'blog' })
+      else if (key === 'Ecosystem') router.push({ name: 'ecosystem' })
       // else if (key === 'blog') system.$commonFun.goLink('https://nebulablock.medium.com/')
     }
     // what-we-do
@@ -97,6 +120,7 @@ export default defineComponent({
       else if (nameMenu.indexOf('helpCenter') > -1) activeIndex.value = 'HelpCenter'
       else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
       else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'Blog'
+      else if (nameMenu.indexOf('ecosystem') > -1) activeIndex.value = 'Ecosystem'
       else activeIndex.value = '1'
     }
     function handleLogin (dia) {

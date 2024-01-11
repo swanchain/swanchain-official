@@ -22,13 +22,46 @@
     </div>
 
     <div class="blockchain lang-max">
+      <el-row class="block-cont row-bg" justify="center">
+        <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="e in ethereumData" :key="e">
+          <img :src="e.img" />
+        </el-col>
+      </el-row>
+    </div>
+
+    <div class="unlock-area">
+      <div class="lang-max">
+        <div class="tit font-50 weight-6 text-center">Unlock The Next Level of Ethereum with Swan Orchestrator</div>
+        <div class="font-27  text-center">The most advanced blockchain scaling & computing technology</div>
+        <el-row class="unlock-cont row-bg" :gutter="48" justify="center">
+          <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="u in unlockData" :key="u">
+            <div class="content">
+              <div class="image">
+                <img :src="u.img" :class="u.class" />
+              </div>
+              <p v-if="u.desc" class="font-30 weight-6">{{u.desc}}</p>
+              <p v-else class="font-22 weight-4">{{u.subscribe}}</p>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <div class="unlock-area">
+      <div class="lang-max">
+        <div class="tit font-50 weight-6 text-center">See The Differences You Can Make With Swan Chain</div>
+
+      </div>
+    </div>
+
+    <!-- <div class="blockchain lang-max">
       <div class="subtit font-50 font-bold text-center">{{$t('dashboard.person_title')}}</div>
       <el-row class="block-cont row-bg" justify="center">
         <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="b in fundData" :key="b">
           <img :src="b.img" />
         </el-col>
       </el-row>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -107,12 +140,94 @@ export default defineComponent({
         img: require(`@/assets/images/about/funded/funded-18.png`)
       },
     ])
+    const ethereumData = ref([
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-01.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-02.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-03.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-04.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-05.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-06.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-07.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-08.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-09.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-10.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-11.png`)
+      },
+      {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-12.png`)
+      },
+    ])
+    const unlockData = ref([
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-01.png`),
+        desc: 'Transaction',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-02.png`),
+        desc: 'Provider',
+        class: 'big'
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-03.png`),
+        desc: 'Task',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-04.png`),
+        desc: 'Task',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-05.png`),
+        subscribe: 'Addressing and resolving claims or disputes from clients.',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-06.png`),
+        subscribe: 'Penalizing providers for non-compliance or malpractice.',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-07.png`),
+        subscribe: 'Assigning and updating reputation scores for providers based on their performance and reliability',
+        class: ''
+      },
+      {
+        img: require(`@/assets/images/dashboard/unlock/unlock-08.png`),
+        subscribe: 'Handling collateral requirements for providers as part of the task fulfllment and slashing system.',
+        class: 'small'
+      }
+    ])
 
     onMounted(() => { })
     return {
       system,
       bodyWidth,
-      fundData
+      fundData,
+      ethereumData,
+      unlockData
     }
   }
 })
@@ -126,7 +241,7 @@ export default defineComponent({
   line-height: 1.15;
   .banner {
     position: relative;
-    padding: 255px 0 140px;
+    padding: 195px 0 140px;
     background: url(../../assets/images/bg-main.png) center no-repeat;
     background-size: 100%;
     @media screen and (min-width: 2160px) {
@@ -142,12 +257,16 @@ export default defineComponent({
       .text {
         max-width: 940px;
         margin: auto;
-        line-height: 1.13;
+        line-height: 1.4;
         @media screen and (max-width: 1260px) {
           max-width: 1140px;
         }
         @media screen and (max-width: 600px) {
           max-width: none;
+        }
+        h1 {
+          width: 90%;
+          margin: auto;
         }
         p {
           margin: 25px 0 35px;
@@ -187,7 +306,7 @@ export default defineComponent({
     }
   }
   :deep(.blockchain) {
-    margin: 120px auto 60px;
+    margin: 120px auto 90px;
     .block-cont {
       .el-col {
         margin: 10px 0;
@@ -197,6 +316,66 @@ export default defineComponent({
         img {
           width: 80%;
           margin: 0 auto;
+        }
+      }
+    }
+  }
+  :deep(.unlock-area) {
+    position: relative;
+    padding: 60px 0 130px;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      bottom: 7px;
+      height: 2px;
+      background-color: #254388;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      bottom: 0;
+      width: 16px;
+      height: 16px;
+      margin-left: -8px;
+      background-color: @theme-color;
+    }
+    .tit {
+      width: 70%;
+      margin: 0 auto 10px;
+      @media screen and (max-width: 768px) {
+        width: 80%;
+      }
+      @media screen and (max-width: 600px) {
+        width: 95%;
+      }
+    }
+    .unlock-cont {
+      margin: 100px auto 0;
+      .el-col {
+        margin: 29px 0;
+        .content {
+          height: calc(100% - 100px);
+          padding: 38px 34px 60px;
+          background-color: #ecf0f9;
+          border: 1px solid @theme-color;
+          border-radius: 15px;
+          color: #000;
+          line-height: 1.2;
+          .image {
+            height: 180px;
+            img {
+              height: 84px;
+              &.small {
+                height: 70px;
+              }
+              &.big {
+                height: 125px;
+              }
+            }
+          }
         }
       }
     }

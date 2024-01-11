@@ -25,6 +25,9 @@ const bridge = () =>
 const blog = () =>
     import ("@/views/blog/index");
 
+const ecosystem = () =>
+    import ("@/views/ecosystem/index");
+
 const privacyPolicy = () =>
     import ("@/views/privacyPolicy/index");
 const terms = () =>
@@ -94,6 +97,15 @@ const routes = [{
                 meta: {
                     keepAlive: true,
                     title: 'Blog'
+                }
+            },
+            {
+                path: '/ecosystem',
+                name: 'ecosystem',
+                component: ecosystem,
+                meta: {
+                    keepAlive: true,
+                    title: 'Ecosystem'
                 }
             },
             {

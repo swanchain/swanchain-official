@@ -223,6 +223,21 @@ body {
     font-size: 114px;
   }
 }
+.font-35 {
+  font-size: 35px;
+  @media screen and (min-width: 2160px) {
+    font-size: 17.5px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 52.5px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 80px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 105px;
+  }
+}
 .font-33 {
   font-size: 33px;
   @media screen and (min-width: 2160px) {
@@ -524,15 +539,70 @@ body {
   }
 }
 
-.el-popper {
-  .el-select-dropdown__wrap,
-  .el-select-dropdown__list,
-  .el-select-dropdown__item {
-    font-size: inherit;
-    li {
-      @media screen and (max-width: 768px) {
-        height: auto;
-        line-height: 2;
+body {
+  .el-popper {
+    &.is-light {
+      width: 280px;
+      padding: 0 10px 20px;
+      margin-left: -110px;
+      background: @bg-module-color;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.72);
+      .el-menu {
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        .span {
+          opacity: 0.5;
+        }
+        .el-menu-item {
+          padding: 0;
+          word-break: break-word;
+          white-space: normal;
+          line-height: 1.4;
+          color: @white-color !important;
+          .community-menu-header {
+            width: 100%;
+            padding: 10px 20px;
+            background: url(assets/images/menu/menu-community.png) 150px center
+              no-repeat;
+            background-size: 116px;
+            line-height: 1.4;
+            .head-left {
+              width: 45%;
+              min-width: 150px;
+              .desc {
+                padding: 3px 0 10px;
+              }
+              a {
+                color: @theme-color;
+                text-decoration: underline;
+              }
+            }
+          }
+          .community-menu-default {
+            padding: 10px 12px;
+            border-radius: 15px;
+            p {
+              padding: 0 0 0 28px;
+              &.event-menu {
+                // background: url(assets/images/)
+              }
+            }
+          }
+        }
+      }
+    }
+    .el-select-dropdown__wrap,
+    .el-select-dropdown__list,
+    .el-select-dropdown__item {
+      font-size: inherit;
+      li {
+        @media screen and (max-width: 768px) {
+          height: auto;
+          line-height: 2;
+        }
       }
     }
   }
