@@ -4,24 +4,117 @@
       <img :src="nebulaLogo" class="logo-img" alt='Nebula Block' @click="goMain" />
       <div class="el-menu-right flex-row menu-width-mit">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :teleported="true" @select="handleSelect">
-          <el-menu-item index="Orchestrator">
-            <span class="mit font-16">Orchestrator</span>
-          </el-menu-item>
+          <el-sub-menu index="Orchestrator">
+            <template #title>
+              <span class="mit font-16">Orchestrator</span>
+            </template>
+            <el-menu-item index="SwanCloud">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Swan Cloud</p>
+                  <p class="font-14 span desc">Easily connect and manage storage deals</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Lagrange">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Lagrange</p>
+                  <p class="font-14 span desc">Host and deploy decentralized code securely</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Multi-Chain">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Multi-Chain Storage</p>
+                  <p class="font-14 span desc">Store any data across multiple blockchains</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="MetaArk">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Meta Ark</p>
+                  <p class="font-14 span desc">Scalable decentralized backup solution</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Chainnode">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Chainnode</p>
+                  <p class="font-14 span desc">Fast archive snapshot downloads for nodes</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="ExploredApps">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Explore dApps</p>
+                  <p class="font-14 span desc">Explore dApps on the Swan Chain ecosystem</p>
+                </div>
+              </div>
+            </el-menu-item>
+          </el-sub-menu>
           <el-menu-item index="Ecosystem">
             <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
           </el-menu-item>
           <el-menu-item index="Bridge">
             <span class="mit font-16">{{$t('menu.Bridge')}}</span>
           </el-menu-item>
-          <el-menu-item index="Developers">
-            <span class="mit font-16">{{$t('menu.Developers')}}</span>
-          </el-menu-item>
+          <el-sub-menu index="Developers">
+            <template #title>
+              <span class="mit font-16">{{$t('menu.Developers')}}</span>
+            </template>
+            <el-menu-item index="Developers">
+              <div class="mit flex-row space-between menu-header developers">
+                <div class="head-left">
+                  <p class="font-16 weight-6">Developers</p>
+                  <p class="font-14 span desc">Start building on Swan Chain</p>
+                  <a class="font-14">Start building</a>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="BlockExplorer">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Block Explorer</p>
+                  <p class="font-14 span desc">Explore blockchain transactions with ease</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Faucet">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Faucet</p>
+                  <p class="font-14 span desc">Access test tokens on Swan Chain</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Documentation">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Documentation</p>
+                  <p class="font-14 span desc">Discover guides and essential resources</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="GitHub">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">GitHub</p>
+                  <p class="font-14 span desc">Explore Swan Chain tech repositories</p>
+                </div>
+              </div>
+            </el-menu-item>
+          </el-sub-menu>
           <el-sub-menu index="Community">
             <template #title>
               <span class="mit font-16">{{$t('menu.Community')}}</span>
             </template>
             <el-menu-item index="About">
-              <div class="mit flex-row space-between community-menu-header">
+              <div class="mit flex-row space-between menu-header community">
                 <div class="head-left">
                   <p class="font-16 weight-6">Community</p>
                   <p class="font-14 span desc">Join Swan Chain's</p>
@@ -29,32 +122,42 @@
                 </div>
               </div>
             </el-menu-item>
-            <!-- <el-menu-item index="About">
-              <span class="mit font-16">{{$t('menu.About-Us')}}</span>
-            </el-menu-item> -->
             <el-menu-item index="Event">
-              <div class="mit community-menu-default">
+              <div class="mit menu-default">
                 <div class="head-left">
                   <p class="font-16">Events</p>
                   <p class="font-14 span desc">Join Swan Chain's Latest Community Events</p>
                 </div>
               </div>
             </el-menu-item>
-            <el-menu-item index="Faucet">
-              <span class="mit font-16">Faucet</span>
-            </el-menu-item>
             <el-menu-item index="HelpCenter">
-              <div class="mit community-menu-default">
+              <div class="mit menu-default">
                 <div class="head-left">
                   <p class="font-16">Help Center</p>
                   <p class="font-14 span desc">Receive Support And Guidance</p>
                 </div>
               </div>
             </el-menu-item>
+            <el-menu-item index="SocialMedia">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">Social Media</p>
+                  <p class="font-14 span desc">Connect And Engage With Swan Chain Online</p>
+                </div>
+              </div>
+            </el-menu-item>
+            <el-menu-item index="Blog">
+              <div class="mit menu-default">
+                <div class="head-left">
+                  <p class="font-16">{{$t('menu.Blog')}}</p>
+                  <p class="font-14 span desc">Follow Swan Chain's Blog For Latest Updates</p>
+                </div>
+              </div>
+            </el-menu-item>
           </el-sub-menu>
 
-          <el-menu-item index="Blog">
-            <span class="mit font-16">{{$t('menu.Blog')}}</span>
+          <el-menu-item index="Governance">
+            <span class="mit font-16">Governance</span>
           </el-menu-item>
         </el-menu>
       </div>
@@ -103,6 +206,7 @@ export default defineComponent({
     async function handleSelect (key, keyPath) {
       if (key === 'About') router.push({ name: 'aboutUs' })
       if (key === 'Faucet') router.push({ name: 'faucet' })
+      if (key === 'BlockExplorer') router.push({ name: 'blockExplorer' })
       if (key === 'Event') router.push({ name: 'event' })
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
       if (key === 'Bridge') router.push({ name: 'bridge' })
@@ -116,6 +220,7 @@ export default defineComponent({
       if (nameMenu.indexOf('dashboard') > -1) activeIndex.value = '1'
       else if (nameMenu.indexOf('aboutUs') > -1) activeIndex.value = 'About'
       else if (nameMenu.indexOf('faucet') > -1) activeIndex.value = 'Faucet'
+      else if (nameMenu.indexOf('blockExplorer') > -1) activeIndex.value = 'BlockExplorer'
       else if (nameMenu.indexOf('event') > -1) activeIndex.value = 'Event'
       else if (nameMenu.indexOf('helpCenter') > -1) activeIndex.value = 'HelpCenter'
       else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'

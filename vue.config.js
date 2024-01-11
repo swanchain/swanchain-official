@@ -34,7 +34,7 @@ module.exports = {
           'black-color': '#000000',
           'text-w-color': '#636363',
           'text-w-color': '#ebeff9',
-          'border-color': '#5f6064',
+          'border-color': '#EBEFF9',
           'theme-color': '#447DFF',
           'theme-color-opacity': 'rgba(68, 125, 255,0.5)'
         },

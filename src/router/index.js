@@ -14,6 +14,8 @@ const about = () =>
     import ("@/views/community/about/index");
 const faucet = () =>
     import ("@/views/community/faucet/index");
+const blockExplorer = () =>
+    import ("@/views/community/blockExplorer/index");
 const event = () =>
     import ("@/views/community/event/index");
 const helpCenter = () =>
@@ -61,6 +63,15 @@ const routes = [{
                 meta: {
                     keepAlive: true,
                     title: 'Faucet'
+                }
+            },
+            {
+                path: '/block-explorer',
+                name: 'blockExplorer',
+                component: blockExplorer,
+                meta: {
+                    keepAlive: true,
+                    title: 'Block Explorer'
                 }
             },
             {

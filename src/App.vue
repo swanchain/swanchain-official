@@ -388,6 +388,21 @@ body {
     font-size: 42px;
   }
 }
+.font-12 {
+  font-size: 12px;
+  @media screen and (min-width: 2160px) {
+    font-size: 6px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 36px;
+  }
+}
 
 .font-black {
   font-family: "Inter-black";
@@ -543,7 +558,7 @@ body {
   .el-popper {
     &.is-light {
       width: 280px;
-      padding: 0 10px 20px;
+      padding: 4px 10px 0;
       margin-left: -110px;
       background: @bg-module-color;
       border: 0;
@@ -562,13 +577,28 @@ body {
           white-space: normal;
           line-height: 1.4;
           color: @white-color !important;
-          .community-menu-header {
-            width: 100%;
+          &:not(.is-disabled):focus,
+          &:not(.is-disabled):hover {
+            background-color: transparent;
+            .menu-default {
+              background-color: @theme-color;
+            }
+          }
+          .menu-header {
+            width: calc(100% - 40px);
             padding: 10px 20px;
-            background: url(assets/images/menu/menu-community.png) 150px center
-              no-repeat;
-            background-size: 116px;
+            margin: 0 0 10px;
             line-height: 1.4;
+            &.community {
+              background: url(assets/images/menu/menu-community.png) 150px
+                center no-repeat;
+              background-size: 116px;
+            }
+            &.developers {
+              background: url(assets/images/menu/menu-developers.png) 150px
+                center no-repeat;
+              background-size: 116px;
+            }
             .head-left {
               width: 45%;
               min-width: 150px;
@@ -581,9 +611,11 @@ body {
               }
             }
           }
-          .community-menu-default {
+          .menu-default {
+            width: calc(100% - 24px);
             padding: 10px 12px;
-            border-radius: 15px;
+            margin: 0 0 4px;
+            border-radius: 12px;
             p {
               padding: 0 0 0 28px;
               &.event-menu {

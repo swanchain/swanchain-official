@@ -113,7 +113,7 @@ export default defineComponent({
       line-height: 2.5;
     }
     .copy {
-      margin: 30px 0 0;
+      margin:0;
       color: @text-w-color;
       text-transform: uppercase;
       a {

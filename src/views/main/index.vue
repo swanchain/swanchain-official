@@ -54,14 +54,47 @@
       </div>
     </div>
 
-    <!-- <div class="blockchain lang-max">
+    <div class="dapps-area">
+      <div class="lang-max">
+        <el-row justify="space-between">
+          <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
+            <div class="font-16 text-center">
+              <h1 class="font-65 font-bold">Empower Your dApps with Swan Chain</h1>
+              <h3 class="font-22 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
+              <div class="el flex-row">
+                <a class="font-16 font-bold">Start Building</a>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <div class="blockchain lang-max">
       <div class="subtit font-50 font-bold text-center">{{$t('dashboard.person_title')}}</div>
       <el-row class="block-cont row-bg" justify="center">
         <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="b in fundData" :key="b">
           <img :src="b.img" />
         </el-col>
       </el-row>
-    </div> -->
+    </div>
+
+    <div class="any-updates">
+      <div class="bg">
+        <img :src="anyImage" alt="">
+      </div>
+      <div class="any-banner lang-max">
+        <el-row justify="space-between">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
+            <div class="font-16">
+              <h1 class="font-46 font-bold">Don't Miss Any Updates</h1>
+              <h3 class="font-20 weight-4 d">Sign up for our newsletter to get alpha, key insights, and killer resources.</h3>
+              <el-input v-model="searchInput" class="w-50 m-2" placeholder="Enter your email address" />
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -70,12 +103,12 @@ import { defineComponent, computed, onMounted, watch, ref, reactive, getCurrentI
 import { useStore } from "vuex"
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from "vue-i18n"
-import { ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem } from 'element-plus'
+import { ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem, ElInput } from 'element-plus'
 import CarouselContainer from '@/components/CarouselContainer.vue'
 export default defineComponent({
   components: {
     CarouselContainer,
-    ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem
+    ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem, ElInput
   },
   setup () {
     const store = useStore()
@@ -220,6 +253,8 @@ export default defineComponent({
         class: 'small'
       }
     ])
+    const searchInput = ref('')
+    const anyImage = require('@/assets/images/dashboard/background-image03.png')
 
     onMounted(() => { })
     return {
@@ -227,7 +262,9 @@ export default defineComponent({
       bodyWidth,
       fundData,
       ethereumData,
-      unlockData
+      unlockData,
+      searchInput,
+      anyImage
     }
   }
 })
@@ -235,10 +272,12 @@ export default defineComponent({
 
 <style lang="less" scoped>
 #container-main {
+  padding: 0 0 103px;
   font-size: 18px;
   letter-spacing: 1px;
   word-break: break-word;
   line-height: 1.15;
+  border-bottom: 2px solid @border-color;
   .banner {
     position: relative;
     padding: 195px 0 140px;
@@ -374,6 +413,102 @@ export default defineComponent({
               &.big {
                 height: 125px;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+  :deep(.dapps-area) {
+    padding: 130px 0 165px;
+    background: url(../../assets/images/about/background-image05.png),
+      url(../../assets/images/about/background-image04.png),
+      url(../../assets/images/dashboard/background-image04.png);
+    background-size: 100%, 100%, 548px;
+    background-position: left top, left bottom, right center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    h1 {
+      padding: 65px 100px 10px;
+      background: url(../../assets/images/dashboard/background-image05.png) left
+        0 no-repeat;
+      background-size: 70px;
+    }
+    .el {
+      margin: 45px auto 0;
+      .el-button,
+      a {
+        padding: 16px 32px;
+        margin: auto;
+        background: @theme-color;
+        border: 2px solid @theme-color;
+        border-radius: 1rem;
+        outline: none;
+        color: @white-color;
+        letter-spacing: 0;
+        box-shadow: 0 12px 32px -12px rgba(12, 22, 44, 0.32);
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        text-decoration: none;
+        &::before {
+          display: none;
+        }
+        &:hover {
+          background-color: transparent;
+          color: @theme-color;
+          border-color: @theme-color;
+        }
+      }
+      .tips {
+        color: @theme-color;
+        line-height: 1.2;
+        word-break: break-word;
+      }
+    }
+  }
+  :deep(.any-updates) {
+    position: relative;
+    padding: 86px 0;
+    .bg {
+      position: absolute;
+      left: 65px;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      img {
+        height: 100%;
+      }
+    }
+    .any-banner {
+      background: @theme-color;
+      border-radius: 30px;
+      .el-row {
+        padding: 70px 0 80px;
+        margin: 0 155px;
+        background: url(../../assets/images/dashboard/background-image02.png)
+          right center no-repeat;
+        background-size: 245px;
+        z-index: 9;
+        .d {
+          padding: 20px 0 30px;
+        }
+        .el-input {
+          width: 45%;
+          min-width: 300px;
+          font-size: inherit;
+          .el-input__wrapper {
+            height: auto;
+            background-color: @white-color;
+            font-size: inherit;
+            box-shadow: none;
+            border: 1px solid @white-color;
+            border-radius: 100px;
+            .el-input__inner {
+              height: auto;
+              padding: 4px 55px 4px 6px;
+              background: url(../../assets/images/dashboard/icon-right.png)
+                calc(100% - 30px) center no-repeat;
+              background-size: 15px;
+              font-size: inherit;
+              color: #b0b0b0;
             }
           }
         }
