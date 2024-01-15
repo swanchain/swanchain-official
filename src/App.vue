@@ -582,6 +582,12 @@ body {
             background-color: transparent;
             .menu-default {
               background-color: @theme-color;
+              .svg-color {
+                path {
+                  fill: @white-color;
+                  stroke: @white-color;
+                }
+              }
             }
           }
           .menu-header {
@@ -612,14 +618,48 @@ body {
             }
           }
           .menu-default {
+            align-items: flex-start;
             width: calc(100% - 24px);
             padding: 10px 12px;
             margin: 0 0 4px;
             border-radius: 12px;
-            p {
-              padding: 0 0 0 28px;
-              &.event-menu {
-                // background: url(assets/images/)
+            &.m {
+              width: calc(100% - 18px);
+              padding: 3px 12px 7px 6px;
+            }
+            .head-left {
+              &.svg-color {
+                svg {
+                  width: 24px;
+                  margin: 3px 0 0;
+                  &.none {
+                    path {
+                      fill: none;
+                    }
+                  }
+                  path {
+                    fill: @theme-color;
+                    stroke: @theme-color;
+                  }
+                }
+              }
+              p {
+                padding: 0 0 0 28px;
+                &.event-menu {
+                  // background: url(assets/images/)
+                }
+              }
+              svg {
+                width: 28px;
+              }
+            }
+            .head-right {
+              padding: 3px 0 0 0;
+              p {
+                padding: 2px 0 0 7px;
+                &.event-menu {
+                  // background: url(assets/images/)
+                }
               }
             }
           }

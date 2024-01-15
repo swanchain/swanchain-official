@@ -37,28 +37,28 @@
           <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
             <el-row>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">EXPLORE</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Swan Cloud</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Lagrange</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Multi-Chain Storage</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Meta Ark</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Chainnode</router-link>
+                <a class="font-20 weight-7">EXPLORE</a>
+                <a href="https://lagrangedao.org/" class="font-16 weight-4 t" target="_blank">Lagrange</a>
+                <a href="https://multichain.storage/" class="font-16 weight-4 t" target="_blank">Multi-Chain Storage</a>
+                <a href="https://www.fogmetalabs.com/metaark" class="font-16 weight-4 t" target="_blank">Meta Ark</a>
+                <a href="https://chainnode.io/" class="font-16 weight-4 t" target="_blank">Chainnode</a>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">BUILD</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Block Explorer</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Faucet</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Documentation</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">GitHub</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Tools</router-link>
+                <a class="font-20 weight-7">BUILD</a>
+                <a href="https://saturn-explorer.swanchain.io/" class="font-16 weight-4 t" target="_blank">Block Explorer</a>
+                <router-link :to="{name: 'faucet'}" class="font-16 weight-4 t">Faucet</router-link>
+                <a href="https://docs.swanchain.io/" class="font-16 weight-4 t" target="_blank">Documentation</a>
+                <a href="https://github.com/filswan" class="font-16 weight-4 t" target="_blank">GitHub</a>
+                <a href="" class="font-16 weight-4 t">Tools</a>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <router-link :to="{name: 'aboutUs'}" class="font-20 weight-7">ABOUT</router-link>
+                <a class="font-20 weight-7">ABOUT</a>
                 <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">About Us</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Privacy Policy</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Terms of Use Careers</router-link>
+                <router-link :to="{name: 'privacy-policy'}" class="font-16 weight-4 t">Privacy Policy</router-link>
+                <router-link :to="{name: 'terms'}" class="font-16 weight-4 t">Terms of Use Careers</router-link>
+                <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-16 weight-4 t" target="_blank">Careers</a>
                 <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Contact Us</router-link>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Brand Kit</router-link>
+                <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-16 weight-4 t" target="_blank">Brand Kit</a>
               </el-col>
               <!-- <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a href="https://nebulablock.freshdesk.com/support/home" target="_blank" class="font-20 weight-7">{{$t('menu.Support')}}</a>

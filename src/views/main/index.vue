@@ -89,7 +89,10 @@
             <div class="font-16">
               <h1 class="font-46 font-bold">Don't Miss Any Updates</h1>
               <h3 class="font-20 weight-4 d">Sign up for our newsletter to get alpha, key insights, and killer resources.</h3>
-              <el-input v-model="searchInput" class="w-50 m-2" placeholder="Enter your email address" />
+              <!-- <el-input v-model="searchInput" class="w-50 m-2" placeholder="Enter your email address" /> -->
+              <div class="el flex-row">
+                <a href="https://mailchi.mp/swanchain/swan-chain" class="font-16 font-bold" target="_blank">Subscribe Now</a>
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -278,6 +281,36 @@ export default defineComponent({
   word-break: break-word;
   line-height: 1.15;
   border-bottom: 2px solid @border-color;
+  .el {
+    margin: 45px auto 0;
+    .el-button,
+    a {
+      padding: 16px 32px;
+      margin: auto;
+      background: @theme-color;
+      border: 2px solid @theme-color;
+      border-radius: 1rem;
+      outline: none;
+      color: @white-color;
+      letter-spacing: 0;
+      box-shadow: 0 12px 32px -12px rgba(12, 22, 44, 0.32);
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      text-decoration: none;
+      &::before {
+        display: none;
+      }
+      &:hover {
+        background-color: transparent;
+        color: @theme-color;
+        border-color: @theme-color;
+      }
+    }
+    .tips {
+      color: @theme-color;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+  }
   .banner {
     position: relative;
     padding: 195px 0 140px;
@@ -433,36 +466,6 @@ export default defineComponent({
         0 no-repeat;
       background-size: 70px;
     }
-    .el {
-      margin: 45px auto 0;
-      .el-button,
-      a {
-        padding: 16px 32px;
-        margin: auto;
-        background: @theme-color;
-        border: 2px solid @theme-color;
-        border-radius: 1rem;
-        outline: none;
-        color: @white-color;
-        letter-spacing: 0;
-        box-shadow: 0 12px 32px -12px rgba(12, 22, 44, 0.32);
-        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-        text-decoration: none;
-        &::before {
-          display: none;
-        }
-        &:hover {
-          background-color: transparent;
-          color: @theme-color;
-          border-color: @theme-color;
-        }
-      }
-      .tips {
-        color: @theme-color;
-        line-height: 1.2;
-        word-break: break-word;
-      }
-    }
   }
   :deep(.any-updates) {
     position: relative;
@@ -489,6 +492,20 @@ export default defineComponent({
         z-index: 9;
         .d {
           padding: 20px 0 30px;
+        }
+        .el {
+          margin: 45px 0 0;
+          .el-button,
+          a {
+            margin: 0;
+            background-color: transparent;
+            border-color: @white-color;
+            box-shadow: none;
+            &:hover {
+              background-color: @white-color;
+              color: @theme-color;
+            }
+          }
         }
         .el-input {
           width: 45%;
