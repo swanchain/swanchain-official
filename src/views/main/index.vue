@@ -595,8 +595,8 @@ export default defineComponent({
     }
   }
   :deep(.blockchain) {
-    margin: 90px auto ;
-    .subtit{
+    margin: 90px auto;
+    .subtit {
       margin: 30px auto 0;
     }
     .block-cont {
@@ -758,6 +758,12 @@ export default defineComponent({
     .swiper-container {
       padding: 50px 0 50px 284px;
       line-height: 1.38;
+      @media screen and (max-width: 2160px) {
+        padding: 50px 0 50px 224px;
+      }
+      @media screen and (max-width: 1920px) {
+        padding: 50px 0 50px 254px;
+      }
       .swiper-wrapper {
         .swiper-slide {
           .content {
@@ -785,6 +791,12 @@ export default defineComponent({
         top: 0;
         width: 284px;
         background-color: @bg-color;
+        @media screen and (max-width: 2160px) {
+          width: 224px;
+        }
+        @media screen and (max-width: 1920px) {
+          width: 254px;
+        }
         .swiper-pagination-bullet {
           width: auto;
           max-width: 115px;
@@ -834,6 +846,12 @@ export default defineComponent({
     .thriving-cont {
       padding: 80px 0 85px;
       margin: 0 230px 0 130px;
+      @media screen and (max-width: 2160px) {
+        margin: 0 180px 0 80px;
+      }
+      @media screen and (max-width: 1920px) {
+        margin: 0 200px 0 100px;
+      }
       .t {
         text-transform: uppercase;
       }

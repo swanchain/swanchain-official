@@ -147,16 +147,25 @@ export default defineComponent({
     color: @white-color;
     border-radius: 0;
     line-height: 2.18;
-      @media screen and (max-width: 768px) {
-    line-height: 1.5;
-      }
-    .el-alert__title{
-line-height: inherit;
+    @media screen and (max-width: 768px) {
+      line-height: 1.5;
+    }
+    .el-alert__title {
+      line-height: inherit;
     }
     .el-icon {
       width: 14px;
       height: 14px;
       color: inherit;
+      @media screen and (min-width: 1920px) {
+        width: 16px;
+        height: 16px;
+      }
+      @media screen and (min-width: 2160px) {
+        margin-top: -6px;
+        width: 18px;
+        height: 18px;
+      }
       svg {
         width: inherit;
         height: inherit;
