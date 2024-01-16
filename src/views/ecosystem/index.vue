@@ -5,7 +5,9 @@
         <el-row class="banner-cont flex-row" justify="space-between">
           <el-col :xs="24" :sm="11" :md="11" :lg="11" :xl="11">
             <div class="font-16">
-              <h1 class="font-40 font-bold">Swan Chain Ecosystem</h1>
+              <h1 class="font-40 font-bold">
+                <i>Swan Chain Ecosystem</i>
+              </h1>
               <h3 class="font-18 weight-4 d">An overview of the apps and integrations in the Swan Chain Ecosystem.</h3>
               <div class="el flex-row">
                 <a class="font-20">Add your app</a>
@@ -18,8 +20,8 @@
 
     <div class="ecosystem-list">
       <div class="lang-max">
-        <ul class="list flex-row font-14">
-          <li v-for="t in tabData" :key="t">
+        <ul class="list flex-row space-between font-14">
+          <li v-for="t in tabData" :key="t" :class="{'active': t.active}">
             {{t.name}}
           </li>
         </ul>
@@ -49,7 +51,9 @@
                 </div>
               </div>
               <div class="area font-14">
-                <div class="tit font-18 font-bold">{{b.name}}</div>
+                <div class="tit font-18 font-bold">
+                  <i>{{b.name}}</i>
+                </div>
                 <div class="source font-12 weight-3">{{b.source}}</div>
                 <div class="font-14">{{b.title}}</div>
               </div>
@@ -106,34 +110,44 @@ export default defineComponent({
     ])
     const tabData = ref([
       {
-        name: 'All apps'
+        name: 'All apps',
+        active: false
       },
       {
-        name: 'Incentives'
+        name: 'Incentives',
+        active: false
       },
       {
-        name: 'New to web3'
+        name: 'New to web3',
+        active: true
       },
       {
-        name: 'DeFi'
+        name: 'DeFi',
+        active: false
       },
       {
-        name: 'NFT'
+        name: 'NFT',
+        active: false
       },
       {
-        name: 'Bridge'
+        name: 'Bridge',
+        active: false
       },
       {
-        name: 'On-ramp'
+        name: 'On-ramp',
+        active: false
       },
       {
-        name: 'Wallet'
+        name: 'Wallet',
+        active: false
       },
       {
-        name: 'Tool'
+        name: 'Tool',
+        active: false
       },
       {
-        name: 'DAO'
+        name: 'DAO',
+        active: false
       }
     ])
 
@@ -153,15 +167,18 @@ export default defineComponent({
   .ecosystem-banner {
     padding: 100px 0 30px;
     margin: auto;
+    @media screen and (max-width: 768px) {
+      padding: 150px 0 30px;
+    }
     .banner {
       background-color: @bg-module-color;
       border-radius: 30px;
       .banner-cont {
         padding: 83px 0 126px;
         margin: 0 80px 0 126px;
-        background: url(../../assets/images/bg-ecosystem.png) top right
+        background: url(../../assets/images/bg-ecosystem.png) bottom right
           no-repeat;
-        background-size: auto 100%;
+        background-size: auto calc(100% - 10px);
         h1 {
           width: 100%;
           margin: 15px 0 0;
@@ -222,7 +239,10 @@ export default defineComponent({
     margin: 0 auto 120px;
     .ecosystem-cont {
       .el-col {
-        margin: 0 0 14px;
+        margin: 0 0 34px;
+        @media screen and (max-width: 768px) {
+          margin: 0 0 68px;
+        }
         .content {
           height: calc(100% - 127px);
           padding: 30px 30px 95px;
@@ -233,7 +253,7 @@ export default defineComponent({
           overflow: hidden;
           @media screen and (max-width: 768px) {
             height: calc(100% - 80px);
-            padding: 40px 0;
+            padding: 40px 60px;
             border-radius: 20px;
           }
           &:hover {
@@ -268,8 +288,8 @@ export default defineComponent({
       padding: 0 0 30px;
       overflow-x: auto;
       li {
-        padding: 18px 44px;
-        margin: 20px 0 0 28px;
+        padding: 18px 34px;
+        margin: 20px 0 0;
         border: 1px solid @theme-color;
         border-radius: 100px;
         cursor: pointer;

@@ -7,7 +7,7 @@
           <p class="font-22 text-center" v-html="$t('main.banner.describe')"></p>
           <div class="flex-row center">
             <div class="learn-more font-20" @click="system.$commonFun.contactUsMethod()">Build on Swan Chain</div>
-            <div class="font-16 flex-row center">
+            <div class="explore font-16 flex-row center">
               EXPLORE DEVELOPER DOCS
               <div class="width-icon small">
                 <svg t="1704790600303" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13332">
@@ -29,18 +29,138 @@
       </el-row>
     </div>
 
-    <div class="unlock-area">
+    <div class="unlock-area carousel">
       <div class="lang-max">
         <div class="tit font-50 weight-6 text-center">Unlock The Next Level of Ethereum with Swan Orchestrator</div>
         <div class="font-27  text-center">The most advanced blockchain scaling & computing technology</div>
         <el-row class="unlock-cont row-bg" :gutter="48" justify="center">
-          <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="u in unlockData" :key="u">
-            <div class="content">
+          <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(u, uIndex) in unlockData" :key="uIndex" @mouseover="getShow('unlock', uIndex, 'over')" @mouseleave="getShow('unlock', uIndex, 'leave')">
+            <div class="content" :class="{'show': !u.onShow}">
               <div class="image">
-                <img :src="u.img" :class="u.class" />
+                <svg v-if="u.id === 0" :class="u.class" width="85" height="90" viewBox="0 0 85 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="36.421" cy="20.2105" rx="16.2105" ry="16.2105" stroke="white" stroke-width="8" />
+                  <path opacity="0.5" d="M68.8421 66.815C68.8421 76.8869 68.8421 85.0518 36.4211 85.0518C4 85.0518 4 76.8869 4 66.815C4 56.743 18.5154 48.5781 36.4211 48.5781C54.3267 48.5781 68.8421 56.743 68.8421 66.815Z" stroke="white" stroke-width="8" />
+                  <path d="M72.8947 4C72.8947 4 80.9999 8.86316 80.9999 20.2105C80.9999 31.5579 72.8947 36.4211 72.8947 36.4211" stroke="white" stroke-width="8" stroke-linecap="round" />
+                  <path d="M64.7896 12.1055C64.7896 12.1055 68.8422 14.537 68.8422 20.2107C68.8422 25.8844 64.7896 28.316 64.7896 28.316" stroke="white" stroke-width="8" stroke-linecap="round" />
+                </svg>
+                <svg v-else-if="u.id === 1" :class="u.class" width="83" height="92" viewBox="0 0 83 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M63.1804 36.7098C65.7648 34.1254 65.7648 29.966 65.7648 21.6471C65.7648 13.3282 65.7648 9.1687 63.1804 6.58435M63.1804 36.7098C60.5961 39.2941 56.4366 39.2941 48.1177 39.2941H30.4707C22.1518 39.2941 17.9923 39.2941 15.408 36.7098M63.1804 36.7098C63.1804 36.7098 63.1804 36.7098 63.1804 36.7098ZM63.1804 6.58435C60.5961 4 56.4366 4 48.1177 4L30.4707 4C22.1518 4 17.9923 4 15.408 6.58435M63.1804 6.58435C63.1804 6.58435 63.1804 6.58435 63.1804 6.58435ZM15.408 6.58435C12.8236 9.16871 12.8236 13.3282 12.8236 21.6471C12.8236 29.966 12.8236 34.1254 15.408 36.7098M15.408 6.58435C15.408 6.58435 15.408 6.58435 15.408 6.58435ZM15.408 36.7098C15.408 36.7098 15.408 36.7098 15.408 36.7098Z"
+                    stroke="white" stroke-width="8" />
+                  <path opacity="0.5" d="M43.7059 21.6461C43.7059 24.0827 41.7306 26.0579 39.2941 26.0579C36.8575 26.0579 34.8823 24.0827 34.8823 21.6461C34.8823 19.2096 36.8575 17.2344 39.2941 17.2344C41.7306 17.2344 43.7059 19.2096 43.7059 21.6461Z" stroke="white"
+                    stroke-width="5" />
+                  <path opacity="0.5" d="M65.7646 17.2353C58.4549 17.2353 52.5293 11.3097 52.5293 4" stroke="white" stroke-width="5" stroke-linecap="round" />
+                  <path opacity="0.5" d="M65.7646 26.0586C58.4549 26.0586 52.5293 31.9842 52.5293 39.2939" stroke="white" stroke-width="5" stroke-linecap="round" />
+                  <path opacity="0.5" d="M12.8236 17.2353C20.1333 17.2353 26.0589 11.3097 26.0589 4" stroke="white" stroke-width="5" stroke-linecap="round" />
+                  <path opacity="0.5" d="M12.8236 26.0586C20.1333 26.0586 26.0589 31.9842 26.0589 39.2939" stroke="white" stroke-width="5" stroke-linecap="round" />
+                  <path opacity="0.5" d="M4 85.1255H13.9703C18.43 85.1255 22.9376 85.5901 27.2779 86.4843C34.9554 88.066 43.039 88.2576 50.7954 87.0021C54.6197 86.383 58.3796 85.4365 61.783 83.7937C64.8554 82.3108 68.6188 80.2206 71.1468 77.8793C73.671 75.5413 76.2999 71.715 78.1659 68.7241C79.7659 66.1594 78.992 63.0128 76.4612 61.1019C73.6499 58.9792 69.4782 58.9796 66.6674 61.1028L58.6945 67.1257C55.6046 69.4598 52.2293 71.6085 48.2084 72.2498C47.725 72.3269 47.2184 72.3972 46.6898 72.4584M46.6898 72.4584C46.5307 72.4769 46.3696 72.4945 46.2065 72.5112M46.6898 72.4584C47.333 72.3206 47.9718 71.924 48.571 71.401C51.4086 68.9242 51.5881 64.7502 49.126 61.9846C48.5547 61.3429 47.8862 60.8078 47.1429 60.3645C34.8017 53.0037 15.6004 58.6099 4 66.8366M46.6898 72.4584C46.5288 72.493 46.3675 72.5112 46.2065 72.5112M46.2065 72.5112C43.8976 72.7483 41.1963 72.8096 38.199 72.5265"
+                    stroke="white" stroke-width="8" stroke-linecap="round" />
+                </svg>
+                <svg width="83" v-else-if="u.id === 2" :class="u.class" height="83" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.4" d="M41.5 4C62.2107 4 79 20.7893 79 41.5C79 62.2107 62.2107 79 41.5 79C20.7893 79 4 62.2107 4 41.5C4 31.0098 8.30739 21.5256 15.25 14.7196" stroke="white" stroke-width="8" stroke-linecap="round" />
+                  <path opacity="0.7" d="M15.1701 41.4997C15.1701 56.0412 26.9584 67.8295 41.4999 67.8295C56.0414 67.8295 67.8297 56.0412 67.8297 41.4997C67.8297 26.9582 56.0414 15.1699 41.4999 15.1699" stroke="white" stroke-width="8" stroke-linecap="round" />
+                  <path d="M41.5 56.66C49.8724 56.66 56.6596 49.8728 56.6596 41.5004C56.6596 33.128 49.8724 26.3408 41.5 26.3408" stroke="white" stroke-width="8" stroke-linecap="round" />
+                </svg>
+                <svg v-else :class="u.class" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 47.0813C4 33.5421 4 26.7725 8.20609 22.5664C12.4122 18.3604 19.1818 18.3604 32.721 18.3604H47.0815C60.6206 18.3604 67.3902 18.3604 71.5963 22.5664C75.8024 26.7725 75.8024 33.5421 75.8024 47.0813C75.8024 60.6205 75.8024 67.3901 71.5963 71.5962C67.3902 75.8023 60.6206 75.8023 47.0815 75.8023H32.721C19.1818 75.8023 12.4122 75.8023 8.20609 71.5962C4 67.3901 4 60.6205 4 47.0813Z"
+                    stroke="white" stroke-width="7" />
+                  <path opacity="0.5" d="M54.2617 18.3605C54.2617 11.5909 54.2617 8.20609 52.1587 6.10304C50.0557 4 46.6709 4 39.9013 4C33.1317 4 29.7469 4 27.6438 6.10304C25.5408 8.20609 25.5408 11.5909 25.5408 18.3605" stroke="white" stroke-width="7" />
+                  <path opacity="0.5" d="M39.9013 59.0483C43.8668 59.0483 47.0816 56.3693 47.0816 53.0647C47.0816 49.7601 43.8668 47.0812 39.9013 47.0812C35.9358 47.0812 32.7211 44.4023 32.7211 41.0977C32.7211 37.793 35.9358 35.1141 39.9013 35.1141M39.9013 59.0483C35.9358 59.0483 32.7211 56.3693 32.7211 53.0647M39.9013 59.0483V61.4417M39.9013 32.7207V35.1141M39.9013 35.1141C43.8669 35.1141 47.0816 37.793 47.0816 41.0977"
+                    stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
               </div>
-              <p v-if="u.desc" class="font-30 weight-6">{{u.desc}}</p>
-              <p v-else class="font-22 weight-4">{{u.subscribe}}</p>
+              <p class="tit-position font-30 weight-6">{{u.title}}</p>
+              <p class="desc font-22 weight-4">{{u.desc}}</p>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <div class="unlock-area carousel swiper">
+      <div class="lang-max">
+        <div class="tit font-50 weight-6 text-center">See The Differences You Can Make With Swan Chain</div>
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="item in carouselData" :key="item">
+              <div class="content flex-row space-between nowrap">
+                <div class="left">
+                  <h3 class="font-40 font-bold" justify="center">{{ item.title }}</h3>
+                  <p class="font-26">{{ item.desc }}</p>
+                </div>
+                <div class="right flex-row center">
+                  <img :src="item.img" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="thriving">
+      <div class="lang-max">
+        <div class="thriving-cont">
+          <h1 class="t font-40 font-bold">let the numbers say <br />how swan chain is thriving</h1>
+          <el-row :gutter="32" justify="space-between">
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8" v-for="th in thrivingData" :key="th">
+              <div class="content">
+                <h1 class="font-46 font-bold">{{th.title}}</h1>
+                <p class="font-22 weight-4">{{th.desc}}</p>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+    </div>
+
+    <div class="unlock-area">
+      <div class="lang-max">
+        <div class="tit font-50 weight-6 text-center">See What's Possible with Swan Chain</div>
+        <el-row class="unlock-cont row-bg" :gutter="48" justify="center">
+          <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(p, pIndex) in possibleData" :key="pIndex" @mouseover="getShow('possible', pIndex, 'over')" @mouseleave="getShow('possible', pIndex, 'leave')">
+            <div class="content" :class="{'show': !p.onShow}">
+              <div class="image possible">
+                <svg v-if="p.id === 0" :class="p.class" width="76" height="69" viewBox="0 0 76 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 55.2058C4 52.0541 4 50.4782 4.51489 49.2352C5.20141 47.5778 6.51821 46.261 8.17562 45.5745C9.41868 45.0596 10.9945 45.0596 14.1462 45.0596H61.4953C64.647 45.0596 66.2228 45.0596 67.4659 45.5745C69.1233 46.261 70.4401 47.5778 71.1266 49.2352C71.6415 50.4782 71.6415 52.0541 71.6415 55.2058C71.6415 58.3575 71.6415 59.9333 71.1266 61.1764C70.4401 62.8338 69.1233 64.1506 67.4659 64.8371C66.2228 65.352 64.647 65.352 61.4953 65.352H14.1462C10.9945 65.352 9.41868 65.352 8.17562 64.8371C6.51821 64.1506 5.20141 62.8338 4.51489 61.1764C4 59.9333 4 58.3575 4 55.2058Z"
+                    stroke="white" stroke-width="7" />
+                  <path d="M4 34.9128C4 31.7611 4 30.1853 4.51489 28.9422C5.20141 27.2848 6.51821 25.968 8.17562 25.2815C9.41868 24.7666 10.9945 24.7666 14.1462 24.7666H61.4953C64.647 24.7666 66.2228 24.7666 67.4659 25.2815C69.1233 25.968 70.4401 27.2848 71.1266 28.9422C71.6415 30.1853 71.6415 31.7611 71.6415 34.9128C71.6415 38.0645 71.6415 39.6404 71.1266 40.8834C70.4401 42.5408 69.1233 43.8576 67.4659 44.5442C66.2228 45.059 64.647 45.059 61.4953 45.059H14.1462C10.9945 45.059 9.41868 45.059 8.17562 44.5442C6.51821 43.8576 5.20141 42.5408 4.51489 40.8834C4 39.6404 4 38.0645 4 34.9128Z"
+                    stroke="white" stroke-width="7" />
+                  <path d="M4 14.6208C4 11.4691 4 9.89329 4.51489 8.65023C5.20141 6.99282 6.51821 5.67602 8.17562 4.9895C9.41868 4.47461 10.9945 4.47461 14.1462 4.47461H61.4953C64.647 4.47461 66.2228 4.47461 67.4659 4.9895C69.1233 5.67602 70.4401 6.99282 71.1266 8.65023C71.6415 9.89329 71.6415 11.4691 71.6415 14.6208C71.6415 17.7725 71.6415 19.3484 71.1266 20.5914C70.4401 22.2488 69.1233 23.5656 67.4659 24.2522C66.2228 24.7671 64.647 24.7671 61.4953 24.7671H14.1462C10.9945 24.7671 9.41868 24.7671 8.17562 24.2522C6.51821 23.5656 5.20141 22.2488 4.51489 20.5914C4 19.3484 4 17.7725 4 14.6208Z"
+                    stroke="white" stroke-width="7" />
+                  <circle opacity="0.5" cx="14.1462" cy="34.9133" r="3.38207" fill="white" />
+                  <circle opacity="0.5" cx="14.1462" cy="14.6213" r="3.38207" fill="white" />
+                  <circle opacity="0.5" cx="14.1462" cy="55.2063" r="3.38207" fill="white" />
+                </svg>
+                <svg v-else-if="p.id === 1" :class="p.class" width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 30.3967C4 17.9532 4 11.7314 7.8657 7.8657C11.7314 4 17.9532 4 30.3967 4H43.595C56.0385 4 62.2603 4 66.126 7.8657C69.9917 11.7314 69.9917 17.9532 69.9917 30.3967V33.6963C69.9917 43.0289 69.9917 47.6952 67.0924 50.5945C64.1931 53.4938 59.5268 53.4938 50.1942 53.4938H23.7975C14.4649 53.4938 9.79856 53.4938 6.89928 50.5945C4 47.6952 4 43.0289 4 33.6963V30.3967Z"
+                    stroke="white" stroke-width="7" />
+                  <path opacity="0.5" d="M50.1942 69.9921H23.7975M36.9958 53.4941V69.9921" stroke="white" stroke-width="7" stroke-linecap="round" />
+                  <path opacity="0.5" d="M69.9917 40.2959H4" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+                <svg v-else-if="p.id === 2" :class="p.class" width="83" height="69" viewBox="0 0 83 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M79.0656 30.8197C79.0313 19.0988 78.6619 12.885 74.6716 8.88393C70.2742 4.47461 63.1966 4.47461 49.0414 4.47461H34.0276C19.8725 4.47461 12.7949 4.47461 8.39744 8.88393C4 13.2932 4 20.3899 4 34.5833C4 48.7767 4 55.8734 8.39744 60.2827C12.7949 64.692 19.8725 64.692 34.0276 64.692H39.6578"
+                    stroke="white" stroke-width="7" stroke-linecap="round" />
+                  <path opacity="0.5" d="M71.6415 64.6921V42.4199M71.6415 42.4199L79.0655 49.844M71.6415 42.4199L64.2174 49.844" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M54.7311 42.4199V64.6921M54.7311 64.6921L62.5676 57.2681M54.7311 64.6921L46.8946 57.2681" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+                  <path opacity="0.5" d="M33.6963 49.8438H18.8481" stroke="white" stroke-width="7" stroke-linecap="round" />
+                  <path opacity="0.4" d="M4 26.7471L79.0656 26.7471" stroke="white" stroke-width="7" stroke-linecap="round" />
+                </svg>
+                <svg v-else :class="p.class" width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.5" d="M4 18.0854C4 10.5684 10.2784 4.47461 18.0232 4.47461C25.7681 4.47461 32.0465 10.5684 32.0465 18.0854V27.1593C32.0465 28.2141 32.0465 28.7415 31.927 29.1742C31.6028 30.3484 30.6579 31.2656 29.448 31.5802C29.0022 31.6962 28.4588 31.6962 27.3721 31.6962H18.0232C10.2784 31.6962 4 25.6024 4 18.0854Z"
+                    stroke="white" stroke-width="7" />
+                  <path opacity="0.5" d="M42.7701 46.9569C42.7701 45.902 42.7701 45.3746 42.8861 44.9419C43.2007 43.7677 44.1179 42.8505 45.2922 42.5359C45.7249 42.4199 46.2523 42.4199 47.3071 42.4199H56.3809C63.898 42.4199 69.9917 48.5137 69.9917 56.0307C69.9917 63.5477 63.898 69.6415 56.3809 69.6415C48.8639 69.6415 42.7701 63.5477 42.7701 56.0307V46.9569Z"
+                    stroke="white" stroke-width="7" />
+                  <path d="M4 56.0307C4 48.5137 10.2784 42.4199 18.0232 42.4199H26.4372C28.4006 42.4199 29.3823 42.4199 30.1323 42.7908C30.7919 43.117 31.3282 43.6376 31.6644 44.2778C32.0465 45.0057 32.0465 45.9585 32.0465 47.8642V56.0307C32.0465 63.5477 25.7681 69.6415 18.0232 69.6415C10.2784 69.6415 4 63.5477 4 56.0307Z"
+                    stroke="white" stroke-width="7" />
+                  <path d="M42.7701 18.0854C42.7701 10.5684 48.8639 4.47461 56.3809 4.47461C63.898 4.47461 69.9917 10.5684 69.9917 18.0854C69.9917 25.6024 63.898 31.6962 56.3809 31.6962H46.6589C46.2075 31.6962 45.9817 31.6962 45.7919 31.6748C44.2143 31.497 42.9693 30.252 42.7915 28.6745C42.7701 28.4846 42.7701 28.2589 42.7701 27.8074V18.0854Z"
+                    stroke="white" stroke-width="7" />
+                </svg>
+              </div>
+              <p class="tit-position font-30 weight-6">{{p.title}}</p>
+              <p class="desc font-22 weight-4">{{p.desc}}</p>
             </div>
           </el-col>
         </el-row>
@@ -49,8 +169,19 @@
 
     <div class="unlock-area">
       <div class="lang-max">
-        <div class="tit font-50 weight-6 text-center">See The Differences You Can Make With Swan Chain</div>
-
+        <div class="tit font-50 weight-6 text-center">Explore The Swan Chain Ecosystem</div>
+        <div class="el flex-row">
+          <a class="font-22 weight-6">Explore dApps</a>
+        </div>
+        <el-row class="unlock-cont row-bg dApps" :gutter="48" justify="center">
+          <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="e in exploreData" :key="e">
+            <div class="content">
+              <div class="image flex-row center">
+                <img :src="e.img" />
+              </div>
+            </div>
+          </el-col>
+        </el-row>
       </div>
     </div>
 
@@ -60,7 +191,7 @@
           <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
             <div class="font-16 text-center">
               <h1 class="font-65 font-bold">Empower Your dApps with Swan Chain</h1>
-              <h3 class="font-22 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
+              <h3 class="font-22 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 AI computing blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
               <div class="el flex-row">
                 <a class="font-16 font-bold">Start Building</a>
               </div>
@@ -106,12 +237,11 @@ import { defineComponent, computed, onMounted, watch, ref, reactive, getCurrentI
 import { useStore } from "vuex"
 import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from "vue-i18n"
-import { ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem, ElInput } from 'element-plus'
-import CarouselContainer from '@/components/CarouselContainer.vue'
+import { ElRow, ElCol, ElButton, ElDropdown, ElInput } from 'element-plus'
+import Swiper from '@/assets/js/swiper.min.js'
 export default defineComponent({
   components: {
-    CarouselContainer,
-    ElRow, ElCol, ElButton, ElDropdown, ElCarousel, ElCarouselItem, ElInput
+    ElRow, ElCol, ElButton, ElDropdown, ElInput
   },
   setup () {
     const store = useStore()
@@ -196,6 +326,9 @@ export default defineComponent({
         img: require(`@/assets/images/dashboard/ethereum/ethereum-06.png`)
       },
       {
+        img: require(`@/assets/images/dashboard/ethereum/ethereum-11.png`)
+      },
+      {
         img: require(`@/assets/images/dashboard/ethereum/ethereum-07.png`)
       },
       {
@@ -208,58 +341,130 @@ export default defineComponent({
         img: require(`@/assets/images/dashboard/ethereum/ethereum-10.png`)
       },
       {
-        img: require(`@/assets/images/dashboard/ethereum/ethereum-11.png`)
-      },
-      {
         img: require(`@/assets/images/dashboard/ethereum/ethereum-12.png`)
       },
     ])
     const unlockData = ref([
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-01.png`),
-        desc: 'Transaction',
-        class: ''
+        id: 0,
+        title: 'AI Container',
+        desc: 'Build, deploy, and scale AI models effortlessly on the blockchain.',
+        class: 'big',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-02.png`),
-        desc: 'Provider',
-        class: 'big'
+        id: 1,
+        title: 'Auction Engine',
+        desc: 'Secure the computing resources you need at the best price-guaranteed.',
+        class: 'big',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-03.png`),
-        desc: 'Task',
-        class: ''
+        id: 2,
+        title: 'Edge Data Center',
+        desc: 'Process data at the edge for real-time responsiveness and global reach.',
+        class: '',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-04.png`),
-        desc: 'Task',
-        class: ''
+        id: 3,
+        title: 'Smart Contract Payment',
+        desc: 'Streamline payments and automate tasks with secure, trustless contracts.',
+        class: '',
+        onShow: true
+      }
+    ])
+    const possibleData = ref([
+      {
+        id: 0,
+        title: 'Decentralized Computing',
+        desc: "Tap into Swan's vast decentralized computing network with 150+ computing providers in 17+ cities.",
+        class: '',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-05.png`),
-        subscribe: 'Addressing and resolving claims or disputes from clients.',
-        class: ''
+        id: 1,
+        title: 'Decentralized Storage',
+        desc: "Protect your digital assets with Swan's storage solutions, combining Filecoin, IPFS, and cutting-edge technologies.",
+        class: 'big',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-06.png`),
-        subscribe: 'Penalizing providers for non-compliance or malpractice.',
-        class: ''
+        id: 2,
+        title: 'Decentralized Payments',
+        desc: 'Send and receive money in any currency, to anyone, anywhere, with instant transactions and minimal fees.',
+        class: '',
+        onShow: true
       },
       {
-        img: require(`@/assets/images/dashboard/unlock/unlock-07.png`),
-        subscribe: 'Assigning and updating reputation scores for providers based on their performance and reliability',
-        class: ''
-      },
-      {
-        img: require(`@/assets/images/dashboard/unlock/unlock-08.png`),
-        subscribe: 'Handling collateral requirements for providers as part of the task fulfllment and slashing system.',
-        class: 'small'
+        id: 3,
+        title: 'Decentralized Applications',
+        desc: "Bring your vision to life with Swan's dApp success kit, offering design, development, and deployment support.",
+        class: 'big',
+        onShow: true
       }
     ])
     const searchInput = ref('')
     const anyImage = require('@/assets/images/dashboard/background-image03.png')
+    const thrivingData = ref([
+      {
+        title: '5M+',
+        desc: 'Transactions'
+      },
+      {
+        title: '50K+',
+        desc: 'dApp Contracts'
+      },
+      {
+        title: '500K+',
+        desc: 'Unique Addresses'
+      }
+    ])
+    const exploreData = ref([
+      { img: require('@/assets/images/dashboard/logo-01.png') },
+      { img: require('@/assets/images/dashboard/logo-02.png') },
+      { img: require('@/assets/images/dashboard/logo-03.png') },
+      { img: require('@/assets/images/dashboard/logo-04.png') }
+    ])
+    const carouselData = ref([
+      {
+        img: require('@/assets/images/dashboard/background-image01.png'),
+        title: 'Power AI Revolution with Decentralized Computing',
+        desc: "Supercharge your dApps with Swan Chain's unmatched decentralized computing network. Handle even the most demanding applications with ease."
+      },
+      {
+        img: require('@/assets/images/dashboard/background-image10.png'),
+        title: 'Build Lightning-Fast dApps Without Limits',
+        desc: "Save 90% on gas fees compared to Ethereum and deploy your dream dApps in record time. Forget the development delays and focus on building killer user experiences."
+      },
+      {
+        img: require('@/assets/images/dashboard/background-image09.png'),
+        title: "Transform Vision to Reality with Swan's Ultimate Toolkit",
+        desc: "Swan Chain's toolkit equips you for every stage of your dApp journey. Effortless data storage with Multi-Chain Storage, advanced code management with Lagrange, and powerful RPC services."
+      }
+    ])
 
-    onMounted(() => { })
+    function getShow (content, index, type) {
+      if (content === 'unlock') unlockData.value[index].onShow = type === 'leave' ? true : false
+      else possibleData.value[index].onShow = type === 'leave' ? true : false
+    }
+    onMounted(() => {
+      var swiper = new Swiper('.swiper-container', {
+        // direction: 'vertical',
+        autoplay: {
+          delay: 10000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="font-32 font-bold ' + className + '">0' + (index + 1) + '</span>';
+          },
+        },
+      })
+    })
     return {
       system,
       bodyWidth,
@@ -267,13 +472,19 @@ export default defineComponent({
       ethereumData,
       unlockData,
       searchInput,
-      anyImage
+      anyImage,
+      thrivingData,
+      possibleData,
+      exploreData,
+      carouselData,
+      getShow
     }
   }
 })
 </script>
 
 <style lang="less" scoped>
+@import "../../assets/css/swiper.min.css";
 #container-main {
   padding: 0 0 103px;
   font-size: 18px;
@@ -315,7 +526,7 @@ export default defineComponent({
     position: relative;
     padding: 195px 0 140px;
     background: url(../../assets/images/bg-main.png) center no-repeat;
-    background-size: 100%;
+    background-size: auto 100%;
     @media screen and (min-width: 2160px) {
       padding: 195px 0 125px;
     }
@@ -364,8 +575,14 @@ export default defineComponent({
             border-radius: 16px;
           }
           &:hover {
-            background-color: transparent;
+            background-color: @white-color;
             color: @theme-color;
+          }
+        }
+        .explore {
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
           }
         }
         .width-icon {
@@ -378,8 +595,12 @@ export default defineComponent({
     }
   }
   :deep(.blockchain) {
-    margin: 120px auto 90px;
+    margin: 90px auto ;
+    .subtit{
+      margin: 30px auto 0;
+    }
     .block-cont {
+      margin: 40px auto 0;
       .el-col {
         margin: 10px 0;
         @media screen and (max-width: 767px) {
@@ -395,24 +616,29 @@ export default defineComponent({
   :deep(.unlock-area) {
     position: relative;
     padding: 60px 0 130px;
-    &::before {
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      bottom: 7px;
-      height: 2px;
-      background-color: #254388;
+    &.carousel {
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        bottom: 7px;
+        height: 2px;
+        background-color: #254388;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        left: 50%;
+        bottom: 0;
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        background-color: @theme-color;
+      }
     }
-    &::after {
-      position: absolute;
-      content: "";
-      left: 50%;
-      bottom: 0;
-      width: 16px;
-      height: 16px;
-      margin-left: -8px;
-      background-color: @theme-color;
+    &.swiper {
+      padding: 60px 0 0;
     }
     .tit {
       width: 70%;
@@ -424,29 +650,158 @@ export default defineComponent({
         width: 95%;
       }
     }
+    .el {
+      margin: 30px auto 0;
+      a {
+        &:hover {
+          background-color: @theme-color;
+          color: @white-color;
+          border-color: @theme-color;
+          cursor: text;
+        }
+      }
+    }
     .unlock-cont {
       margin: 100px auto 0;
-      .el-col {
-        margin: 29px 0;
-        .content {
-          height: calc(100% - 100px);
-          padding: 38px 34px 60px;
-          background-color: #ecf0f9;
-          border: 1px solid @theme-color;
-          border-radius: 15px;
-          color: #000;
-          line-height: 1.2;
-          .image {
-            height: 180px;
-            img {
-              height: 84px;
-              &.small {
-                height: 70px;
-              }
-              &.big {
-                height: 125px;
+      &.dApps {
+        margin: 60px auto 0;
+        .el-col {
+          .content {
+            height: calc(100% - 76px);
+            padding: 38px 34px;
+            .image {
+              height: 200px;
+              img {
+                height: 85px;
               }
             }
+          }
+        }
+      }
+      .el-col {
+        margin: 29px 0;
+        &.n {
+          margin: 0;
+        }
+        .content {
+          position: relative;
+          height: calc(100% - 100px);
+          padding: 38px 34px 60px;
+          background-color: @theme-color;
+          border: 1px solid @theme-color;
+          border-radius: 15px;
+          color: @white-color;
+          line-height: 1.2;
+          transition: all 0.2s;
+          &:hover {
+            // &::before {
+            // transform: rotatey(180deg);
+            // -webkit-transform: rotatey(180deg);
+            // -o-transform: rotatey(180deg);
+            // -moz-transform: rotatey(180deg);
+            // -ms-transform: rotatey(180deg);
+            // }
+          }
+          // &::before {
+          //   position: absolute;
+          //   content: "";
+          //   left: 0;
+          //   right: 0;
+          //   top: 0;
+          //   bottom: 0;
+          //   background-color: @theme-color;
+          //   border: 1px solid @theme-color;
+          //   border-radius: 15px;
+          //   transition: all 0.6s;
+          //   z-index: 0;
+          // }
+          &.show {
+            .tit-position {
+              opacity: 0;
+            }
+            .desc {
+              opacity: 1;
+            }
+          }
+          .image {
+            height: 130px;
+            &.possible {
+              height: 116px;
+              svg {
+                height: 60px;
+                &.big {
+                  height: 66px;
+                }
+              }
+            }
+            svg {
+              height: 75px;
+              &.big {
+                height: 80px;
+              }
+            }
+          }
+          .tit-position {
+            position: absolute;
+            left: 34px;
+            right: 34px;
+            bottom: 60px;
+            transition: all 0.2s;
+          }
+          .desc {
+            transition: all 0.2s;
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .swiper-container {
+      padding: 50px 0 50px 284px;
+      line-height: 1.38;
+      .swiper-wrapper {
+        .swiper-slide {
+          .content {
+            .left {
+              margin: 90px 90px 90px 0;
+              h3 {
+                margin: 0 0 20px 0;
+                color: @theme-color;
+              }
+            }
+            .right {
+              img {
+                height: 400px;
+              }
+            }
+          }
+        }
+      }
+      .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        right: auto;
+        left: 0;
+        top: 0;
+        width: 284px;
+        background-color: @bg-color;
+        .swiper-pagination-bullet {
+          width: auto;
+          max-width: 115px;
+          height: auto;
+          padding: 11px 35px;
+          margin: 6px auto;
+          background: @white-color;
+          border: 1px solid @theme-color;
+          border-radius: 35px;
+          line-height: 1;
+          color: @theme-color;
+          opacity: 1;
+          transition: all 0.2s;
+          &.swiper-pagination-bullet-active,
+          &:hover {
+            background-color: @theme-color;
+            color: @white-color;
           }
         }
       }
@@ -454,6 +809,7 @@ export default defineComponent({
   }
   :deep(.dapps-area) {
     padding: 130px 0 165px;
+    margin: 90px 0 0;
     background: url(../../assets/images/about/background-image05.png),
       url(../../assets/images/about/background-image04.png),
       url(../../assets/images/dashboard/background-image04.png);
@@ -467,9 +823,42 @@ export default defineComponent({
       background-size: 70px;
     }
   }
+  :deep(.thriving) {
+    margin: 181px 0 110px;
+    background: url(../../assets/images/dashboard/background-image08.png),
+      url(../../assets/images/dashboard/background-image07.png);
+    background-size: 192px, 716px;
+    background-position: 54px 145px, right center;
+    background-repeat: no-repeat, no-repeat;
+    background-color: @theme-color;
+    .thriving-cont {
+      padding: 80px 0 85px;
+      margin: 0 230px 0 130px;
+      .t {
+        text-transform: uppercase;
+      }
+      .el-row {
+        .el-col {
+          margin: 50px 0 0;
+          .content {
+            padding: 40px 64px;
+            background-color: @white-color;
+            border-radius: 15px;
+            color: @theme-color;
+            h1 {
+              margin: 10px 0;
+            }
+            p {
+              color: #696e75;
+            }
+          }
+        }
+      }
+    }
+  }
   :deep(.any-updates) {
     position: relative;
-    padding: 86px 0;
+    padding: 50px 0 86px;
     .bg {
       position: absolute;
       left: 65px;

@@ -147,6 +147,12 @@ export default defineComponent({
     color: @white-color;
     border-radius: 0;
     line-height: 2.18;
+      @media screen and (max-width: 768px) {
+    line-height: 1.5;
+      }
+    .el-alert__title{
+line-height: inherit;
+    }
     .el-icon {
       width: 14px;
       height: 14px;

@@ -14,8 +14,8 @@ export default {
   },
   "main": {
     "banner": {
-      "title": "Layer 2 for Decentralized Cloud Computing",
-      "describe": "Swan Chain is an Ethereum layer 2 cloud computing network built on OP Stack, helping Web3 projects to integrate storage, computing, CDN, and payment into one suite."
+      "title": "The AI Computing Chain",
+      "describe": "Swan Chain is an Ethereum layer 2 AI computing blockchain built on OP Stack, helping Web3 and AI projects to integrate storage, computing, CDN, and payment into one suite."
     },
     "clients": {
       "title-1": "Trusted by Cients",

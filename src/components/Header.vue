@@ -68,7 +68,7 @@
                 </div>
               </div>
             </el-menu-item>
-            <el-menu-item index="Ecosystem">
+            <el-menu-item index="Ecosystem-dapps">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left">
                   <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@
                 <div class="head-left">
                   <p class="font-16 weight-6">Developers</p>
                   <p class="font-14 span desc">Start building on Swan Chain</p>
-                  <a class="font-14">Start building</a>
+                  <a class="font-14" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">Start building</a>
                 </div>
               </div>
             </el-menu-item>
@@ -172,12 +172,12 @@
             <template #title>
               <span class="mit font-16">{{$t('menu.Community')}}</span>
             </template>
-            <el-menu-item index="About">
+            <el-menu-item index="">
               <div class="mit flex-row space-between menu-header community">
                 <div class="head-left">
                   <p class="font-16 weight-6">Community</p>
                   <p class="font-14 span desc">Join Swan Chain's</p>
-                  <a class="font-14">Join Now</a>
+                  <a class="font-14" @click="system.$commonFun.goLink('https://linktr.ee/swan_chain')">Join Now</a>
                 </div>
               </div>
             </el-menu-item>
@@ -311,7 +311,7 @@ export default defineComponent({
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
       if (key === 'Bridge') router.push({ name: 'bridge' })
       if (key === 'Blog') router.push({ name: 'blog' })
-      else if (key === 'Ecosystem') router.push({ name: 'ecosystem' })
+      else if (key === 'Ecosystem' || key === 'Ecosystem-dapps') router.push({ name: 'ecosystem' })
       else if (key === 'Lagrange') system.$commonFun.goLink('https://lagrangedao.org/')
       else if (key === 'Multi-Chain') system.$commonFun.goLink('https://multichain.storage/')
       else if (key === 'MetaArk') system.$commonFun.goLink('https://www.fogmetalabs.com/metaark')
@@ -409,6 +409,7 @@ export default defineComponent({
         .el-menu-item,
         .el-sub-menu,
         .el-sub-menu__title {
+          height: auto;
           padding: 0;
           margin-left: 50px;
           background-color: transparent !important;
@@ -467,8 +468,11 @@ export default defineComponent({
               display: none;
             }
           }
+          .mit {
+          }
         }
         .el-sub-menu__title {
+          height: 100%;
           border: 0 !important;
         }
       }

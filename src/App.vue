@@ -564,6 +564,9 @@ body {
       border: 0;
       border-radius: 8px;
       box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.72);
+      @media screen and (max-width: 768px) {
+        margin-left: 0;
+      }
       .el-menu {
         width: 100%;
         background-color: transparent;

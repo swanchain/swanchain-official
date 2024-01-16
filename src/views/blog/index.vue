@@ -34,9 +34,29 @@
             <div class="left font-16">
               <div class="title weight-6">All Articles</div>
               <ul>
-                <li class="t">Announcements</li>
+                <li class="t t1 weight-6">Announcements</li>
                 <li>Builder Support</li>
                 <li>Community</li>
+                <li>Defi</li>
+                <li>Gaming & Metaverse</li>
+                <li>Infrastructure</li>
+                <li>NFTs</li>
+                <li>Security</li>
+                <li>SocialFi</li>
+              </ul>
+
+              <ul>
+                <li class="t t2 weight-6">News</li>
+                <li>News Updates</li>
+                <li>Press Releases</li>
+              </ul>
+
+              <ul>
+                <li class="t t3 weight-6">Products</li>
+                <li>AvengerDAO</li>
+                <li>BNB Smart Chain</li>
+                <li>Greenfield</li>
+                <li>opBNB</li>
               </ul>
             </div>
           </el-col>
@@ -81,6 +101,30 @@ export default defineComponent({
     const router = useRouter()
     const bannerImg = require(`@/assets/images/blog.jpg`)
     const fundData = ref([
+      {
+        img: require(`@/assets/images/blog.jpg`),
+        title: 'SWAN JUPITER TESTENT 150,000SWAN',
+        date: 'Dec 11, 2023, 02:00 AM'
+      },
+      {
+        img: require(`@/assets/images/blog.jpg`),
+        title: 'SWAN JUPITER TESTENT 150,000SWAN',
+        date: 'Dec 11, 2023, 02:00 AM'
+      },
+      {
+        img: require(`@/assets/images/blog.jpg`),
+        title: 'SWAN JUPITER TESTENT 150,000SWAN',
+        date: 'Dec 11, 2023, 02:00 AM'
+      },
+      {
+        img: require(`@/assets/images/blog.jpg`),
+        title: 'SWAN JUPITER TESTENT 150,000SWAN',
+        date: 'Dec 11, 2023, 02:00 AM'
+      }, {
+        img: require(`@/assets/images/blog.jpg`),
+        title: 'SWAN JUPITER TESTENT 150,000SWAN',
+        date: 'Dec 11, 2023, 02:00 AM'
+      },
       {
         img: require(`@/assets/images/blog.jpg`),
         title: 'SWAN JUPITER TESTENT 150,000SWAN',
@@ -152,7 +196,7 @@ export default defineComponent({
           color: @theme-color;
           border-radius: 30px;
         }
-        .img{
+        .img {
           border-radius: 11px;
         }
       }
@@ -163,7 +207,7 @@ export default defineComponent({
     margin: 60px auto 120px;
     .blog-cont {
       .el-col {
-        margin: 0 0 14px;
+        margin: 0 0 34px;
         .headline {
           padding: 30px 0 30px 73px;
           background: url(../../assets/images/dashboard/icon-blog.png) left
@@ -205,13 +249,26 @@ export default defineComponent({
             color: @white-color;
           }
           ul {
+            margin: 10px 0 0;
             li {
               padding: 12px 0 12px 48px;
               line-height: 1.2;
               cursor: pointer;
               &.t {
                 padding-left: 42px;
+              }
+              &.t1 {
                 background: url(../../assets/images/dashboard/icon-a-01.png)
+                  14px center no-repeat;
+                background-size: 20px;
+              }
+              &.t2 {
+                background: url(../../assets/images/dashboard/icon-a-02.png)
+                  14px center no-repeat;
+                background-size: 20px;
+              }
+              &.t3 {
+                background: url(../../assets/images/dashboard/icon-a-03.png)
                   14px center no-repeat;
                 background-size: 20px;
               }

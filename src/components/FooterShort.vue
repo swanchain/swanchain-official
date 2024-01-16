@@ -30,8 +30,8 @@
         </a>
       </div>
       <div class="copy tit font-16 weight-4 flex-row">
-        <router-link :to="{name: 'privacy-policy'}"> {{ $t('menu.PrivacyPolicy') }}</router-link>
-        <router-link :to="{name: 'terms'}"> {{ $t('menu.TermsOfUse') }}</router-link>
+        <a> {{ $t('menu.PrivacyPolicy') }}</a>
+        <a> {{ $t('menu.TermsOfUse') }}</a>
       </div>
     </div>
   </div>
