@@ -569,7 +569,7 @@ export default defineComponent({
         p {
           max-width: 940px;
           margin: 25px auto 35px;
-        line-height: 1.4;
+          line-height: 1.4;
           @media screen and (max-width: 992px) {
             max-width: none;
           }
@@ -864,22 +864,22 @@ export default defineComponent({
       }
     }
     .swiper-container {
-      padding: 50px 0 50px 284px;
+      padding: 70px 0 80px 284px;
       line-height: 1.38;
       @media screen and (min-width: 1920px) {
-        padding: 50px 0 50px 254px;
+        padding: 70px 0 80px 254px;
       }
       @media screen and (min-width: 2160px) {
-        padding: 50px 0 50px 224px;
+        padding: 70px 0 80px 224px;
       }
       @media screen and (max-width: 600px) {
-        padding: 150px 0 50px;
+        padding: 210px 0 80px;
       }
       .swiper-wrapper {
         .swiper-slide {
           .content {
             .left {
-              margin: 90px 90px 90px 0;
+              margin: 0 90px 0 0;
               h3 {
                 margin: 0 0 20px 0;
                 color: @theme-color;
@@ -1026,9 +1026,9 @@ export default defineComponent({
           right center no-repeat;
         background-size: 245px;
         z-index: 9;
-      @media screen and (max-width: 600px) {
-        margin: 0 55px;
-      }
+        @media screen and (max-width: 600px) {
+          margin: 0 55px;
+        }
         .d {
           padding: 20px 0 30px;
         }
