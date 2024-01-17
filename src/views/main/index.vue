@@ -33,7 +33,7 @@
       <div class="lang-max">
         <div class="tit font-50 weight-6 text-center">Unlock The Next Level of Ethereum with Swan Orchestrator</div>
         <div class="font-27  text-center">The most advanced blockchain scaling & computing technology</div>
-        <el-row class="unlock-cont row-bg" :gutter="48" justify="center">
+        <el-row class="unlock-cont row-bg" justify="center">
           <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(u, uIndex) in unlockData" :key="uIndex" @mouseover="getShow('unlock', uIndex, 'over')" @mouseleave="getShow('unlock', uIndex, 'leave')">
             <div class="content" :class="{'show': !u.onShow}">
               <div class="image">
@@ -86,7 +86,7 @@
               <div class="content flex-row space-between nowrap">
                 <div class="left">
                   <h3 class="font-40 font-bold" justify="center">{{ item.title }}</h3>
-                  <p class="font-26">{{ item.desc }}</p>
+                  <p class="font-27">{{ item.desc }}</p>
                 </div>
                 <div class="right flex-row center">
                   <img :src="item.img" />
@@ -119,7 +119,7 @@
     <div class="unlock-area">
       <div class="lang-max">
         <div class="tit font-50 weight-6 text-center">See What's Possible with Swan Chain</div>
-        <el-row class="unlock-cont row-bg" :gutter="48" justify="center">
+        <el-row class="unlock-cont row-bg" justify="center">
           <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(p, pIndex) in possibleData" :key="pIndex" @mouseover="getShow('possible', pIndex, 'over')" @mouseleave="getShow('possible', pIndex, 'leave')">
             <div class="content" :class="{'show': !p.onShow}">
               <div class="image possible">
@@ -173,7 +173,7 @@
         <div class="el flex-row">
           <a class="font-22 weight-6">Explore dApps</a>
         </div>
-        <el-row class="unlock-cont row-bg dApps" :gutter="48" justify="center">
+        <el-row class="unlock-cont row-bg dApps" justify="center">
           <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="e in exploreData" :key="e">
             <div class="content">
               <div class="image flex-row center">
@@ -460,7 +460,7 @@ export default defineComponent({
           el: '.swiper-pagination',
           clickable: true,
           renderBullet: function (index, className) {
-            return '<span class="font-32 font-bold ' + className + '">0' + (index + 1) + '</span>';
+            return '<span class="font-33 font-bold ' + className + '">0' + (index + 1) + '</span>';
           },
         },
       })
@@ -669,10 +669,26 @@ export default defineComponent({
           .content {
             height: calc(100% - 76px);
             padding: 38px 34px;
+          @media screen and (max-width: 768px) {
+          height: calc(100% - 124px);
+            margin: 24px;
+          }
             .image {
               height: 200px;
+              @media screen and (max-width: 768px) {
+                height: 300px;
+              }
+              @media screen and (max-width: 600px) {
+                height: 400px;
+              }
               img {
                 height: 85px;
+                @media screen and (max-width: 768px) {
+                  height: 127px;
+                }
+                @media screen and (max-width: 600px) {
+                  height: 170px;
+                }
               }
             }
           }
@@ -687,12 +703,17 @@ export default defineComponent({
           position: relative;
           height: calc(100% - 100px);
           padding: 38px 34px 60px;
+          margin: 0 24px;
           background-color: @theme-color;
           border: 1px solid @theme-color;
           border-radius: 15px;
           color: @white-color;
           line-height: 1.2;
           transition: all 0.2s;
+          @media screen and (max-width: 768px) {
+          height: calc(100% - 148px);
+            margin: 24px;
+          }
           &:hover {
             // &::before {
             // transform: rotatey(180deg);
@@ -725,19 +746,56 @@ export default defineComponent({
           }
           .image {
             height: 130px;
+            @media screen and (max-width: 768px) {
+              height: 195px;
+            }
+            @media screen and (max-width: 600px) {
+              height: 260px;
+            }
             &.possible {
               height: 116px;
+              @media screen and (max-width: 768px) {
+                height: 174px;
+              }
+              @media screen and (max-width: 600px) {
+                height: 232px;
+              }
               svg {
                 height: 60px;
+                @media screen and (max-width: 768px) {
+                  height: 90px;
+                }
+                @media screen and (max-width: 600px) {
+                  height: 120px;
+                }
                 &.big {
                   height: 66px;
+                  @media screen and (max-width: 768px) {
+                    height: 99px;
+                  }
+                  @media screen and (max-width: 600px) {
+                    height: 132px;
+                  }
                 }
               }
             }
             svg {
+              width: auto;
               height: 75px;
+              @media screen and (max-width: 768px) {
+                height: 113px;
+              }
+              @media screen and (max-width: 600px) {
+                height: 150px;
+              }
               &.big {
                 height: 80px;
+                @media screen and (max-width: 768px) {
+                  height: 120px;
+                }
+                @media screen and (max-width: 600px) {
+                  height: 160px;
+                }
               }
             }
           }
@@ -758,11 +816,11 @@ export default defineComponent({
     .swiper-container {
       padding: 50px 0 50px 284px;
       line-height: 1.38;
-      @media screen and (max-width: 2160px) {
-        padding: 50px 0 50px 224px;
-      }
-      @media screen and (max-width: 1920px) {
+      @media screen and (min-width: 1920px) {
         padding: 50px 0 50px 254px;
+      }
+      @media screen and (min-width: 2160px) {
+        padding: 50px 0 50px 224px;
       }
       .swiper-wrapper {
         .swiper-slide {
@@ -791,11 +849,11 @@ export default defineComponent({
         top: 0;
         width: 284px;
         background-color: @bg-color;
-        @media screen and (max-width: 2160px) {
-          width: 224px;
-        }
-        @media screen and (max-width: 1920px) {
+        @media screen and (min-width: 1920px) {
           width: 254px;
+        }
+        @media screen and (min-width: 2160px) {
+          width: 224px;
         }
         .swiper-pagination-bullet {
           width: auto;
@@ -814,6 +872,9 @@ export default defineComponent({
           &:hover {
             background-color: @theme-color;
             color: @white-color;
+          }
+          @media screen and (max-width: 600px) {
+            border-radius: 135px;
           }
         }
       }

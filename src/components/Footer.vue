@@ -178,10 +178,10 @@ export default defineComponent({
               margin: 0 80px 55px 0;
             }
             @media screen and (max-width: 768px) {
-              height: 140px;
+              height: 105px;
             }
             @media screen and (max-width: 600px) {
-              height: 175px;
+              height: 140px;
             }
           }
           .media-list {

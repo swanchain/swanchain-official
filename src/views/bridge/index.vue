@@ -170,6 +170,10 @@ export default defineComponent({
       @media screen and (min-width: 2160px) {
         max-width: 600px;
       }
+      @media screen and (max-width: 1200px) {
+      width: 50%;
+      max-width: none;
+      }
       .backgroud {
         padding: 5px 9px;
         background-color: #3a3c48;

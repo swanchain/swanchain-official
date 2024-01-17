@@ -389,7 +389,7 @@ body {
     font-size: 33px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 55px;
+    font-size: 50px;
   }
   @media screen and (max-width: 540px) {
     font-size: 66px;
@@ -443,7 +443,7 @@ body {
     font-size: 24px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 36px;
+    font-size: 38px;
   }
   @media screen and (max-width: 540px) {
     font-size: 48px;
@@ -461,7 +461,7 @@ body {
     font-size: 21px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 31px;
+    font-size: 32px;
   }
   @media screen and (max-width: 540px) {
     font-size: 42px;
@@ -479,7 +479,7 @@ body {
     font-size: 18px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 24px;
+    font-size: 29px;
   }
   @media screen and (max-width: 540px) {
     font-size: 36px;
@@ -689,9 +689,10 @@ body {
       // margin-left: -110px;
       // }
       @media screen and (max-width: 768px) {
+        padding: 0 10px;
         margin-left: 0;
       }
-      .el-menu {
+      .el-menu.el-menu--popup {
         width: 100%;
         background-color: transparent;
         box-shadow: none;
@@ -719,18 +720,29 @@ body {
           }
           .menu-header {
             width: calc(100% - 40px);
-            padding: 10px 20px;
+            padding: 10px 20px !important;
             margin: 0 0 10px;
             line-height: 1.4;
+            @media screen and (max-width: 768px) {
+              width: 100%;
+              padding: 0 !important;
+              margin: 0;
+            }
             &.community {
               background: url(assets/images/menu/menu-community.png) right
                 center no-repeat;
               background-size: 116px;
+              @media screen and (max-width: 768px) {
+                background-size: 66px;
+              }
             }
             &.developers {
               background: url(assets/images/menu/menu-developers.png) right
                 center no-repeat;
               background-size: 116px;
+              @media screen and (max-width: 768px) {
+                background-size: 66px;
+              }
             }
             .head-left {
               width: 45%;

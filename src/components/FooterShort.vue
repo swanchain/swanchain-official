@@ -126,9 +126,6 @@ export default defineComponent({
       }
     }
     .media-list {
-      @media screen and (max-width: 1200px) {
-        margin: 0 0 55px;
-      }
       a {
         display: block;
         padding: 8px;

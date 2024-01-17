@@ -132,8 +132,6 @@ export default defineComponent({
           border-radius: 10px;
           overflow: hidden;
           @media screen and (max-width: 768px) {
-            height: calc(100% - 80px);
-            padding: 40px 0;
             border-radius: 20px;
           }
           &:hover {
@@ -177,6 +175,10 @@ export default defineComponent({
               background: url(../../../assets/images/event/icon-date.png) left
                 center no-repeat;
               background-size: 16px;
+          @media screen and (max-width: 768px) {
+              padding: 3px 0 3px 42px;
+              background-size: 26px;
+          }
             }
           }
         }

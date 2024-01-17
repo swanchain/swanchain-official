@@ -21,8 +21,8 @@
     <div class="blog-list">
       <div class="lang-max">
         <el-row class="blog-cont" :gutter="28">
-          <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6"></el-col>
-          <el-col :xs="24" :sm="16" :md="18" :lg="18" :xl="18">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6"></el-col>
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <div class="flex-row space-between font-16">
               <div class="headline font-35 font-bold">Blog</div>
               <el-input v-model="searchInput" class="w-50 m-2" placeholder="Search" />
@@ -30,7 +30,7 @@
           </el-col>
         </el-row>
         <el-row class="blog-cont" :gutter="28">
-          <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
             <div class="left font-16">
               <div class="title weight-6">All Articles</div>
               <ul>
@@ -60,7 +60,7 @@
               </ul>
             </div>
           </el-col>
-          <el-col :xs="24" :sm="16" :md="18" :lg="18" :xl="18">
+          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
             <el-row class="row-bg" :gutter="28">
               <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="8" v-for="b in fundData" :key="b">
                 <div class="content">
@@ -238,6 +238,9 @@ export default defineComponent({
         }
         .left {
           max-width: 222px;
+          @media screen and (max-width: 768px) {
+            max-width: none;
+          }
           .title {
             padding: 10px 15px 10px 42px;
             margin: 0 0 20px;

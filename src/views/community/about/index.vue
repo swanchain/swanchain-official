@@ -10,7 +10,7 @@
             <a class="font-16 font-bold">{{ $t('about.module_1_btn') }}</a>
           </div>
         </div>
-        <div class="landing_img">
+        <div class="landing_img flex-row center">
           <img :src="content_img" alt="">
         </div>
       </div>
@@ -114,14 +114,14 @@
 
     <div class="need-further">
       <el-row class="block-cont row-bg" justify="center">
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="flex-row">
+        <el-col :xs="24" :sm="14" :md="12" :lg="12" :xl="12" class="flex-row">
           <div class="content font-16">
             <h1 class="font-85 font-bold">NEED FURTHER HELP?</h1>
             <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
             <el-button class="font-bold">Contact Us</el-button>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col :xs="24" :sm="10" :md="12" :lg="12" :xl="12" class="flex-row flex-end">
           <img :src="needImg" />
         </el-col>
       </el-row>
@@ -254,10 +254,8 @@ export default defineComponent({
     background-position: 0 10%, left bottom;
     background-repeat: no-repeat, no-repeat;
     @media screen and (max-width: 768px) {
-      padding: 0.25rem 0 0;
     }
     @media screen and (max-width: 479px) {
-      padding: 40px 0 0;
     }
     h1 {
       width: 100%;
@@ -272,6 +270,9 @@ export default defineComponent({
     }
     .landing_content {
       width: 51%;
+      @media screen and (max-width: 992px) {
+        width: 60%;
+      }
       .landing_logo {
         width: 100%;
         height: 0.6rem;
@@ -369,10 +370,21 @@ export default defineComponent({
       background-size: auto 100%;
       background-position: center;
       background-repeat: no-repeat;
+      @media screen and (max-width: 992px) {
+        width: 40%;
+      }
       img {
         display: block;
         width: 95%;
         margin: 0 0 0 5%;
+        @media screen and (max-width: 1200px) {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+        @media screen and (max-width: 992px) {
+          max-width: 900px;
+          margin: 30px auto 0;
+        }
       }
       @media screen and (max-width: 600px) {
         min-height: auto;
@@ -405,6 +417,9 @@ export default defineComponent({
     background: url(../../../assets/images/about/background-image02.png) 148px
       bottom no-repeat;
     background-size: 9.6%;
+            @media screen and (max-width: 768px) {
+    background-size: 15%;
+            }
     :deep(.el-row) {
       .el-col {
         &.left {
@@ -451,6 +466,12 @@ export default defineComponent({
           .name {
             width: 100%;
             margin: 45px 0 0;
+            @media screen and (max-width: 768px) {
+              margin: 45px 0 80px;
+            }
+            @media screen and (max-width: 600px) {
+              margin: 45px 0 160px;
+            }
           }
           .radius {
             border: 12px solid @theme-color;
@@ -467,6 +488,12 @@ export default defineComponent({
           border-radius: 4px;
           &.radius {
             border-radius: 200px;
+            @media screen and (max-width: 768px) {
+              border-radius: 400px;
+            }
+            @media screen and (max-width: 600px) {
+              border-radius: 600px;
+            }
           }
           @media screen and (max-width: 600px) {
             width: 60%;
@@ -678,13 +705,13 @@ export default defineComponent({
           margin: 0 16px;
         }
         @media screen and (max-width: 768px) {
-          margin: 0 30px;
+          margin: 10px 30px;
         }
         @media screen and (max-width: 600px) {
-          margin: 0 40px;
+          margin: 10px 40px;
         }
         @media screen and (max-width: 540px) {
-          margin: 0 60px;
+          margin: 10px 60px;
         }
         span {
           padding: 0 17px;
@@ -771,6 +798,11 @@ export default defineComponent({
         img {
           width: 98%;
           float: right;
+          @media screen and (max-width: 600px) {
+            float: none;
+          width: 60%;
+          margin: auto;
+          }
         }
       }
     }

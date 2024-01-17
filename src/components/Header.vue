@@ -455,24 +455,25 @@ export default defineComponent({
             width: 10px;
             height: 10px;
             right: 10px;
-            margin-left: 8px;
+            margin-left: 3px;
             margin-top: -3px;
-            background: url(../assets/images/dashboard/menu.png) no-repeat
-              center;
-            background-size: 100%;
+            // background: url(../assets/images/dashboard/menu.png) no-repeat
+            //   center;
+            // background-size: 100%;
             // @media screen and (max-width: 992px) {
             //   width: 20px;
             //   height: 20px;
             // }
-            svg {
-              display: none;
-            }
+            // svg {
+            //   display: none;
+            // }
           }
           .mit {
           }
         }
         .el-sub-menu__title {
           height: 100%;
+          padding-left: 0;
           border: 0 !important;
         }
       }

@@ -113,6 +113,10 @@ export default defineComponent({
       @media screen and (min-width: 2160px) {
         max-width: 600px;
       }
+      @media screen and (max-width: 1200px) {
+      width: 50%;
+      max-width: none;
+      }
       &.bg {
         background: @bg-module-color url(../../../assets/images/bg-faucet.png)
           top right no-repeat;
