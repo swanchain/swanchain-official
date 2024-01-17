@@ -19,7 +19,7 @@
       <div class="content lang-max flex-row">
         <div class="text font-16">
           <h1 class="font-79 font-black text-center uppercase">{{$t('main.banner.title')}}</h1>
-          <p class="font-22 text-center" v-html="$t('main.banner.describe')"></p>
+          <p class="font-20 text-center" v-html="$t('main.banner.describe')"></p>
           <div class="flex-row center">
             <div class="learn-more font-18 uppercase" @click="system.$commonFun.contactUsMethod()">Build on Swan Chain</div>
             <div class="learn-more font-18 uppercase">EXPLORE DEVELOPER DOCS</div>
@@ -38,8 +38,8 @@
 
     <div class="unlock-area carousel">
       <div class="lang-max">
-        <div class="tit font-35 weight-6 text-center uppercase">Unlock The Next Level of Ethereum with Swan Orchestrator</div>
-        <div class="font-22 text-center">The most advanced blockchain scaling & computing technology</div>
+        <div class="tit font-26 weight-6 text-center uppercase">Unlock The Next Level of Ethereum with Swan Orchestrator</div>
+        <div class="font-20 text-center">The most advanced blockchain scaling & computing technology</div>
         <el-row class="unlock-cont row-bg" justify="center">
           <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(u, uIndex) in unlockData" :key="uIndex" @mouseover="getShow('unlock', uIndex, 'over')" @mouseleave="getShow('unlock', uIndex, 'leave')">
             <div class="content" :class="{'show': !u.onShow}">
@@ -76,8 +76,8 @@
                     stroke="#447DFF" stroke-width="7" stroke-linecap="round" />
                 </svg>
               </div>
-              <p class="tit-position font-20 weight-6 flex-row">{{u.title}}</p>
-              <p class="desc font-18 weight-4">{{u.desc}}</p>
+              <p class="tit-position font-18 weight-6 flex-row">{{u.title}}</p>
+              <p class="desc font-16 weight-4">{{u.desc}}</p>
             </div>
           </el-col>
         </el-row>
@@ -86,24 +86,26 @@
 
     <div class="unlock-area carousel swiper">
       <div class="lang-max">
-        <div class="tit short font-35 weight-6 text-center uppercase">See The Differences You Can Make With Swan Chain</div>
-        <!-- Swiper -->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="item in carouselData" :key="item">
-              <div class="content flex-row space-between nowrap">
-                <div class="left">
-                  <h3 class="font-30 font-bold" justify="center">{{ item.title }}</h3>
-                  <p class="font-26">{{ item.desc }}</p>
-                </div>
-                <div class="right flex-row center">
-                  <img :src="item.img" />
+        <div class="swiper-margin">
+          <div class="tit short font-26 weight-6 uppercase">See The Differences You Can Make With Swan Chain</div>
+          <!-- Swiper -->
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="item in carouselData" :key="item">
+                <div class="content flex-row space-between nowrap">
+                  <div class="left">
+                    <h3 class="font-22 font-bold" justify="center">{{ item.title }}</h3>
+                    <p class="font-20">{{ item.desc }}</p>
+                  </div>
+                  <div class="right flex-row center">
+                    <img :src="item.img" />
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
           </div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
@@ -111,12 +113,12 @@
     <div class="thriving">
       <div class="lang-max">
         <div class="thriving-cont">
-          <h1 class="uppercase font-35 font-bold uppercase">let the numbers say <br />how swan chain is thriving</h1>
+          <h1 class="uppercase font-26 font-bold uppercase">let the numbers say <br />how swan chain is thriving</h1>
           <el-row :gutter="32" justify="space-between">
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8" v-for="th in thrivingData" :key="th">
               <div class="content">
                 <h1 class="font-45 font-bold">{{th.title}}</h1>
-                <p class="font-22 weight-4">{{th.desc}}</p>
+                <p class="font-20 weight-4">{{th.desc}}</p>
               </div>
             </el-col>
           </el-row>
@@ -126,7 +128,7 @@
 
     <div class="unlock-area">
       <div class="lang-max">
-        <div class="tit font-35 weight-6 text-center uppercase">See What's Possible with Swan Chain</div>
+        <div class="tit font-26 weight-6 text-center uppercase">See What's Possible with Swan Chain</div>
         <el-row class="unlock-cont row-bg" justify="center">
           <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="(p, pIndex) in possibleData" :key="pIndex" @mouseover="getShow('possible', pIndex, 'over')" @mouseleave="getShow('possible', pIndex, 'leave')">
             <div class="content" :class="{'show': !p.onShow}">
@@ -167,8 +169,8 @@
                     stroke="#447DFF" stroke-width="7" />
                 </svg>
               </div>
-              <p class="tit-position font-20 weight-6 text-center flex-row center">{{p.title}}</p>
-              <p class="desc font-18 weight-4">{{p.desc}}</p>
+              <p class="tit-position font-18 weight-6 text-center flex-row center">{{p.title}}</p>
+              <p class="desc font-16 weight-4">{{p.desc}}</p>
             </div>
           </el-col>
         </el-row>
@@ -177,7 +179,7 @@
 
     <div class="unlock-area">
       <div class="lang-max">
-        <div class="tit font-35 weight-6 text-center uppercase">Explore The Swan Chain Ecosystem</div>
+        <div class="tit font-26 weight-6 text-center uppercase">Explore The Swan Chain Ecosystem</div>
         <div class="el flex-row">
           <a class="font-22 weight-6">Explore dApps</a>
         </div>
@@ -195,13 +197,13 @@
 
     <div class="dapps-area">
       <div class="lang-max">
-        <el-row justify="space-between">
-          <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
-            <div class="font-16 text-center content">
-              <h1 class="font-35 font-bold flex-row center uppercase">
+        <el-row justify="center">
+          <el-col :xs="19" :sm="18" :md="18" :lg="18" :xl="18">
+            <div class="font-16 content">
+              <h1 class="font-26 font-bold flex-row uppercase">
                 <span>Empower Your dApps with Swan Chain</span>
               </h1>
-              <h3 class="font-22 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 AI computing blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
+              <h3 class="font-20 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 AI computing blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
               <div class="el flex-row">
                 <a class="font-16 font-bold">Start Building</a>
               </div>
@@ -212,9 +214,9 @@
     </div>
 
     <div class="blockchain lang-max">
-      <div class="subtit uppercase font-35 font-bold text-center">{{$t('dashboard.person_title')}}</div>
-      <el-row class="block-cont row-bg" justify="center">
-        <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="b in fundData" :key="b">
+      <div class="subtit uppercase font-26 font-bold text-center">{{$t('dashboard.person_title')}}</div>
+      <el-row class="block-list row-bg" justify="center">
+        <el-col v-for="b in fundData" :key="b">
           <img :src="b.img" />
         </el-col>
       </el-row>
@@ -634,6 +636,39 @@ export default defineComponent({
         }
       }
     }
+    .block-list {
+      margin: 40px auto 0;
+      .el-col {
+        margin: 10px 0;
+        max-width: 11.11%;
+        flex: 0 0 11.11%;
+        @media screen and (max-width: 1024px) {
+          max-width: 12.5%;
+          flex: 0 0 12.5%;
+        }
+        @media screen and (max-width: 992px) {
+          max-width: 16.66%;
+          flex: 0 0 16.66%;
+        }
+        @media screen and (max-width: 768px) {
+          max-width: 20%;
+          flex: 0 0 20%;
+          margin: 20px 0;
+        }
+        @media screen and (max-width: 600px) {
+          max-width: 25%;
+          flex: 0 0 25%;
+        }
+        @media screen and (max-width: 540px) {
+          max-width: 33.33%;
+          flex: 0 0 33.33%;
+        }
+        img {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
   }
   :deep(.unlock-area) {
     position: relative;
@@ -674,6 +709,7 @@ export default defineComponent({
       &.short {
         width: 50%;
         padding: 60px 0 0;
+        margin: 0 0 10px;
         @media screen and (max-width: 768px) {
           width: 80%;
         }
@@ -706,20 +742,20 @@ export default defineComponent({
               margin: 24px;
             }
             .image {
-              height: 200px;
+              height: 170px;
               @media screen and (max-width: 768px) {
-                height: 300px;
+                height: 255px;
               }
               @media screen and (max-width: 600px) {
-                height: 400px;
+                height: 340px;
               }
               img {
-                height: 78px;
+                height: 72px;
                 @media screen and (max-width: 768px) {
-                  height: 117px;
+                  height: 98px;
                 }
                 @media screen and (max-width: 600px) {
-                  height: 156px;
+                  height: 144px;
                 }
               }
             }
@@ -863,14 +899,17 @@ export default defineComponent({
         }
       }
     }
+    .swiper-margin {
+      margin: 0 80px 0 110px;
+    }
     .swiper-container {
-      padding: 70px 0 80px 284px;
+      padding: 70px 0 80px 200px;
       line-height: 1.38;
       @media screen and (min-width: 1920px) {
-        padding: 70px 0 80px 254px;
+        padding: 70px 0 80px 170px;
       }
       @media screen and (min-width: 2160px) {
-        padding: 70px 0 80px 224px;
+        padding: 70px 0 80px 150px;
       }
       @media screen and (max-width: 600px) {
         padding: 210px 0 80px;
@@ -881,14 +920,18 @@ export default defineComponent({
             .left {
               margin: 0 90px 0 0;
               h3 {
+                width: 60%;
                 margin: 0 0 20px 0;
                 color: @theme-color;
                 line-height: 1.1;
+                @media screen and (max-width: 1200px) {
+                  width: 90%;
+                }
               }
             }
             .right {
               img {
-                height: 325px;
+                height: 290px;
               }
             }
           }
@@ -901,13 +944,13 @@ export default defineComponent({
         right: auto;
         left: 0;
         top: 0;
-        width: 284px;
+        width: 200px;
         background-color: @bg-color;
         @media screen and (min-width: 1920px) {
-          width: 254px;
+          width: 170px;
         }
         @media screen and (min-width: 2160px) {
-          width: 224px;
+          width: 150px;
         }
         @media screen and (max-width: 600px) {
           flex-direction: initial;
@@ -919,12 +962,12 @@ export default defineComponent({
           width: auto;
           max-width: 115px;
           height: auto;
-          padding: 6px 35px;
-          margin: 6px auto;
+          // padding: 4px 24px;
+          margin: 6px 0;
           background: @white-color;
           border: 1px solid @theme-color;
           border-radius: 35px;
-          line-height: 1;
+          line-height: 1.3;
           color: @theme-color;
           opacity: 1;
           transition: all 0.2s;
@@ -943,24 +986,43 @@ export default defineComponent({
     }
   }
   :deep(.dapps-area) {
-    padding: 130px 0 165px;
+    padding: 70px 0 80px;
     margin: 90px 0 0;
     background: url(../../assets/images/about/background-image05.png),
       url(../../assets/images/about/background-image04.png),
       url(../../assets/images/dashboard/background-image04.png);
-    background-size: 100%, 100%, 548px;
+    background-size: 100%, 100%, auto 90%;
     background-position: left top, left bottom, right center;
     background-repeat: no-repeat, no-repeat, no-repeat;
-    .content {
-      padding: 0 50px;
-      h1 {
-        padding: 65px 100px 10px;
-        background: url(../../assets/images/dashboard/background-image05.png)
-          left 0 no-repeat;
-        background-size: 70px;
-        span {
-          width: 80%;
-          margin: 0 auto 20px;
+    .el-row {
+      background: url(../../assets/images/dashboard/background-image05.png) left
+        center no-repeat;
+      background-size: 90px;
+      @media screen and (max-width: 1200px) {
+        background-position-x: 3%;
+      }
+      .content {
+        padding: 0 50px;
+        h1 {
+          padding: 10px 0;
+          span {
+            width: 50%;
+            margin: 0 0 20px;
+            @media screen and (max-width: 1200px) {
+              width: 70%;
+            }
+            @media screen and (max-width: 992px) {
+              width: 80%;
+            }
+            @media screen and (max-width: 768px) {
+              width: 90%;
+            }
+          }
+        }
+        .el {
+          a {
+            margin: 0;
+          }
         }
       }
     }

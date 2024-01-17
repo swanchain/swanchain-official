@@ -4,9 +4,12 @@
       <img :src="nebulaLogo" class="logo-img" alt='Nebula Block' @click="goMain" />
       <div class="el-menu-right flex-row menu-width-mit">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :teleported="true" @select="handleSelect">
-          <el-sub-menu index="Orchestrator">
+          <el-menu-item index="Orchestrator">
+            <span class="mit font-16">Orchestrator</span>
+          </el-menu-item>
+          <el-sub-menu index="eco">
             <template #title>
-              <span class="mit font-16">Orchestrator</span>
+              <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
             </template>
             <el-menu-item index="Lagrange">
               <div class="mit menu-default flex-row nowrap m">
@@ -84,9 +87,6 @@
               </div>
             </el-menu-item> -->
           </el-sub-menu>
-          <!-- <el-menu-item index="Ecosystem">
-            <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
-          </el-menu-item> -->
           <el-menu-item index="Bridge">
             <span class="mit font-16">{{$t('menu.Bridge')}}</span>
           </el-menu-item>
