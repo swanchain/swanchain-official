@@ -230,7 +230,7 @@ body {
     font-size: 101px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 135px;
+    font-size: 112px;
   }
 }
 .font-42 {
@@ -248,7 +248,7 @@ body {
     font-size: 94px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 116px;
+    font-size: 108px;
   }
 }
 .font-40 {
@@ -266,7 +266,7 @@ body {
     font-size: 90px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 110px;
+    font-size: 106px;
   }
 }
 .font-38 {
@@ -284,7 +284,7 @@ body {
     font-size: 102px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 114px;
+    font-size: 104px;
   }
 }
 .font-35 {
@@ -302,7 +302,7 @@ body {
     font-size: 80px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 105px;
+    font-size: 102px;
   }
 }
 .font-33 {

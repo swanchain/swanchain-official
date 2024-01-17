@@ -29,7 +29,7 @@
           </svg>
         </a>
       </div>
-      <div class="copy uppercase tit font-16 weight-4 flex-row">
+      <div class="copy uppercase tit font-14 weight-4 flex-row">
         <a> {{ $t('menu.PrivacyPolicy') }}</a>
         <a> {{ $t('menu.TermsOfUse') }}</a>
       </div>
@@ -108,12 +108,12 @@ export default defineComponent({
     // width: 100%;
     padding: 0;
     font-weight: 400;
-    color: @white-color;
+    color: @text-w-color;
     @media screen and (max-width: 600px) {
       line-height: 2.5;
     }
     .copy {
-      margin:0;
+      margin: 0;
       color: @text-w-color;
       a {
         margin: 0 0 0 20px;

@@ -1,32 +1,34 @@
 <template>
   <div class="landing">
     <div class="join_today">
-      <div class="lang-max flex-row space-between">
-        <div class="landing_content">
-          <h1 class="font-65 font-black uppercase" v-html="$t('about.module_1_title')"></h1>
-          <h3 class="font-22 weight-4">{{ $t('about.module_1_desc') }}</h3>
-          <h3 class="font-22 weight-4">{{ $t('about.module_1_desc01') }}</h3>
-          <div class="el flex-row">
-            <a class="font-16 font-bold">{{ $t('about.module_1_btn') }}</a>
+      <div class="lang-max">
+        <div class="landing-style flex-row space-between">
+          <div class="landing_content">
+            <h1 class="font-55 font-black">Build The Web3 Future with Swan</h1>
+            <h3 class="font-20 weight-4">{{ $t('about.module_1_desc') }}</h3>
+            <h3 class="font-20 weight-4">{{ $t('about.module_1_desc01') }}</h3>
+            <div class="el flex-row">
+              <a class="font-16 font-bold">{{ $t('about.module_1_btn') }}</a>
+            </div>
           </div>
-        </div>
-        <div class="landing_img flex-row center">
-          <img :src="content_img" alt="">
+          <div class="landing_img flex-row center">
+            <img :src="content_img" alt="">
+          </div>
         </div>
       </div>
     </div>
 
     <div class="aboutSwan">
       <el-row class="row-bg" justify="space-between">
-        <el-col :xs="24" :sm="15" :md="15" :lg="15" :xl="15" class="left">
+        <el-col :xs="24" :sm="14" :md="14" :lg="14" :xl="14" class="left">
           <div class="content">
-            <div class="title font-50 font-bold">{{ $t('about.about_Swan_title') }}</div>
-            <div class="desc font-22">
+            <div class="title font-26 font-bold">{{ $t('about.about_Swan_title') }}</div>
+            <div class="desc font-20">
               {{ $t('about.about_Swan_desc') }}
             </div>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="9" :md="9" :lg="9" :xl="9" class="flex-row">
+        <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="flex-row">
           <div class="image-style flex-row center">
             <img :src="teamImg" />
           </div>
@@ -34,27 +36,27 @@
       </el-row>
 
       <el-row class="row-bg" justify="space-between">
-        <el-col :xs="24" :sm="15" :md="15" :lg="15" :xl="15" class="left">
+        <el-col :xs="24" :sm="14" :md="14" :lg="14" :xl="14" class="left">
           <div class="content">
-            <div class="title font-50 font-bold">{{ $t('about.about_meet_title') }}</div>
-            <div class="desc font-22">
+            <div class="title font-26 font-bold">{{ $t('about.about_meet_title') }}</div>
+            <div class="desc font-20">
               {{ $t('about.about_meet_desc') }}
             </div>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="9" :md="9" :lg="9" :xl="9" class="flex-row right">
+        <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="flex-row right">
           <div class="image-style flex-row center">
             <img :src="bossImg" class="radius" />
-            <div class="name font-42 font-bold text-center">Co-Founder</div>
+            <div class="name font-26 weight-6 text-center">Co-Founder</div>
           </div>
         </el-col>
       </el-row>
     </div>
 
     <div class="blockchain lang-max">
-      <div class="subtit font-50 font-bold text-center">{{$t('dashboard.person_title')}}</div>
+      <div class="subtit font-26 font-bold text-center uppercase">{{$t('dashboard.person_title')}}</div>
       <el-row class="block-cont row-bg" justify="center">
-        <el-col :xs="12" :sm="6" :md="4" :lg="4" :xl="4" v-for="b in fundData" :key="b">
+        <el-col v-for="b in fundData" :key="b">
           <img :src="b.img" />
         </el-col>
       </el-row>
@@ -62,13 +64,13 @@
 
     <div class="hassle" style="padding-top: 0.2rem">
       <div class="lang-max">
-        <div class="title font-50 font-bold text-center">{{ $t('careers.filecoin_netowork') }}</div>
+        <div class="title font-26 font-bold text-center uppercase">{{ $t('careers.filecoin_netowork') }}</div>
         <div class="Swan_video">
           <div class="img">
             <img src="@/assets/images/about/Notary_Post.jpg" />
           </div>
         </div>
-        <div class="desc font-22">
+        <div class="desc font-20">
           {{ $t('careers.filecoin_netowork_desc') }}
           <span>{{ $t('careers.filecoin_netowork_desc_span01') }}</span>{{ $t('careers.filecoin_netowork_desc_span02') }}
           <span>{{ $t('careers.filecoin_netowork_desc_span03') }}</span>.
@@ -80,7 +82,7 @@
     </div>
 
     <div class="joinList lang-max">
-      <div class="title font-50 font-bold text-center">{{ $t('dashboard.join_title') }}</div>
+      <div class="title font-26 font-bold text-center uppercase">{{ $t('dashboard.join_title') }}</div>
       <div class="list flex-row center">
         <a class="flex-row center" target="_blank" v-for="m in mediaData" :key="m" :href="m.link">
           <svg v-if="m.type === 'discord'" t="1704768639423" class="icon" viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2831">
@@ -107,7 +109,7 @@
             <path d="M361 148.524C161.626 148.524 0 311.266 0 512s161.638 363.476 361 363.476S722 712.746 722 512 560.382 148.524 361 148.524z m576.5 21.292c-99.69 0-180.49 153.238-180.49 342.19s80.812 342.2 180.502 342.2 180.502-153.238 180.502-342.2H1118c0-189.006-80.8-342.19-180.496-342.19z m279.012 35.642c-35.052 0-63.47 137.256-63.47 306.548s28.4 306.548 63.47 306.548S1280 681.262 1280 512c0-169.298-28.43-306.542-63.484-306.542z"
               p-id="9599"></path>
           </svg>
-          <span class="font-20">{{m.type}}</span>
+          <span class="font-20 weight-6">{{m.type}}</span>
         </a>
       </div>
     </div>
@@ -116,9 +118,9 @@
       <el-row class="block-cont row-bg" justify="center">
         <el-col :xs="24" :sm="14" :md="12" :lg="12" :xl="12" class="flex-row">
           <div class="content font-16">
-            <h1 class="font-85 font-bold uppercase">NEED FURTHER HELP?</h1>
+            <h1 class="font-50 font-bold uppercase">Need Further Help?</h1>
             <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
-            <el-button class="font-bold">Contact Us</el-button>
+            <el-button class="font-22">Contact Us</el-button>
           </div>
         </el-col>
         <el-col :xs="24" :sm="10" :md="12" :lg="12" :xl="12" class="flex-row flex-end">
@@ -246,7 +248,7 @@ export default defineComponent({
 .landing {
   padding: 0;
   .join_today {
-    padding: 103px 0 210px;
+    padding: 113px 0 150px;
     margin: auto;
     background: url(../../../assets/images/about/background-image01.png),
       url(../../../assets/images/about/background-image04.png);
@@ -254,170 +256,173 @@ export default defineComponent({
     background-position: 0 10%, left bottom;
     background-repeat: no-repeat, no-repeat;
     @media screen and (max-width: 768px) {
-      padding: 160px 0 210px;
+      padding: 160px 0 150px;
     }
     @media screen and (max-width: 600px) {
-      padding: 246px 0 320px;
+      padding: 246px 0 260px;
     }
-    h1 {
-      width: 100%;
-      margin: 0 0 5px;
-      line-height: 1.1;
-      cursor: pointer;
-      word-break: break-word;
-      @media screen and (max-width: 479px) {
-        margin-top: 15px;
-      }
-    }
-    .landing_content {
-      width: 51%;
-      @media screen and (max-width: 992px) {
-        width: 60%;
-      }
-      .landing_logo {
+    .landing-style {
+      margin: 0 90px;
+      h1 {
         width: 100%;
-        height: 0.6rem;
-        @media screen and (max-width: 600px) {
-          height: 80px;
-        }
+        margin: 55px 0 0;
+        line-height: 1.2;
+        cursor: pointer;
+        word-break: break-word;
         @media screen and (max-width: 479px) {
-          height: 60px;
+          margin-top: 75px;
+        }
+      }
+      .landing_content {
+        width: 51%;
+        @media screen and (max-width: 992px) {
+          width: 60%;
+        }
+        .landing_logo {
+          width: 100%;
+          height: 0.6rem;
+          @media screen and (max-width: 600px) {
+            height: 80px;
+          }
+          @media screen and (max-width: 479px) {
+            height: 60px;
+          }
+          img {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+          }
+        }
+        h3 {
+          margin: 32px 0;
+          color: @text-w-color;
+          line-height: 1.55;
+          word-break: break-word;
+          @media screen and (max-width: 768px) {
+            width: 100% !important;
+          }
+        }
+        .el {
+          margin: 40px 0 0;
+          // overflow: hidden;
+          @media screen and (max-width: 768px) {
+            width: 100% !important;
+          }
+          @media screen and (max-width: 600px) {
+            margin-top: 15px;
+          }
+          .el-button,
+          a {
+            float: left;
+            padding: 16px 32px;
+            margin: 0 0.3rem 0 0;
+            background: @theme-color;
+            border: 2px solid @theme-color;
+            border-radius: 1rem;
+            outline: none;
+            color: @white-color;
+            letter-spacing: 0;
+            box-shadow: 0 12px 32px -12px rgba(12, 22, 44, 0.32);
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            text-decoration: none;
+            &::before {
+              display: none;
+            }
+            &:hover {
+              background-color: transparent;
+              color: @theme-color;
+              border-color: @theme-color;
+            }
+          }
+          .tips {
+            color: @theme-color;
+            line-height: 1.2;
+            word-break: break-word;
+          }
+        }
+        a {
+          position: relative;
+          display: block;
+          padding: 0 0 0 0.18rem;
+          margin-bottom: 0.1rem;
+          line-height: 1;
+          text-decoration: underline;
+          &::before {
+            content: "·";
+            font-size: 0.4rem;
+            line-height: 0.18rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+          }
+        }
+        .el-button {
+          float: left;
+          padding: 0.2rem 0.3rem 0.16rem;
+          background-image: linear-gradient(to right, #3f97ff, #94e2ff);
+          letter-spacing: 0.04rem;
+          border: 0;
+          outline: none;
+        }
+      }
+      .landing_img {
+        width: 49%;
+        height: 100%;
+        min-height: 2.8rem;
+        // background-color: #a8b4cd;
+        background-color: transparent;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        @media screen and (max-width: 992px) {
+          width: 40%;
         }
         img {
-          height: 100%;
-          width: auto;
-          max-width: 100%;
-        }
-      }
-      h3 {
-        margin: 26px 0;
-        color: @text-w-color;
-        line-height: 1.55;
-        word-break: break-word;
-        @media screen and (max-width: 768px) {
-          width: 100% !important;
-        }
-      }
-      .el {
-        margin: 40px 0 0;
-        // overflow: hidden;
-        @media screen and (max-width: 768px) {
-          width: 100% !important;
+          display: block;
+          width: 90%;
+          max-width: 700px;
+          margin: 0 0 0 5%;
+          @media screen and (max-width: 1200px) {
+            margin: 0 auto;
+          }
+          @media screen and (max-width: 992px) {
+            max-width: 900px;
+            margin: 30px auto 0;
+          }
         }
         @media screen and (max-width: 600px) {
-          margin-top: 15px;
-        }
-        .el-button,
-        a {
-          float: left;
-          padding: 16px 32px;
-          margin: 0 0.3rem 0 0;
-          background: @theme-color;
-          border: 2px solid @theme-color;
-          border-radius: 1rem;
-          outline: none;
-          color: @white-color;
-          letter-spacing: 0;
-          box-shadow: 0 12px 32px -12px rgba(12, 22, 44, 0.32);
-          transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-          text-decoration: none;
-          &::before {
-            display: none;
-          }
-          &:hover {
-            background-color: transparent;
-            color: @theme-color;
-            border-color: @theme-color;
+          min-height: auto;
+          img {
+            width: 85%;
+            margin: 30px auto 0;
           }
         }
-        .tips {
-          color: @theme-color;
-          line-height: 1.2;
-          word-break: break-word;
-        }
-      }
-      a {
-        position: relative;
-        display: block;
-        padding: 0 0 0 0.18rem;
-        margin-bottom: 0.1rem;
-        line-height: 1;
-        text-decoration: underline;
-        &::before {
-          content: "·";
-          font-size: 0.4rem;
-          line-height: 0.18rem;
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-        }
-      }
-      .el-button {
-        float: left;
-        padding: 0.2rem 0.3rem 0.16rem;
-        background-image: linear-gradient(to right, #3f97ff, #94e2ff);
-        letter-spacing: 0.04rem;
-        border: 0;
-        outline: none;
-      }
-    }
-    .landing_img {
-      width: 49%;
-      height: 100%;
-      min-height: 2.8rem;
-      // background-color: #a8b4cd;
-      background-color: transparent;
-      background-size: auto 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      @media screen and (max-width: 992px) {
-        width: 40%;
       }
       img {
         display: block;
-        width: 95%;
-        margin: 0 0 0 5%;
-        @media screen and (max-width: 1200px) {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-        @media screen and (max-width: 992px) {
-          max-width: 900px;
-          margin: 30px auto 0;
-        }
+        width: 50%;
+        height: auto;
       }
-      @media screen and (max-width: 600px) {
-        min-height: auto;
-        img {
-          width: 85%;
-          margin: 30px auto 0;
-        }
-      }
-    }
-    img {
-      display: block;
-      width: 50%;
-      height: auto;
-    }
-    .svg {
-      width: 100%;
-      height: 100px;
-      margin: 115px 0 0;
-      rect {
+      .svg {
         width: 100%;
         height: 100px;
-        @media screen and (max-width: 600px) {
-          height: 300px;
+        margin: 115px 0 0;
+        rect {
+          width: 100%;
+          height: 100px;
+          @media screen and (max-width: 600px) {
+            height: 300px;
+          }
         }
       }
     }
   }
   .aboutSwan {
-    padding: 0 0 93px;
-    background: url(../../../assets/images/about/background-image02.png) 148px
+    padding: 0 0 63px;
+    background: url(../../../assets/images/about/background-image02.png) 200px
       bottom no-repeat;
-    background-size: 9.6%;
+    background-size: 8%;
     @media screen and (max-width: 768px) {
       background-size: 15%;
     }
@@ -428,10 +433,13 @@ export default defineComponent({
           border-bottom: 1px solid @border-color;
           .content {
             float: right;
-            max-width: 800px;
-            padding: 100px 80px;
+            max-width: 600px;
+            padding: 110px 118px 140px 258px;
             @media screen and (max-width: 1200px) {
               max-width: none;
+            }
+            .title {
+              color: @theme-color;
             }
           }
         }
@@ -535,33 +543,38 @@ export default defineComponent({
   }
   :deep(.blockchain) {
     margin: 120px auto 60px;
-    .block-cont {
-      margin: 80px auto;
-      // @media screen and (max-width: 768px) {
-      //   max-width: 1350px;
-      // }
-      img {
-        width: 80%;
-        margin: 0 auto;
-      }
+    .subtit {
+      margin: 0 auto 50px;
     }
     .row-bg {
       .el-col {
         margin: 10px 0;
-        @media screen and (max-width: 767px) {
+        max-width: 11.11%;
+        flex: 0 0 11.11%;
+        @media screen and (max-width: 1024px) {
+          max-width: 12.5%;
+          flex: 0 0 12.5%;
+        }
+        @media screen and (max-width: 992px) {
+          max-width: 16.66%;
+          flex: 0 0 16.66%;
+        }
+        @media screen and (max-width: 768px) {
+          max-width: 20%;
+          flex: 0 0 20%;
           margin: 20px 0;
         }
-        .content {
-          height: calc(100% - 40px);
-          padding: 20px 0;
-          background-color: @theme-color;
-          color: @white-color;
-          border-radius: 10px;
-          @media screen and (max-width: 768px) {
-            height: calc(100% - 80px);
-            padding: 40px 0;
-            border-radius: 20px;
-          }
+        @media screen and (max-width: 600px) {
+          max-width: 25%;
+          flex: 0 0 25%;
+        }
+        @media screen and (max-width: 540px) {
+          max-width: 33.33%;
+          flex: 0 0 33.33%;
+        }
+        img {
+          width: 100%;
+          margin: 0 auto;
         }
       }
     }
@@ -750,11 +763,13 @@ export default defineComponent({
     }
   }
   :deep(.need-further) {
-    padding: 0 8.5%;
+    padding: 0 180px;
     margin: 0 0 70px;
     background-color: @theme-color;
     line-height: 1;
-    .el-row {
+    .block-cont {
+      max-width: 1400px;
+      margin: 0 auto;
       .el-col {
         .content {
           padding: 32px 44px;
@@ -763,9 +778,9 @@ export default defineComponent({
             padding: 150px 44px;
           }
           p {
-            margin: 65px 0 70px;
+            margin: 35px 0 40px;
             @media screen and (max-width: 600px) {
-              margin: 100px 0 110px;
+              margin: 70px 0 80px;
             }
           }
           .el-button {
@@ -795,11 +810,11 @@ export default defineComponent({
         }
         img {
           width: 98%;
-          float: right;
+          max-width: 520px;
+          margin: auto;
           @media screen and (max-width: 600px) {
             float: none;
             width: 60%;
-            margin: auto;
           }
         }
       }

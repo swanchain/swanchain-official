@@ -39,28 +39,27 @@
           <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
             <el-row>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <a class="font-20 weight-7">EXPLORE</a>
-                <a href="https://lagrangedao.org/" class="font-16 weight-4 t" target="_blank">Lagrange</a>
-                <a href="https://multichain.storage/" class="font-16 weight-4 t" target="_blank">Multi-Chain Storage</a>
-                <a href="https://www.fogmetalabs.com/metaark" class="font-16 weight-4 t" target="_blank">Meta Ark</a>
-                <a href="https://chainnode.io/" class="font-16 weight-4 t" target="_blank">Chainnode</a>
+                <a class="font-16 font-bold weight-6">EXPLORE</a>
+                <a href="https://lagrangedao.org/" class="font-14 weight-4 t" target="_blank">Lagrange</a>
+                <a href="https://multichain.storage/" class="font-14 weight-4 t" target="_blank">Multi-Chain Storage</a>
+                <a href="https://www.fogmetalabs.com/metaark" class="font-14 weight-4 t" target="_blank">Meta Ark</a>
+                <a href="https://chainnode.io/" class="font-14 weight-4 t" target="_blank">Chainnode</a>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <a class="font-20 weight-7">BUILD</a>
-                <a href="https://saturn-explorer.swanchain.io/" class="font-16 weight-4 t" target="_blank">Block Explorer</a>
-                <router-link :to="{name: 'faucet'}" class="font-16 weight-4 t">Faucet</router-link>
-                <a href="https://docs.swanchain.io/" class="font-16 weight-4 t" target="_blank">Documentation</a>
-                <a href="https://github.com/filswan" class="font-16 weight-4 t" target="_blank">GitHub</a>
-                <a href="" class="font-16 weight-4 t">Tools</a>
+                <a class="font-16 font-bold weight-6">BUILD</a>
+                <a href="https://saturn-explorer.swanchain.io/" class="font-14 weight-4 t" target="_blank">Block Explorer</a>
+                <router-link :to="{name: 'faucet'}" class="font-14 weight-4 t">Faucet</router-link>
+                <a href="https://docs.swanchain.io/" class="font-14 weight-4 t" target="_blank">Documentation</a>
+                <a href="https://github.com/filswan" class="font-14 weight-4 t" target="_blank">GitHub</a>
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <a class="font-20 weight-7">ABOUT</a>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">About Us</router-link>
-                <a class="font-16 weight-4 t">Privacy Policy</a>
-                <a class="font-16 weight-4 t">Terms of Use Careers</a>
-                <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-16 weight-4 t" target="_blank">Careers</a>
-                <router-link :to="{name: 'aboutUs'}" class="font-16 weight-4 t">Contact Us</router-link>
-                <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-16 weight-4 t" target="_blank">Brand Kit</a>
+                <a class="font-16 font-bold weight-6">ABOUT</a>
+                <router-link :to="{name: 'aboutUs'}" class="font-14 weight-4 t">About Us</router-link>
+                <a class="font-14 weight-4 t">Privacy Policy</a>
+                <a class="font-14 weight-4 t">Terms of Use Careers</a>
+                <!-- <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-14 weight-4 t" target="_blank">Careers</a> -->
+                <router-link :to="{name: 'aboutUs'}" class="font-14 weight-4 t">Contact Us</router-link>
+                <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-14 weight-4 t" target="_blank">Brand Kit</a>
               </el-col>
               <!-- <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a href="https://nebulablock.freshdesk.com/support/home" target="_blank" class="font-20 weight-7">{{$t('menu.Support')}}</a>
@@ -68,7 +67,7 @@
             </el-row>
           </el-col>
           <el-col :span="24">
-            <div class="copy uppercase tit font-16 weight-4 flex-row">
+            <div class="copy uppercase tit font-14 weight-4 flex-row">
               {{$t('footer.copy')}}
 
               <a> {{ $t('menu.PrivacyPolicy') }}</a>
@@ -152,7 +151,7 @@ export default defineComponent({
     // width: 100%;
     padding: 0;
     font-weight: 400;
-    color: @white-color;
+    color: @text-w-color;
     @media screen and (max-width: 600px) {
       line-height: 2.5;
     }
@@ -168,7 +167,7 @@ export default defineComponent({
           }
           .footer_logo {
             display: block;
-            height: 70px;
+            height: 54px;
             margin: 0 80px 155px 0;
             cursor: pointer;
             @media screen and (min-width: 2160px) {
@@ -178,10 +177,10 @@ export default defineComponent({
               margin: 0 80px 55px 0;
             }
             @media screen and (max-width: 768px) {
-              height: 105px;
+              height: 81px;
             }
             @media screen and (max-width: 600px) {
-              height: 140px;
+              height: 108px;
             }
           }
           .media-list {
@@ -237,7 +236,6 @@ export default defineComponent({
             margin: 14px 0 0;
             border-bottom: 1px solid #a1aed4;
             position: relative;
-            color: @white-color;
             line-height: 1.1;
             &:after {
               content: "";
@@ -254,8 +252,7 @@ export default defineComponent({
             }
           }
           .copy {
-            margin: 30px 0 0;
-            color: @text-w-color;
+            margin: 29px 0 0;
             a {
               margin: 0 0 0 20px;
               color: inherit;
@@ -275,9 +272,9 @@ export default defineComponent({
                 display: block;
                 padding: 20px 0;
                 margin: 15px 0;
-                color: @white-color;
                 line-height: 1;
                 text-transform: uppercase;
+                color: inherit;
                 @media screen and (max-width: 600px) {
                   margin: 50px 0 15px;
                 }

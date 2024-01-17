@@ -1,15 +1,15 @@
 <template>
   <section id="container-header" :class="{'bg-color-none': scrollTopVal > 400}">
-    <div class="header lang-max flex-row space-between nowrap font-16">
+    <div class="header lang-max flex-row space-between nowrap font-14">
       <img :src="nebulaLogo" class="logo-img" alt='Nebula Block' @click="goMain" />
       <div class="el-menu-right flex-row menu-width-mit">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :teleported="true" @select="handleSelect">
           <el-menu-item index="Orchestrator">
-            <span class="mit font-16">Orchestrator</span>
+            <span class="mit font-14">Orchestrator</span>
           </el-menu-item>
           <el-sub-menu index="eco">
             <template #title>
-              <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
+              <span class="mit font-14">{{$t('menu.Ecosystem')}}</span>
             </template>
             <el-menu-item index="Lagrange">
               <div class="mit menu-default flex-row nowrap m">
@@ -88,11 +88,11 @@
             </el-menu-item> -->
           </el-sub-menu>
           <el-menu-item index="Bridge">
-            <span class="mit font-16">{{$t('menu.Bridge')}}</span>
+            <span class="mit font-14">{{$t('menu.Bridge')}}</span>
           </el-menu-item>
           <el-sub-menu index="Developers">
             <template #title>
-              <span class="mit font-16">{{$t('menu.Developers')}}</span>
+              <span class="mit font-14">{{$t('menu.Developers')}}</span>
             </template>
             <el-menu-item index="Developers">
               <div class="mit flex-row space-between menu-header developers">
@@ -170,7 +170,7 @@
           </el-sub-menu>
           <el-sub-menu index="Community">
             <template #title>
-              <span class="mit font-16">{{$t('menu.Community')}}</span>
+              <span class="mit font-14">{{$t('menu.Community')}}</span>
             </template>
             <el-menu-item index="">
               <div class="mit flex-row space-between menu-header community">
@@ -257,7 +257,7 @@
           </el-sub-menu>
 
           <el-menu-item index="Governance">
-            <span class="mit font-16">Governance</span>
+            <span class="mit font-14">Governance</span>
           </el-menu-item>
         </el-menu>
       </div>
@@ -377,7 +377,6 @@ export default defineComponent({
   .header {
     margin: auto;
     padding: 12px 0;
-    font-family: "Inter-SemiBold";
     @media screen and (min-width: 2160px) {
       padding: 6px 0;
     }

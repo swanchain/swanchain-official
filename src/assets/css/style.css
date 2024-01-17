@@ -1,11 +1,4 @@
 @font-face {
-    font-family: 'Inter-Regular';
-    src: url(../font/Inter-Regular-9.otf);
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
     font-family: 'Inter-black';
     src: url(../font/Inter-Black-3.otf);
     font-style: normal;
@@ -20,8 +13,8 @@
 }
 
 @font-face {
-    font-family: 'Inter-SemiBold';
-    src: url(../font/Inter-SemiBold-10.otf);
+    font-family: 'Inter-Light';
+    src: url(../font/Inter-Light-7.otf);
     font-style: normal;
     font-display: block;
 }
@@ -31,7 +24,6 @@ body {
     width: 100%;
     min-height: 100%;
     font-size: 100px;
-    font-weight: 400;
     color: #fff;
     line-height: 1;
 }
@@ -73,7 +65,7 @@ td {
 body {
     padding: 0;
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-    font-family: "Inter-Regular";
+    font-family: 'Inter-Light';
 }
 
 table {
