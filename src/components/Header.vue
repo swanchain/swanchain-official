@@ -68,7 +68,7 @@
                 </div>
               </div>
             </el-menu-item>
-            <el-menu-item index="Ecosystem-dapps">
+            <!-- <el-menu-item index="Ecosystem-dapps">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left">
                   <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,11 +82,11 @@
                   <p class="font-14 span desc">Explore dApps on the Swan Chain ecosystem</p>
                 </div>
               </div>
-            </el-menu-item>
+            </el-menu-item> -->
           </el-sub-menu>
-          <el-menu-item index="Ecosystem">
+          <!-- <el-menu-item index="Ecosystem">
             <span class="mit font-16">{{$t('menu.Ecosystem')}}</span>
-          </el-menu-item>
+          </el-menu-item> -->
           <el-menu-item index="Bridge">
             <span class="mit font-16">{{$t('menu.Bridge')}}</span>
           </el-menu-item>
@@ -181,7 +181,7 @@
                 </div>
               </div>
             </el-menu-item>
-            <el-menu-item index="Event">
+            <!-- <el-menu-item index="Event">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left svg-color">
                   <svg width="22" height="22" viewBox="0 0 22 22" class="none" xmlns="http://www.w3.org/2000/svg">
@@ -203,8 +203,8 @@
                   <p class="font-14 span desc">Join Swan Chain's Latest Community Events</p>
                 </div>
               </div>
-            </el-menu-item>
-            <el-menu-item index="HelpCenter">
+            </el-menu-item> -->
+            <!-- <el-menu-item index="HelpCenter">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left svg-color">
                   <svg width="22" height="22" viewBox="0 0 22 22" class="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +220,7 @@
                   <p class="font-14 span desc">Receive Support And Guidance</p>
                 </div>
               </div>
-            </el-menu-item>
+            </el-menu-item> -->
             <el-menu-item index="SocialMedia">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left svg-color">
@@ -237,7 +237,7 @@
                 </div>
               </div>
             </el-menu-item>
-            <el-menu-item index="Blog">
+            <!-- <el-menu-item index="Blog">
               <div class="mit menu-default flex-row nowrap m">
                 <div class="head-left svg-color">
                   <svg width="20" height="20" viewBox="0 0 20 20" class="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,7 +253,7 @@
                   <p class="font-14 span desc">Follow Swan Chain's Blog For Latest Updates</p>
                 </div>
               </div>
-            </el-menu-item>
+            </el-menu-item> -->
           </el-sub-menu>
 
           <el-menu-item index="Governance">
@@ -558,14 +558,6 @@ export default defineComponent({
         .tit {
           span {
             color: @black-color;
-          }
-        }
-      }
-      .log-in {
-        margin-right: 0.3rem;
-        .tit {
-          span {
-            text-transform: uppercase;
           }
         }
       }

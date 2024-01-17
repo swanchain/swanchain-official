@@ -142,27 +142,46 @@ export default defineComponent({
     }
   }
   :deep(.alert-body) {
-    padding: 0;
+    padding: 8px 0;
     background-color: @theme-color;
     color: @white-color;
     border-radius: 0;
-    line-height: 2.18;
+    line-height: 1;
+    @media screen and (max-width: 992px) {
+      padding: 10px 0;
+    }
     @media screen and (max-width: 768px) {
-      line-height: 1.5;
+      padding: 10px 0;
+    }
+    .el-alert__content {
+      display: flex;
     }
     .el-alert__title {
-      line-height: inherit;
+      line-height: 1;
     }
     .el-icon {
+      top: 50%;
+      margin-top: -7px;
       width: 14px;
       height: 14px;
       color: inherit;
       @media screen and (min-width: 1920px) {
+        margin-top: -8px;
         width: 16px;
         height: 16px;
       }
       @media screen and (min-width: 2160px) {
-        margin-top: -6px;
+        margin-top: -9px;
+        width: 18px;
+        height: 18px;
+      }
+      @media screen and (max-width: 992px) {
+        margin-top: -8px;
+        width: 16px;
+        height: 16px;
+      }
+      @media screen and (max-width: 600px) {
+        margin-top: -9px;
         width: 18px;
         height: 18px;
       }

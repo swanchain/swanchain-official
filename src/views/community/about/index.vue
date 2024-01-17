@@ -3,7 +3,7 @@
     <div class="join_today">
       <div class="lang-max flex-row space-between">
         <div class="landing_content">
-          <h1 class="font-65 font-black" v-html="$t('about.module_1_title')"></h1>
+          <h1 class="font-65 font-black uppercase" v-html="$t('about.module_1_title')"></h1>
           <h3 class="font-22 weight-4">{{ $t('about.module_1_desc') }}</h3>
           <h3 class="font-22 weight-4">{{ $t('about.module_1_desc01') }}</h3>
           <div class="el flex-row">
@@ -116,7 +116,7 @@
       <el-row class="block-cont row-bg" justify="center">
         <el-col :xs="24" :sm="14" :md="12" :lg="12" :xl="12" class="flex-row">
           <div class="content font-16">
-            <h1 class="font-85 font-bold">NEED FURTHER HELP?</h1>
+            <h1 class="font-85 font-bold uppercase">NEED FURTHER HELP?</h1>
             <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
             <el-button class="font-bold">Contact Us</el-button>
           </div>
@@ -254,15 +254,16 @@ export default defineComponent({
     background-position: 0 10%, left bottom;
     background-repeat: no-repeat, no-repeat;
     @media screen and (max-width: 768px) {
+      padding: 160px 0 210px;
     }
-    @media screen and (max-width: 479px) {
+    @media screen and (max-width: 600px) {
+      padding: 246px 0 320px;
     }
     h1 {
       width: 100%;
       margin: 0 0 5px;
       line-height: 1.1;
       cursor: pointer;
-      text-transform: uppercase;
       word-break: break-word;
       @media screen and (max-width: 479px) {
         margin-top: 15px;
@@ -417,9 +418,9 @@ export default defineComponent({
     background: url(../../../assets/images/about/background-image02.png) 148px
       bottom no-repeat;
     background-size: 9.6%;
-            @media screen and (max-width: 768px) {
-    background-size: 15%;
-            }
+    @media screen and (max-width: 768px) {
+      background-size: 15%;
+    }
     :deep(.el-row) {
       .el-col {
         &.left {
@@ -708,10 +709,10 @@ export default defineComponent({
           margin: 10px 30px;
         }
         @media screen and (max-width: 600px) {
-          margin: 10px 40px;
+          margin: 20px 40px;
         }
         @media screen and (max-width: 540px) {
-          margin: 10px 60px;
+          margin: 30px 60px;
         }
         span {
           padding: 0 17px;
@@ -738,8 +739,8 @@ export default defineComponent({
             height: 60px;
           }
           @media screen and (max-width: 600px) {
-            width: 60px;
-            height: 60px;
+            width: 90px;
+            height: 90px;
           }
           &:hover {
             opacity: 0.9;
@@ -760,9 +761,6 @@ export default defineComponent({
           color: @white-color;
           @media screen and (max-width: 600px) {
             padding: 150px 44px;
-          }
-          h1 {
-            text-transform: uppercase;
           }
           p {
             margin: 65px 0 70px;
@@ -800,8 +798,8 @@ export default defineComponent({
           float: right;
           @media screen and (max-width: 600px) {
             float: none;
-          width: 60%;
-          margin: auto;
+            width: 60%;
+            margin: auto;
           }
         }
       }

@@ -158,6 +158,12 @@ export default defineComponent({
   line-height: 1.15;
   :deep(.bridge-style) {
     padding: 60px 0 80px;
+    @media screen and (max-width: 992px) {
+      padding: 160px 0 80px;
+    }
+    @media screen and (max-width: 600px) {
+      padding: 240px 0 80px;
+    }
     .content {
       width: 38%;
       max-width: 550px;
@@ -171,8 +177,15 @@ export default defineComponent({
         max-width: 600px;
       }
       @media screen and (max-width: 1200px) {
-      width: 50%;
-      max-width: none;
+        width: 50%;
+        max-width: none;
+      }
+      @media screen and (max-width: 992px) {
+        width: 70%;
+        max-width: none;
+      }
+      @media screen and (max-width: 600px) {
+        width: 80%;
       }
       .backgroud {
         padding: 5px 9px;
@@ -187,6 +200,12 @@ export default defineComponent({
           border-radius: 8px;
           color: @text-w-color;
           cursor: pointer;
+          @media screen and (max-width: 992px) {
+            padding: 26px;
+          }
+          @media screen and (max-width: 600px) {
+            padding: 39px;
+          }
           &.active {
             background-color: @theme-color;
             color: @white-color;
@@ -234,6 +253,12 @@ export default defineComponent({
       .form {
         .top {
           padding: 14px 11px;
+          @media screen and (max-width: 992px) {
+            padding: 28px 22px;
+          }
+          @media screen and (max-width: 600px) {
+            padding: 42px 33px;
+          }
           .el-select {
             margin: 0 10px;
             font-size: inherit;
@@ -251,6 +276,12 @@ export default defineComponent({
         .bottom {
           width: calc(100% - 22px);
           padding: 0 11px 24px;
+          @media screen and (max-width: 992px) {
+            padding: 0 22px 48px;
+          }
+          @media screen and (max-width: 600px) {
+            padding: 0 33px 72px;
+          }
           .el-input-group {
             background-color: @text-w-color;
             border: 1px solid #bbc7d8;
@@ -261,6 +292,12 @@ export default defineComponent({
               font-family: inherit;
               font-size: inherit;
               box-shadow: none;
+              @media screen and (max-width: 992px) {
+                height: 40px;
+              }
+              @media screen and (max-width: 600px) {
+                height: 80px;
+              }
               .el-input__inner {
                 font-size: inherit;
                 color: inherit;
@@ -301,6 +338,12 @@ export default defineComponent({
         margin: 29px 0 0;
         background-color: @theme-color;
         border-radius: 9px;
+        @media screen and (max-width: 992px) {
+          padding: 44px;
+        }
+        @media screen and (max-width: 600px) {
+          padding: 66px;
+        }
       }
       .span {
         opacity: 0.5;

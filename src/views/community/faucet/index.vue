@@ -101,6 +101,12 @@ export default defineComponent({
   line-height: 1.15;
   :deep(.bridge-style) {
     padding: 60px 0 80px;
+    @media screen and (max-width: 992px) {
+      padding: 160px 0 80px;
+    }
+    @media screen and (max-width: 600px) {
+      padding: 240px 0 80px;
+    }
     .content {
       width: 38%;
       max-width: 550px;
@@ -114,8 +120,15 @@ export default defineComponent({
         max-width: 600px;
       }
       @media screen and (max-width: 1200px) {
-      width: 50%;
-      max-width: none;
+        width: 50%;
+        max-width: none;
+      }
+      @media screen and (max-width: 992px) {
+        width: 70%;
+        max-width: none;
+      }
+      @media screen and (max-width: 600px) {
+        width: 80%;
       }
       &.bg {
         background: @bg-module-color url(../../../assets/images/bg-faucet.png)
@@ -157,6 +170,12 @@ export default defineComponent({
           border-radius: 8px;
           color: @text-w-color;
           cursor: pointer;
+          @media screen and (max-width: 992px) {
+            padding: 26px;
+          }
+          @media screen and (max-width: 600px) {
+            padding: 39px;
+          }
           &.active {
             background-color: @theme-color;
             color: @white-color;
@@ -166,6 +185,12 @@ export default defineComponent({
       .form {
         .top {
           padding: 14px 0 0;
+          @media screen and (max-width: 992px) {
+            padding: 28px 0 0;
+          }
+          @media screen and (max-width: 600px) {
+            padding: 42px 0 0;
+          }
           .el-select {
             width: 100%;
             margin: 0;
@@ -179,6 +204,12 @@ export default defineComponent({
                 border: 1px solid #3a3c48;
                 border-radius: 6px;
                 box-shadow: none;
+                @media screen and (max-width: 992px) {
+                  height: 40px;
+                }
+                @media screen and (max-width: 600px) {
+                  height: 80px;
+                }
               }
             }
           }
@@ -195,6 +226,12 @@ export default defineComponent({
               font-family: inherit;
               font-size: inherit;
               box-shadow: none;
+              @media screen and (max-width: 992px) {
+                height: 40px;
+              }
+              @media screen and (max-width: 600px) {
+                height: 80px;
+              }
               .el-input__inner {
                 font-size: inherit;
                 color: inherit;
@@ -219,10 +256,22 @@ export default defineComponent({
         .text {
           width: 100%;
           margin: 10px 0 0;
+          @media screen and (max-width: 992px) {
+            margin: 20px 0 0;
+          }
+          @media screen and (max-width: 600px) {
+            margin: 30px 0 0;
+          }
         }
       }
       .up {
         padding: 10px;
+        @media screen and (max-width: 992px) {
+          padding: 20px;
+        }
+        @media screen and (max-width: 600px) {
+          padding: 30px;
+        }
         svg {
           fill: @theme-color;
           color: @theme-color;
@@ -233,6 +282,12 @@ export default defineComponent({
         margin: 40px 0 0;
         background-color: @theme-color;
         border-radius: 9px;
+        @media screen and (max-width: 992px) {
+          padding: 44px;
+        }
+        @media screen and (max-width: 600px) {
+          padding: 66px;
+        }
       }
       .span {
         opacity: 0.5;

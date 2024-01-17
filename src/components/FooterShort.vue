@@ -29,7 +29,7 @@
           </svg>
         </a>
       </div>
-      <div class="copy tit font-16 weight-4 flex-row">
+      <div class="copy uppercase tit font-16 weight-4 flex-row">
         <a> {{ $t('menu.PrivacyPolicy') }}</a>
         <a> {{ $t('menu.TermsOfUse') }}</a>
       </div>
@@ -115,7 +115,6 @@ export default defineComponent({
     .copy {
       margin:0;
       color: @text-w-color;
-      text-transform: uppercase;
       a {
         margin: 0 0 0 20px;
         color: inherit;

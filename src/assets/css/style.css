@@ -150,15 +150,25 @@ a:focus {
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-sub-menu__title {
     height: auto !important;
-    padding-left: 0 !important;
+    /* padding-left: 0 !important;
     padding: 5px 20px 5px 0 !important;
     font-size: 17px;
-    line-height: 1;
+    line-height: 1; */
 }
 
 .el-sub-menu .el-sub-menu__icon-arrow {
     right: 5px !important;
     font-size: 13px !important;
+}
+
+@media screen and (max-width:768px) {
+    .el-menu--horizontal .el-menu .el-menu-item,
+    .el-menu--horizontal .el-menu .el-sub-menu__title {
+        padding-left: 0 !important;
+        padding: 5px 5px 5px 0 !important;
+        font-size: 17px;
+        line-height: 1;
+    }
 }
 
 @keyframes floating {

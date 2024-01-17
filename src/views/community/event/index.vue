@@ -15,7 +15,7 @@
               <img :src="b.img" />
               <div class="area font-16">
                 <div class="font-14">Testent</div>
-                <div class="tit font-24 font-bold">{{b.title}}</div>
+                <div class="tit uppercase font-24 font-bold">{{b.title}}</div>
                 <div class="el flex-row">
                   <a class="font-14">{{ $t('public.Learn-More') }}</a>
                 </div>
@@ -145,7 +145,6 @@ export default defineComponent({
             padding: 20px;
             .tit {
               padding: 6px 0 20px;
-              text-transform: uppercase;
             }
             .el {
               a {

@@ -67,7 +67,7 @@
                   <img :src="b.img" />
                   <div class="area font-14">
                     <div class="small">Testent</div>
-                    <div class="tit font-20 font-bold">{{b.title}}</div>
+                    <div class="tit uppercase font-20 font-bold">{{b.title}}</div>
                     <div class="flex-row space-between">{{b.date}}
                       <p>6 Day Event</p>
                     </div>
@@ -311,7 +311,6 @@ export default defineComponent({
             .tit {
               padding: 8px 0 20px;
               margin: 0 0 20px;
-              text-transform: uppercase;
               border-bottom: 1px solid @border-color;
             }
             .el {

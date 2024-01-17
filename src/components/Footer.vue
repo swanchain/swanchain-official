@@ -68,7 +68,7 @@
             </el-row>
           </el-col>
           <el-col :span="24">
-            <div class="copy tit font-16 weight-4 flex-row">
+            <div class="copy uppercase tit font-16 weight-4 flex-row">
               {{$t('footer.copy')}}
 
               <a> {{ $t('menu.PrivacyPolicy') }}</a>
@@ -256,7 +256,6 @@ export default defineComponent({
           .copy {
             margin: 30px 0 0;
             color: @text-w-color;
-            text-transform: uppercase;
             a {
               margin: 0 0 0 20px;
               color: inherit;
