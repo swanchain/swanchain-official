@@ -33,10 +33,11 @@ export default {
     "module_1_desc01": 'We are constantly looking for talents to join us to make Web3 better. Check below for current openings',
     "module_1_btn": 'Job Openings',
     "about_Swan_title": 'About Swan',
-    "about_Swan_desc": 'At Swan, our mission is to build a powerful and easy-to-use storage and computing infrastructure layer for the Web3. Our team members are in Canada, the US, and China.Swan works closely with organizations such as Chainlink and Filecoin Foundation. We are honored to be an active contributor to the community and serve as a leading member of the FVM early builder and RETMKT builders program. Swan is also the leading Filecoin North America Notary, and an Orbit Spaceship Ambassador.',
+    "about_Swan_desc": 'At Swan, our mission is to build a powerful and easy-to-use storage and computing infrastructure layer for the Web3. Our team members are in Canada, the US, and China.',
     "about_Swan_desc01": 'Swan works closely with organizations such as Chainlink and Filecoin Foundation. We are honored to be an active contributor to the community and serve as a leading member of the FVM early builder and RETMKT builders program. Swan is also the leading Filecoin North America Notary, and an Orbit Spaceship Ambassador.',
     "about_meet_title": 'Meet the Founder',
-    "about_meet_desc": 'At Swan, our mission is to build a powerful and easy-to-use storage and computing infrastructure layer for the Web3. Our team members are in Canada, the US, and China. Swan works closely with organizations such as Chainlink and Filecoin Foundation. We are honored to be an active contributor to the community and serve as a leading member of the FVM early builder and RETMKT builders program. Swan is also the leading Filecoin North America Notary, and an Orbit Spaceship Ambassador.',
+    "about_meet_desc": 'At Swan, our mission is to build a powerful and easy-to-use storage and computing infrastructure layer for the Web3. Our team members are in Canada, the US, and China. ',
+    "about_meet_desc_1": 'Swan works closely with organizations such as Chainlink and Filecoin Foundation. We are honored to be an active contributor to the community and serve as a leading member of the FVM early builder and RETMKT builders program. Swan is also the leading Filecoin North America Notary, and an Orbit Spaceship Ambassador.'
   },
   dashboard: {
     join_today_title: 'Accelerating',

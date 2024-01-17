@@ -176,7 +176,7 @@
               <div class="mit flex-row space-between menu-header community">
                 <div class="head-left">
                   <p class="font-16 weight-6">Community</p>
-                  <p class="font-14 span desc">Join Swan Chain's</p>
+                  <p class="font-14 span desc">Join Swan Chain's Community </p>
                   <a class="font-14" @click="system.$commonFun.goLink('https://linktr.ee/swan_chain')">Join Now</a>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default defineComponent({
     }
     async function handleSelect (key, keyPath) {
       if (key === 'About') router.push({ name: 'aboutUs' })
-      if (key === 'Faucet') router.push({ name: 'faucet' })
+      if (key === 'Faucet') system.$commonFun.goLink('https://discord.com/invite/Jd2BFSVCKw')
       if (key === 'BlockExplorer') system.$commonFun.goLink('https://saturn-explorer.swanchain.io/')
       if (key === 'Event') router.push({ name: 'event' })
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
@@ -319,6 +319,7 @@ export default defineComponent({
       else if (key === 'Documentation') system.$commonFun.goLink('https://docs.swanchain.io/')
       else if (key === 'GitHub') system.$commonFun.goLink('https://github.com/filswan')
       else if (key === 'SocialMedia') system.$commonFun.goLink('https://linktr.ee/swan_chain')
+      else if (key === 'Governance') system.$commonFun.goLink('https://docs.swanchain.io/getting-started/protocol-stack/governance')
     }
     // what-we-do
     async function activeMenu (row) {
@@ -332,6 +333,7 @@ export default defineComponent({
       else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
       else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'Blog'
       else if (nameMenu.indexOf('ecosystem') > -1) activeIndex.value = 'Ecosystem'
+      else if (nameMenu.indexOf('Governance') > -1) activeIndex.value = 'Governance'
       else activeIndex.value = '1'
     }
     function handleLogin (dia) {

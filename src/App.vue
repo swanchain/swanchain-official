@@ -791,7 +791,7 @@ body {
               &.community {
                 background: url(assets/images/menu/menu-community.png) right
                   center no-repeat;
-                background-size: 116px;
+                background-size: 110px;
                 @media screen and (max-width: 768px) {
                   background-size: 66px;
                 }
@@ -799,9 +799,9 @@ body {
               &.developers {
                 background: url(assets/images/menu/menu-developers.png) right
                   center no-repeat;
-                background-size: 116px;
+                background-size: 80px;
                 @media screen and (max-width: 768px) {
-                  background-size: 66px;
+                  background-size: 50px;
                 }
               }
               .head-left {
