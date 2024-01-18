@@ -4,7 +4,7 @@
       <el-header>
         <el-alert center class="alert-body">
           <template #title>
-            <span class="font-16">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
+            <span @click="system.$commonFun.goLink('https://swanchain.medium.com/filswan-rebrands-to-swan-signalling-expansion-from-storage-to-computing-4f0d08d3825c')" class="font-16">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
           </template>
         </el-alert>
         <v-head></v-head>
@@ -55,6 +55,7 @@ export default defineComponent({
     // })
     onMounted(() => { })
     return {
+      system,
       route,
       locale
     }
@@ -155,6 +156,12 @@ export default defineComponent({
     }
     .el-alert__content {
       display: flex;
+      span{
+        cursor: pointer;
+        &:hover{
+              text-decoration: underline;
+        }
+      }
     }
     .el-alert__title {
       line-height: 1;

@@ -55,10 +55,10 @@
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a class="font-16 font-bold weight-6">ABOUT</a>
                 <router-link :to="{name: 'aboutUs'}" class="font-14 weight-4 t">About Us</router-link>
-                <a class="font-14 weight-4 t">Privacy Policy</a>
-                <a class="font-14 weight-4 t">Terms of Use Careers</a>
+                <a href="https://swanchain.io/privacy-policy" target="_blank" class="font-14 weight-4 t">Privacy Policy</a>
+                <a href="https://swanchain.io/terms" target="_blank" class="font-14 weight-4 t">Terms of Use Careers</a>
                 <!-- <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-14 weight-4 t" target="_blank">Careers</a> -->
-                <router-link :to="{name: 'aboutUs'}" class="font-14 weight-4 t">Contact Us</router-link>
+                <a href="https://discord.com/invite/Jd2BFSVCKw" class="font-14 weight-4 t" target="_blank">Contact Us</a>
                 <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-14 weight-4 t" target="_blank">Brand Kit</a>
               </el-col>
               <!-- <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
@@ -70,8 +70,8 @@
             <div class="copy uppercase tit font-14 weight-4 flex-row">
               {{$t('footer.copy')}}
 
-              <a> {{ $t('menu.PrivacyPolicy') }}</a>
-              <a> {{ $t('menu.TermsOfUse') }}</a>
+              <a href="https://swanchain.io/privacy-policy" target="_blank"> {{ $t('menu.PrivacyPolicy') }}</a>
+              <a href="https://swanchain.io/terms" target="_blank"> {{ $t('menu.TermsOfUse') }}</a>
             </div>
           </el-col>
         </el-row>
@@ -141,6 +141,7 @@ export default defineComponent({
   background: @black-color url(../assets/images/bg-footer.jpg) top right
     no-repeat;
   background-size: auto 100%;
+  border-top: 1px solid @border-color;
   @media screen and (max-width: 768px) {
     padding: 60px 0;
   }

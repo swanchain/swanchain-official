@@ -30,8 +30,8 @@
         </a>
       </div>
       <div class="copy uppercase tit font-14 weight-4 flex-row">
-        <a> {{ $t('menu.PrivacyPolicy') }}</a>
-        <a> {{ $t('menu.TermsOfUse') }}</a>
+        <a href="https://swanchain.io/privacy-policy" target="_blank"> {{ $t('menu.PrivacyPolicy') }}</a>
+        <a href="https://swanchain.io/terms" target="_blank"> {{ $t('menu.TermsOfUse') }}</a>
       </div>
     </div>
   </div>

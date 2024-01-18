@@ -309,7 +309,7 @@ export default defineComponent({
       if (key === 'BlockExplorer') system.$commonFun.goLink('https://saturn-explorer.swanchain.io/')
       if (key === 'Event') router.push({ name: 'event' })
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
-      if (key === 'Bridge') router.push({ name: 'bridge' })
+      // if (key === 'Bridge') router.push({ name: 'bridge' })
       if (key === 'Blog') router.push({ name: 'blog' })
       else if (key === 'Ecosystem' || key === 'Ecosystem-dapps') router.push({ name: 'ecosystem' })
       else if (key === 'Lagrange') system.$commonFun.goLink('https://lagrangedao.org/')
@@ -320,6 +320,7 @@ export default defineComponent({
       else if (key === 'GitHub') system.$commonFun.goLink('https://github.com/filswan')
       else if (key === 'SocialMedia') system.$commonFun.goLink('https://linktr.ee/swan_chain')
       else if (key === 'Governance') system.$commonFun.goLink('https://docs.swanchain.io/getting-started/protocol-stack/governance')
+      else if (key === 'Orchestrator') system.$commonFun.goLink('https://docs.swanchain.io/orchestrator/overview')
     }
     // what-we-do
     async function activeMenu (row) {
@@ -330,10 +331,11 @@ export default defineComponent({
       else if (nameMenu.indexOf('blockExplorer') > -1) activeIndex.value = 'BlockExplorer'
       else if (nameMenu.indexOf('event') > -1) activeIndex.value = 'Event'
       else if (nameMenu.indexOf('helpCenter') > -1) activeIndex.value = 'HelpCenter'
-      else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
+      // else if (nameMenu.indexOf('bridge') > -1) activeIndex.value = 'Bridge'
       else if (nameMenu.indexOf('blog') > -1) activeIndex.value = 'Blog'
       else if (nameMenu.indexOf('ecosystem') > -1) activeIndex.value = 'Ecosystem'
       else if (nameMenu.indexOf('Governance') > -1) activeIndex.value = 'Governance'
+      else if (nameMenu.indexOf('Orchestrator') > -1) activeIndex.value = 'Orchestrator'
       else activeIndex.value = '1'
     }
     function handleLogin (dia) {

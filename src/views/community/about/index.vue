@@ -8,7 +8,7 @@
             <h3 class="font-20 weight-4">{{ $t('about.module_1_desc') }}</h3>
             <h3 class="font-20 weight-4">{{ $t('about.module_1_desc01') }}</h3>
             <div class="el flex-row">
-              <a class="font-16 font-bold">{{ $t('about.module_1_btn') }}</a>
+              <a class="font-16 font-bold" @click="system.$commonFun.goLink('https://www.linkedin.com/company/swancloud/jobs/')">{{ $t('about.module_1_btn') }}</a>
             </div>
           </div>
           <div class="landing_img flex-row center">
@@ -25,8 +25,7 @@
             <div class="title font-26 font-bold">{{ $t('about.about_Swan_title') }}</div>
             <div class="desc font-20">
               {{ $t('about.about_Swan_desc') }}
-              <br /><br />
-              {{ $t('about.about_Swan_desc01') }}
+              <br /><br /> {{ $t('about.about_Swan_desc01') }}
             </div>
           </div>
         </el-col>
@@ -43,15 +42,21 @@
             <div class="title font-26 font-bold">{{ $t('about.about_meet_title') }}</div>
             <div class="desc font-20">
               {{ $t('about.about_meet_desc') }}
-              <br /><br />
-              {{ $t('about.about_meet_desc_1') }}
             </div>
           </div>
         </el-col>
         <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="flex-row right">
           <div class="image-style flex-row center">
             <img :src="bossImg" class="radius" />
-            <div class="name font-26 weight-6 text-center">Co-Founder</div>
+            <div class="name font-22 font-bold text-center m flex-row center">
+              Charles Cao
+              <svg @click="system.$commonFun.goLink('https://www.linkedin.com/in/charles-cao-09a79526/')" t="1705557015650" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2298" width="30" height="30">
+                <path d="M0 0m512 0l0 0q512 0 512 512l0 0q0 512-512 512l0 0q-512 0-512-512l0 0q0-512 512-512Z" fill="#1D87BD" p-id="2299"></path>
+                <path d="M289.152 434.5088h95.6928V742.4h-95.6928V434.5088zM336.9984 281.6a55.6032 55.6032 0 0 1 51.5328 34.176c8.6784 20.736 3.9168 44.672-12.0064 60.5696a55.68 55.68 0 0 1-60.672 12.0064A55.5008 55.5008 0 0 1 281.6 336.896 55.1936 55.1936 0 0 1 336.9984 281.6z m107.8528 152.9088h91.4944v41.8816H537.6a100.7616 100.7616 0 0 1 90.24-49.408c96.9216 0 114.56 63.6416 114.56 146.5856V742.4h-95.2576v-149.5552c0-36.0192-0.8448-81.664-49.9456-81.664-49.1008 0-57.088 38.528-57.088 78.7456V742.4h-95.232V434.5088z"
+                  fill="#FFFFFF" p-id="2300"></path>
+              </svg>
+            </div>
+            <div class="name font-18 weight-4 text-center">Co-Founder</div>
           </div>
         </el-col>
       </el-row>
@@ -66,7 +71,7 @@
       </el-row>
     </div>
 
-    <div class="hassle" style="padding-top: 0.2rem">
+    <div class="hassle">
       <div class="lang-max">
         <div class="title font-26 font-bold text-center uppercase">{{ $t('careers.filecoin_netowork') }}</div>
         <div class="Swan_video">
@@ -119,18 +124,20 @@
     </div>
 
     <div class="need-further">
-      <el-row class="block-cont row-bg" justify="center">
-        <el-col :xs="24" :sm="14" :md="12" :lg="12" :xl="12" class="flex-row">
-          <div class="content font-16">
-            <h1 class="font-50 font-bold uppercase">Need Further Help?</h1>
-            <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
-            <el-button class="font-22">Contact Us</el-button>
-          </div>
-        </el-col>
-        <el-col :xs="24" :sm="10" :md="12" :lg="12" :xl="12" class="flex-row flex-end">
-          <img :src="needImg" />
-        </el-col>
-      </el-row>
+      <div class="lang-max">
+        <el-row class="block-cont row-bg" justify="center">
+          <el-col :xs="24" :sm="14" :md="12" :lg="12" :xl="12" class="flex-row">
+            <div class="content font-22">
+              <h1 class="font-50 font-bold">Need Further Help?</h1>
+              <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
+              <el-button @click="system.$commonFun.goLink('https://discord.com/invite/Jd2BFSVCKw')">Contact Us</el-button>
+            </div>
+          </el-col>
+          <el-col :xs="24" :sm="10" :md="12" :lg="12" :xl="12" class="flex-row flex-end">
+            <img :src="needImg" />
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </div>
 </template>
@@ -267,6 +274,9 @@ export default defineComponent({
     }
     .landing-style {
       margin: 0 90px;
+      @media screen and (max-width: 600px) {
+        margin: 0 32px;
+      }
       h1 {
         width: 100%;
         margin: 55px 0 0;
@@ -281,6 +291,10 @@ export default defineComponent({
         width: 51%;
         @media screen and (max-width: 992px) {
           width: 60%;
+        }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          margin: 0 auto 60px;
         }
         .landing_logo {
           width: 100%;
@@ -382,6 +396,10 @@ export default defineComponent({
         @media screen and (max-width: 992px) {
           width: 40%;
         }
+        @media screen and (max-width: 600px) {
+          width: 60%;
+          margin: auto;
+        }
         img {
           display: block;
           width: 90%;
@@ -423,10 +441,10 @@ export default defineComponent({
     }
   }
   .aboutSwan {
-    padding: 0 0 63px;
+    padding: 0 0 70px;
     background: url(../../../assets/images/about/background-image02.png) 200px
       bottom no-repeat;
-    background-size: 8%;
+    background-size: 7%;
     @media screen and (max-width: 768px) {
       background-size: 15%;
     }
@@ -441,6 +459,9 @@ export default defineComponent({
             padding: 110px 118px 140px 258px;
             @media screen and (max-width: 1200px) {
               max-width: none;
+            }
+            @media screen and (max-width: 600px) {
+              padding: 110px 130px;
             }
             .title {
               color: @theme-color;
@@ -472,18 +493,24 @@ export default defineComponent({
         }
         .image-style {
           width: 100%;
-          max-width: 630px;
-          @media screen and (max-width: 1200px) {
+          max-width: 500px;
+          @media screen and (max-width: 600px) {
             max-width: none;
           }
           .name {
             width: 100%;
-            margin: 45px 0 0;
-            @media screen and (max-width: 768px) {
-              margin: 45px 0 80px;
-            }
             @media screen and (max-width: 600px) {
-              margin: 45px 0 160px;
+              margin: 0 0 46px;
+            }
+            &.m {
+              margin: 45px 0 15px;
+              svg {
+                margin: 0 0 0 8px;
+                cursor: pointer;
+                @media screen and (max-width: 600px) {
+                  margin: 0 0 0 16px;
+                }
+              }
             }
           }
           .radius {
@@ -496,7 +523,7 @@ export default defineComponent({
         }
         img {
           width: 90%;
-          max-width: 335px;
+          max-width: 288px;
           margin: auto;
           border-radius: 4px;
           &.radius {
@@ -509,7 +536,7 @@ export default defineComponent({
             }
           }
           @media screen and (max-width: 600px) {
-            width: 60%;
+            width: 50%;
             max-width: none;
             margin: 150px auto;
           }
@@ -518,7 +545,7 @@ export default defineComponent({
           line-height: 1.5;
         }
         .desc {
-          margin: 50px 0 0;
+          margin: 40px 0 0;
           line-height: 1.7;
           color: @text-w-color;
         }
@@ -546,11 +573,13 @@ export default defineComponent({
     }
   }
   :deep(.blockchain) {
-    margin: 120px auto 60px;
+    margin: 70px auto;
     .subtit {
       margin: 0 auto 50px;
     }
     .row-bg {
+      width: 90%;
+      margin: auto;
       .el-col {
         margin: 10px 0;
         max-width: 11.11%;
@@ -584,7 +613,7 @@ export default defineComponent({
     }
   }
   :deep(.hassle) {
-    padding: 95px 0 120px;
+    padding: 75px 0 140px;
     @media screen and (max-width: 768px) {
       padding: 55px 0 140px;
     }
@@ -594,7 +623,7 @@ export default defineComponent({
     .Swan_video {
       position: relative;
       width: 53%;
-      margin: 55px auto;
+      margin: 95px auto 65px;
       // padding: 0 14% 0 16.8%;
       @media screen and (max-width: 768px) {
         width: 80%;
@@ -710,37 +739,42 @@ export default defineComponent({
     }
   }
   .joinList {
-    padding: 50px 0 0;
+    padding: 50px 0 15px;
     .list {
-      margin: 50px auto 125px;
+      margin: 60px auto 125px;
       @media screen and (max-width: 600px) {
         flex-wrap: wrap;
       }
       a {
         display: block;
-        margin: 0 20px;
+        margin: 20px 32px;
         @media screen and (min-width: 2160px) {
-          margin: 0 16px;
+          margin: 16px;
         }
         @media screen and (max-width: 768px) {
-          margin: 10px 30px;
+          margin: 30px;
         }
         @media screen and (max-width: 600px) {
-          margin: 20px 40px;
+          margin: 40px;
         }
         @media screen and (max-width: 540px) {
-          margin: 30px 60px;
+          margin: 60px;
+        }
+        &:hover {
+          span {
+            text-decoration: underline;
+          }
         }
         span {
-          padding: 0 17px;
+          padding: 0 12px;
           color: @text-w-color;
           text-transform: capitalize;
         }
         svg {
           display: block;
-          width: 30px;
-          height: 30px;
-          padding: 16px;
+          width: 38px;
+          height: 38px;
+          padding: 12px;
           cursor: pointer;
           fill: @theme-color;
           opacity: 1;
@@ -748,16 +782,16 @@ export default defineComponent({
           border: 1px solid @theme-color;
           border-radius: 100px;
           @media screen and (min-width: 2160px) {
-            width: 15px;
-            height: 15px;
+            width: 23px;
+            height: 23px;
           }
           @media screen and (max-width: 768px) {
-            width: 60px;
-            height: 60px;
+            width: 57px;
+            height: 57px;
           }
           @media screen and (max-width: 600px) {
-            width: 90px;
-            height: 90px;
+            width: 76px;
+            height: 76px;
           }
           &:hover {
             opacity: 0.9;
@@ -767,24 +801,26 @@ export default defineComponent({
     }
   }
   :deep(.need-further) {
-    padding: 0 180px;
-    margin: 0 0 70px;
+    margin: 0 0 90px;
     background-color: @theme-color;
     line-height: 1;
     .block-cont {
-      max-width: 1400px;
+      width: 84%;
       margin: 0 auto;
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
       .el-col {
         .content {
-          padding: 32px 44px;
+          padding: 30px 40px 30px 0;
           color: @white-color;
           @media screen and (max-width: 600px) {
-            padding: 150px 44px;
+            padding: 150px 40px 0 0;
           }
           p {
-            margin: 35px 0 40px;
+            margin: 30px 0;
             @media screen and (max-width: 600px) {
-              margin: 70px 0 80px;
+              margin: 60px 0;
             }
           }
           .el-button {
@@ -793,6 +829,7 @@ export default defineComponent({
             padding: 20px 45px;
             margin: 0;
             background-color: @white-color;
+            font-family: inherit;
             font-size: inherit;
             color: @theme-color;
             border: 2px solid @white-color;

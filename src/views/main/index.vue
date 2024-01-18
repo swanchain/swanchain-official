@@ -21,8 +21,8 @@
           <h1 class="font-79 font-black text-center uppercase">{{$t('main.banner.title')}}</h1>
           <p class="font-20 text-center" v-html="$t('main.banner.describe')"></p>
           <div class="flex-row center">
-            <div class="learn-more font-18 uppercase" @click="system.$commonFun.contactUsMethod()">Build on Swan Chain</div>
-            <div class="learn-more font-18 uppercase">EXPLORE DEVELOPER DOCS</div>
+            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">Build on Swan Chain</div>
+            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">EXPLORE DEVELOPER DOCS</div>
           </div>
         </div>
       </div>
@@ -185,7 +185,7 @@
         </div>
         <el-row class="unlock-cont row-bg dApps" justify="center">
           <el-col class="n" :xs="12" :sm="6" :md="6" :lg="6" :xl="6" v-for="e in exploreData" :key="e">
-            <div class="content">
+            <div class="content" @click="system.$commonFun.goLink(e.link)">
               <div class="image flex-row center">
                 <img :src="e.img" />
               </div>
@@ -205,7 +205,7 @@
               </h1>
               <h3 class="font-20 weight-4 d">Dream, code and launch dApps on Swan Chain, the layer 2 AI computing blockchain for effortlessly building and scaling your dApps to infinity. Ditch development roadblocks, crush fees, and unleash your app's true potential.</h3>
               <div class="el flex-row">
-                <a class="font-16 font-bold">Start Building</a>
+                <a class="font-16 font-bold" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">Start Building</a>
               </div>
             </div>
           </el-col>
@@ -437,10 +437,19 @@ export default defineComponent({
       }
     ])
     const exploreData = ref([
-      { img: require('@/assets/images/dashboard/logo-01.png') },
-      { img: require('@/assets/images/dashboard/logo-02.png') },
-      { img: require('@/assets/images/dashboard/logo-03.png') },
-      { img: require('@/assets/images/dashboard/logo-04.png') }
+      {
+        img: require('@/assets/images/dashboard/logo-01.png'),
+        link: 'https://lagrangedao.org/'
+      },
+      {        img: require('@/assets/images/dashboard/logo-02.png'),
+        link: 'https://multichain.storage/'
+      },
+      {        img: require('@/assets/images/dashboard/logo-03.png'),
+        link: 'https://www.fogmetalabs.com/metaark'
+      },
+      {        img: require('@/assets/images/dashboard/logo-04.png'),
+        link: 'https://chainnode.io/'
+      }
     ])
     const carouselData = ref([
       {
@@ -508,7 +517,6 @@ export default defineComponent({
   letter-spacing: 1px;
   word-break: break-word;
   line-height: 1.15;
-  border-bottom: 1px solid @border-color;
   .bg-point {
     position: absolute;
     width: 43%;
@@ -783,6 +791,7 @@ export default defineComponent({
           .content {
             height: calc(100% - 82px);
             padding: 38px 34px;
+            cursor: pointer;
             @media screen and (max-width: 768px) {
               height: calc(100% - 128px);
               margin: 24px;
