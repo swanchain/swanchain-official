@@ -2,15 +2,15 @@
   <div class="landing">
     <div class="secondary"></div>
     <div class="principal">
-      <div class="container">
+      <div class="container lang-max">
         <div class="container_heading">
-          <h1>Privacy Policy</h1>
-          <div class="effective_date">
+          <h1 class="font-40">Privacy Policy</h1>
+          <div class="effective_date font-14">
             Effective date:
             <span>April 29, 2022</span>
           </div>
         </div>
-        <div class="container_content">
+        <div class="container_content font-16">
           <p>We take your privacy seriously. This Privacy Policy describes how we collect, use and share your personally identifiable information (“Personal Information”) that we receive from you when you visit our website or which we otherwise
             receive or collect from you in the course of, or in connection with, your use of our site located at https://swanchain.io and all associated sites (the “Website”), the provision of our products and services (our “Services”) and our
             business operations. Please read the following to learn more about our Privacy Policy.</p>
@@ -192,16 +192,22 @@ export default {
 <style lang="less" scoped>
 .landing {
   .secondary {
-    height: 160px;
+    height: 260px;
     background-color: @theme-color;
+    @media screen and (max-width: 767px) {
+      height: 390px;
+    }
+    @media screen and (max-width: 540px) {
+      height: 520px;
+    }
   }
   .principal {
-    margin-top: -72px;
+    margin-top: -120px;
     margin-bottom: 96px;
     .container {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 30px 64px 0;
+      padding: 30px 64px;
       background-color: #fff;
       box-sizing: border-box;
       @media screen and (min-width: 1800px) {
@@ -213,7 +219,8 @@ export default {
       @media screen and (max-width: 768px) {
         padding: 0 24px;
       }
-      @media screen and (max-width: 479px) {
+      @media screen and (max-width: 540px) {
+        max-width: none;
         padding: 0 16px;
       }
       .container_heading {
@@ -221,23 +228,22 @@ export default {
         max-width: 916px;
         margin: 0 auto;
         padding: 40px 0;
+        @media screen and (max-width: 600px) {
+          width: 90%;
+          max-width: none;
+        }
         h1 {
           display: flex;
           margin: 0 0 8px 0;
           color: @theme-color;
-          font-size: 40px;
           font-weight: 500;
           line-height: 1.4;
           letter-spacing: -0.5px;
-          @media screen and (max-width: 768px) {
-            font-size: 32px;
-          }
         }
         .effective_date {
           display: flex;
           margin: 0 0 8px 4px;
           color: #333;
-          font-size: 14px;
           span {
             margin: 0 4px;
             color: #000;
@@ -248,10 +254,13 @@ export default {
         width: 90%;
         max-width: 800px;
         margin: 0 auto;
-        font-size: 16px;
         line-height: 1.5;
         color: #333;
         word-break: break-word;
+        @media screen and (max-width: 600px) {
+          width: 80%;
+          max-width: none;
+        }
         p {
           margin-bottom: 24px;
           font-size: inherit;

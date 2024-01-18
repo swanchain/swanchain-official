@@ -30,8 +30,8 @@
         </a>
       </div>
       <div class="copy uppercase tit font-14 weight-4 flex-row">
-        <a href="https://swanchain.io/privacy-policy" target="_blank"> {{ $t('menu.PrivacyPolicy') }}</a>
-        <a href="https://swanchain.io/terms" target="_blank"> {{ $t('menu.TermsOfUse') }}</a>
+        <router-link :to="{name: 'privacy-policy'}"> {{ $t('menu.PrivacyPolicy') }}</router-link>
+        <router-link :to="{name: 'terms'}"> {{ $t('menu.TermsOfUse') }}</router-link>
       </div>
     </div>
   </div>

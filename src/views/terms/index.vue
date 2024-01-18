@@ -2,15 +2,15 @@
   <div class="landing">
     <div class="secondary"></div>
     <div class="principal">
-      <div class="container">
+      <div class="container lang-max">
         <div class="container_heading">
-          <h1>Terms of Service</h1>
-          <div class="effective_date">
+          <h1 class="font-40">Terms of Service</h1>
+          <div class="effective_date font-14">
             Last updated:
             <span>April 29, 2022</span>
           </div>
         </div>
-        <div class="container_content">
+        <div class="container_content font-16">
           <p>These terms of service, together with any documents and additional terms they incorporate by reference (collectively, these “
             <strong>Terms</strong>”), are entered into between Swan Cloud Inc (“
             <strong>Swan</strong>,” “
@@ -304,14 +304,20 @@ export default {
   .secondary {
     height: 160px;
     background-color: @theme-color;
+    @media screen and (max-width: 767px) {
+      height: 390px;
+    }
+    @media screen and (max-width: 540px) {
+      height: 520px;
+    }
   }
   .principal {
-    margin-top: -72px;
+    margin-top: -120px;
     margin-bottom: 96px;
     .container {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 30px 64px 0;
+      padding: 30px 64px;
       background-color: #fff;
       box-sizing: border-box;
       @media screen and (min-width: 1800px) {
@@ -323,7 +329,8 @@ export default {
       @media screen and (max-width: 768px) {
         padding: 0 24px;
       }
-      @media screen and (max-width: 479px) {
+      @media screen and (max-width: 540px) {
+        max-width: none;
         padding: 0 16px;
       }
       .container_heading {
@@ -331,23 +338,22 @@ export default {
         max-width: 916px;
         margin: 0 auto;
         padding: 40px 0;
+        @media screen and (max-width: 600px) {
+          width: 90%;
+          max-width: none;
+        }
         h1 {
           display: flex;
           margin: 0 0 8px 0;
           color: @theme-color;
-          font-size: 40px;
           font-weight: 500;
           line-height: 1.4;
           letter-spacing: -0.5px;
-          @media screen and (max-width: 768px) {
-            font-size: 32px;
-          }
         }
         .effective_date {
           display: flex;
           margin: 0 0 8px 4px;
           color: #333;
-          font-size: 14px;
           span {
             margin: 0 4px;
             color: #000;
@@ -358,10 +364,13 @@ export default {
         width: 90%;
         max-width: 800px;
         margin: 0 auto;
-        font-size: 16px;
         line-height: 1.5;
         color: #333;
         word-break: break-word;
+        @media screen and (max-width: 600px) {
+          width: 80%;
+          max-width: none;
+        }
         p {
           margin-bottom: 24px;
           font-size: inherit;

@@ -55,9 +55,9 @@
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a class="font-16 font-bold weight-6">ABOUT</a>
                 <router-link :to="{name: 'aboutUs'}" class="font-14 weight-4 t">About Us</router-link>
-                <a href="https://swanchain.io/privacy-policy" target="_blank" class="font-14 weight-4 t">Privacy Policy</a>
-                <a href="https://swanchain.io/terms" target="_blank" class="font-14 weight-4 t">Terms of Use Careers</a>
-                <!-- <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-14 weight-4 t" target="_blank">Careers</a> -->
+                <router-link :to="{name: 'privacy-policy'}" class="font-14 weight-4 t">Privacy Policy</router-link>
+                <router-link :to="{name: 'terms'}" class="font-14 weight-4 t">Terms of Use</router-link>
+                <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-14 weight-4 t" target="_blank">Careers</a>
                 <a href="https://discord.com/invite/Jd2BFSVCKw" class="font-14 weight-4 t" target="_blank">Contact Us</a>
                 <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-14 weight-4 t" target="_blank">Brand Kit</a>
               </el-col>
@@ -70,8 +70,8 @@
             <div class="copy uppercase tit font-14 weight-4 flex-row">
               {{$t('footer.copy')}}
 
-              <a href="https://swanchain.io/privacy-policy" target="_blank"> {{ $t('menu.PrivacyPolicy') }}</a>
-              <a href="https://swanchain.io/terms" target="_blank"> {{ $t('menu.TermsOfUse') }}</a>
+              <router-link :to="{name: 'privacy-policy'}"> {{ $t('menu.PrivacyPolicy') }}</router-link>
+              <router-link :to="{name: 'terms'}"> {{ $t('menu.TermsOfUse') }}</router-link>
             </div>
           </el-col>
         </el-row>
