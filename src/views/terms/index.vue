@@ -302,7 +302,7 @@ export default {
 <style lang="less" scoped>
 .landing {
   .secondary {
-    height: 160px;
+    height: 240px;
     background-color: @theme-color;
     @media screen and (max-width: 767px) {
       height: 390px;

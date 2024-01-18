@@ -934,7 +934,7 @@ export default defineComponent({
             @media screen and (min-width: 2160px) {
               min-height: 26px;
             }
-            @media screen and (min-width: 2366px) {
+            @media screen and (min-width: 2200px) {
               min-height: 39px;
             }
             @media screen and (max-width: 768px) {
