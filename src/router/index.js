@@ -44,7 +44,7 @@ const routes = [{
                 component: main,
                 meta: {
                     keepAlive: true,
-                    title: 'Nebula Block'
+                    title: 'Swan Chain | The Layer 2 Blockchain for AI Computing'
                 }
             },
             {
@@ -53,7 +53,7 @@ const routes = [{
                 component: about,
                 meta: {
                     keepAlive: true,
-                    title: 'About Us'
+                    title: 'Swan Chain | About Us'
                 }
             },
             {
@@ -122,12 +122,20 @@ const routes = [{
             {
                 path: '/privacy-policy',
                 name: 'privacy-policy',
-                component: privacyPolicy
+                component: privacyPolicy,
+                meta: {
+                    keepAlive: true,
+                    title: 'Swan Chain | Privacy Policy'
+                }
             },
             {
                 path: '/terms',
                 name: 'terms',
-                component: terms
+                component: terms,
+                meta: {
+                    keepAlive: true,
+                    title: 'Swan Chain | Terms of Use'
+                }
             }
         ]
     },

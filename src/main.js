@@ -13,6 +13,19 @@ import en from 'element-plus/es/locale/lang/en'
 import commonFun from '@/utils/common'
 import 'amfe-flexible'
 
+var routed = '';
+router.beforeEach((to, from, next) => {
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+    if (to.path != routed) {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0
+    }
+    routed = to.path
+    next()
+})
+
 const app = createApp(App)
 app.config.globalProperties.$commonFun = commonFun
 app
