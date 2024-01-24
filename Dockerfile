@@ -33,7 +33,7 @@ RUN npm install
 COPY src .
 
 # build app for production with minification
-RUN npm run build:prod
+RUN npm run build:prod_u
 
 FROM nginx:1.15.2-alpine as production-build
 
