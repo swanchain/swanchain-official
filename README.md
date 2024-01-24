@@ -32,6 +32,27 @@ $ npm run build:prod_t / npm run build:prod_u / npm run build:prod
 
 The build artifacts will be stored in the `dist_prod/dist_testnet` directory.
 
+## Docker Deployment
+#### Install Docker Compose
+
+https://docs.docker.com/compose/install/
+### Stable
+
+Run the following command to run the latest stable image of orchestrator-web page
+
+```bash
+docker build -t orchestrator/orchestrator-web -f Dockerfile .
+docker run -d --name orchestrator-web -p 8080:8080 -t orchestrator/orchestrator-web
+```
+The service will be Available on:
+
+http://127.0.0.1:8080
+
+http://172.17.0.2:8080
+
+Hit CTRL-C to stop the server
+
+
 ## Pre order preparation
 
 **Preparation before operation:**

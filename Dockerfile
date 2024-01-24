@@ -1,4 +1,4 @@
-FROM node:21.3.0-alpine as builder
+FROM node:14.18.2-alpine3.12 as builder
 # python2 support
 
 RUN apk add --update \
