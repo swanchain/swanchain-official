@@ -1,5 +1,4 @@
-FROM node:14.18.2-alpine3.12 as builder
-# python2 support
+FROM node:18.1-alpine as builder
 
 RUN apk add --update \
   python3 \
@@ -8,7 +7,7 @@ RUN apk add --update \
   build-base \
   git \
   openssh-client \
-&& pip install virtualenv \
+&& pip install --ignore-installed distlib virtualenv \
 && rm -rf /var/cache/apk/* \
 
 # make the 'app' folder the current working directory
