@@ -1,4 +1,4 @@
-FROM node:15-alpine as builder
+FROM node:21.3.0-alpine as builder
 # python2 support
 
 RUN apk add --update \
@@ -30,10 +30,10 @@ RUN npm cache clean --force
 RUN npm install
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY src .
+COPY . .
 
 # build app for production with minification
-RUN npm run build:prod_t
+RUN npm run build:prod_u
 
 FROM nginx:1.15.2-alpine as production-build
 
