@@ -6,7 +6,6 @@ yarn\.lock
 .DS_Store
 node_modules
 dist/
-dist_prod/
 dist_test/
 package-lock.json
 
