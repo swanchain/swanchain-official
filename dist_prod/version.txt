@@ -1,9 +1,0 @@
-
-    Current branch name: black_v
-
-    Hash: 8772fb8fd0140fc56cac56a01759e5fa6c642ea0
-
-    Date: 2024-01-22 14:12:38
-
-    Description: Replace icon
-  
