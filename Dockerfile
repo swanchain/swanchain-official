@@ -1,5 +1,4 @@
-FROM node:18.12.1-alpine as builder
-# python2 support
+FROM node:18.1-alpine as builder
 
 RUN apk add --update \
   python3 \
@@ -8,7 +7,7 @@ RUN apk add --update \
   build-base \
   git \
   openssh-client \
-&& pip install virtualenv \
+&& pip install --ignore-installed distlib virtualenv \
 && rm -rf /var/cache/apk/* \
 
 # make the 'app' folder the current working directory
@@ -28,9 +27,6 @@ RUN npm cache clean --force
 
 # install project dependencies
 RUN npm install
-
-# reinstall i18n
-RUN npm i vue-i18n@9.1.0
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
