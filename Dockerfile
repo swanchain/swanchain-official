@@ -1,4 +1,4 @@
-FROM node:14.18.2-alpine3.12 as builder
+FROM node:18.12.1-alpine as builder
 # python2 support
 
 RUN apk add --update \
@@ -28,6 +28,9 @@ RUN npm cache clean --force
 
 # install project dependencies
 RUN npm install
+
+# reinstall i18n
+RUN npm i vue-i18n@9.1.0
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
