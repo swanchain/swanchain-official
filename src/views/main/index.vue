@@ -216,7 +216,7 @@
     <div class="blockchain lang-max">
       <div class="funded-style">
         <div class="subtit uppercase font-26 font-bold text-center">{{$t('dashboard.person_title')}}</div>
-        <el-row class="block-list row-bg" justify="center">
+        <el-row class="block-list row-bg">
           <el-col v-for="b in fundData" :key="b">
             <img :src="b.img" />
           </el-col>
@@ -312,9 +312,9 @@ export default defineComponent({
       {
         img: require(`@/assets/images/about/funded/funded-15.png`)
       },
-      {
-        img: require(`@/assets/images/about/funded/funded-16.png`)
-      },
+      // {
+      //   img: require(`@/assets/images/about/funded/funded-16.png`)
+      // },
       {
         img: require(`@/assets/images/about/funded/funded-17.png`)
       },
