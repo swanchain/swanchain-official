@@ -21,7 +21,7 @@
           <h1 class="font-79 font-black text-center uppercase">{{$t('main.banner.title')}}</h1>
           <p class="font-20 text-center" v-html="$t('main.banner.describe')"></p>
           <div class="flex-row center">
-            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">Build on Swan Chain</div>
+            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/development-resource/quickstarts')">Build on Swan Chain</div>
             <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">EXPLORE DEVELOPER DOCS</div>
           </div>
         </div>
