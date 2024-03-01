@@ -55,6 +55,7 @@ export default defineComponent({
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(68, 125, 255, 0.8);
   z-index: 999;
 }
 </style>

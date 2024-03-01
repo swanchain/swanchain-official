@@ -150,6 +150,20 @@ function hiddAddress(val) {
   else return '-'
 }
 
+function replaceFormat(value) {
+  try {
+    if (String(value) === '0') return '0'
+    else if (!value) return '-'
+    var intPartArr = String(value).split('.')
+    var intPartFormat = intPartArr[0]
+      .toString()
+      .replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+    return intPartArr[1] ? `${intPartFormat}.${intPartArr[1].slice(0, 2)}` : intPartFormat
+  } catch {
+    return '-'
+  }
+}
+
 export default {
   sendRequest,
   timeout,
@@ -164,5 +178,6 @@ export default {
   hourMethod,
   NumFormat,
   calculateDiffTime,
-  hiddAddress
+  hiddAddress,
+  replaceFormat
 }
