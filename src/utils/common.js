@@ -150,6 +150,17 @@ function hiddAddress(val) {
   else return '-'
 }
 
+function countUnit(bytes) {
+  if (bytes === 0) return '0'
+  if (!bytes) return '-'
+  var k = 1000
+  var sizes = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y']
+  var i = Math.floor(Math.log(bytes) / Math.log(k))
+
+  if (Math.round((bytes / Math.pow(k, i))).toString().length > 3) i += 1
+  return parseInt((bytes / Math.pow(k, i))) + sizes[i]
+}
+
 function replaceFormat(value) {
   try {
     if (String(value) === '0') return '0'
@@ -179,5 +190,6 @@ export default {
   NumFormat,
   calculateDiffTime,
   hiddAddress,
-  replaceFormat
+  replaceFormat,
+  countUnit
 }

@@ -118,19 +118,19 @@
             <loading-over v-if="providerBody.loading" :listLoad="providerBody.loading"></loading-over>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">{{system.$commonFun.replaceFormat(providerBody.total_transactions)}}</h1>
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_transactions)}}+</h1>
                 <p class="font-20 weight-4">Transactions</p>
               </div>
             </el-col>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">50K+</h1>
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(50000)}}+</h1>
                 <p class="font-20 weight-4">dApp Contracts</p>
               </div>
             </el-col>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">{{system.$commonFun.replaceFormat(providerBody.total_addresses)}}</h1>
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_addresses)}}+</h1>
                 <p class="font-20 weight-4">Unique Addresses</p>
               </div>
             </el-col>
