@@ -115,10 +115,23 @@
         <div class="thriving-cont">
           <h1 class="uppercase font-26 font-bold uppercase">let the numbers say <br />how swan chain is thriving</h1>
           <el-row :gutter="28" justify="space-between">
-            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8" v-for="th in thrivingData" :key="th">
+            <loading-over v-if="providerBody.loading" :listLoad="providerBody.loading"></loading-over>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-45 font-bold">{{th.title}}</h1>
-                <p class="font-20 weight-4">{{th.desc}}</p>
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_transactions)}}+</h1>
+                <p class="font-20 weight-4">Transactions</p>
+              </div>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+              <div class="content">
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(50000)}}+</h1>
+                <p class="font-20 weight-4">dApp Contracts</p>
+              </div>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+              <div class="content">
+                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_addresses)}}+</h1>
+                <p class="font-20 weight-4">Unique Addresses</p>
               </div>
             </el-col>
           </el-row>
@@ -249,6 +262,7 @@
 </template>
 
 <script>
+import loadingOver from "@/components/loading"
 import { defineComponent, computed, onMounted, watch, ref, reactive, getCurrentInstance } from 'vue'
 import { useStore } from "vuex"
 import { useRouter, useRoute } from 'vue-router'
@@ -257,7 +271,7 @@ import { ElRow, ElCol, ElButton, ElDropdown, ElInput } from 'element-plus'
 import Swiper from '@/assets/js/swiper.min.js'
 export default defineComponent({
   components: {
-    ElRow, ElCol, ElButton, ElDropdown, ElInput
+    loadingOver, ElRow, ElCol, ElButton, ElDropdown, ElInput
   },
   setup () {
     const store = useStore()
@@ -468,12 +482,27 @@ export default defineComponent({
         desc: "Swan Chain's toolkit equips you for every stage of your dApp journey. Effortless data storage with Multi-Chain Storage, advanced code management with Lagrange, and powerful RPC services."
       }
     ])
+    const providerBody = reactive({
+      loading: false,
+      total_addresses: '',
+      total_transactions: ''
+    })
 
     function getShow (content, index, type) {
       if (content === 'unlock') unlockData.value[index].onShow = type === 'leave' ? true : false
       else possibleData.value[index].onShow = type === 'leave' ? true : false
     }
+    async function getTotalTotal () {
+      providerBody.loading = true
+      const statsRes = await system.$commonFun.sendRequest(`${process.env.VUE_APP_STATS}v2/stats`, 'get')
+      if (statsRes) {
+        providerBody.total_addresses = statsRes.total_addresses || ''
+        providerBody.total_transactions = statsRes.total_transactions || ''
+      }
+      providerBody.loading = false
+    }
     onMounted(() => {
+      getTotalTotal()
       var swiper = new Swiper('.swiper-container', {
         // direction: 'vertical',
         autoplay: {
@@ -502,6 +531,7 @@ export default defineComponent({
       possibleData,
       exploreData,
       carouselData,
+      providerBody,
       getShow
     }
   }
@@ -1105,7 +1135,7 @@ export default defineComponent({
     background-repeat: no-repeat, no-repeat;
     background-color: @theme-color;
     .thriving-cont {
-      padding: 120px 0 90px;
+      padding: 120px 0 30px;
       margin: 0 230px 0 138px;
       @media screen and (min-width: 2160px) {
         margin: 0 180px 0 80px;
@@ -1114,16 +1144,18 @@ export default defineComponent({
         margin: 0 32px;
       }
       .el-row {
+        position: relative;
+        margin: 30px 0;
         .el-col {
-          margin: 60px 0 0;
+          margin: 30px 0;
           .content {
-            padding: 40px 64px;
+            padding: 40px 24px;
             background-color: @white-color;
             border-radius: 15px;
             color: @theme-color;
             box-shadow: 0 0 16px rgba(212, 212, 212, 0.4);
             h1 {
-              margin: 10px 0;
+              margin: 0 0 10px;
             }
             p {
               color: #696e75;

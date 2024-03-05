@@ -338,7 +338,7 @@ body {
     font-size: 74px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 96px;
+    font-size: 86px;
   }
 }
 .font-30 {
@@ -518,7 +518,7 @@ body {
     font-size: 32px;
   }
   @media screen and (max-width: 540px) {
-    font-size: 42px;
+    font-size: 48px;
   }
 }
 .font-12 {
@@ -715,7 +715,7 @@ body {
   top: auto !important;
   margin: 0 !important;
   .path {
-    stroke: @theme-color;
+    stroke: @white-color !important;
   }
   .circular {
     @media screen and (max-width: 540px) {
@@ -727,7 +727,8 @@ body {
     width: 100%;
     margin: 8px 0 0 !important;
     font-size: inherit !important;
-    color: @theme-color;
+    color: @white-color !important;
+    text-transform: capitalize;
     @media screen and (max-width: 540px) {
       margin: 38px 0 0 !important;
     }
