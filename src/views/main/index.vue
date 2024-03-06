@@ -118,19 +118,25 @@
             <loading-over v-if="providerBody.loading" :listLoad="providerBody.loading"></loading-over>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_transactions)}}+</h1>
+                <h1 class="font-35 font-bold">{{system.$commonFun.countUnit(providerBody.total_transactions)}}{{providerBody.total_transactions?'+':''}}</h1>
                 <p class="font-20 weight-4">Transactions</p>
               </div>
             </el-col>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(50000)}}+</h1>
+                <h1 class="font-35 font-bold">
+                  {{system.$commonFun.replaceFormat(providerBody.smart_contracts)}}
+                  <span class="font-22" :class="{'up': providerBody.new_smart_contracts_24h&&providerBody.new_smart_contracts_24h>=0,'down': providerBody.new_smart_contracts_24h&&providerBody.new_smart_contracts_24h<0}">
+                    {{providerBody.new_smart_contracts_24h?providerBody.new_smart_contracts_24h>0?'+':'-':''}}{{system.$commonFun.replaceFormat(providerBody.new_smart_contracts_24h)}}
+                    <small>(24H)</small>
+                  </span>
+                </h1>
                 <p class="font-20 weight-4">dApp Contracts</p>
               </div>
             </el-col>
             <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-40 font-bold">{{system.$commonFun.countUnit(providerBody.total_addresses)}}+</h1>
+                <h1 class="font-35 font-bold">{{system.$commonFun.countUnit(providerBody.total_addresses)}}{{providerBody.total_addresses?'+':''}}</h1>
                 <p class="font-20 weight-4">Unique Addresses</p>
               </div>
             </el-col>
@@ -485,14 +491,16 @@ export default defineComponent({
     const providerBody = reactive({
       loading: false,
       total_addresses: '',
-      total_transactions: ''
+      total_transactions: '',
+      smart_contracts: '',
+      new_smart_contracts_24h: ''
     })
 
     function getShow (content, index, type) {
       if (content === 'unlock') unlockData.value[index].onShow = type === 'leave' ? true : false
       else possibleData.value[index].onShow = type === 'leave' ? true : false
     }
-    async function getTotalTotal () {
+    async function getTotal () {
       providerBody.loading = true
       const statsRes = await system.$commonFun.sendRequest(`${process.env.VUE_APP_STATS}v2/stats`, 'get')
       if (statsRes) {
@@ -501,8 +509,18 @@ export default defineComponent({
       }
       providerBody.loading = false
     }
+    async function getCounters () {
+      providerBody.loading = true
+      const statsRes = await system.$commonFun.sendRequest(`${process.env.VUE_APP_STATS}v2/smart-contracts/counters`, 'get')
+      if (statsRes) {
+        providerBody.new_smart_contracts_24h = statsRes.new_smart_contracts_24h || ''
+        providerBody.smart_contracts = statsRes.smart_contracts || ''
+      }
+      providerBody.loading = false
+    }
     onMounted(() => {
-      getTotalTotal()
+      getTotal()
+      getCounters()
       var swiper = new Swiper('.swiper-container', {
         // direction: 'vertical',
         autoplay: {
@@ -1156,6 +1174,19 @@ export default defineComponent({
             box-shadow: 0 0 16px rgba(212, 212, 212, 0.4);
             h1 {
               margin: 0 0 10px;
+              span {
+                &.up {
+                  color: #38a169;
+                }
+                &.down {
+                  color: #e53e3e;
+                }
+                small {
+                  margin: 0;
+                  font-weight: normal;
+                  color: #a0a0a0;
+                }
+              }
             }
             p {
               color: #696e75;
