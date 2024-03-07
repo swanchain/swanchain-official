@@ -15,7 +15,7 @@ export default {
   "main": {
     "banner": {
       "title": "The AI Computing Chain",
-      "describe": "Swan Chain is an Ethereum layer 2 AI computing blockchain built on OP Stack, helping Web3 and AI projects to integrate storage, computing, CDN, and payment into one suite."
+      "describe": "SwanChain, utilizing Ethereum Layer 2 with OP Stack technology, revolutionizes Web3 and AI integration by offering comprehensive solutions for storage, computing, bandwidth, and payments."
     },
     "clients": {
       "title-1": "Trusted by Cients",

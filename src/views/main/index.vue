@@ -21,7 +21,7 @@
           <h1 class="font-79 font-black text-center uppercase">{{$t('main.banner.title')}}</h1>
           <p class="font-20 text-center" v-html="$t('main.banner.describe')"></p>
           <div class="flex-row center">
-            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">Build on Swan Chain</div>
+            <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/development-resource/quickstarts')">Build on Swan Chain</div>
             <div class="learn-more font-18 uppercase" @click="system.$commonFun.goLink('https://docs.swanchain.io/')">EXPLORE DEVELOPER DOCS</div>
           </div>
         </div>
@@ -115,10 +115,29 @@
         <div class="thriving-cont">
           <h1 class="uppercase font-26 font-bold uppercase">let the numbers say <br />how swan chain is thriving</h1>
           <el-row :gutter="28" justify="space-between">
-            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8" v-for="th in thrivingData" :key="th">
+            <loading-over v-if="providerBody.loading" :listLoad="providerBody.loading"></loading-over>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
               <div class="content">
-                <h1 class="font-45 font-bold">{{th.title}}</h1>
-                <p class="font-20 weight-4">{{th.desc}}</p>
+                <h1 class="font-35 font-bold">{{system.$commonFun.countUnit(providerBody.total_transactions)}}{{providerBody.total_transactions?'+':''}}</h1>
+                <p class="font-20 weight-4">Transactions</p>
+              </div>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+              <div class="content">
+                <h1 class="font-35 font-bold">
+                  {{system.$commonFun.replaceFormat(providerBody.smart_contracts)}}
+                  <span class="font-22" :class="{'up': providerBody.new_smart_contracts_24h&&providerBody.new_smart_contracts_24h>=0,'down': providerBody.new_smart_contracts_24h&&providerBody.new_smart_contracts_24h<0}">
+                    {{providerBody.new_smart_contracts_24h?providerBody.new_smart_contracts_24h>0?'+':'-':''}}{{system.$commonFun.replaceFormat(providerBody.new_smart_contracts_24h)}}
+                    <small>(24H)</small>
+                  </span>
+                </h1>
+                <p class="font-20 weight-4">dApp Contracts</p>
+              </div>
+            </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+              <div class="content">
+                <h1 class="font-35 font-bold">{{system.$commonFun.countUnit(providerBody.total_addresses)}}{{providerBody.total_addresses?'+':''}}</h1>
+                <p class="font-20 weight-4">Unique Addresses</p>
               </div>
             </el-col>
           </el-row>
@@ -216,7 +235,7 @@
     <div class="blockchain lang-max">
       <div class="funded-style">
         <div class="subtit uppercase font-26 font-bold text-center">{{$t('dashboard.person_title')}}</div>
-        <el-row class="block-list row-bg" justify="center">
+        <el-row class="block-list row-bg">
           <el-col v-for="b in fundData" :key="b">
             <img :src="b.img" />
           </el-col>
@@ -249,6 +268,7 @@
 </template>
 
 <script>
+import loadingOver from "@/components/loading"
 import { defineComponent, computed, onMounted, watch, ref, reactive, getCurrentInstance } from 'vue'
 import { useStore } from "vuex"
 import { useRouter, useRoute } from 'vue-router'
@@ -257,7 +277,7 @@ import { ElRow, ElCol, ElButton, ElDropdown, ElInput } from 'element-plus'
 import Swiper from '@/assets/js/swiper.min.js'
 export default defineComponent({
   components: {
-    ElRow, ElCol, ElButton, ElDropdown, ElInput
+    loadingOver, ElRow, ElCol, ElButton, ElDropdown, ElInput
   },
   setup () {
     const store = useStore()
@@ -312,9 +332,9 @@ export default defineComponent({
       {
         img: require(`@/assets/images/about/funded/funded-15.png`)
       },
-      {
-        img: require(`@/assets/images/about/funded/funded-16.png`)
-      },
+      // {
+      //   img: require(`@/assets/images/about/funded/funded-16.png`)
+      // },
       {
         img: require(`@/assets/images/about/funded/funded-17.png`)
       },
@@ -468,12 +488,39 @@ export default defineComponent({
         desc: "Swan Chain's toolkit equips you for every stage of your dApp journey. Effortless data storage with Multi-Chain Storage, advanced code management with Lagrange, and powerful RPC services."
       }
     ])
+    const providerBody = reactive({
+      loading: false,
+      total_addresses: '',
+      total_transactions: '',
+      smart_contracts: '',
+      new_smart_contracts_24h: ''
+    })
 
     function getShow (content, index, type) {
       if (content === 'unlock') unlockData.value[index].onShow = type === 'leave' ? true : false
       else possibleData.value[index].onShow = type === 'leave' ? true : false
     }
+    async function getTotal () {
+      providerBody.loading = true
+      const statsRes = await system.$commonFun.sendRequest(`${process.env.VUE_APP_STATS}v2/stats`, 'get')
+      if (statsRes) {
+        providerBody.total_addresses = statsRes.total_addresses || ''
+        providerBody.total_transactions = statsRes.total_transactions || ''
+      }
+      providerBody.loading = false
+    }
+    async function getCounters () {
+      providerBody.loading = true
+      const statsRes = await system.$commonFun.sendRequest(`${process.env.VUE_APP_STATS}v2/smart-contracts/counters`, 'get')
+      if (statsRes) {
+        providerBody.new_smart_contracts_24h = statsRes.new_smart_contracts_24h || ''
+        providerBody.smart_contracts = statsRes.smart_contracts || ''
+      }
+      providerBody.loading = false
+    }
     onMounted(() => {
+      getTotal()
+      getCounters()
       var swiper = new Swiper('.swiper-container', {
         // direction: 'vertical',
         autoplay: {
@@ -502,6 +549,7 @@ export default defineComponent({
       possibleData,
       exploreData,
       carouselData,
+      providerBody,
       getShow
     }
   }
@@ -1105,7 +1153,7 @@ export default defineComponent({
     background-repeat: no-repeat, no-repeat;
     background-color: @theme-color;
     .thriving-cont {
-      padding: 120px 0 90px;
+      padding: 120px 0 30px;
       margin: 0 230px 0 138px;
       @media screen and (min-width: 2160px) {
         margin: 0 180px 0 80px;
@@ -1114,16 +1162,31 @@ export default defineComponent({
         margin: 0 32px;
       }
       .el-row {
+        position: relative;
+        margin: 30px 0;
         .el-col {
-          margin: 60px 0 0;
+          margin: 30px 0;
           .content {
-            padding: 40px 64px;
+            padding: 40px 24px;
             background-color: @white-color;
             border-radius: 15px;
             color: @theme-color;
             box-shadow: 0 0 16px rgba(212, 212, 212, 0.4);
             h1 {
-              margin: 10px 0;
+              margin: 0 0 10px;
+              span {
+                &.up {
+                  color: #38a169;
+                }
+                &.down {
+                  color: #e53e3e;
+                }
+                small {
+                  margin: 0;
+                  font-weight: normal;
+                  color: #a0a0a0;
+                }
+              }
             }
             p {
               color: #696e75;

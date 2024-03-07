@@ -317,10 +317,10 @@ export default defineComponent({
       else if (key === 'MetaArk') system.$commonFun.goLink('https://www.fogmetalabs.com/metaark')
       else if (key === 'Chainnode') system.$commonFun.goLink('https://chainnode.io/')
       else if (key === 'Documentation') system.$commonFun.goLink('https://docs.swanchain.io/')
-      else if (key === 'GitHub') system.$commonFun.goLink('https://github.com/filswan')
+      else if (key === 'GitHub') system.$commonFun.goLink('https://github.com/swanchain')
       else if (key === 'SocialMedia') system.$commonFun.goLink('https://linktr.ee/swan_chain')
       else if (key === 'Governance') system.$commonFun.goLink('https://docs.swanchain.io/getting-started/protocol-stack/governance')
-      else if (key === 'Orchestrator') system.$commonFun.goLink('https://docs.swanchain.io/orchestrator/overview')
+      else if (key === 'Orchestrator') system.$commonFun.goLink('https://orchestrator.swanchain.io/provider-status')
     }
     // what-we-do
     async function activeMenu (row) {
