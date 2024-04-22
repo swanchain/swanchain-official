@@ -130,7 +130,7 @@
             <div class="content font-22">
               <h1 class="font-50 font-bold">Need Further Help?</h1>
               <p class="font-30">Can't find the proper solution? Don't hesitate to contact us.</p>
-              <el-button @click="system.$commonFun.goLink('https://discord.com/invite/Jd2BFSVCKw')">Contact Us</el-button>
+              <el-button @click="system.$commonFun.goLink(system.$contactUsLink)">Contact Us</el-button>
             </div>
           </el-col>
           <el-col :xs="24" :sm="10" :md="12" :lg="12" :xl="12" class="flex-row flex-end">

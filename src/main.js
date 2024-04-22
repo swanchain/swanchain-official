@@ -28,6 +28,7 @@ router.beforeEach((to, from, next) => {
 
 const app = createApp(App)
 app.config.globalProperties.$commonFun = commonFun
+app.config.globalProperties.$contactUsLink = process.env.VUE_APP_BASE_CONTACTUS
 app
     // .use(ElementPlus, {
     //         locale: en,

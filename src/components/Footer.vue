@@ -48,7 +48,7 @@
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a class="font-16 font-bold weight-6">BUILD</a>
                 <a href="https://saturn-explorer.swanchain.io/" class="font-14 weight-4 t" target="_blank">Block Explorer</a>
-                <router-link :to="{name: 'faucet'}" class="font-14 weight-4 t">Faucet</router-link>
+                <a :href="system.$contactUsLink" class="font-14 weight-4 t" target="_blank">Faucet</a>
                 <a href="https://docs.swanchain.io/" class="font-14 weight-4 t" target="_blank">Documentation</a>
                 <a href="https://github.com/swanchain" class="font-14 weight-4 t" target="_blank">GitHub</a>
               </el-col>
@@ -58,7 +58,7 @@
                 <router-link :to="{name: 'privacy-policy'}" class="font-14 weight-4 t">Privacy Policy</router-link>
                 <router-link :to="{name: 'terms'}" class="font-14 weight-4 t">Terms of Use</router-link>
                 <a href="https://www.linkedin.com/company/swancloud/jobs/" class="font-14 weight-4 t" target="_blank">Careers</a>
-                <a href="https://discord.com/invite/Jd2BFSVCKw" class="font-14 weight-4 t" target="_blank">Contact Us</a>
+                <a :href="system.$contactUsLink" class="font-14 weight-4 t" target="_blank">Contact Us</a>
                 <a href="https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link" class="font-14 weight-4 t" target="_blank">Brand Kit</a>
               </el-col>
               <!-- <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
