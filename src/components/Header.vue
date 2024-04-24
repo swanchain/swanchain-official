@@ -305,7 +305,7 @@ export default defineComponent({
     }
     async function handleSelect (key, keyPath) {
       if (key === 'About') router.push({ name: 'aboutUs' })
-      if (key === 'Faucet') system.$commonFun.goLink('https://discord.com/invite/Jd2BFSVCKw')
+      if (key === 'Faucet') system.$commonFun.goLink(system.$contactUsLink)
       if (key === 'BlockExplorer') system.$commonFun.goLink('https://saturn-explorer.swanchain.io/')
       if (key === 'Event') router.push({ name: 'event' })
       if (key === 'HelpCenter') router.push({ name: 'helpCenter' })
