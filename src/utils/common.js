@@ -98,18 +98,10 @@ function contactUsMethod() {
 
 async function signOut() {
   // showLoading()
-  if (store.state.accessToken) await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/logout`, 'post', {})
-  store.dispatch('setAccessToken', '')
-  store.dispatch('setEmailAddress', '')
+  // if (store.state.accessToken) await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/logout`, 'post', {})
+  // store.dispatch('setAccessToken', '')
+  // store.dispatch('setEmailAddress', '')
   // hideLoading()
-}
-
-async function categoryMethod(cId) {
-  let dataList = []
-  const language_id = store.state.languageNB === 'zh-cn' ? 26 : 36
-  const categoryRes = await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/product/default-variant-option-by-category/${cId}/lang/${language_id}?offset=0&limit=100`, 'get')
-  if (categoryRes && categoryRes.status === "success") dataList = categoryRes.data || []
-  return dataList
 }
 
 function hourMethod(num) {
@@ -185,7 +177,6 @@ export default {
   signOut,
   showLoading,
   hideLoading,
-  categoryMethod,
   hourMethod,
   NumFormat,
   calculateDiffTime,
