@@ -104,14 +104,6 @@ async function signOut() {
   // hideLoading()
 }
 
-async function categoryMethod(cId) {
-  let dataList = []
-  const language_id = store.state.languageNB === 'zh-cn' ? 26 : 36
-  const categoryRes = await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/product/default-variant-option-by-category/${cId}/lang/${language_id}?offset=0&limit=100`, 'get')
-  if (categoryRes && categoryRes.status === "success") dataList = categoryRes.data || []
-  return dataList
-}
-
 function hourMethod(num) {
   if (num) return parseFloat(num / 30 / 24).toFixed(4)
   else return '-'
@@ -185,7 +177,6 @@ export default {
   signOut,
   showLoading,
   hideLoading,
-  categoryMethod,
   hourMethod,
   NumFormat,
   calculateDiffTime,
