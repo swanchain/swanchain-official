@@ -47,7 +47,7 @@
               </el-col>
               <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                 <a class="font-16 font-bold weight-6">BUILD</a>
-                <a href="https://saturn-explorer.swanchain.io/" class="font-14 weight-4 t" target="_blank">Block Explorer</a>
+                <a href="https://proxima-explorer.swanchain.io/" class="font-14 weight-4 t" target="_blank">Block Explorer</a>
                 <a :href="system.$contactUsLink" class="font-14 weight-4 t" target="_blank">Faucet</a>
                 <a href="https://docs.swanchain.io/" class="font-14 weight-4 t" target="_blank">Documentation</a>
                 <a href="https://github.com/swanchain" class="font-14 weight-4 t" target="_blank">GitHub</a>
