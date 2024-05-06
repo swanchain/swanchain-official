@@ -98,9 +98,9 @@ function contactUsMethod() {
 
 async function signOut() {
   // showLoading()
-  if (store.state.accessToken) await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/logout`, 'post', {})
-  store.dispatch('setAccessToken', '')
-  store.dispatch('setEmailAddress', '')
+  // if (store.state.accessToken) await sendRequest(`${process.env.VUE_APP_BASEAPI}api/v1/logout`, 'post', {})
+  // store.dispatch('setAccessToken', '')
+  // store.dispatch('setEmailAddress', '')
   // hideLoading()
 }
 
