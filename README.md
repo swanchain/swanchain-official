@@ -1,6 +1,6 @@
 # Swanchain
 
-**Technology stack：** vue3 + vuex + vue-router + webpack + sass + element-plus
+**Technology stack：** vue3 + vite + vue-router + less + element-plus
 
 ## Installation dependency
 
@@ -8,58 +8,26 @@ Run `npm install` to generate component.
 
 ## Development server
 
-Run `npm run serve` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
-
-```shell
- ERROR  Failed to compile with 1 error       
- error  in ./node_modules/@intlify/core-base/dist/core-base.mjs
- ...
- ...
- ```
- Run `npm i vue-i18n@9.1.0` to reinstall the components.
+Run `npm run dev` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
 
 ## Build project
 
 ```shell
 # Build test projects
-$ npm run build:testnet_t / npm run build:testnet_u / npm run build:testnet
+$ npm run build
 
 # Build production projects
-$ npm run build:prod_t / npm run build:prod_u / npm run build:prod
-# You can use the npm run build command without any suffix if you are using a version of Node lower than 16, or you should use the command with the suffix name if you are using a version higher than 16
-# The only difference between _t and _u is that _t uses the set keyword while _u uses the export keyword, and how you use it depends on which keyword your system supports.
+$ npm run build:prod
 ```
-
-The build artifacts will be stored in the `dist_prod/dist_testnet` directory.
-
-## Docker Deployment
-#### Install Docker Compose
-
-https://docs.docker.com/compose/install/
-### Stable
-
-Run the following command to run the latest stable image of orchestrator-web page
-
-```bash
-docker build -t orchestrator/orchestrator-web -f Dockerfile .
-docker run -d --name orchestrator-web -p 8080:8080 -t orchestrator/orchestrator-web
-```
-The service will be Available on:
-
-http://127.0.0.1:8080
-
-http://172.17.0.2:8080
-
-Hit CTRL-C to stop the server
-
 
 ## Pre order preparation
 
 **Preparation before operation:**
 
-   Since this project is based on nodejs, you need to make preparations for nodejs. Before running the project, please ensure that the following applications have been installed in the system:
+Since this project is based on nodejs, you need to make preparations for nodejs. Before running the project, please ensure that the following applications have been installed in the system:
 
-   (1)、Node (Version v18.12.1 of Node was used for this project). Please refer to:[Download and install node.](https://nodejs.org/en/download/)
+(1)、Node (Version v18.12.1 of Node was used for this project). Please refer to:[Download and install node.](https://nodejs.org/en/download/)
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
