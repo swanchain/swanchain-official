@@ -1,7 +1,7 @@
 <template>
-  <el-upload v-model:file-list="fileList" ref="upload" class="upload" action="" :limit="limit" :on-exceed="handleExceed" :on-change="handleChange" :auto-upload="false" :show-file-list="!!value">
+  <el-upload v-model:file-list="fileList" ref="upload" class="upload font-14" action="" :limit="limit" :on-exceed="handleExceed" :on-change="handleChange" :auto-upload="false" :show-file-list="!!value">
     <template #trigger>
-      <div class="btn font-16 font-bold p-8">{{ label }}</div>
+      <div class="btn-primary font-14 color-light font-bold p-8">{{ label }}</div>
     </template>
     <template #tip>
       <div v-if="tips" class="el-upload__tip color-info">{{ tips }}</div>
@@ -23,7 +23,7 @@ const props = withDefaults(
   {
     limit: 1,
     label: 'Choose File',
-    tips: ''
+    tips: 'Provide a link or upload your visual assets: File type .SVG or .PNG (at least 500 x 500 px).'
   }
 )
 
@@ -55,9 +55,9 @@ function handleChange(e: any) {
 <style lang="less" scoped>
 .upload {
   width: 100%;
-  padding: 0.12rem 0.16rem;
+  padding: 0.12rem;
   background-color: var(--color-bg-input);
-  border-radius: 0.16rem;
+  border-radius: 0.12rem;
 }
 .btn {
   color: var(--color-info);
@@ -73,5 +73,10 @@ function handleChange(e: any) {
   .upload {
     padding: 10px 11px;
   }
+}
+</style>
+<style>
+.el-upload-list__item-name{
+  font-size: inherit;
 }
 </style>
