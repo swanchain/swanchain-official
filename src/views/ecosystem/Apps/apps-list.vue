@@ -1,6 +1,6 @@
 <template>
   <div class="card w-100">
-    <!-- <div class="card-categories">
+    <div class="card-categories">
       <el-tabs v-model="activeName" class="card-categories-tabs">
         <el-tab-pane name="all">
           <template #label>
@@ -21,7 +21,7 @@
         placeholder="Search"
         clearable
       />
-    </div> -->
+    </div>
 
     <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
       <template v-for="(item, index) in crmForm.data" :key="index">

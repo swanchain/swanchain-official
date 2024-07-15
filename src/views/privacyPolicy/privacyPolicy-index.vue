@@ -3,8 +3,8 @@
     <div class="secondary">
       <h1 class="font-56 font-bold text-center">Privacy Policy</h1>
     </div>
-    <div class="principal">
-      <div class="container lang-max">
+    <div class="principal lax-landing">
+      <div class="container">
         <div class="container_heading">
           <div class="font-16 mb-32 text-right">
             Effective date:

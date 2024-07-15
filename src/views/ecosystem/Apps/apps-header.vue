@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="home-header-list mt-80">
-      <!-- <xy-swiper-app :list="recommendList" :item-width="windowSize === EWindowSize.XS ? '80%' : '3.13rem'" item-margin="0 0.16rem"></xy-swiper-app> -->
+      <xy-swiper-app :list="recommendList" :item-width="windowSize === EWindowSize.XS ? '80%' : '3.13rem'" item-margin="0 0.16rem"></xy-swiper-app>
     </div>
   </div>
 
