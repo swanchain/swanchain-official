@@ -3,7 +3,7 @@
     <div class="content lang-max flex-row">
       <div class="text font-16">
         <div class="font-74 text-center flex flex-ai-center flex-jc-center mb-30 plr-32">
-          Full set
+          Full Toolset
           <p class="font-bold text-center ml-20">AI Blockchain</p>
         </div>
         <div class="flex flex-ai-center flex-jc-center center">

@@ -23,23 +23,25 @@
       />
     </div> -->
 
-    <el-row :gutter="16">
-      <template v-for="(item, index) in list" :key="index">
+    <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
+      <template v-for="(item, index) in crmForm.data" :key="index">
         <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-16">
-          <div class="card-item">
+          <div class="card-item font-16">
             <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
               <div class="flex flex-ai-center">
-                <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" :height="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" radius="4rem" pointer></xy-icon>
+                <img :src="item.logo" class="card-item-logo-img" alt="logo" />
+                <!-- <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" :height="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" radius="4rem" pointer></xy-icon> -->
               </div>
               <!-- <div class="card-item-date font-16" v-if="item.live">{{ item.live }}</div> -->
             </div>
-            <div class="card-item-title font-22 font-weight-6 mb-16">{{ item.title }}</div>
+            <div class="card-item-title font-22 font-weight-6 mb-16">{{ item.name }}</div>
             <div class="card-item-btn flex">
-              <template v-for="b in item.btn" :key="b">
+              <!-- <template v-for="b in item.tag" :key="b">
                 <div class="font-16 btn mr-10 mb-10">{{b.name}}</div>
-              </template>
+              </template> -->
+              <div class="font-16 btn mr-10 mb-10">{{item.tag}}</div>
             </div>
-            <div class="card-item-content font-16 line-8 mt-10">{{ item.content }}</div>
+            <div class="card-item-content font-16 line-8 mt-10">{{ item.description }}</div>
           </div>
         </el-col>
       </template>
@@ -52,6 +54,7 @@ import XyIcon from '@/base-ui/xy-icon.vue'
 import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
+import { getCRMFormList } from '@/api/apps';
 
 const activeName = ref('all')
 const tabsInput = ref('')
@@ -89,6 +92,27 @@ const list = ref([
   //     'Low-latency blockchain nodes for Web3 developers. Archival Ethereum, Optimism, Polygon, Arbitrum, BSC, Gnosis, Base. WebSocket, HTTP JSON RPC debug trace ...'
   // }
 ])
+
+const crmForm = reactive({
+  loading: false,
+  data: []
+})
+
+async function getListData() { 
+  try {
+    crmForm.loading = true
+    const res = await getCRMFormList()
+    crmForm.data = res?.data ?? []
+  } catch {
+    console.error
+  } finally {
+    crmForm.loading = false
+  }
+}
+
+onMounted(() => {
+  getListData()
+})
 </script>
 
 <style scoped lang="less">
@@ -96,7 +120,9 @@ const list = ref([
   background: transparent;
   box-shadow: none;
   border-radius: 0;
+  min-height: 2rem;
   margin: 1.2rem 0 1.5rem;
+  margin: 0.6rem 0 1.5rem;
   color: var(--color-light);
   &-title {
   }
@@ -107,6 +133,16 @@ const list = ref([
     border-radius: 0.16rem;
     padding: 0.24rem;
     &-logo {
+      &-img{
+        display: block;
+        width: 0.68rem;
+        height: 0.68rem;
+        border-radius: 2rem;
+        @media screen and (max-width: 768px) {
+          width: 44px;
+          height: 44px;
+        }
+      }
     }
     &-date {
       position: relative;

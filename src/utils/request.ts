@@ -27,25 +27,17 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (res) => {
-    const { code, message, data, status } = res.data
-    switch (res.status) {
-      // 请求成功
-      case 200:
-        if (code == 0 || status === 'success') return res.data
-        else if (res?.data?.code === undefined && res?.data?.status === undefined) return res.data
-        messageTip('error', message)
-        throw res.data
-      default:
-        messageTip('error', message)
-        break
-    }
+    const { code, message, data, status, detail } = res.data
+    if (status === 'success' || code == 0) return res.data
+    else if (res?.data?.code === undefined && res?.data?.status === undefined) return res.data
+    else messageTip('error', message || detail)
     throw res.data
   },
   (error) => {
     console.error('response error', error)
     if (error?.response?.data) {
-      const { message, status } = error.response.data
-      messageTip('error', message)
+      const { message, status, detail } = error.response.data
+      messageTip('error', message || detail)
       if (status === 401) {
         // await timeout(2000)
         // urlClear()
