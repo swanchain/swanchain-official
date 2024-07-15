@@ -5,7 +5,7 @@
     <div class="body lax-landing">
       <home-showcase></home-showcase>
       <home-powered></home-powered>
-      <home-userstory></home-userstory>
+      <!-- <home-userstory></home-userstory> -->
       <home-partnet></home-partnet>
     </div>
   </div>
