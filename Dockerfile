@@ -29,18 +29,15 @@ RUN npm cache clean --force
 # install project dependencies
 RUN npm install
 
-# reinstall i18n
-RUN npm i vue-i18n@9.1.0
-
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
 
 # build app for production with minification
-RUN npm run build:prod_u
+RUN npm run build:prod
 
 FROM nginx:1.15.2-alpine as production-build
 
-COPY --from=builder dist_prod /usr/share/nginx/html
+COPY --from=builder dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
