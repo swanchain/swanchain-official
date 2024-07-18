@@ -25,4 +25,12 @@ export enum EIcon {
   JoinGithub = 'Github',
   JoinLinkedIn = 'LinkedIn',
   JoinMedium = 'Medium',
+  CostEfficient = 'CostEfficient',
+  GlobalReach = 'Global Reach',
+  InstantDeployment = 'Instant Deployment',
+  ZKPowerhouse = 'ZK Powerhouse',
+  FairIncentives = 'Fair Incentives',
+  EdgeComputingProvider = 'Edge Computing Provider',
+  FogComputingProvider = 'Fog Computing Provider',
+  MarketProvider = 'Market Provider'
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="card plr-32 mt-64 mb-64">
-    <div class="card-title linear-title font-48 font-bold text-center">Showcase</div>
+  <div class="card mt-48 mb-48">
+    <div class="card-title linear-title font-24 font-bold text-center">Showcase</div>
     <div class="home-header-list mt-32">
-      <xy-swiper-showcase :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '33.33%' : windowSize === EWindowSize.XS ? '80%' : '25%'" item-margin="0 0.32rem"></xy-swiper-showcase>
+      <xy-swiper-showcase :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '32%' : windowSize === EWindowSize.XS ? '80%' : '23%'" item-margin="0 0.32rem"></xy-swiper-showcase>
     </div>
   </div>
 </template>
@@ -23,8 +23,26 @@ import lagrangeShowcase09 from '@/assets/img/index/showcase-Mario.jpg'
 import lagrangeShowcase10 from '@/assets/img/index/showcase-Pac-Man.jpg'
 import lagrangeShowcase11 from '@/assets/img/index/showcase-Chainnode-RPC.jpg'
 import lagrangeShowcase12 from '@/assets/img/index/showcase-Uniswap.jpg'
+import lagrangeShowcase13 from '@/assets/img/index/showcase-Llama3-8B-LLM-Chat.jpg'
+import lagrangeShowcase14 from '@/assets/img/index/showcase-Llama2-13B-LLM-Chat.jpg'
 
 const caseList = ref([
+  {
+    title: 'Llama2-13B-LLM-Chat LDL',
+    icon: lagrangeShowcase14,
+    btn: [{ name: 'AI' }],
+    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama2-13B-LLM-Chat/app',
+    content:
+      'Explore Meta’s latest large language models (LLM), which has wide applications and great influence.'
+  },
+  {
+    title: 'Llama3-8B-LLM-Chat',
+    icon: lagrangeShowcase13,
+    btn: [{ name: 'AI' }],
+    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama3-8B-LLM-Chat/app',
+    content:
+      'Meta’s Llama 3, the next iteration of the open-access Llama family.'
+  },
   {
     title: 'Stable Diffusion',
     icon: lagrangeShowcase01,

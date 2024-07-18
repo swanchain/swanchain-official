@@ -1,17 +1,20 @@
 <template>
-  <swiper :modules="modules" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
+  <swiper :modules="modules" :navigation="{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
-        <div class="card-item swiper-slide-item text-center">
+        <div class="card-item back-linear swiper-slide-item text-center">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
             <img :src="item.icon" class="w-100" />
             <div class="card-item-header-body">
-              <div class="card-item-header-body-project font-24 flex flex-ai-center flex-jc-left">
-                <img :src="projectIcon" class="mr-10" /> Project name
+              <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
+                <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
               </div>
-              <div class="card-item-body-content font-16 line-3 mt-16 mb-16 text-left">{{ item.content }}</div>
+              <div class="card-item-body-content font-14 line-2 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
               <div class="flex flex-ai-center flex-js-left">
-                <div @click="openPage(item.link)" class="card-item-header-body-try font-16 font-bold2 flex flex-ai-center flex-js-center pointer">
+                <div @click="openPage(item.link)" class="card-item-header-body-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">
                   Try It Now
 
                   <svg class="ml-10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,31 +32,31 @@
               </div>
             </div>
           </div>
-          <div class="card-item-introduce">
-            <div class="card-item-introduce-user font-24 flex flex-ai-start flex-jc-between">
-              <img :src="peopleIcon" class="mr-10 img-left" /> 
-              <img :src="microsoftIcon" class="img-right" /> 
+          <div class="card-item-introduce back-linear">
+            <div class="card-item-introduce-user font-24 flex flex-ai-center">
+              <img :src="item.peopleIcon" class="mr-16 img-left" /> 
+              <div class="card-item-introduce-name text-left">
+                <div class="font-16 font-bold">Hamzah Khan Polygon</div>
+                <div class="font-14 mt-4 desc">Chief executive officer</div>
+              </div>
             </div>
-            <div class="card-item-introduce-name text-left mt-16">
-              <div class="font-22 font-bold">Hamzah Khan Polygon</div>
-              <div class="font-16 mt-4 desc">Chief executive officer</div>
-            </div>
-            <div class="card-item-introduce-content font-20 line-8 mt-16 text-left">{{ item.content }}</div>
+            <div class="card-item-introduce-content font-14 line-5 mt-16 text-left">{{ item.content }}</div>
           </div>
         </div>
       </swiper-slide>
     </template>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="shelter"></div>
   </swiper>
 </template>
 <script setup lang="ts">
-import { Autoplay } from 'swiper' // 引入库
+import SwiperCore, { Autoplay, Navigation } from 'swiper' 
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/swiper-bundle.css' // 引入样式文件 注意5和6版本的样式文件不一致
+import 'swiper/swiper-bundle.css' 
 import type { IOption } from 'types/common'
 import { openPage } from '@/hooks/router'
-import projectIcon from '@/assets/img/index/project-name.png'
-import peopleIcon from '@/assets/img/index/people-img.jpg'
-import microsoftIcon from '@/assets/img/index/microsoft.png'
 
 defineProps<{
   list: IOption[]
@@ -75,11 +78,13 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
+SwiperCore.use([Navigation]);
 </script>
 <style lang="scss" scoped>
 .swiper {
   width: 100%;
-  // margin-left: -1.565rem;
+  padding-left: 1.28rem;
+  margin-left: -0.16rem;
   .swiper-wrapper {
     display: flex;
     align-items: stretch;
@@ -90,11 +95,6 @@ function handleClickItem(item: IOption) {
       position: relative;
       height: 100%;
       margin: 0 0.16rem;
-      background-image: linear-gradient(
-        180deg, 
-        var(--color-background-image-top), 
-        var(--color-background-image-bottom)
-      );
       border-radius: 0.16rem;
       overflow: hidden;
       &-header{
@@ -121,7 +121,7 @@ function handleClickItem(item: IOption) {
           bottom: 0;
           left: 0;
           right: 0;
-          padding: 0.24rem;
+          padding: 0.16rem;
           background-image: linear-gradient(
             180deg, 
             transparent, 
@@ -144,7 +144,7 @@ function handleClickItem(item: IOption) {
             }
           }
           &-try{
-            padding: 0.12rem 0.22rem;
+            padding: 0.08rem 0.16rem;
             border: 0.02rem solid var(--color-primary);
             border-radius: 1rem;
             &:hover{
@@ -162,15 +162,12 @@ function handleClickItem(item: IOption) {
               }
             }
           }
-          &-content{
-            min-height: 0.576rem;
-          }
         }
       }
       &-introduce{
-        padding: 0.32rem;
+        padding: 0.16rem;
         &-content{
-          min-height: 1.92rem;
+          min-height: 1.099rem;
         }
         &-user{
           .img-right{
@@ -189,6 +186,34 @@ function handleClickItem(item: IOption) {
         }
       }
     }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    top: 0;
+    width: auto;
+    height: 100%;
+    padding: 0 0.15rem;
+    margin: 0;
+    background: linear-gradient(-90deg, var(--color-dark), transparent);
+    z-index: 99;
+    &:after{
+      color: var(--color-light);
+    }
+    &.swiper-button-next{
+      right: 0;
+    }
+    &.swiper-button-prev{
+      left: 0;
+    }
+  }
+  .shelter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1.28rem;
+    height: 100%;
+    background: #000;
+    z-index: 98;
   }
 }
 </style>

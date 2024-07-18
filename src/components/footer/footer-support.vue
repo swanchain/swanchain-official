@@ -7,21 +7,21 @@
       <el-row justify="space-between" class="footer-support-list">
         <template v-for="item in columns" :key="item.title">
           <el-col :span="6" :xs="12">
-            <div class="title font-20 font-bold">{{ item.title }}</div>
+            <div class="title font-14 font-bold">{{ item.title }}</div>
             <template v-for="(it, i) in item.list" :key="i">
-              <div v-if="it.value" class="label font-16" @click="toPage(router, it.value)">{{ it.label }}</div>
-              <div v-else class="label font-16" @click="openPage(it.link)">{{ it.label }}</div>
+              <div v-if="it.value" class="label font-14" @click="toPage(router, it.value)">{{ it.label }}</div>
+              <div v-else class="label font-14" @click="openPage(it.link)">{{ it.label }}</div>
             </template>
           </el-col>
         </template>
         <el-col :span="6" :xs="24">
           <template v-for="item in rows" :key="item.title">
-            <div class="title font-20 font-bold">{{ item.title }}</div>
+            <div class="title font-14 font-bold">{{ item.title }}</div>
             <div class="flex flex-ai-center">
               <template v-for="(it, i) in item.list" :key="i">
                 <xy-icon v-if="item.type === 'icon'" :name="it.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '22px' : '0.32rem'" :height="windowSize === EWindowSize.XS ? '22px' : '0.32rem'" :margin="windowSize === EWindowSize.XS ? '0.32rem 0.25rem 0.64rem 0px' : '0.08rem 0.12rem 0.32rem 0'"
                   radius="4rem" pointer @click="openPage(it.value)"></xy-icon>
-                <div v-else class="desc font-16" v-html="it.label"></div>
+                <div v-else class="desc font-14" v-html="it.label"></div>
               </template>
             </div>
           </template>
@@ -108,12 +108,12 @@ function link(url: string) {}
       padding: 0.7rem 0.6rem 0.35rem;
     }
     img {
-      height: 0.64rem;
-      min-height: 40px;
+      height: 0.39rem;
+      min-height: 30px;
     }
   }
   &-list {
-    padding: 0 0 0.74rem 0;
+    padding: 0 0 1.12rem 0;
     border-bottom: 0.01rem solid #343a40;
     width: calc(100% - 2.56rem);
     margin: auto;
@@ -132,11 +132,11 @@ function link(url: string) {}
   }
   .label {
     color: var(--color-info);
-    margin-top: 0.16rem;
+    margin-top: 0.1rem;
     cursor: pointer;
     width: fit-content;
     @media screen and (max-width: 768px) {
-      margin-top: 0.32rem;
+      margin-top: 0.2rem;
     }
     &:hover {
       color: var(--color-light);

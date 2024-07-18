@@ -23,6 +23,10 @@
   color: var(--color-black);
 }
 
+.color-subtitle {
+  color: var(--color-subtitle);
+}
+
 .color-light {
   color: var(--color-light);
 }

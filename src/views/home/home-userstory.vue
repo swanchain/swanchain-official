@@ -1,8 +1,8 @@
 <template>
-  <div class="card plr-32 mt-64 mb-64">
-    <div class="card-title linear-title font-48 font-bold text-center">User Story</div>
+  <div class="card pt-48 pb-48">
+    <div class="card-title linear-title font-24 font-bold text-center">User Story</div>
     <div class="home-header-list mt-32">
-      <xy-swiper-userstory :list="caseList" :item-width="windowSize === EWindowSize.XS ? '80%' : '33.33%'" item-margin="0 0.32rem"></xy-swiper-userstory>
+      <xy-swiper-userstory :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '45%' : windowSize === EWindowSize.XS ? '75%' : '30%'" item-margin="0 0.32rem"></xy-swiper-userstory>
     </div>
   </div>
 </template>
@@ -13,13 +13,64 @@ import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import userStoryImage from '@/assets/img/index/user-story.jpg'
 import userStoryAvatar from '@/assets/img/index/project-name.png'
+import userStoryImage01 from '@/assets/img/index/user-story-header-image01.jpg'
+import userStoryAvatar01 from '@/assets/img/index/project-name01.png'
+import peopleIcon from '@/assets/img/index/people-img.jpg'
+import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
 
 const caseList = ref([
+  {
+    title: 'Apus Network',
+    icon: userStoryImage01,
+    avatarIcon: userStoryAvatar01,
+    peopleIcon: peopleIcon01,
+    link: '',
+    projectContent:
+      "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
+    content:
+      "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO."
+  },
   {
     title: 'Project name',
     icon: userStoryImage,
     avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
     link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   },

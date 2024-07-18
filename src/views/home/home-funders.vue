@@ -1,10 +1,10 @@
 <template>
-  <div class="carousel-container page-body w-100 pt-32">
-    <div class="card-title linear-title font-32 font-weight-6 text-center mb-32">Powered by</div>
+  <div class="carousel-container page-body w-100 pt-48 pb-16">
+    <div class="card-title linear-title font-24 font-bold text-center mb-32">Funders</div>
     <el-row class="row-bg" :gutter="32">
       <template v-for="list in slideList" :key="list">
         <el-col :xs="8" :sm="6" :md="6" :lg="6" class="mb-32 flex">
-          <img :src="list.img" class="w-100" />
+          <img :src="list.img" class="funders-img" />
         </el-col>
       </template>
     </el-row>
@@ -49,4 +49,11 @@ const slideList = ref([
 ])
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.funders-img {
+  width: auto;
+  max-width: 100%;
+  max-height: 0.72rem;
+  margin: auto;
+}
+</style>

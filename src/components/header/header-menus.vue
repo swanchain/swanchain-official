@@ -1,12 +1,12 @@
 <template>
   <div class="menu-pc flex flex-ai-center flex-jc-right" v-if="windowSize !== EWindowSize.XS">
-    <el-menu mode="horizontal" :ellipsis="false" background-color="transparent" color="#fff" text-color="#fff" popper-class="dropdown-popper" class="dropdown-popper font-16" unique-opened router>
+    <el-menu mode="horizontal" :ellipsis="false" background-color="transparent" color="#fff" text-color="#fff" popper-class="dropdown-popper" class="dropdown-popper font-14" unique-opened router>
       <template v-for="item in menus" :key="item.value">
         <el-sub-menu v-if="item?.children?.length" :index="item.value">
-          <template #title><div class="menu font-16 flex flex-ai-center">{{ item.label }}</div></template>
+          <template #title><div class="menu font-14 flex flex-ai-center">{{ item.label }}</div></template>
           <template v-for="it in item.children" :key="it.value">
             <el-sub-menu v-if="it?.children?.length" :index="it.value">
-              <template #title><div class="font-16 flex flex-ai-center">{{ it.label }}</div></template>
+              <template #title><div class="font-14 flex flex-ai-center">{{ it.label }}</div></template>
               <el-menu-item v-for="itChild in it.children" :key="itChild.value" :index="itChild.value" @click="changeMenu(itChild)">                
                 <div class="flex flex-ai-center pointer">
                   {{ itChild.label }}
@@ -33,13 +33,13 @@
           </template>
         </el-sub-menu>
         <el-menu-item v-else :index="item.value" @click="changeMenu(item)">
-          <span class="font-16">{{ item.label }}</span>
+          <span class="font-14">{{ item.label }}</span>
         </el-menu-item>
       </template>
     </el-menu>
   </div>
 
-  <el-menu v-else background-color="transparent" color="#fff" popper-class="menu-popper" class="menu-popper font-16" collapse unique-opened router>
+  <el-menu v-else background-color="transparent" color="#fff" popper-class="menu-popper" class="menu-popper font-14" collapse unique-opened router>
     <el-sub-menu index="menu">
       <template #title>
         <el-icon size="24" class="mr-30">
