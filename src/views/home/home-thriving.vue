@@ -6,7 +6,7 @@
         <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mb-32">
           <div class="grid-content back-linear font-bold">
             <p class="font-16 capitalize">{{ item.title }}</p>
-            <p class="font-30 capitalize color-primary">{{ item.number }}</p>
+            <p class="font-30 capitalize color-primary mt-4 num">{{ item.number }}</p>
           </div>
         </el-col>
       </template>
@@ -54,10 +54,13 @@ const thrivingData = ref([
     }
     .grid-content {
       width: calc(100% - 0.32rem);
-      height: calc(100% - 0.32rem);
-      padding: 0.16rem;
+      height: calc(100% - 0.24rem);
+      padding: 0.16rem 0.16rem 0.08rem;
       border-radius: 0.08rem;
       box-sizing: content-box;
+      .num {
+        line-height: 1.1;
+      }
     }
   }
 }

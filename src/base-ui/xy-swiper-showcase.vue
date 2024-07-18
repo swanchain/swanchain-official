@@ -139,7 +139,7 @@ SwiperCore.use([Navigation]);
         }
         &-btn {
           .btn {
-            padding: 0.03rem 0.13rem;
+            padding: 0 0.13rem;
             background: #25262B;
             border: 0;
             border-radius: 4px;
