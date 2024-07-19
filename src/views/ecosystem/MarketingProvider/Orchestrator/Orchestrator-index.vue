@@ -1,5 +1,5 @@
 <template>
-  <div class="plr-64 pb-128 lax-landing">
+  <div class="page-body pb-128 lax-landing">
     <el-row :gutter="64" class="affix-container">
       <el-col :span="6" :xs="0">
         <Orchestrator-anchor></Orchestrator-anchor>
@@ -15,8 +15,8 @@
 <script setup lang="ts">
 import { EWindowSize } from '@/constant/common'
 import { windowSize } from '@/hooks/layout'
-import OrchestratorContent from './Orchestrator-content.vue'
-import OrchestratorAnchor from './Orchestrator-anchor.vue'
+import OrchestratorContent from './pages/Orchestrator-content.vue'
+import OrchestratorAnchor from './pages/Orchestrator-anchor.vue'
 import { anchor } from './config'
 import { useAnchor } from '@/hooks/use-anchor'
 const route = useRoute()

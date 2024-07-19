@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import aboutUsHeader from './aboutUs-header.vue'
-import aboutUsJoin from './aboutUs-join.vue'
-import aboutUsFundedby from './aboutUs-fundedby.vue'
-import aboutUsSwan from './aboutUs-swan.vue'
+import aboutUsHeader from './pages/aboutUs-header.vue'
+import aboutUsJoin from './pages/aboutUs-join.vue'
+import aboutUsFundedby from './pages/aboutUs-fundedby.vue'
+import aboutUsSwan from './pages/aboutUs-swan.vue'
 </script>
 
 <style lang="less" scoped>

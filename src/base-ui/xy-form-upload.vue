@@ -1,10 +1,11 @@
 <template>
   <el-upload v-model:file-list="fileList" ref="upload" class="upload font-14" action="" :limit="limit" :on-exceed="handleExceed" :on-change="handleChange" :auto-upload="false" :show-file-list="!!value">
+    <!-- <template #tip>
+      <div v-if="tips" class="el-upload__tip color-info font-16">{{ tips }}</div>
+    </template> -->
     <template #trigger>
-      <div class="btn-primary font-14 color-light font-bold p-8">{{ label }}</div>
-    </template>
-    <template #tip>
-      <div v-if="tips" class="el-upload__tip color-info">{{ tips }}</div>
+      <div v-if="tips" class="color-light tip font-14 w-100 mb-8">{{ tips }}</div>
+      <div class="btn-choose font-16 color-light font-weight-6 p-8">{{ label }}</div>
     </template>
   </el-upload>
 </template>
@@ -55,16 +56,23 @@ function handleChange(e: any) {
 <style lang="less" scoped>
 .upload {
   width: 100%;
-  padding: 0.12rem;
-  background-color: var(--color-bg-input);
-  border-radius: 0.12rem;
+  padding: 0 0.14rem;
+  :deep(.el-upload) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .tip{
+      line-height: 1.1;
+    }
+  }
 }
-.btn {
-  color: var(--color-info);
-  border-color: var(--color-info);
-  border-radius: 0.08rem;
+.btn-choose {
+  padding: 0.12rem 0.24rem;
+  background-color: var(--color-light);
+  color: var(--color-dark-black);
+  border-radius: 1rem;
+  transition: all 0.2s;
 }
-.btn:hover {
+.btn-choose:hover {
   background-color: var(--color-primary);
   color: var(--color-light);
   border-color: var(--color-primary);

@@ -52,7 +52,7 @@ export const anchorProvider = ref([
     mainTitleText: 'SWAN Providers',
     externalLink: {
       name: 'View Provider explorer',
-      link: 'https://proxima-explorer.swanchain.io/'
+      link: 'https://orchestrator.swanchain.io/provider-status'
     },
     title: 'Providers',
     image: null,

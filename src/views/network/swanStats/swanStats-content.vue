@@ -1,6 +1,6 @@
 <template>
   <div class="an-content">
-    <div class="font-40 font-bold2 mt-32">SWAN Network Stats</div>
+    <div class="font-30 font-bold mt-32">SWAN Network Stats</div>
     
     <swanStats-figures></swanStats-figures>
   </div>

@@ -1,24 +1,29 @@
 <template>
   <div class="w-100 home">
     <home-header></home-header>
-    <home-background></home-background>
     <div class="body lax-landing">
+      <home-components></home-components>
+      <home-advantages></home-advantages>
+      <home-funders></home-funders>
+      <home-thriving></home-thriving>
       <home-showcase></home-showcase>
-      <home-powered></home-powered>
       <home-userstory></home-userstory>
+      <home-ecosystem></home-ecosystem>
       <home-partnet></home-partnet>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import HomeHeader from './home-header.vue'
-import HomeBackground from './home-background.vue'
-import HomePowered from './home-powered.vue'
-import HomePartnet from './home-partnet.vue'
-import HomeShowcase from './home-showcase.vue'
-import HomeUserstory from './home-userstory.vue'
-import { toPage } from '@/hooks/router'
+import HomeHeader from './pages/home-header.vue'
+import HomeComponents from './pages/home-components.vue'
+import HomeAdvantages from './pages/home-advantages.vue'
+import HomeFunders from './pages/home-funders.vue'
+import HomeThriving from './pages/home-thriving.vue'
+import HomeShowcase from './pages/home-showcase.vue'
+import HomeUserstory from './pages/home-userstory.vue'
+import HomeEcosystem from './pages/home-ecosystem.vue'
+import HomePartnet from './pages/home-partnet.vue'
 </script>
 
 <style lang="less" scoped>

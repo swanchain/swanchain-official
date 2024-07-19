@@ -1,25 +1,27 @@
 <template>
-   <!-- :navigation="true" -->
-  <swiper :modules="modules" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
+  <swiper :modules="modules" :navigation="{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
-        <div class="card-item swiper-slide-item text-center">
+        <div class="card-item back-linear swiper-slide-item text-center">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
             <img :src="item.icon" class="w-100" />
             <div class="card-item-header-logo pt-20 pb-20 flex flex-ai-center flex-jc-center">
               <img :src="lagrangeLogo" />
             </div>
-            <div class="card-item-header-title font-28 font-bold pt-16 flex flex-jc-center flex-ai-center">{{ item.title }}</div>
+            <div class="card-item-header-title font-20 font-bold pt-16 flex flex-jc-center flex-ai-center">{{ item.title }}</div>
           </div>
-          <div class="card-item-body">
+          <div class="card-item-body back-linear">
             <div class="card-item-body-btn flex">
               <template v-for="b in item.btn" :key="b">
                 <div class="font-16 btn mr-10 mb-8">{{b.name}}</div>
               </template>
             </div>
-            <div class="card-item-body-content font-20 line-3 mt-8 mb-16 text-left">{{ item.content }}</div>
+            <div class="card-item-body-content font-14 line-3 mt-8 mb-8 text-left">{{ item.content }}</div>
             <div class="flex flex-ai-center flex-js-left">
-              <div @click="openPage(item.link)" class="card-item-body-try font-16 font-bold2 flex flex-ai-center flex-js-center pointer">
+              <div @click="openPage(item.link)" class="card-item-body-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">
                 Try It Now
 
                 <svg class="ml-10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,12 +41,16 @@
         </div>
       </swiper-slide>
     </template>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="shelter"></div>
   </swiper>
 </template>
 <script setup lang="ts">
-import { Autoplay, Navigation, Pagination } from 'swiper' // 引入库
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/swiper-bundle.css' // 引入样式文件 注意5和6版本的样式文件不一致
+import 'swiper/swiper-bundle.css' 
 import type { IOption } from 'types/common'
 import { openPage } from '@/hooks/router'
 import lagrangeLogo from '@/assets/img/index/lagrange-logo.png'
@@ -69,26 +75,25 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
+SwiperCore.use([Navigation]);
 </script>
 <style lang="scss" scoped>
 .swiper {
   width: 100%;
-  // margin-left: -1.565rem;
+  padding-left: 1.28rem;
+  @media screen and (max-width: 768px) {
+    padding-left: 0.6rem;
+  }
   .swiper-wrapper {
     display: flex;
     align-items: stretch;
     transition-timing-function: linear !important;
   }
-  .swiper-slide{
+  .swiper-slide {
     .card-item {
       position: relative;
       height: 100%;
-      margin: 0 0.16rem;
-      background-image: linear-gradient(
-        180deg, 
-        var(--color-background-image-top), 
-        var(--color-background-image-bottom)
-      );
+      margin: 0 0.32rem 0 0;
       border-radius: 0.16rem;
       overflow: hidden;
       &-header{
@@ -118,7 +123,7 @@ function handleClickItem(item: IOption) {
         }
       }
       &-body{
-        padding: 0.24rem;
+        padding: 0.16rem;
         &-date {
           position: relative;
           padding-left: 0.2rem;
@@ -136,14 +141,14 @@ function handleClickItem(item: IOption) {
         }
         &-btn {
           .btn {
-            padding: 0.03rem 0.13rem;
+            padding: 0 0.13rem;
             background: #25262B;
             border: 0;
             border-radius: 4px;
           }
         }
         &-try{
-          padding: 0.12rem 0.22rem;
+          padding: 0.08rem 0.16rem;
           border: 0.02rem solid var(--color-primary);
           border-radius: 1rem;
           &:hover{
@@ -162,9 +167,42 @@ function handleClickItem(item: IOption) {
           }
         }
         &-content{
-          min-height: 0.72rem;
+          min-height: 0.66rem;
+          line-height: 1.57;
         }
       }
+    }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    top: 0;
+    width: auto;
+    height: 100%;
+    padding: 0 0.15rem;
+    margin: 0;
+    background: linear-gradient(-90deg, var(--color-dark), transparent);
+    z-index: 99;
+    &:after{
+      font-size: var(--font-44);
+      color: var(--color-light);
+    }
+    &.swiper-button-next{
+      right: 0;
+    }
+    &.swiper-button-prev{
+      left: 0;
+    }
+  }
+  .shelter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1.28rem;
+    height: 100%;
+    background: #000;
+    z-index: 98;
+    @media screen and (max-width: 768px) {
+      width: 0.6rem;
     }
   }
 }

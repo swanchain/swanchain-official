@@ -137,7 +137,7 @@ body,
   outline: none;
   margin: 0;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.57;
 }
 
 // ::-webkit-scrollbar {
@@ -240,4 +240,36 @@ body,
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.back-linear{
+  background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
+}
+
+
+.learn-more {
+  display: inline-block;
+  padding: 0.14rem 0.16rem;
+  background-color: var(--color-primary);
+  border: 0.02rem solid var(--color-primary);
+  border-radius: 100px;
+  cursor: pointer;
+  color: var(--color-light);
+  line-height: 1;
+  transition: all 0.2s;
+  @media screen and (max-width: 768px) {
+    padding: 0.14rem 0.16rem !important;
+  }
+  &:hover {
+    background-color: transparent;
+    color: var(--color-light);
+  }
+  svg{
+    width: 0.16rem;
+    height: 0.16rem;
+  }
+}
+
+.border-radius-16 {
+  border-radius: 0.16rem;
 }

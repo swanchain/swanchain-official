@@ -1,17 +1,17 @@
 <template>
   <div class="privacy-landing">
     <div class="secondary">
-      <h1 class="font-56 font-bold text-center">Privacy Policy</h1>
+      <h1 class="font-46 font-bold text-center">Privacy Policy</h1>
     </div>
     <div class="principal lax-landing">
-      <div class="container">
+      <div class="container back-linear">
         <div class="container_heading">
-          <div class="font-16 mb-32 text-right">
+          <div class="font-16 mb-32">
             Effective date:
             <span>April 29, 2022</span>
           </div>
         </div>
-        <div class="container_content font-16">
+        <div class="container_content font-14">
           <p>We take your privacy seriously. This Privacy Policy describes how we collect, use and share your personally identifiable information (“Personal Information”) that we receive from you when you visit our website or which we otherwise
             receive or collect from you in the course of, or in connection with, your use of our site located at https://swanchain.io and all associated sites (the “Website”), the provision of our products and services (our “Services”) and our
             business operations. Please read the following to learn more about our Privacy Policy.</p>
@@ -185,11 +185,11 @@ const email_link = ELINK.EMAIL
 
 <style lang="less" scoped>
 .privacy-landing {
-  background: url(../../assets/img/privacy-bg.jpg) no-repeat top center;
+  background: url(../../assets/img/privacy-bg.jpg) no-repeat center 0.17rem;
   background-size: 47%;
   color: var(--color-light);
   .secondary {
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem;
   }
   .principal {
     padding: 0 1.28rem 0.32rem;
@@ -199,11 +199,6 @@ const email_link = ELINK.EMAIL
     .container {
       padding: 0.32rem;
       margin: 0 auto;
-      background-image: linear-gradient(
-        180deg, 
-        var(--color-background-image-top), 
-        var(--color-background-image-bottom)
-      );
       border-radius: 0.16rem;
       box-sizing: border-box;
       .container_heading {
@@ -222,12 +217,12 @@ const email_link = ELINK.EMAIL
         line-height: 1.5;
         word-break: break-word;
         p {
-          font-size: var(--font-16);
+          font-size: var(--font-14);
           line-height: 1.5;
         }
         h3 {
-          margin: 0.32rem 0 0.16rem;
-          font-size: var(--font-22);
+          margin: 0.16rem 0 0.08rem;
+          font-size: var(--font-20);
           font-weight: 700;
         }
         ul {
@@ -235,7 +230,7 @@ const email_link = ELINK.EMAIL
           padding: 0 0 0 40px;
           list-style-type: disc;
           li {
-            margin-bottom: 12px;
+            margin-top: 0.06rem;
             font-size: inherit;
           }
         }
@@ -249,7 +244,8 @@ const email_link = ELINK.EMAIL
         }
         strong {
           display: block;
-          font-size: var(--font-20);
+          font-size: var(--font-16);
+          font-family: var(--font-bold);
           // font-weight: 600;
         }
       }

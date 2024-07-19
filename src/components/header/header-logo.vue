@@ -20,8 +20,8 @@ defineProps<{
   display: flex;
   align-items: center;
   img {
-    height: 0.48rem;
-    min-height: 35px;
+    height: 0.39rem;
+    min-height: 30px;
   }
 }
 </style>

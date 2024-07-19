@@ -1,17 +1,17 @@
 <template>
   <div class="terms-landing">
     <div class="secondary">
-      <h1 class="font-56 font-bold text-center">Terms of Service</h1>
+      <h1 class="font-46 font-bold text-center">Terms of Service</h1>
     </div>
     <div class="principal lax-landing">
-      <div class="container">
+      <div class="container  back-linear">
         <div class="container_heading">
-          <div class="font-16 mb-32 text-right">
+          <div class="font-16 mb-32">
             Last updated:
             <span>April 29, 2022</span>
           </div>
         </div>
-        <div class="container_content font-16">
+        <div class="container_content font-14">
           <p>These terms of service, together with any documents and additional terms they incorporate by reference (collectively, these “
             Terms”), are entered into between Swan Cloud Inc (“
             Swan,” “
@@ -295,11 +295,11 @@ const fullYear = new Date().getFullYear()
 
 <style lang="less" scoped>
 .terms-landing {
-  background: url(../../assets/img/terms-bg.jpg) no-repeat top center;
+  background: url(../../assets/img/terms-bg.jpg) no-repeat center 0.17rem;
   background-size: 47%;
   color: var(--color-light);
   .secondary {
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem;
   }
   .principal {
     padding: 0 1.28rem 0.32rem;
@@ -309,11 +309,6 @@ const fullYear = new Date().getFullYear()
     .container {
       padding: 0.32rem;
       margin: 0 auto;
-      background-image: linear-gradient(
-        180deg, 
-        var(--color-background-image-top), 
-        var(--color-background-image-bottom)
-      );
       border-radius: 0.16rem;
       box-sizing: border-box;
       .container_heading {
@@ -332,12 +327,12 @@ const fullYear = new Date().getFullYear()
         line-height: 1.5;
         word-break: break-word;
         p {
-          font-size: var(--font-16);
+          font-size: var(--font-14);
           line-height: 1.5;
         }
         h3 {
-          margin: 0.32rem 0 0.16rem;
-          font-size: var(--font-22);
+          margin: 0.16rem 0 0.08rem;
+          font-size: var(--font-20);
           font-weight: 700;
         }
         ul {
@@ -345,7 +340,7 @@ const fullYear = new Date().getFullYear()
           padding: 0 0 0 0.32rem;
           list-style-type: disc;
           li {
-            margin-bottom: 0.16rem;
+            margin-top: 0.06rem;
             font-size: inherit;
           }
         }
@@ -358,7 +353,8 @@ const fullYear = new Date().getFullYear()
           }
         }
         strong {
-          // font-weight: 600;
+          // font-size: var(--font-16);
+          // font-family: var(--font-bold);
         }
       }
     }

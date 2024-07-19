@@ -1,5 +1,5 @@
 <template>
-  <div class="plr-64 pb-128 lax-landing">
+  <div class="page-body pb-128 lax-landing">
     <el-row :gutter="64" class="affix-container">
       <el-col :span="6" :xs="0">
         <ZKEngine-anchor></ZKEngine-anchor>
@@ -15,8 +15,8 @@
 <script setup lang="ts">
 import { EWindowSize } from '@/constant/common'
 import { windowSize } from '@/hooks/layout'
-import ZKEngineContent from './ZKEngine-content.vue'
-import ZKEngineAnchor from './ZKEngine-anchor.vue'
+import ZKEngineContent from './pages/ZKEngine-content.vue'
+import ZKEngineAnchor from './pages/ZKEngine-anchor.vue'
 import { anchor } from './config'
 import { useAnchor } from '@/hooks/use-anchor'
 const route = useRoute()
