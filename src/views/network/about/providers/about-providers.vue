@@ -98,7 +98,13 @@ async function getOverviewFcpData() {
     resourcesList.memory.used = statsRes?.data?.total_used_memory ?? 0
     resourcesList.storage.total = statsRes?.data?.total_storage ?? 0
     resourcesList.storage.used = statsRes?.data?.total_used_storage ?? 0
-    getOverviewEcpData()
+    
+    // getOverviewEcpData()
+    resourcesList.gpu.percentage = resourcesList.gpu?.total ? Number(((resourcesList.gpu?.used ?? 0) / resourcesList.gpu.total * 100).toFixed(1)) : 0
+    resourcesList.cpu.percentage = resourcesList.cpu?.total ? Number(((resourcesList.cpu?.used ?? 0) / resourcesList.cpu.total * 100).toFixed(1)) : 0
+    resourcesList.memory.percentage = resourcesList.memory?.total ? Number(((resourcesList.memory?.used ?? 0) / resourcesList.memory.total * 100).toFixed(1)) : 0
+    resourcesList.storage.percentage = resourcesList.storage?.total ? Number(((resourcesList.storage?.used ?? 0) / resourcesList.storage.total * 100).toFixed(1)) : 0
+    resourcesLoad.value = false
   } catch { 
     console.error
     resourcesLoad.value = false

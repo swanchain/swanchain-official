@@ -53,16 +53,16 @@ const columns = ref([
   {
     title: 'Expore',
     list: [
-      { label: 'Lagrange', value: '', link:  'https://lagrangedao.org/' },
-      { label: 'Multi-Chain Storage', value: '', link:  'https://multichain.storage/' },
-      { label: 'Meta Ark', value: '', link:  'https://www.fogmetalabs.com/metaark' },
-      { label: 'Chainnode', value: '', link:  'https://chainnode.io/' }
+      { label: 'Lagrange', value: '', link: ELINK.LAGRANGE },
+      { label: 'Multi-Chain Storage', value: '', link: ELINK.MCS  },
+      { label: 'Meta Ark', value: '', link: ELINK.METAARK },
+      { label: 'Chainnode', value: '', link: ELINK.CHAINNODE }
     ]
   },
   {
     title: 'Build',
     list: [
-      { label: 'Block Explorer', value: '', link:  ELINK.PROXIMAEXPLORER },
+      { label: 'Block Explorer', value: '', link:  ELINK.MAINNETEXPLORER },
       { label: 'Documentation', value: '', link:  'https://docs.swanchain.io/' },
       { label: 'Blog', value:  '', link: 'https://swanchain.medium.com/' }
     ]

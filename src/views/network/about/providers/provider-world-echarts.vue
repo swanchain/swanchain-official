@@ -111,15 +111,14 @@ function drawChart() {
         }
       },
       legend: {
-        show: false,
         orient: 'vertical',
         left: '1.5%',
         bottom: '1.5%',
         itemGap: 8,
         itemWidth: 12,
         itemHeight: 12,
-        icon: 'roundRect',
-        // 图例标签的格式器，可以定制文本
+        // icon: 'roundRect',
+        icon: 'circle',
         // formatter: function (name) {
         //     return echarts.format.truncateText(name, 50);
         // },
@@ -127,7 +126,7 @@ function drawChart() {
         textStyle: {
           color: '#fff',
           fontSize: 14,
-          fontFamily: 'HELVETICA-ROMAN',
+          fontFamily: 'gilroy-Medium',
           // lineHeight: 14,
           rich: {
             a: {
@@ -188,7 +187,7 @@ function drawChart() {
       },
       series: [
         {
-          name: 'FCP',
+          name: 'Computing providers',
           type: 'scatter',
           coordinateSystem: 'geo',
           itemStyle: {
@@ -201,20 +200,20 @@ function drawChart() {
           symbolSize: 14,
           zlevel: 1
         },
-        {
-          name: 'ECP',
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          itemStyle: {
-            color: '#4881FC',
-            shadowBlur: 2,
-            shadowColor: 'transparent'
-          },
-          data: props.dataArrECP,
-          roam: true,
-          symbolSize: 14,
-          zlevel: 1
-        }
+        // {
+        //   name: 'ECP',
+        //   type: 'scatter',
+        //   coordinateSystem: 'geo',
+        //   itemStyle: {
+        //     color: '#4881FC',
+        //     shadowBlur: 2,
+        //     shadowColor: 'transparent'
+        //   },
+        //   data: props.dataArrECP,
+        //   roam: true,
+        //   symbolSize: 14,
+        //   zlevel: 1
+        // }
       ]
     })
   }

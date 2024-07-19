@@ -13,7 +13,7 @@
     </div>
     <el-row :gutter="32">
       <template v-for="(item, index) in list" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-32">
+        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-32 pointer" @click="openPage(item.link)">
           <div class="eco-card-item back-linear font-16">
             <div class="eco-card-item-logo flex flex-jc-between flex-ai-start">
               <div class="flex flex-ai-center">
@@ -36,13 +36,15 @@ import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { getCRMFormList } from '@/api/apps';
-import { toPage } from '@/hooks/router';
+import { openPage, toPage } from '@/hooks/router';
 import router from '@/router';
+import { ELINK } from '@/constant/envLink';
 
 const list = ref([
   {
     title: 'Lagrange Dao',
     live: 'Live on Pacific',
+    link: ELINK.LAGRANGE,
     label: 'Lagrange',
     btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
     content:
@@ -51,6 +53,7 @@ const list = ref([
   {
     title: 'Multi-Chain Storage',
     live: 'Live on Pacific',
+    link: ELINK.MCS,
     label: 'MCS',
     btn: [{ name: 'Social' }],
     content:
@@ -59,6 +62,7 @@ const list = ref([
   {
     title: 'Meta Ark',
     live: 'Live on Pacific',
+    link: ELINK.METAARK,
     label: 'MetaArk',
     btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
     content:
@@ -67,6 +71,7 @@ const list = ref([
   {
     title: 'Chainnode',
     live: '',
+    link: ELINK.CHAINNODE,
     label: 'Chainnode',
     btn: [{ name: 'Social' }],
     content:

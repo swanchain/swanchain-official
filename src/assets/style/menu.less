@@ -37,20 +37,24 @@
       .el-sub-menu, .el-menu-item {
         border-radius: 0.08rem;
         .el-sub-menu__title{
-          height: auto;
           min-height: 26px;
           font-size: var(--font-14);
           color: var(--color-light) !important;
+          @media screen and (max-width: 767px) {
+            height: auto;
+          }
         }
         &:hover {
           background-color: var(--color-primary) !important;
         }
       }
       .el-menu-item{
-        height: auto;
         min-height: 26px;
         font-size: var(--font-14);
         color: var(--color-light) !important;
+        @media screen and (max-width: 767px) {
+          height: auto;
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
   <div class="font-24 mt-32 mb-16 flex flex-ai-center">
     <span class="font-bold">Network Summary</span>
 
-    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(ELINK.PROXIMAEXPLORER)">
+    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(ELINK.MAINNETEXPLORER)">
       View in exolorer
 
       <svg class="ml-8" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,12 +96,12 @@
         <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_online_computers) }}</p>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
+    <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">ECP</p>
         <p class="font-20 color">{{ replaceFormat(statsData.ECPData.cp.total) }}</p>
       </div>
-    </el-col>
+    </el-col> -->
     <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Marketing Provider</p>
@@ -117,7 +117,8 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Locations</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations + statsData.ECPData.location.total) }}</p>
+        <!-- <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations + statsData.ECPData.location.total) }}</p> -->
+        <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations) }}</p>
       </div>
     </el-col>
     <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -132,12 +133,12 @@
         <p class="font-20 color">{{ replaceFormat(statsData.generalData.total_task) }}</p>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
+    <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Total reward</p>
         <p class="font-20 color">{{ replaceFormat(statsData.ECPData.rewards.total) }} SWAN</p>
       </div>
-    </el-col>
+    </el-col> -->
   </el-row>
 </template>
 
@@ -209,7 +210,7 @@ onMounted(async () => {
   getCountersData()
   getGeneralData()
   getOverViewData()
-  getECPData()
+  // getECPData()
 })
 </script>
 
