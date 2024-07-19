@@ -57,7 +57,7 @@ import { openPage } from '@/hooks/router';
     width: 59%;
     max-width: 700px;
     min-width: 320px;
-    padding: 1.2rem 0 3.2rem;
+    padding: 1.2rem 0 2.9rem;
     @media screen and (max-width: 768px) {
       padding: 1.2rem 0;
     }
