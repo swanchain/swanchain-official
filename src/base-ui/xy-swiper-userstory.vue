@@ -84,7 +84,9 @@ SwiperCore.use([Navigation]);
 .swiper {
   width: 100%;
   padding-left: 1.28rem;
-  margin-left: -0.16rem;
+  @media screen and (max-width: 768px) {
+    padding-left: 0.6rem;
+  }
   .swiper-wrapper {
     display: flex;
     align-items: stretch;
@@ -94,7 +96,7 @@ SwiperCore.use([Navigation]);
     .card-item {
       position: relative;
       height: 100%;
-      margin: 0 0.16rem;
+      margin: 0 0.32rem 0 0;
       border-radius: 0.16rem;
       overflow: hidden;
       &-header{
@@ -196,6 +198,7 @@ SwiperCore.use([Navigation]);
     background: linear-gradient(-90deg, var(--color-dark), transparent);
     z-index: 99;
     &:after{
+      font-size: var(--font-44);
       color: var(--color-light);
     }
     &.swiper-button-next{
@@ -214,6 +217,9 @@ SwiperCore.use([Navigation]);
     height: 100%;
     background: #000;
     z-index: 98;
+    @media screen and (max-width: 768px) {
+      width: 0.6rem;
+    }
   }
 }
 </style>

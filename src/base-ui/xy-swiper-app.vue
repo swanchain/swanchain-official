@@ -3,17 +3,19 @@
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight, left: itemLeft, margin: itemMargin }">
         <div class="swiper-slide-item text-center">
-          <div class="swiper-slide-item-logo flex flex-jc-center flex-ai-start mb-32">
+          <div class="swiper-slide-item-logo flex flex-jc-center flex-ai-start mb-16">
             <div class="flex flex-ai-center">
-              <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '46px' : '0.8rem'" :height="windowSize === EWindowSize.XS ? '46px' : '0.8rem'" pointer></xy-icon>
+              <img :src="item.logo" class="card-item-logo-img" alt="logo" />
+              <!-- <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '46px' : '0.8rem'" :height="windowSize === EWindowSize.XS ? '46px' : '0.8rem'" pointer></xy-icon> -->
             </div>
           </div>
           <div class="swiper-slide-item-btn flex flex-jc-center">
-            <template v-for="b in item.btn" :key="b">
+            <!-- <template v-for="b in item.btn" :key="b">
               <div class="font-16 btn mr-10 mb-10">{{b.name}}</div>
-            </template>
+            </template> -->
+            <div class="font-16 btn mr-10 mb-10">{{item.tag}}</div>
           </div>
-          <div class="swiper-slide-item-content font-22 font-bold line-8 mt-32">{{ item.title }}</div>
+          <div class="swiper-slide-item-content font-20 font-bold line-8 mt-8">{{ item.name }}</div>
         </div>
       </swiper-slide>
     </template>
@@ -62,7 +64,7 @@ function handleClickItem(item: IOption) {
   }
   &-slide {
     width: 100%;
-    margin: 0 0.16rem;
+    margin: 0 0 0 0.32rem;
     background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
     position: relative;
     user-select: none;
@@ -74,8 +76,18 @@ function handleClickItem(item: IOption) {
       height: 100%;
       background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
       border-radius: 0.16rem;
-      padding: 0.48rem 0.24rem;
+      padding: 0.32rem 0.16rem;
       &-logo {
+        .card-item-logo-img{
+          display: block;
+          width: 0.64rem;
+          height: 0.64rem;
+          border-radius: 2rem;
+          @media screen and (max-width: 768px) {
+            width: 42px;
+            height: 42px;
+          }
+        }
       }
       &-date {
         position: relative;
@@ -94,7 +106,7 @@ function handleClickItem(item: IOption) {
       }
       &-btn {
         .btn {
-          padding: 0.08rem 0.16rem;
+          padding: 0.05rem 0.16rem;
           background: #343a40;
           border: 0;
         }

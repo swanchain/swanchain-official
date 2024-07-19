@@ -2,8 +2,14 @@
   border: none !important;
   .el-sub-menu__title, .el-menu-item {
     @media screen and (max-width: 767px) {
-      height: 40px !important;
-      line-height: 40px !important;
+      height: 35px !important;
+      line-height: 35px !important;
+      font-size: var(--font-16);
+    }
+    .font-14{
+      @media screen and (max-width: 767px) {
+        font-size: var(--font-16) !important;
+      }
     }
   }
 }
@@ -31,6 +37,8 @@
       .el-sub-menu, .el-menu-item {
         border-radius: 0.08rem;
         .el-sub-menu__title{
+          height: auto;
+          min-height: 26px;
           font-size: var(--font-14);
           color: var(--color-light) !important;
         }
@@ -39,6 +47,8 @@
         }
       }
       .el-menu-item{
+        height: auto;
+        min-height: 26px;
         font-size: var(--font-14);
         color: var(--color-light) !important;
       }

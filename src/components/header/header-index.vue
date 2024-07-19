@@ -5,7 +5,8 @@
         <span @click="openPage('https://swanchain.medium.com/filswan-rebrands-to-swan-signalling-expansion-from-storage-to-computing-4f0d08d3825c')" class="font-14">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
       </template>
     </el-alert>
-    <div :class="`header-body lax-landing flex flex-ai-center flex-jc-between ${!isMargin ? 'header-body-m': ''}`">
+    <!-- ${!isMargin ? 'header-body-m': ''} -->
+    <div :class="`header-body lax-landing flex flex-ai-center flex-jc-between`">
       <header-logo :light="false"></header-logo>
       <!-- <div class="flex flex-ai-center"> -->
         <header-menus :light="false"></header-menus>
@@ -57,6 +58,9 @@ router.beforeEach(to => {
   padding: 0.26rem 1.28rem;
   @media screen and (max-width: 768px) {
     padding: 0.26rem 0.6rem;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0.26rem 0 0.26rem 0.6rem;
   }
   &.header-body-m{
     padding: 0.26rem 0.64rem;

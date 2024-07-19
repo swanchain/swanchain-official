@@ -1,54 +1,59 @@
 <template>
   <div class="app-form-container flex flex-ai-center flex-jc-center" v-if="props.formDialog">
     <div class="form card p-32 flex-column font-16">
-      <div class="font-24 font-bold color-light mb-16">Get your project on Optimism’s Apps page</div>
+      <div class="font-24 font-bold text-center color-light">Add Your App</div>
+      <svg @click="close" class="pointer close-btn" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.3337 6.6665L6.66699 25.3332" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+        <path d="M25.3337 25.3332L6.66699 6.6665" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+      </svg>
+      <img :src="addAppsImages" class="w-100 mt-24 mb-24" />
       <el-form ref="formRef" label-position="top" v-loading="form.loading" label-width="auto" :model="form" :rules="rules">
         <el-row :gutter="32">
           <el-col :span="24" :xs="24">
             <el-form-item prop="email">
               <template #label>
-                <div class="flex flex-ai-center font-16 capitalize color-light">
-                  <span class="color-danger mr-8">*</span> Email
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Email Address:
                 </div>
               </template>
-              <el-input v-model="form.email" placeholder="Please add your email" />
+              <el-input v-model="form.email" placeholder="Please add your email here" />
             </el-form-item>
           </el-col>
           <el-col :span="24" :xs="24">
             <el-form-item prop="name">
               <template #label>
-                <div class="flex flex-ai-center font-16 capitalize color-light">
-                  <span class="color-danger mr-8">*</span> Project Name
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Project Name:
                 </div>
               </template>
-              <el-input v-model="form.name" placeholder="Please your project's name" />
+              <el-input v-model="form.name" placeholder="Please add your Project name here" />
             </el-form-item>
           </el-col>
           <el-col :span="24" :xs="24">
             <el-form-item prop="website">
               <template #label>
-                <div class="flex flex-ai-center font-16 capitalize color-light">
-                  <span class="color-danger mr-8">*</span> Project Website
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Project Website:
                 </div>
               </template>
-              <el-input v-model="form.website" placeholder="Please enter your project's website URL" />
+              <el-input v-model="form.website" placeholder="Please add your Project Website here" />
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item prop="description">
               <template #label>
-                <div class="flex flex-ai-center font-16 capitalize color-light">
-                  <span class="color-danger mr-8">*</span> Project Description
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Project Description:
                 </div>
               </template>
-              <el-input v-model="form.description" :rows="2" type="textarea" placeholder="Please add a brief description" />
+              <el-input v-model="form.description" :rows="2" type="textarea" placeholder="Please add your Project Description here" />
             </el-form-item>
           </el-col>
           <el-col :span="24" :xs="24">
             <el-form-item prop="logo">
               <template #label>
-                <div class="flex flex-ai-center font-16 capitalize color-light">
-                  <span class="color-danger mr-8">*</span> Project Logo
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Project Logo:
                 </div>
               </template>
               <xy-form-upload v-model:value="form.logo"></xy-form-upload>
@@ -57,7 +62,7 @@
           <el-col :span="24">
             <el-form-item prop="marketing_opt">
               <template #label>
-                <div class="flex flex-ai-center font-16 color-light">
+                <div class="flex flex-ai-center font-16 font-bold2 color-light">
                   <span class="color-danger mr-8">*</span> Do you agree to receive marketing communications from Optimism?
                 </div>
               </template>
@@ -69,9 +74,8 @@
           </el-col>
         </el-row>
       </el-form>
-      <div class="flex flex-ai-center flex-jc-between">
-        <div class="btn-plain font-20 font-bold mt-8 submit" @click="close">Cancel</div>
-        <div class="btn-primary font-20 font-bold mt-8 ml-16 submit" @click="submitForm(formRef)">Submit</div>
+      <div class="flex flex-ai-center flex-jc-center">
+        <div class="btn-primary font-16 font-weight-6 mt-8 ml-16 submit" @click="submitForm(formRef)">Submit</div>
       </div>
     </div>
   </div>
@@ -80,7 +84,7 @@
 <script setup lang="ts">
 import { createCRMForm } from '@/api/apps'
 import XyFormUpload from '@/base-ui/xy-form-upload.vue'
-import { toPage } from '@/hooks/router'
+import addAppsImages from '@/assets/img/apps/add-apps.jpg'
 
 const router = useRouter()
 
@@ -178,17 +182,34 @@ const props = withDefaults(
   top: 0;
   right: 0;
   bottom: 0;
+  background-color: var(--color-dark-opacity-20);
   z-index: 999;
   overflow-y: auto;
   .form{
-    width: 50%;
-    min-height: 320px;
+    position: relative;
+    width: 60%;
+    min-width: 320px;
     max-width: 600px;
-    padding: 0.24rem 0.32rem;
+    padding: 0.24rem;
     margin: auto;
-    border-radius: 0.16rem;
-    background: #1e2026 !important;
+    border-radius: 0.32rem;
+    background: #000 !important;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.72);
+    *{
+      line-height: 1;
+    }
+    .close-btn{
+        position: absolute;
+        right: 0.24rem;
+        top: 0.24rem;
+        width: 0.22rem;
+        height: 0.22rem;
+        z-index: 9;
+        @media screen and (max-width: 600px) {
+          width: 0.32rem;
+          height: 0.32rem;
+        }
+      }
     :deep(.el-form){
       .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:before{
         display: none;
@@ -197,13 +218,30 @@ const props = withDefaults(
         .el-form-item__content{
           .el-input, .el-textarea{
             border-radius: 0.12rem !important;
+            .el-input__wrapper, .el-textarea__inner{
+              background-color: var(--color-dark-black) !important;
+              color: var(--color-light-opacity);
+              .el-input__inner{
+                color: inherit;
+              }
+            }
+          }
+          .el-radio-group{
+            .el-radio {
+              &.is-checked{
+                .el-radio__inner{
+                  background: var(--color-primary);
+                  border-color: var(--color-primary);
+                }
+              }
+            }
           }
         }
       }
     }
     .submit {
-      width: 100%;
-      padding: 0.12rem 0;
+      width: 2.82rem;
+      padding: 0.15rem 0;
       display: flex;
       align-items: center;
       justify-content: center;

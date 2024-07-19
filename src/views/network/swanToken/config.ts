@@ -36,9 +36,7 @@ export const anchor = ref([
   //   mainTitleText: '',
   //   title: 'Token Figures',
   //   image: null,
-  //   content: [
-  //     gmtTime
-  //   ]
+  //   content: []
   // },
   // {
   //   sourceId: 'source-swanToken-4',

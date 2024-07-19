@@ -119,6 +119,7 @@ function link(url: string) {}
     margin: auto;
     @media screen and (max-width: 768px) {
       width: calc(100% - 1.2rem);
+      padding: 0 0 0.2rem 0;
     }
     .el-col {
       @media screen and (max-width: 767px) {

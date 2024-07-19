@@ -478,6 +478,7 @@
     padding: 20px !important;
   }
   .page-body {
-    padding: 0 0.6rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
   }
 }

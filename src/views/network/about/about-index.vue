@@ -1,5 +1,5 @@
 <template>
-  <div class="plr-64 pb-128 lax-landing">
+  <div class="page-body pb-128 lax-landing">
     <el-row :gutter="64" class="affix-container">
       <el-col :span="6" :xs="0">
         <about-anchor></about-anchor>
@@ -16,9 +16,9 @@
 <script setup lang="ts">
 import { EWindowSize } from '@/constant/common'
 import { windowSize } from '@/hooks/layout'
-import aboutContent from './about-content.vue'
-import aboutProviders from './about-providers.vue'
-import aboutAnchor from './about-anchor.vue'
+import aboutContent from './Introduction/about-content.vue'
+import aboutAnchor from './Introduction/about-anchor.vue'
+import aboutProviders from './providers/about-providers.vue'
 import { anchor, anchorProvider } from './config'
 import { useAnchor } from '@/hooks/use-anchor'
 const route = useRoute()

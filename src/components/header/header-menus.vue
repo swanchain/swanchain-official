@@ -8,7 +8,7 @@
             <el-sub-menu v-if="it?.children?.length" :index="it.value">
               <template #title><div class="font-14 flex flex-ai-center">{{ it.label }}</div></template>
               <el-menu-item v-for="itChild in it.children" :key="itChild.value" :index="itChild.value" @click="changeMenu(itChild)">                
-                <div class="flex flex-ai-center pointer">
+                <div class="font-14 flex flex-ai-center pointer">
                   {{ itChild.label }}
 
                   <svg v-if="itChild.link" class="ml-8" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@
               </el-menu-item>
             </el-sub-menu>
             <el-menu-item v-else :index="it.value" @click="changeMenu(it)">
-              <div class="flex flex-ai-center pointer">
+              <div class="font-14 flex flex-ai-center pointer">
                   {{ it.label }}
 
                   <svg v-if="it.link" class="ml-8" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,20 +60,28 @@
               </el-menu-item>
             </el-sub-menu>
             <el-menu-item v-else :index="it.value" @click="changeMenu(it)">
-              <div class="flex flex-ai-center pointer">
+              <div class="font-14 flex flex-ai-center pointer">
                 {{ it.label }}
 
                 <svg v-if="it.link" class="ml-8" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.3332 8.00002V12.6667C13.3332 13.0347 13.0346 13.3334 12.6665 13.3334H3.33317C2.96512 13.3334 2.6665 13.0347 2.6665 12.6667V3.33335C2.6665 2.9653 2.96512 2.66669 3.33317 2.66669H7.99984" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
-                  <path d="M13.333 6.66669V2.66669H9.33301" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
-                  <path d="M13.3333 2.66669L6 10" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+                  <path d="M13.3332 8.00002V12.6667C13.3332 13.0347 13.0346 13.3334 12.6665 13.3334H3.33317C2.96512 13.3334 2.6665 13.0347 2.6665 12.6667V3.33335C2.6665 2.9653 2.96512 2.66669 3.33317 2.66669H7.99984" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+                  <path d="M13.333 6.66669V2.66669H9.33301" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+                  <path d="M13.3333 2.66669L6 10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
                 </svg>
               </div>
             </el-menu-item>
           </template>
         </el-sub-menu>
         <el-menu-item v-else :index="item.value" @click="changeMenu(item)">
-          {{ item.label }}
+          <div class="font-14 flex flex-ai-center pointer">
+            {{ item.label }}
+            
+            <svg v-if="item.link" class="ml-8" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.3332 8.00002V12.6667C13.3332 13.0347 13.0346 13.3334 12.6665 13.3334H3.33317C2.96512 13.3334 2.6665 13.0347 2.6665 12.6667V3.33335C2.6665 2.9653 2.96512 2.66669 3.33317 2.66669H7.99984" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+              <path d="M13.333 6.66669V2.66669H9.33301" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+              <path d="M13.3333 2.66669L6 10" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
+            </svg>
+          </div>
         </el-menu-item>
       </template>
     </el-sub-menu>

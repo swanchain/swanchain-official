@@ -15,16 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import HomeHeader from './home-header.vue'
-import HomeComponents from './home-components.vue'
-import HomeAdvantages from './home-advantages.vue'
-import HomeFunders from './home-funders.vue'
-import HomeThriving from './home-thriving.vue'
-import HomeShowcase from './home-showcase.vue'
-import HomeUserstory from './home-userstory.vue'
-import HomeEcosystem from './home-ecosystem.vue'
-import HomePartnet from './home-partnet.vue'
-import { toPage } from '@/hooks/router'
+import HomeHeader from './pages/home-header.vue'
+import HomeComponents from './pages/home-components.vue'
+import HomeAdvantages from './pages/home-advantages.vue'
+import HomeFunders from './pages/home-funders.vue'
+import HomeThriving from './pages/home-thriving.vue'
+import HomeShowcase from './pages/home-showcase.vue'
+import HomeUserstory from './pages/home-userstory.vue'
+import HomeEcosystem from './pages/home-ecosystem.vue'
+import HomePartnet from './pages/home-partnet.vue'
 </script>
 
 <style lang="less" scoped>
