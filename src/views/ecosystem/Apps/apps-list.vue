@@ -184,7 +184,7 @@ onMounted(() => {
         .el-tabs__nav{
           .el-tabs__item{
             height: auto;
-            padding: 0.1rem 0.16rem;
+            padding: 0.05rem 0.16rem;
             margin: 0 0.16rem 0 0;
             border: 0.02rem solid #9B9B9B;
             border-radius: 1rem;

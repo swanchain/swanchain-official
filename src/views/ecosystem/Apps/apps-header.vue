@@ -1,4 +1,5 @@
 <template>
+   <!-- page-body lax-landing -->
   <div class="home-header flex-column flex-ai-center">
     <div class="home-header-title font-46 font-bold plr-32">{{ title }}</div>
     <div class="font-24">Discover and explore the applications built on SWAN Chain.</div>
