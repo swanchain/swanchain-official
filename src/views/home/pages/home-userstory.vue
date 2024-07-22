@@ -24,6 +24,8 @@ const caseList = ref([
     icon: userStoryImage01,
     avatarIcon: userStoryAvatar01,
     peopleIcon: peopleIcon01,
+    peopleName: 'Jason',
+    peopleDesc: 'Core Contributor of Apus Network',
     link: '',
     projectContent:
       "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
@@ -35,6 +37,8 @@ const caseList = ref([
     icon: userStoryImage,
     avatarIcon: userStoryAvatar,
     peopleIcon: peopleIcon,
+    peopleName: 'Hamzah Khan Polygon',
+    peopleDesc: 'Chief executive officer',
     link: '',
     projectContent:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
@@ -46,6 +50,8 @@ const caseList = ref([
     icon: userStoryImage,
     avatarIcon: userStoryAvatar,
     peopleIcon: peopleIcon,
+    peopleName: 'Hamzah Khan Polygon',
+    peopleDesc: 'Chief executive officer',
     link: '',
     projectContent:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",

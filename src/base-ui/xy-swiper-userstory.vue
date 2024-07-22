@@ -36,8 +36,8 @@
             <div class="card-item-introduce-user font-24 flex flex-ai-center">
               <img :src="item.peopleIcon" class="mr-16 img-left" /> 
               <div class="card-item-introduce-name text-left">
-                <div class="font-16 font-bold">Hamzah Khan Polygon</div>
-                <div class="font-14 mt-4 desc">Chief executive officer</div>
+                <div class="font-16 font-bold">{{ item.peopleName }}</div>
+                <div class="font-14 desc">{{ item.peopleDesc }}</div>
               </div>
             </div>
             <div class="card-item-introduce-content font-14 line-5 mt-16 text-left">{{ item.content }}</div>
