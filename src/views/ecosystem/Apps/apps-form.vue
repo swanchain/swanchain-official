@@ -132,13 +132,21 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       try{
         form.loading = true
+
+        // const reader = new FileReader();
+        // reader.onload = function(event) {
+        //     const fileContent = event.target.result;
+        //     console.log('fileContent:', fileContent); 
+        // };
+        // reader.readAsText(form.logo);
+        
         console.log('form:', form)
         const formData = {
           'name': form.name,
           'email': form.email,
           'website': form.website,
           'description': form.description,
-          'logo': form.logo,
+          'logo': JSON.stringify(form.logo),
           'marketing_opt': form.marketing_opt
         }
         // let formData = new FormData()
