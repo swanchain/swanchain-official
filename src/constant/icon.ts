@@ -9,6 +9,7 @@ export enum EIcon {
   MCS = 'MCS',
   METAARK = 'MetaArk',
   CHAINNODE = 'Chainnode',
+  Superbridge = 'Superbridge',
   Decentralization = 'Decentralization',
   Transparency = 'Transparency',
   Security = 'Security',

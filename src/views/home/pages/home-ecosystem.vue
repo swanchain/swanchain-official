@@ -60,13 +60,13 @@ const list = ref([
       'Multi-Chain Storage, or MCS, developed by the Swan Network, is a new kind of storage service that works with different blockchain networks. It transcends traditional cloud storage by using smart...'
   },
   {
-    title: 'Meta Ark',
+    title: 'Superbridge',
     live: 'Live on Pacific',
-    link: ELINK.METAARK,
-    label: 'MetaArk',
+    link: ELINK.Superbridge,
+    label: 'Superbridge',
     btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
     content:
-      'Ark: Meta Survival is a semi-open world metaverse inspired by The Moon and The Martian, utilizing Play-To-Earn and Move-To-Earn mechanisms that allow players to earn tokens through skilled gameplay and active participation.'
+      'Superbridge is your entrypoint into the world of blockchain rollups! With Superbridge you can bridge Ether and other tokens into and out of any supported rollup. '
   },
   {
     title: 'Chainnode',

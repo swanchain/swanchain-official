@@ -20,13 +20,64 @@ import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
 
 const caseList = ref([
   {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    peopleName: 'Hamzah Khan Polygon',
+    peopleDesc: 'Chief executive officer',
+    link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
     title: 'Apus Network',
     icon: userStoryImage01,
     avatarIcon: userStoryAvatar01,
     peopleIcon: peopleIcon01,
     peopleName: 'Jason',
     peopleDesc: 'Core Contributor of Apus Network',
+    link: 'https://www.apus.network/',
+    projectContent:
+      "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
+    content:
+      "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO."
+  },
+  {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    peopleName: 'Hamzah Khan Polygon',
+    peopleDesc: 'Chief executive officer',
     link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    title: 'Project name',
+    icon: userStoryImage,
+    avatarIcon: userStoryAvatar,
+    peopleIcon: peopleIcon,
+    peopleName: 'Hamzah Khan Polygon',
+    peopleDesc: 'Chief executive officer',
+    link: '',
+    projectContent:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },{
+    title: 'Apus Network',
+    icon: userStoryImage01,
+    avatarIcon: userStoryAvatar01,
+    peopleIcon: peopleIcon01,
+    peopleName: 'Jason',
+    peopleDesc: 'Core Contributor of Apus Network',
+    link: 'https://www.apus.network/',
     projectContent:
       "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
     content:

@@ -11,7 +11,7 @@ export function getCRMFormList() {
 export function createCRMForm(data: any) {
     return request({
         headers: {
-          // "Content-Type": "form-data"
+          "Content-Type": "form-data"
         },
         url: import.meta.env.VITE_APPSAPI + 'crm_project/create',
         method: 'post',

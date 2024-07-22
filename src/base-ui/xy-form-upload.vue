@@ -41,7 +41,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
 }
 
 function handleChange(e: any) {
-  console.log('e:',e)
+  // console.log('e:',e)
   emits('update:value', e.raw)
   emits('change', e)
 }

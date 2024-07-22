@@ -38,7 +38,7 @@ export const anchor = ref([
       'SWAN Users can easily publish their tasks on SWAN website and the Marketing Providers will automatically assign the tasks to Computing providers.<br /><br />',
       'ECP focuses on real-time computing requirements at the edge, and meets the urgent needs of the network for low-latency real-time processing by providing services such as zero-knowledge proof computing, image recognition, and content distribution.<br /><br />',
       'FCP gives full play to the advantages of cloud computing and provides support for AI model training and deployment by sinking computing power to the edge of the network. With infrastructure such as Kubernetes, FCP is able to efficiently handle scalable, massively distributed computing tasks.<br /><br />',
-      'MP provides smart and automatic engines which would be able to allocate the tasks to the most appropriate Computing Providers. MP can be uploaded by SWAN developers and users who are willing to become MP.',
+      'MP provides smart and automatic engines which would be able to allocate the tasks to the most appropriate Computing Providers.',
     ]
   },
 ])

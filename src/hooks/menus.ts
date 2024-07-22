@@ -37,7 +37,7 @@ export const menus = ref<IOption[]>([
       {
         label: 'Explorer', value: '/Explorer',
         children: [
-          { label: 'SWAN Proxima Explorer', value: '', link: 'https://proxima-explorer.swanchain.io/' },
+          { label: 'SWAN Scan', value: '', link: 'https://swanscan.io/' },
           { label: 'SWAN Mainnet Explorer', value: '', link: 'https://mainnet-explorer.swanchain.io/' }
         ]
       }

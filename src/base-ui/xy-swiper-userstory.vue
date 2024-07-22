@@ -14,7 +14,7 @@
               </div>
               <div class="card-item-body-content font-14 line-2 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
               <div class="flex flex-ai-center flex-js-left">
-                <div @click="openPage(item.link)" class="card-item-header-body-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">
+                <div @click="openPage(item.link)" :class="`card-item-header-body-try ${item.link?'':'is-disabled'} font-14 font-bold2 flex flex-ai-center flex-js-center pointer`">
                   Try It Now
 
                   <svg class="ml-10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    <div class="shelter"></div>
+    <!-- <div class="shelter"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">
@@ -83,10 +83,10 @@ SwiperCore.use([Navigation]);
 <style lang="scss" scoped>
 .swiper {
   width: 100%;
-  padding-left: 1.28rem;
-  @media screen and (max-width: 768px) {
-    padding-left: 0.6rem;
-  }
+  // padding-left: 1.28rem;
+  // @media screen and (max-width: 768px) {
+  //   padding-left: 0.6rem;
+  // }
   .swiper-wrapper {
     display: flex;
     align-items: stretch;
@@ -149,6 +149,10 @@ SwiperCore.use([Navigation]);
             padding: 0.08rem 0.16rem;
             border: 0.02rem solid var(--color-primary);
             border-radius: 1rem;
+            &.is-disabled{
+              cursor: no-drop;
+              opacity: .7;
+            }
             &:hover{
               svg {
                 transform: translateX(3px);
@@ -206,6 +210,7 @@ SwiperCore.use([Navigation]);
     }
     &.swiper-button-prev{
       left: 0;
+      background: linear-gradient(-90deg, transparent, var(--color-dark));
     }
   }
   .shelter {
