@@ -64,7 +64,7 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Gas tracker</p>
-        <p class="font-20 color">{{ statsData.value.gas_prices?.average }} Gwei</p>
+        <p class="font-20 color">{{ statsData.value.gas_prices?.average ?? '-' }} Gwei</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
