@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router'
 
 export function openPage(url: string) {
-  window.open(url, '_blank')
+  if(url) window.open(url, '_blank')
 }
 
 export function toPage(router: Router, path: string) {

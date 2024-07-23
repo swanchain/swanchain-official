@@ -44,7 +44,7 @@
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    <div class="shelter"></div>
+    <!-- <div class="shelter"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">
@@ -80,10 +80,10 @@ SwiperCore.use([Navigation]);
 <style lang="scss" scoped>
 .swiper {
   width: 100%;
-  padding-left: 1.28rem;
-  @media screen and (max-width: 768px) {
-    padding-left: 0.6rem;
-  }
+  // padding-left: 1.28rem;
+  // @media screen and (max-width: 768px) {
+  //   padding-left: 0.6rem;
+  // }
   .swiper-wrapper {
     display: flex;
     align-items: stretch;
@@ -190,6 +190,7 @@ SwiperCore.use([Navigation]);
     }
     &.swiper-button-prev{
       left: 0;
+      background: linear-gradient(-90deg, transparent, var(--color-dark));
     }
   }
   .shelter {

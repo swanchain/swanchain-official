@@ -2,7 +2,11 @@ export default [
   {
     path: '/',
     name: 'index',
-    component: () => import('../views/home/home-index.vue')
+    component: () => import('../views/home/home-index.vue'),
+    meta: {
+      keepAlive: true,
+      title: 'Swan Chain'
+    }
   },
   {
     path: '/network',

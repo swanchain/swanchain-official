@@ -85,6 +85,7 @@
 import { createCRMForm } from '@/api/apps'
 import XyFormUpload from '@/base-ui/xy-form-upload.vue'
 import addAppsImages from '@/assets/img/apps/add-apps.jpg'
+import { messageTip } from '@/utils/common';
 
 const router = useRouter()
 
@@ -126,29 +127,35 @@ const rules = reactive<FormRules<RuleForm>>({
   ]
 })
 
+function fileToBase64(file: any) {
+  return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+  });
+}
+
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl || form.loading) return
   formEl.validate(async (valid:any) => {
     if (valid) {
       try{
         form.loading = true
-        console.log('form:', form)
-        const formData = {
-          'name': form.name,
-          'email': form.email,
-          'website': form.website,
-          'description': form.description,
-          'logo': form.logo,
-          'marketing_opt': form.marketing_opt
-        }
-        // let formData = new FormData()
-        // formData.append('name', form.name)
-        // formData.append('email', form.email)
-        // formData.append('website', form.website)
-        // formData.append('logo', form.logo)
-        // formData.append('description', form.description)
-        // formData.append('marketing_opt', form.marketing_opt)
+
+        // const base64String = await fileToBase64(form.logo);
+        // console.log(base64String)
+        
+        let formData = new FormData()
+        const file = new File([form.logo], form.logo?.name)
+        formData.append('name', form.name)
+        formData.append('email', form.email)
+        formData.append('website', form.website)
+        formData.append('logo', file)
+        formData.append('description', form.description)
+        formData.append('marketing_opt', form.marketing_opt?'1':'0')
         const createRes = await createCRMForm(formData)
+        if(createRes?.status === "success" && createRes?.message) messageTip('success', createRes?.message)
         close()
       } catch {
         form.loading = false

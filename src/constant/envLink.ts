@@ -11,5 +11,6 @@ export enum ELINK {
   LAGRANGE = 'https://lagrangedao.org/',
   MCS = 'https://multichain.storage/',
   METAARK = 'https://www.fogmetalabs.com/metaark',
-  CHAINNODE = 'https://chainnode.io/'
+  CHAINNODE = 'https://chainnode.io/',
+  Superbridge = 'https://superbridge.app/'
 }
