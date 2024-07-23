@@ -2,7 +2,9 @@
   <div :class="`header ${abs ? 'abs' : ''}`">
     <el-alert center class="alert-body" v-if="route.name === 'index' || route.name === 'privacy-policy' || route.name === 'terms' || route.name === 'aboutUs'" :light="isLight">
       <template #title>
-        <span @click="openPage('https://swanchain.medium.com/filswan-rebrands-to-swan-signalling-expansion-from-storage-to-computing-4f0d08d3825c')" class="font-14">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
+        <span @click="openPage('https://docs.swanchain.io/swan-chain/swan-chain-mainnet')" class="font-14">
+          Swan Chain Mainnet is LIVE! Join now to earn SWAN tokens!
+        </span>
       </template>
     </el-alert>
     <!-- ${!isMargin ? 'header-body-m': ''} -->

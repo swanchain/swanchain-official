@@ -1,10 +1,11 @@
 import { request } from '@/utils/request'
 
-export function getCRMFormList() {
+export function getCRMFormList(params: any) {
     return request({
         headers: {},
         url: import.meta.env.VITE_APPSAPI + 'crm_project/list',
-        method: 'get'
+        method: 'get',
+        params
     })
 }
 

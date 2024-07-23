@@ -1,8 +1,12 @@
 <template>
-  <swiper :modules="modules" :slidesOffsetBefore="windowSize === EWindowSize.XS ? 0 : -145" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
+  <!-- :slidesOffsetBefore="windowSize === EWindowSize.XS ? 0 : -145"  -->
+  <swiper class="swiper-app" :modules="modules" :navigation="{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
-      <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight, left: itemLeft, margin: itemMargin }">
-        <div class="swiper-slide-item text-center">
+      <swiper-slide class="swiper-slide" :style="{ width: itemWidth }">
+        <div class="swiper-slide-item back-linear text-center">
           <div class="swiper-slide-item-logo flex flex-jc-center flex-ai-start mb-16">
             <div class="flex flex-ai-center">
               <img :src="item.logo" class="card-item-logo-img" alt="logo" />
@@ -13,18 +17,21 @@
             <!-- <template v-for="b in item.btn" :key="b">
               <div class="font-16 btn mr-10 mb-10">{{b.name}}</div>
             </template> -->
-            <div class="font-16 btn mr-10 mb-10">{{item.tag}}</div>
+            <div class="font-16 btn mr-10 mb-10">{{item.tag || '-'}}</div>
           </div>
           <div class="swiper-slide-item-content font-20 font-bold line-8 mt-8">{{ item.name }}</div>
         </div>
       </swiper-slide>
     </template>
+    
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">
-import { Autoplay } from 'swiper' // 引入库
+import SwiperCore, { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/swiper-bundle.css' // 引入样式文件 注意5和6版本的样式文件不一致
+import 'swiper/swiper-bundle.css'
 import type { IOption } from 'types/common'
 import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
@@ -43,9 +50,6 @@ const modules = ref([Autoplay])
 const autoplay = reactive({
   delay: 5500, 
   stopOnLastSlide: false,
-  // disableOnInteraction: false,
-  // autoplayDisableOnInteraction:false
-  // pauseOnMouseEnter: true
   disableOnInteraction: false,
   pauseOnMouseEnter: true,
   autoplayDisableOnInteraction: false,
@@ -54,29 +58,27 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
+SwiperCore.use([Navigation]);
 </script>
-<style lang="scss" scoped>
-.swiper {
+<style lang="scss">
+.swiper-app {
   width: 100%;
   // margin-left: -1.565rem;
   .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
     transition-timing-function: linear !important;
   }
-  &-slide {
-    width: 100%;
-    margin: 0 0 0 0.32rem;
-    background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
-    position: relative;
-    user-select: none;
-    // cursor: pointer;
-    color: var(--color-light);
-    border-radius: 0.16rem;
+  .swiper-slide {
     &-item {
       position: relative;
       height: 100%;
-      background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
+      margin: 0 0 0 0.32rem;
       border-radius: 0.16rem;
       padding: 0.32rem 0.16rem;
+      color: var(--color-light);
+      border-radius: 0.16rem;
+      user-select: none;
       &-logo {
         .card-item-logo-img{
           display: block;
@@ -111,6 +113,26 @@ function handleClickItem(item: IOption) {
           border: 0;
         }
       }
+    }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    top: 0;
+    width: auto;
+    height: 100%;
+    padding: 0 0.15rem;
+    margin: 0;
+    background: linear-gradient(-90deg, var(--color-dark), transparent);
+    z-index: 99;
+    &:after{
+      font-size: var(--font-44);
+      color: var(--color-light);
+    }
+    &.swiper-button-next{
+      right: 0;
+    }
+    &.swiper-button-prev{
+      left: 0;
+      background: linear-gradient(-90deg, transparent, var(--color-dark));
     }
   }
 }
