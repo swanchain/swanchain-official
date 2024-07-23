@@ -85,6 +85,7 @@
 import { createCRMForm } from '@/api/apps'
 import XyFormUpload from '@/base-ui/xy-form-upload.vue'
 import addAppsImages from '@/assets/img/apps/add-apps.jpg'
+import { messageTip } from '@/utils/common';
 
 const router = useRouter()
 
@@ -145,15 +146,16 @@ const submitForm = (formEl: FormInstance | undefined) => {
         // const base64String = await fileToBase64(form.logo);
         // console.log(base64String)
         
-        console.log('form:', form)
         let formData = new FormData()
+        const file = new File([form.logo], form.logo?.name)
         formData.append('name', form.name)
         formData.append('email', form.email)
         formData.append('website', form.website)
-        formData.append('logo', form.logo)
+        formData.append('logo', file)
         formData.append('description', form.description)
-        formData.append('marketing_opt', form.marketing_opt)
+        formData.append('marketing_opt', form.marketing_opt?'1':'0')
         const createRes = await createCRMForm(formData)
+        if(createRes?.status === "success" && createRes?.message) messageTip('success', createRes?.message)
         close()
       } catch {
         form.loading = false
