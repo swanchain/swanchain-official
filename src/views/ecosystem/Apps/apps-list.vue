@@ -7,20 +7,20 @@
             <div class="font-16">All</div>
           </template>
         </el-tab-pane>
-        <el-tab-pane name="Gaming">
+        <!-- <el-tab-pane name="Gaming">
           <template #label>
             <div class="font-16">Gaming</div>
           </template>
-        </el-tab-pane>
+        </el-tab-pane> -->
       </el-tabs>
 
-      <div class="card-input flex-column flex-jc-center font-16">
+      <!-- <div class="card-input flex-column flex-jc-center font-16">
         <el-input
           v-model="tabsInput"
           placeholder="Search"
           clearable
         />
-      </div>
+      </div> -->
     </div>
 
     <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
@@ -101,7 +101,11 @@ const crmForm = reactive({
 async function getListData() { 
   try {
     crmForm.loading = true
-    const res = await getCRMFormList()
+    const params = {
+      limit: 500,
+      offse:0
+    }
+    const res = await getCRMFormList(params)
     crmForm.data = res?.data ?? []
   } catch {
     console.error

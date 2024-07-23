@@ -1,6 +1,6 @@
 <template>
    <!-- page-body lax-landing -->
-  <div class="home-header flex-column flex-ai-center">
+  <div class="home-header page-body lax-landing flex-column flex-ai-center">
     <div class="home-header-title font-46 font-bold plr-32">{{ title }}</div>
     <div class="font-24">Discover and explore the applications built on SWAN Chain.</div>
     <div class="flex flex-ai-center mt-16">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="home-header-list mt-80">
-      <xy-swiper-app :list="crmForm.data" :item-width="windowSize === EWindowSize.XS ? '70%' : '2.53rem'" item-margin="0 0 0 0.32rem"></xy-swiper-app>
+      <xy-swiper-app :list="crmForm.data" :item-width="windowSize === EWindowSize.XS ? '70%' : '2.53rem'"></xy-swiper-app>
     </div>
   </div>
 
@@ -67,7 +67,11 @@ const crmForm = reactive({
 async function getListData() { 
   try {
     crmForm.loading = true
-    const res = await getCRMFormList()
+    const params = {
+      limit: 500,
+      offse:0
+    }
+    const res = await getCRMFormList(params)
     crmForm.data = res?.data ?? []
   } catch {
     console.error
