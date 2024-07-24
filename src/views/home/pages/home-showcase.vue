@@ -1,8 +1,8 @@
 <template>
-  <div class="card mt-48 mb-48">
+  <div class="card page-body mt-48">
     <div class="card-title linear-title font-24 font-bold text-center">Showcase</div>
-    <div class="home-header-list mt-32">
-      <xy-swiper-showcase :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '32%' : windowSize === EWindowSize.XS ? '80%' : '23%'"></xy-swiper-showcase>
+    <div class="home-header-list mt-32 plr-56">
+      <xy-swiper-showcase :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '32%' : windowSize === EWindowSize.XS ? '80%' : '25%'"></xy-swiper-showcase>
     </div>
   </div>
 </template>

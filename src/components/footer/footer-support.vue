@@ -51,7 +51,7 @@ const router = useRouter()
 
 const columns = ref([
   {
-    title: 'Expore',
+    title: 'Explore',
     list: [
       { label: 'Lagrange', value: '', link: ELINK.LAGRANGE },
       { label: 'Multi-Chain Storage', value: '', link: ELINK.MCS  },
