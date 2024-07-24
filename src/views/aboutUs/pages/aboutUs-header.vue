@@ -3,10 +3,10 @@
     <div class="content lang-max flex-row">
       <div class="text font-16">
         <div class="font-46 font-bold text-center flex flex-ai-center flex-jc-center mb-110 plr-32">
-          Build The Web3 Future with Swan
+          Build The Web3 Future with Swan Chain
         </div>
         <div class="flex flex-wrap flex-jc-center banner-text">
-          <div class="font-14 mb-16">Swan has a global team of dedicated, world-class talents who are committed to building the best Web3 infrastructure.</div>
+          <div class="font-14 mb-16">Swan Chain has a global team of dedicated, world-class talents who are committed to building the best Web3 infrastructure.</div>
           <div class="font-14 mb-10">We are constantly looking for talents to join us to make Web3 better. Check below for current openings</div>
           <div class="flex flex-ai-center flex-js-left">
             <div @click="openPage('https://www.linkedin.com/company/swancloud/jobs/')" class="banner-text-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">

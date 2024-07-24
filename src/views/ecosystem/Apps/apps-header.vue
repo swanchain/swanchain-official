@@ -2,7 +2,7 @@
    <!-- page-body lax-landing -->
   <div class="home-header page-body lax-landing flex-column flex-ai-center">
     <div class="home-header-title font-46 font-bold plr-32">{{ title }}</div>
-    <div class="font-24">Discover and explore the applications built on SWAN Chain.</div>
+    <div class="font-24">Discover and explore the applications built on Swan Chain.</div>
     <div class="flex flex-ai-center mt-16">
       <div class="home-header-btn btn font-16 flex flex-ai-center" @click="formDialog=true">
         Add Your App
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="home-header-list mt-80">
-      <xy-swiper-app :list="crmForm.data" :item-width="windowSize === EWindowSize.XS ? '70%' : '2.53rem'"></xy-swiper-app>
+      <xy-swiper-app :list="crmForm.data" :item-width="windowSize === EWindowSize.XS ? '50%' : '20%'"></xy-swiper-app>
     </div>
   </div>
 
@@ -26,7 +26,7 @@ import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { getCRMFormList } from '@/api/apps';
 
-const title = ref('SWAN Chain Apps')
+const title = ref('Swan Chain Apps')
 const recommendList = ref([
   {
     title: 'Lagrange Dao',

@@ -11,7 +11,7 @@ export const anchor = ref([
     title: 'General Information',
     image: null,
     content: [
-      'Full set AI blockchain.'
+      'A Full Toolset AI Blockchain.'
     ]
   },
   {
@@ -35,7 +35,7 @@ export const anchor = ref([
     title: 'Architecture',
     image: image2,
     content: [
-      'SWAN Users can easily publish their tasks on SWAN website and the Marketing Providers will automatically assign the tasks to Computing providers.<br /><br />',
+      'Marketing Providers will automatically assign the tasks to Computing providers. Tasks usually come from Lagrange, Swan Chain users and Swan Chain SDK.<br /><br />',
       'ECP focuses on real-time computing requirements at the edge, and meets the urgent needs of the network for low-latency real-time processing by providing services such as zero-knowledge proof computing, image recognition, and content distribution.<br /><br />',
       'FCP gives full play to the advantages of cloud computing and provides support for AI model training and deployment by sinking computing power to the edge of the network. With infrastructure such as Kubernetes, FCP is able to efficiently handle scalable, massively distributed computing tasks.<br /><br />',
       'MP provides smart and automatic engines which would be able to allocate the tasks to the most appropriate Computing Providers.',
@@ -49,7 +49,7 @@ export const anchorProvider = ref([
     targetId: 'SWAN-Providers',
     actived: true,
     mainTitle: true,
-    mainTitleText: 'SWAN Providers',
+    mainTitleText: 'Swan Chain Providers',
     externalLink: {
       name: 'View Provider explorer',
       link: 'https://orchestrator.swanchain.io/provider-status'
@@ -58,7 +58,7 @@ export const anchorProvider = ref([
     image: null,
     content: [
       'A computing provider is an individual or organization that participates in the decentralized computing network by offering computational resources such as processing power (CPU and GPU), memory, storage, and bandwidth.<br /><br />',
-      'As a resource provider, you can run a ECP(Edge Computing Provider) and FCP(Fog Computing Provider) to contribute yourcomputing resource.'
+      'As a resource provider, you can run a ECP(Edge Computing Provider) and FCP(Fog Computing Provider) to contribute your computing resource.'
     ]
   },
   {

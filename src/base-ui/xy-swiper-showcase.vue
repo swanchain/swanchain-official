@@ -3,7 +3,7 @@
   <swiper class="swiper-showcase" :modules="modules" :navigation="{
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }" :pagination="{ clickable: true }" slides-per-view="auto">
+    }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
         <div class="card-item back-linear swiper-slide-item text-center">
@@ -65,7 +65,7 @@ defineProps<{
 const emits = defineEmits(['click-item'])
 const modules = ref([Autoplay, Navigation, Pagination])
 const autoplay = reactive({
-  delay: 5500, 
+  delay: 2000, 
   stopOnLastSlide: false,
   disableOnInteraction: false,
   pauseOnMouseEnter: true,

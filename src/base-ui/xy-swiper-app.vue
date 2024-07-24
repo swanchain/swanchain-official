@@ -3,7 +3,7 @@
   <swiper class="swiper-app" :modules="modules" :navigation="{
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
+    }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide pointer" :style="{ width: itemWidth }" @click="openPage(item.website)">
         <div class="swiper-slide-item back-linear text-center">
@@ -29,7 +29,7 @@
   </swiper>
 </template>
 <script setup lang="ts">
-import SwiperCore, { Autoplay, Navigation } from 'swiper'
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper-bundle.css'
 import type { IOption } from 'types/common'
@@ -47,9 +47,9 @@ defineProps<{
   itemLeft?: string
 }>()
 const emits = defineEmits(['click-item'])
-const modules = ref([Autoplay])
+const modules = ref([Autoplay, Pagination])
 const autoplay = reactive({
-  delay: 5500, 
+  delay: 2000, 
   stopOnLastSlide: false,
   disableOnInteraction: false,
   pauseOnMouseEnter: true,
@@ -59,11 +59,12 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
-SwiperCore.use([Navigation]);
+SwiperCore.use([Navigation, Pagination]);
 </script>
 <style lang="scss">
 .swiper-app {
   width: 100%;
+  padding-bottom: calc(0.64rem + 8px);
   // margin-left: -1.565rem;
   .swiper-wrapper {
     display: flex;
@@ -134,6 +135,21 @@ SwiperCore.use([Navigation]);
     &.swiper-button-prev{
       left: 0;
       background: linear-gradient(-90deg, transparent, var(--color-dark));
+    }
+  }
+  .swiper-pagination{
+    display: flex;
+    justify-content: center;
+    bottom: 0.32rem;
+    .swiper-pagination-bullet{
+      width: 8px;
+      height: 8px;
+      margin: 0 0.08rem;
+      background-color: var(--color-light-opacity-25);
+      opacity: 1;
+      &.swiper-pagination-bullet-active {
+        background-color: var(--color-light);
+      }
     }
   }
 }

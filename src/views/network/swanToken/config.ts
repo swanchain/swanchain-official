@@ -22,8 +22,8 @@ export const anchor = ref([
     title: 'Introduction',
     image: image1,
     content: [
-      "SwanChain introduces a comprehensive tokenomics structure designed to support its ecosystem's growth, incentivize participation, and ensure operational sustainability.",
-      'SWAN token is the native encryption token of the Swan Chain ecosystem and plays a key role in this distributed computing network. Through innovative economic model design, SWAN empowers participants, stimulates network vitality, and ensures long-term sustainable development.',
+      "Swan Chain introduces a comprehensive tokenomics structure designed to support its ecosystem's growth, incentivize participation, and ensure operational sustainability.",
+      'SWAN token is the native encryption token of the Swan Chain ecosystem and plays a key role in this distributed computing network. Through innovative economic model design, Swan Chain empowers participants, stimulates network vitality, and ensures long-term sustainable development.',
       'The total supply of SWAN tokens is fixed at 1 billion tokens, ensuring scarcity and long-term protection against inflation. ',
       'The token economics is designed to support the growth and sustainability of the Swan Chain, and its distribution is as follows:'
     ]
