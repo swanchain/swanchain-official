@@ -25,7 +25,7 @@
 
     <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
       <template v-for="(item, index) in crmForm.data" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-16">
+        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-16 pointer" @click="openPage(item.website)">
           <div class="card-item back-linear font-16">
             <div class="card-item-logo flex flex-jc-between flex-ai-start mb-10">
               <div class="flex flex-ai-center">
@@ -55,6 +55,7 @@ import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { getCRMFormList } from '@/api/apps';
+import { openPage } from '@/hooks/router';
 
 const activeName = ref('all')
 const tabsInput = ref('')

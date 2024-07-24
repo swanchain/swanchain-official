@@ -5,7 +5,7 @@
       prevEl: '.swiper-button-prev'
     }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
-      <swiper-slide class="swiper-slide" :style="{ width: itemWidth }">
+      <swiper-slide class="swiper-slide pointer" :style="{ width: itemWidth }" @click="openPage(item.website)">
         <div class="swiper-slide-item back-linear text-center">
           <div class="swiper-slide-item-logo flex flex-jc-center flex-ai-start mb-16">
             <div class="flex flex-ai-center">
@@ -37,6 +37,7 @@ import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import XyIcon from '@/base-ui/xy-icon.vue'
+import { openPage } from '@/hooks/router'
 
 defineProps<{
   list: IOption[]
