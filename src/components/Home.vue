@@ -4,7 +4,7 @@
       <el-header>
         <el-alert center class="alert-body">
           <template #title>
-            <span @click="system.$commonFun.goLink('https://swanchain.medium.com/filswan-rebrands-to-swan-signalling-expansion-from-storage-to-computing-4f0d08d3825c')" class="font-16">FilSwan Rebrands to Swan, Signalling Expansion from Storage to Computing</span>
+            <span @click="system.$commonFun.goLink('https://docs.swanchain.io/swan-chain/swan-chain-mainnet')" class="font-16">Swan Chain Mainnet is LIVE! Join now to earn SWAN tokens!</span>
           </template>
         </el-alert>
         <v-head></v-head>
