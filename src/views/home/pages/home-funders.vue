@@ -1,6 +1,6 @@
 <template>
   <div class="carousel-container page-body w-100 pt-48 pb-16">
-    <div class="card-title linear-title font-24 font-bold text-center mb-32">Funders</div>
+    <div class="card-title linear-title font-24 font-bold text-center mb-32">Powered by</div>
     <el-row class="row-bg" :gutter="32">
       <template v-for="list in slideList" :key="list">
         <el-col :xs="12" :sm="6" :md="6" :lg="6" class="mb-32 flex">

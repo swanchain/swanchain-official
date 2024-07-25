@@ -48,7 +48,7 @@ const list = ref([
     label: 'Lagrange',
     btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
     content:
-      'It provides data sharing & analytic spaces for Decentralized science(DeSci). With Lagrange Spaces, researchers are able to use public infrastructure for storing...'
+      'Lagrange DAO provides data sharing and analytic spaces for Decentralized Science (DeSci) where researchers can equitably using the Web3 stack.'
   },
   {
     title: 'Multi-Chain Storage',
@@ -57,7 +57,7 @@ const list = ref([
     label: 'MCS',
     btn: [{ name: 'Social' }],
     content:
-      'Multi-Chain Storage, or MCS, developed by the Swan Network, is a new kind of storage service that works with different blockchain networks. It transcends traditional cloud storage by using smart...'
+      'Multi-Chain Storage (MCS) is a revolutionary storage service works with multiple blockchain networks.'
   },
   {
     title: 'Superbridge',
@@ -75,7 +75,7 @@ const list = ref([
     label: 'Chainnode',
     btn: [{ name: 'Social' }],
     content:
-      'Low-latency blockchain nodes for Web3 developers. Archival Ethereum, Optimism, Polygon, Arbitrum, BSC, Gnosis, Base. WebSocket, HTTP JSON RPC debug trace ...'
+      'Chainnode offers lightning-fast downloads of the most recent snapshots, facilitating the deployment of nodes across multiple chains.'
   }
 ])
 
