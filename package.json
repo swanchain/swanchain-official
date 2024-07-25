@@ -20,6 +20,7 @@
     "swiper": "^8.4.7",
     "vue": "^3.4.21",
     "vue-awesome-swiper": "^5.0.1",
+    "vue-cropper": "^1.1.4",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {

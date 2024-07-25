@@ -4,9 +4,9 @@
     <!-- <div class="home-header-list mt-32">
       <xy-swiper-userstory :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '45%' : windowSize === EWindowSize.XS ? '75%' : '30%'"></xy-swiper-userstory>
     </div> -->
-    <el-row :gutter="32">
+    <el-row :gutter="32" justify="center">
       <template v-for="(item, index) in caseList" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-32 pointer">
+        <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer">
           <div class="card-item back-linear swiper-slide-item text-center">
             <div class="card-item-header flex flex-jc-center flex-ai-center">
               <img :src="item.icon" class="w-100" />
@@ -14,8 +14,8 @@
                 <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
                   <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
                 </div>
-                <div class="card-item-body-content font-14 line-2 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
-                <div class="flex flex-ai-center flex-js-left">
+                <div class="card-item-body-content font-14 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
+                <!-- <div class="flex flex-ai-center flex-js-left">
                   <div @click="openPage(item.link)" :class="`card-item-header-body-try ${item.link?'':'is-disabled'} font-14 font-bold2 flex flex-ai-center flex-js-center pointer`">
                     Try It Now
 
@@ -31,7 +31,7 @@
                       </defs>
                     </svg>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="card-item-introduce back-linear">
@@ -56,11 +56,16 @@ import XySwiperUserstory from '@/base-ui/xy-swiper-userstory.vue'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import userStoryImage from '@/assets/img/index/user-story.jpg'
-import userStoryAvatar from '@/assets/img/index/project-name.png'
 import userStoryImage01 from '@/assets/img/index/user-story-header-image01.jpg'
+import userStoryImage02 from '@/assets/img/index/user-story-header-image02.jpg'
+import userStoryImage03 from '@/assets/img/index/user-story-header-image03.jpg'
+import userStoryAvatar from '@/assets/img/index/project-name.png'
 import userStoryAvatar01 from '@/assets/img/index/project-name01.png'
+import userStoryAvatar02 from '@/assets/img/index/project-name02.png'
+import userStoryAvatar03 from '@/assets/img/index/project-name03.png'
 import peopleIcon from '@/assets/img/index/people-img.jpg'
 import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
+import peopleIcon02 from '@/assets/img/index/people-img02.jpg'
 import { openPage } from '@/hooks/router'
 
 const caseList = ref([
@@ -78,44 +83,44 @@ const caseList = ref([
       "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO."
   },
   {
-    title: 'Project name',
-    icon: userStoryImage,
-    avatarIcon: userStoryAvatar,
-    peopleIcon: peopleIcon,
-    peopleName: 'Hamzah Khan Polygon',
-    peopleDesc: 'Chief executive officer',
+    title: 'Nebula Block',
+    icon: userStoryImage02,
+    avatarIcon: userStoryAvatar02,
+    peopleIcon: peopleIcon02,
+    peopleName: 'Jarod',
+    peopleDesc: 'Head of Operations',
     link: '',
     projectContent:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Leading Web3 infrastructure provider, offering comprehensive hosting solutions for the Web3 ecosystem.",
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      "Swan Chain has revolutionized our business model. It enables us to effectively monetize our GPU resources, opening new revenue streams. This partnership maximizes our infrastructure's utility while meeting the growing demand for decentralized computing power."
   },
   {
-    title: 'Project name',
-    icon: userStoryImage,
-    avatarIcon: userStoryAvatar,
-    peopleIcon: peopleIcon,
-    peopleName: 'Hamzah Khan Polygon',
-    peopleDesc: 'Chief executive officer',
+    title: 'Oort',
+    icon: userStoryImage03,
+    avatarIcon: userStoryAvatar03,
+    peopleIcon: peopleIcon02,
+    peopleName: '',
+    peopleDesc: 'Founder & CEO of OORT',
     link: '',
     projectContent:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Decentralized, verifiable cloud computing platform for AI applications.",
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      "Swan Chain has significantly enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training and increased value of our providers."
   },
-  {
-    title: 'Project name',
-    icon: userStoryImage,
-    avatarIcon: userStoryAvatar,
-    peopleIcon: peopleIcon,
-    peopleName: 'Hamzah Khan Polygon',
-    peopleDesc: 'Chief executive officer',
-    link: '',
-    projectContent:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-  }
+  // {
+  //   title: 'Project name',
+  //   icon: userStoryImage,
+  //   avatarIcon: userStoryAvatar,
+  //   peopleIcon: peopleIcon,
+  //   peopleName: 'Hamzah Khan Polygon',
+  //   peopleDesc: 'Chief executive officer',
+  //   link: '',
+  //   projectContent:
+  //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  //   content:
+  //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  // }
 ])
 </script>
 
@@ -222,6 +227,7 @@ const caseList = ref([
           &-name{
             .desc{
               color: var(--color-subtitle);
+              line-height: 1.1;
             }
           }
         }

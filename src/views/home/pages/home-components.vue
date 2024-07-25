@@ -1,6 +1,6 @@
 <template>
   <div class="carousel-container page-body w-100 pt-32 pb-16">
-    <div class="card-title linear-title font-24 font-bold text-center mb-32">Components of AI computing</div>
+    <div class="card-title linear-title font-24 font-bold text-center mb-32">Components of Swan Chain</div>
     <el-row :gutter="64" justify="center">
       <template v-for="item in thrivingData" :key="item.title">
         <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="8" class="mb-16">

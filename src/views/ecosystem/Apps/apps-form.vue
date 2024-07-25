@@ -39,6 +39,20 @@
               <el-input v-model="form.website" placeholder="Please add your Project Website here" />
             </el-form-item>
           </el-col>
+          <el-col :span="24" :xs="24">
+            <el-form-item prop="website">
+              <template #label>
+                <div class="flex flex-ai-center font-16 font-bold2 capitalize color-light">
+                  <span class="color-danger mr-8">*</span> Category:
+                </div>
+              </template>
+                <el-radio-group v-model="form.category" size="large">
+                  <template v-for="(item, index) in tags" :key="index">
+                    <el-radio-button class="card-categories-tabs font-16" :label="item" :value="item" />
+                  </template>
+                </el-radio-group>
+            </el-form-item>
+          </el-col>
           <el-col :span="24">
             <el-form-item prop="description">
               <template #label>
@@ -88,6 +102,20 @@ import addAppsImages from '@/assets/img/apps/add-apps.jpg'
 import { messageTip } from '@/utils/common';
 
 const router = useRouter()
+const tags = ref([
+  'Gaming',
+  'Pos Validator',
+  'Dev Tool',
+  'Privacy',
+  'Smart Contracts',
+  'AI & ML',
+  'Memes',
+  'Dao',
+  'Defi',
+  'Mining',
+  'Nft',
+  'Dapp'
+]);
 
 const formRef = ref(null)
 const validateFile = (rule:any, value:any, callback:any) => {
@@ -101,6 +129,7 @@ const form = reactive({
   name: '',
   email: '',
   website: '',
+  category: 'Gaming',
   logo: '',
   description: '',
   marketing_opt: true,
@@ -151,6 +180,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
         formData.append('name', form.name)
         formData.append('email', form.email)
         formData.append('website', form.website)
+        formData.append('category', form.category)
         formData.append('logo', file)
         formData.append('description', form.description)
         formData.append('marketing_opt', form.marketing_opt?'1':'0')
@@ -234,6 +264,32 @@ const props = withDefaults(
             }
           }
           .el-radio-group{
+            .card-categories-tabs{
+              position: relative;height: auto;
+              padding: 0.08rem 0.16rem;
+              margin: 0 0.08rem 0.08rem 0;
+              border: 0.02rem solid #9B9B9B;
+              border-radius: 1rem;
+              color: #9B9B9B;
+              cursor: pointer;
+              @media screen and (max-width: 768px) {
+                padding: 0.1rem 0.24rem;
+              }
+              &.is-active, &:hover{
+                border-color: var(--color-primary);
+                color: var(--color-light);
+                // box-shadow: 0 3px 13px  var(--color-primary);
+              }
+              .el-radio-button__inner{
+                padding: 0;
+                margin: 0;
+                background-color: transparent;
+                font-size: inherit;
+                border: 0;
+                color: inherit;
+                box-shadow: none;
+              }
+            }
             .el-radio {
               &.is-checked{
                 .el-radio__inner{

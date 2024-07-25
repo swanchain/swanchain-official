@@ -1,97 +1,139 @@
 <template>
   <div class="card w-100">
-    <div class="card-categories flex flex-ai-center flex-jc-between mb-48 mt-20">
-      <el-tabs v-model="activeName" class="card-categories-tabs">
-        <el-tab-pane name="all">
-          <template #label>
-            <div class="font-16">All</div>
-          </template>
-        </el-tab-pane>
-        <!-- <el-tab-pane name="Gaming">
-          <template #label>
-            <div class="font-16">Gaming</div>
-          </template>
-        </el-tab-pane> -->
-      </el-tabs>
-
-      <!-- <div class="card-input flex-column flex-jc-center font-16">
-        <el-input
-          v-model="tabsInput"
-          placeholder="Search"
-          clearable
-        />
-      </div> -->
-    </div>
-
-    <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
-      <template v-for="(item, index) in crmForm.data" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mt-16 pointer" @click="openPage(item.website)">
-          <div class="card-item back-linear font-16">
-            <div class="card-item-logo flex flex-jc-between flex-ai-start mb-10">
-              <div class="flex flex-ai-center">
-                <img :src="item.logo" class="card-item-logo-img" alt="logo" />
-                <!-- <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" :height="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" radius="4rem" pointer></xy-icon> -->
-              </div>
-              <!-- <div class="card-item-date font-16" v-if="item.live">{{ item.live }}</div> -->
-            </div>
-            <div class="card-item-title font-22 font-weight-6 mb-10">{{ item.name }}</div>
-            <div class="card-item-btn flex">
-              <!-- <template v-for="b in item.tag" :key="b">
-                <div class="font-16 btn mr-10 mb-10">{{b.name}}</div>
-              </template> -->
-              <div class="font-16 btn mr-10 mb-10">{{item.tag}}</div>
-            </div>
-            <div class="card-item-content font-16 line-8">{{ item.description }}</div>
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="10" :md="8" :lg="6">
+        <div class="card-categories mb-48">
+          <div class="card-input flex-column flex-jc-center font-16 mb-16 w-100">
+            <el-input
+              v-model="tabsInput"
+              placeholder="Search"
+              clearable
+              :prefix-icon="Search"
+            />
           </div>
-        </el-col>
-      </template>
+
+          <div class="w-100">
+            <template v-for="(item, index) in tags" :key="index">
+              <a :href="`#${item}`" class="w-100 card-categories-tabs font-14 font-bold color-subtitle mb-8 pointer">{{ item }} ({{ crmForm.data.length }})</a>
+              <!-- <div @click="getID(item)" class="w-100 card-categories-tabs font-14 font-bold color-subtitle mb-8 pointer">{{ item }} ({{ crmForm.data.length }})</div> -->
+            </template>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="14" :md="16" :lg="18">
+        <div class="font-24 font-bold mb-16">Featured</div>
+        <el-row :gutter="21">
+          <template v-for="(item, index) in listFeatured" :key="index">
+            <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mb-16 pointer" @click="openPage(item.link)">
+              <div class="card-item border-radius-16 font-16">
+                <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
+                  <div class="flex flex-ai-center">
+                    <xy-icon :name="item.label as EIcon" class="icon" :width="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" :height="windowSize === EWindowSize.XS ? '44px' : '0.64rem'" radius="4rem" pointer></xy-icon>
+                  </div>
+                </div>
+                <div class="card-item-title font-16 font-bold">{{ item.title }}</div>
+                <div class="card-item-btn flex">
+                  <div class="font-12 website">{{item.domain}}</div>
+                </div>
+                <div class="card-item-content font-14 line-4">{{ item.content }}</div>
+              </div>
+            </el-col>
+          </template>
+        </el-row>
+
+        <template v-for="l in tags" :key="l">
+          <div class="font-24 font-bold mt-16 mb-16" :id="l">{{l}}</div>
+          <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
+            <template v-for="(item, index) in crmForm.data" :key="index">
+              <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mb-16 pointer" @click="openPage(item.website)">
+                <div class="card-item border-radius-16 font-16">
+                  <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
+                    <div class="flex flex-ai-center font-18 font-bold">
+                      <img :src="item.logo" class="card-item-logo-img mr-10" alt="logo" />
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="card-item-content font-14 line-2">{{ item.description }}</div>
+                </div>
+              </el-col>
+            </template>
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" class="mb-16 pointer">
+              <div class="flex flex-ai-center flex-jc-right">
+                <div class="view-btn btn font-16 flex flex-ai-center">
+                  View all ({{crmForm.data.length}})
+                  <svg viewBox="0 0 8 14" class="ml-16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </template>
+      </el-col>
     </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
+import XySwiperTag from '@/base-ui/xy-swiper-tag.vue'
 import XyIcon from '@/base-ui/xy-icon.vue'
 import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { getCRMFormList } from '@/api/apps';
 import { openPage } from '@/hooks/router';
+import { Search } from '@element-plus/icons-vue'
+import { ELINK } from '@/constant/envLink';
 
-const activeName = ref('all')
+const tags = ref([
+  'Gaming',
+  'Pos Validator',
+  'Dev Tool',
+  'Privacy',
+  'Smart Contracts',
+  'AI & ML',
+  'Memes',
+  'Dao',
+  'Defi',
+  'Mining',
+  'Nft',
+  'Dapp'
+]);
+
 const tabsInput = ref('')
-const list = ref([
+const listFeatured = ref([
   {
-    title: 'Lagrange Dao',
-    live: 'Live on Pacific',
+    title: 'Lagrange',
+    link: ELINK.LAGRANGE,
     label: 'Lagrange',
-    btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
+    domain: 'lagrangedao.org',
     content:
-      'It provides data sharing & analytic spaces for Decentralized science(DeSci). With Lagrange Spaces, researchers are able to use public infrastructure for storing...'
+      'Lagrange DAO provides data sharing and analytic spaces for Decentralized Science (DeSci).'
   },
   {
     title: 'Multi-Chain Storage',
-    live: 'Live on Pacific',
+    link: ELINK.MCS,
     label: 'MCS',
-    btn: [{ name: 'Social' }],
+    domain: 'multichain.storage',
     content:
-      'Multi-Chain Storage, or MCS, developed by the Swan Network, is a new kind of storage service that works with different blockchain networks. It transcends traditional cloud storage by using smart...'
+      'Multi-Chain Storage (MCS) is a revolutionary storage service works with multiple blockchain networks.'
   },
-  // {
-  //   title: 'Meta Ark',
-  //   live: 'Live on Pacific',
-  //   label: 'MetaArk',
-  //   btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
-  //   content:
-  //     'Ark: Meta Survival is a semi-open world metaverse inspired by The Moon and The Martian, utilizing Play-To-Earn and Move-To-Earn mechanisms that allow players to earn tokens through skilled gameplay and active participation.'
-  // },
-  // {
-  //   title: 'Chainnode',
-  //   live: '',
-  //   label: 'Chainnode',
-  //   btn: [{ name: 'Social' }],
-  //   content:
-  //     'Low-latency blockchain nodes for Web3 developers. Archival Ethereum, Optimism, Polygon, Arbitrum, BSC, Gnosis, Base. WebSocket, HTTP JSON RPC debug trace ...'
-  // }
+  {
+    title: 'Superbridge',
+    link: ELINK.Superbridge,
+    label: 'Superbridge',
+    domain: 'superbridge.app',
+    content:
+      'With Superbridge you can bridge Ether and other tokens into and out of any supported rollup. '
+  },
+  {
+    title: 'Chainnode',
+    link: ELINK.CHAINNODE,
+    label: 'Chainnode',
+    domain: 'chainnode.io',
+    content:
+      'Chainnode offers lightning-fast downloads of the most recent snapshots.'
+  }
 ])
 
 const crmForm = reactive({
@@ -115,6 +157,15 @@ async function getListData() {
   }
 }
 
+function getID (key:string) {
+  const PageId = document.querySelector('#' + key)
+  if(!PageId) return
+  const moduleID = document.querySelector('#module-container')
+  moduleID.scrollTo({
+    top: PageId.offsetTop ?? 0,
+    behavior: 'smooth'
+  })
+}
 onMounted(() => {
   getListData()
 })
@@ -126,25 +177,32 @@ onMounted(() => {
   box-shadow: none;
   border-radius: 0;
   min-height: 2rem;
-  margin: 1.2rem 0 1.5rem;
-  margin: 0.6rem 0 1.5rem;
+  margin: 0.32rem 0 1.5rem;
   color: var(--color-light);
-  &-title {
+  .view-btn{
+    padding: 0.06rem 0.24rem;
+    svg {
+      width: 6px;
+    }
   }
   &-item {
     position: relative;
     height: 100%;
-    border-radius: 0.16rem;
     padding: 0.16rem;
+    background-color: #1E2026;
+    .website{
+      color: #A9B9CC;
+    }
     &-logo {
       &-img{
         display: block;
-        width: 0.64rem;
-        height: 0.64rem;
+        width: auto;
+        width: 0.41rem;
+        height: 0.41rem;
         border-radius: 2rem;
         @media screen and (max-width: 768px) {
-          width: 42px;
-          height: 42px;
+          width: 32px;
+          height: 32px;
         }
       }
     }
@@ -177,46 +235,22 @@ onMounted(() => {
     }
     :deep(&-tabs) {
       position: relative;
+      display: block;
       width: 100%;
-      @media screen and (max-width: 768px) {
-        margin: 0 0 0.3rem 0;
-      }
-      .el-tabs__header{
-        width: calc(100% - 0.4rem);
-        margin: 0;
-      }
-      .el-tabs__nav-wrap{
-        .el-tabs__nav{
-          .el-tabs__item{
-            height: auto;
-            padding: 0.05rem 0.16rem;
-            margin: 0 0.16rem 0 0;
-            border: 0.02rem solid #9B9B9B;
-            border-radius: 1rem;
-            color: #9B9B9B;
-            transition: all 0.2s;
-            @media screen and (max-width: 768px) {
-              padding: 0.1rem 0.24rem;
-            }
-            &.is-active, &:hover{
-              border-color: var(--color-primary);
-              color: var(--color-light);
-              // box-shadow: 0 3px 13px  var(--color-primary);
-            }
-          }
-        }
-      }
-      .el-tabs__nav-wrap:after, .el-tabs__active-bar{
-        display: none;
+      padding: 0.09rem 0;
+      text-decoration: none;
+      &:hover{
+        color: var(--color-primary);
       }
     }
   }
   &-input{
     :deep(.el-input) {
-      min-width: 320px;
-      max-width: 3.8rem;
+      width: 100%;
       margin: 0;
       .el-input__wrapper{
+        height: auto !important;
+        padding: 0.08rem 0.16rem;
         background-color: var(--color-dark-black) !important;
         font-family: inherit;
         font-size: inherit;
@@ -228,7 +262,7 @@ onMounted(() => {
           font-size: 18px;
         }
         svg{
-          color: var(--color-light-opacity) !important;
+          color: var(--color-light) !important;
         }
       }
     }

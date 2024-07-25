@@ -22,7 +22,7 @@ import HeaderLogo from './header-logo.vue'
 import HeaderMenus from './header-menus.vue'
 import { openPage } from '@/hooks/router'
 
-const ROUTE_WHITE = ['/ecosystem/Apps']
+const ROUTE_WHITE = []
 const isLight = ref(false)
 const abs = computed(() => isLight.value)
 const route = useRoute()

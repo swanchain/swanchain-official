@@ -1,9 +1,6 @@
 <template>
   <!-- :slidesOffsetBefore="windowSize === EWindowSize.XS ? 0 : -145"  -->
-  <swiper class="swiper-app" :modules="modules" :navigation="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
+  <swiper class="swiper-app" :modules="modules" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide pointer" :style="{ width: itemWidth }" @click="openPage(item.website)">
         <div class="swiper-slide-item back-linear text-center">
@@ -29,7 +26,7 @@
   </swiper>
 </template>
 <script setup lang="ts">
-import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper'
+import SwiperCore, { Autoplay, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper-bundle.css'
 import type { IOption } from 'types/common'
@@ -59,7 +56,7 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Pagination]);
 </script>
 <style lang="scss">
 .swiper-app {
