@@ -146,7 +146,7 @@ SwiperCore.use([Navigation]);
             }
           }
           &-try{
-            padding: 0.08rem 0.16rem;
+            padding: 0.07rem 0.16rem;
             border: 0.02rem solid var(--color-primary);
             border-radius: 1rem;
             &.is-disabled{

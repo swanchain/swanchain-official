@@ -1,8 +1,9 @@
 <template>
-  <swiper :modules="modules" :navigation="{
+   <!-- :autoplay="autoplay" :looped-slides="list.length + 2" loop -->
+  <swiper class="swiper-showcase" :modules="modules" :navigation="{
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
+    }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
         <div class="card-item back-linear swiper-slide-item text-center">
@@ -11,7 +12,7 @@
             <div class="card-item-header-logo pt-20 pb-20 flex flex-ai-center flex-jc-center">
               <img :src="lagrangeLogo" />
             </div>
-            <div class="card-item-header-title font-20 font-bold pt-16 flex flex-jc-center flex-ai-center">{{ item.title }}</div>
+            <div class="card-item-header-title font-16 font-bold pt-10 flex flex-jc-center flex-ai-center">{{ item.title }}</div>
           </div>
           <div class="card-item-body back-linear">
             <div class="card-item-body-btn flex">
@@ -42,9 +43,8 @@
       </swiper-slide>
     </template>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <!-- <div class="shelter"></div> -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">
@@ -65,7 +65,7 @@ defineProps<{
 const emits = defineEmits(['click-item'])
 const modules = ref([Autoplay, Navigation, Pagination])
 const autoplay = reactive({
-  delay: 5500, 
+  delay: 2000, 
   stopOnLastSlide: false,
   disableOnInteraction: false,
   pauseOnMouseEnter: true,
@@ -75,11 +75,12 @@ const autoplay = reactive({
 function handleClickItem(item: IOption) {
   emits('click-item', item)
 }
-SwiperCore.use([Navigation]);
+SwiperCore.use([Navigation, Pagination]);
 </script>
-<style lang="scss" scoped>
-.swiper {
+<style lang="scss">
+.swiper-showcase {
   width: 100%;
+  padding-bottom: calc(0.64rem + 8px);
   // padding-left: 1.28rem;
   // @media screen and (max-width: 768px) {
   //   padding-left: 0.6rem;
@@ -93,7 +94,7 @@ SwiperCore.use([Navigation]);
     .card-item {
       position: relative;
       height: 100%;
-      margin: 0 0.32rem 0 0;
+      margin: 0 0.16rem;
       border-radius: 0.16rem;
       overflow: hidden;
       &-header{
@@ -148,7 +149,7 @@ SwiperCore.use([Navigation]);
           }
         }
         &-try{
-          padding: 0.08rem 0.16rem;
+          padding: 0.07rem 0.16rem;
           border: 0.02rem solid var(--color-primary);
           border-radius: 1rem;
           &:hover{
@@ -204,6 +205,21 @@ SwiperCore.use([Navigation]);
     z-index: 98;
     @media screen and (max-width: 768px) {
       width: 0.6rem;
+    }
+  }
+  .swiper-pagination{
+    display: flex;
+    justify-content: center;
+    bottom: 0.32rem;
+    .swiper-pagination-bullet{
+      width: 8px;
+      height: 8px;
+      margin: 0 0.08rem;
+      background-color: var(--color-light-opacity-25);
+      opacity: 1;
+      &.swiper-pagination-bullet-active {
+        background-color: var(--color-light);
+      }
     }
   }
 }
