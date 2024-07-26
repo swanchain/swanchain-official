@@ -166,8 +166,8 @@ async function searchData() {
     crmForm.searchLoad = true
     crmForm.loading = true
     const params = {
-      // limit: 20,
-      // score: 60,
+      limit: 10,
+      score: 65,
       name: tabsInput.value
     }
     const res = await categorySearchList(params)
