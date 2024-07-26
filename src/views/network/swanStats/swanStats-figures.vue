@@ -92,7 +92,7 @@
   <el-row :gutter="16">
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
-        <p class="font-16">FCP</p>
+        <p class="font-16">Fog Computing Provider</p>
         <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_online_computers) }}</p>
       </div>
     </el-col>
