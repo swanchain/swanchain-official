@@ -47,8 +47,8 @@
                 </div>
               </template>
                 <el-radio-group v-model="form.category" size="large">
-                  <template v-for="(item, index) in tags" :key="index">
-                    <el-radio-button class="card-categories-tabs font-16" :label="item" :value="item" />
+                  <template v-for="(item, index) in form.categoryTag" :key="index">
+                    <el-radio-button class="card-categories-tabs font-16" :label="item.name" :value="item.id" />
                   </template>
                 </el-radio-group>
             </el-form-item>
@@ -96,26 +96,12 @@
 </template>
 
 <script setup lang="ts">
-import { createCRMForm } from '@/api/apps'
+import { createCRMForm, getCategoryList } from '@/api/apps'
 import XyFormUpload from '@/base-ui/xy-form-upload.vue'
 import addAppsImages from '@/assets/img/apps/add-apps.jpg'
 import { messageTip } from '@/utils/common';
 
 const router = useRouter()
-const tags = ref([
-  'Gaming',
-  'Pos Validator',
-  'Dev Tool',
-  'Privacy',
-  'Smart Contracts',
-  'AI & ML',
-  'Memes',
-  'Dao',
-  'Defi',
-  'Mining',
-  'Nft',
-  'Dapp'
-]);
 
 const formRef = ref(null)
 const validateFile = (rule:any, value:any, callback:any) => {
@@ -129,11 +115,12 @@ const form = reactive({
   name: '',
   email: '',
   website: '',
-  category: 'Gaming',
+  category: 6,
   logo: '',
   description: '',
   marketing_opt: true,
-  loading: false
+  loading: false,
+  categoryTag: []
 })
 const rules = reactive<FormRules<RuleForm>>({
   name: [{ required: true, message: 'Please complete this required field.', trigger: 'blur' }],
@@ -196,6 +183,18 @@ const submitForm = (formEl: FormInstance | undefined) => {
   })
 }
 
+async function getCategoryData() { 
+  try {
+    form.loading = true
+    const res = await getCategoryList()
+    form.categoryTag = res?.data ?? []
+  } catch {
+    console.error
+  } finally {
+    form.loading = false
+  }
+}
+
 function close() {
   emit('hardClose', false)
   form.loading = false
@@ -210,6 +209,10 @@ const props = withDefaults(
     formDialog: false
   }
 )
+
+onMounted(() => {
+  getCategoryData()
+})
 </script>
 
 <style scoped lang="less">

@@ -13,6 +13,10 @@ export const throttle = (fn: any, delay = 500) => {
   }
 }
 
+export async function timeout(delay: any) {
+  return new Promise((resolve) => setTimeout(resolve, delay))
+}
+
 export function sizeChange (bytes: any, unit: any) {
   if (bytes === 0) return unit ? `0 ${unit}` : '0 B'
   if (!bytes) return '-'
@@ -66,4 +70,20 @@ export async function messageTip(type: any, message: any) {
     message,
     type,
   })
+}
+
+export function debounce(fn:any, delay = 700) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('Fn is not a function')
+  }
+  let timer:any = null
+  return (args: any) => {
+    const _this:any = this;
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(function () {
+      fn.apply(_this, args);
+    }, delay);
+  };
 }

@@ -9,6 +9,23 @@ export function getCRMFormList(params: any) {
     })
 }
 
+export function getCategoryList() {
+  return request({
+      headers: {},
+      url: import.meta.env.VITE_APPSAPI + 'crm_category/list',
+      method: 'get'
+  })
+}
+
+export function categorySearchList(params: any) {
+  return request({
+      headers: {},
+      url: import.meta.env.VITE_APPSAPI + 'crm_project/search',
+      method: 'get',
+      params
+  })
+}
+
 export function createCRMForm(data: any) {
     return request({
         headers: {
