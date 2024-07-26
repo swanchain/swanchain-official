@@ -24,7 +24,7 @@
         <div class="font-24 font-bold mb-16" v-if="!crmForm.searchLoad">Featured</div>
         <el-row :gutter="21" v-if="!crmForm.searchLoad">
           <template v-for="(item, index) in listFeatured" :key="index">
-            <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mb-16 pointer" @click="openPage(item.link)">
+            <el-col :xs="24" :sm="12" :md="12" :lg="6" class="mb-16 pointer" @click="openPage(item.link)">
               <div class="card-item border-radius-16 font-16">
                 <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
                   <div class="flex flex-ai-center">
@@ -45,7 +45,7 @@
           <div class="font-24 font-bold mt-16 mb-16" :id="key">{{key}}</div>
           <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
             <template v-for="(item, index) in value.list" :key="index">
-              <el-col v-show="value.show_all?true:index<6" :xs="24" :sm="12" :md="8" :lg="8" class="mb-16 pointer" @click="openPage(item.website)">
+              <el-col v-show="value.show_all?true:index<6" :xs="24" :sm="12" :md="12" :lg="8" class="mb-16 pointer" @click="openPage(item.website)">
                 <div class="card-item border-radius-16 font-16">
                   <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
                     <div class="flex flex-ai-center font-18 font-bold">
@@ -132,7 +132,7 @@ async function getListData() {
     crmForm.searchLoad = false
     crmForm.loading = true
     const params = {
-      limit: 1000,
+      limit: 10,
       offset:0
     }
     const res = await getCRMFormList(params)

@@ -70,14 +70,29 @@
                   <span class="color-danger mr-8">*</span> Project Logo:
                 </div>
               </template>
-              <xy-form-upload v-model:value="form.logo"></xy-form-upload>
+              <div class="flex flex-ai-center">
+                <div class="project-logo-url mr-16">
+                  <img :src="projectImage.imgUrl" class="w-100" />
+                  <!-- <svg class="pointer project-logo-url-btn" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 3H17L15 0H9L7 3H3C2.20435 3 1.44129 3.31607 0.87868 3.87868C0.31607 4.44129 0 5.20435 0 6L0 18C0 18.7956 0.31607 19.5587 0.87868 20.1213C1.44129 20.6839 2.20435 21 3 21H21C21.7956 21 22.5587 20.6839 23.1213 20.1213C23.6839 19.5587 24 18.7956 24 18V6C24 5.20435 23.6839 4.44129 23.1213 3.87868C22.5587 3.31607 21.7956 3 21 3ZM12 17C11.0111 17 10.0444 16.7068 9.22215 16.1573C8.3999 15.6079 7.75904 14.827 7.3806 13.9134C7.00216 12.9998 6.90315 11.9945 7.09607 11.0245C7.289 10.0546 7.7652 9.16373 8.46447 8.46447C9.16373 7.7652 10.0546 7.289 11.0245 7.09607C11.9945 6.90315 12.9998 7.00216 13.9134 7.3806C14.827 7.75904 15.6079 8.3999 16.1573 9.22215C16.7068 10.0444 17 11.0111 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17Z" fill="#DEE2E6"/>
+                    <circle cx="12" cy="12" r="3" fill="#DEE2E6"/>
+                  </svg> -->
+                </div>
+
+                <div class="project-logo-btn">
+                  <xy-form-upload v-model:value="form.logo"></xy-form-upload>
+                  <!-- <div class="color-light tip font-16 w-100 mb-8">Provide a link or upload your visual assets: File type .SVG or .PNG (at least 500 x 500 px).</div>
+                  <div class="btn-choose font-16 color-light font-weight-6 p-8 pointer" @click="imageVisible=true">Choose File</div> -->
+                </div>
+              </div>
+              <div class="font-12 color-danger" v-if="!projectImage.imgUrl">Please complete this required field.</div>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item prop="marketing_opt">
               <template #label>
                 <div class="flex flex-ai-center font-16 font-bold2 color-light">
-                  <span class="color-danger mr-8">*</span> Do you agree to receive marketing communications from Optimism?
+                  <span class="color-danger mr-8">*</span> Do you agree to receive marketing communications from Swan?
                 </div>
               </template>
               <el-radio-group v-model="form.marketing_opt" class="ml-4">
@@ -93,16 +108,24 @@
       </div>
     </div>
   </div>
+
+  <xy-logo :imageVisible="imageVisible" :optionImg="form.logoImg" @handImage="handImage"></xy-logo>
 </template>
 
 <script setup lang="ts">
 import { createCRMForm, getCategoryList } from '@/api/apps'
 import XyFormUpload from '@/base-ui/xy-form-upload.vue'
+import XyLogo from '@/base-ui/xy-logo.vue'
 import addAppsImages from '@/assets/img/apps/add-apps.jpg'
-import { messageTip } from '@/utils/common';
+import { messageTip, base64ToFile } from '@/utils/common'
 
 const router = useRouter()
 
+const imageVisible = ref(false)
+const projectImage = reactive({
+  imgUrl: '',
+  logo: ''
+})
 const formRef = ref(null)
 const validateFile = (rule:any, value:any, callback:any) => {
   if (!form.logo) {
@@ -117,6 +140,7 @@ const form = reactive({
   website: '',
   category: 6,
   logo: '',
+  logoImg: '',
   description: '',
   marketing_opt: true,
   loading: false,
@@ -153,17 +177,17 @@ function fileToBase64(file: any) {
 }
 
 const submitForm = (formEl: FormInstance | undefined) => {
-  if (!formEl || form.loading) return
+  if (!formEl || form.loading || !projectImage.imgUrl) return
   formEl.validate(async (valid:any) => {
     if (valid) {
       try{
         form.loading = true
-
+        
         // const base64String = await fileToBase64(form.logo);
         // console.log(base64String)
         
         let formData = new FormData()
-        const file = new File([form.logo], form.logo?.name)
+        const file = new File([projectImage.logo], projectImage.logo?.name)
         formData.append('name', form.name)
         formData.append('email', form.email)
         formData.append('website', form.website)
@@ -200,6 +224,15 @@ function close() {
   form.loading = false
 }
 
+function handImage(dialog: boolean, uri: string) {
+  imageVisible.value = dialog
+  if(uri){
+    projectImage.imgUrl = uri ?? ''
+    const file = base64ToFile(uri, form.logo?.name ?? 'image.png')
+    projectImage.logo = file
+  }
+}
+
 const emit = defineEmits(['hardClose'])
 const props = withDefaults(
   defineProps<{
@@ -212,6 +245,11 @@ const props = withDefaults(
 
 onMounted(() => {
   getCategoryData()
+})
+
+watch(() => form.logo, () => {
+  form.logoImg = URL.createObjectURL(form.logo!)
+  imageVisible.value = true
 })
 </script>
 
@@ -234,22 +272,22 @@ onMounted(() => {
     margin: auto;
     border-radius: 0.32rem;
     background: #000 !important;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.72);
+    box-shadow: 0 0 0.24rem #2e2e2e;
     *{
       line-height: 1;
     }
     .close-btn{
-        position: absolute;
-        right: 0.24rem;
-        top: 0.24rem;
-        width: 0.22rem;
-        height: 0.22rem;
-        z-index: 9;
-        @media screen and (max-width: 600px) {
-          width: 0.32rem;
-          height: 0.32rem;
-        }
+      position: absolute;
+      right: 0.24rem;
+      top: 0.24rem;
+      width: 0.22rem;
+      height: 0.22rem;
+      z-index: 9;
+      @media screen and (max-width: 600px) {
+        width: 0.32rem;
+        height: 0.32rem;
       }
+    }
     :deep(.el-form){
       .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:before{
         display: none;
@@ -299,6 +337,36 @@ onMounted(() => {
                   background: var(--color-primary);
                   border-color: var(--color-primary);
                 }
+              }
+            }
+          }
+          .project-logo-url{
+            position: relative;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: var(--color-dark-black);
+            &-btn{
+              position: absolute;
+              left: 50%;
+              bottom: 0.12rem;
+              width: 0.24rem;
+              transform: translate(-50%, 0);
+              z-index: 9;
+            }
+          }
+          .project-logo-btn{
+            width: calc(100% - 1.36rem);
+            .btn-choose {
+              display: inline-block;
+              padding: 0.12rem 0.24rem;
+              background-color: var(--color-light);
+              color: var(--color-dark-black);
+              border-radius: 1rem;
+              transition: all 0.2s;
+              &:hover {
+                background-color: var(--color-primary);
+                color: var(--color-light);
+                border-color: var(--color-primary);
               }
             }
           }

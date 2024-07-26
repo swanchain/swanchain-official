@@ -1,5 +1,6 @@
 <template>
-  <el-upload v-model:file-list="fileList" ref="upload" class="upload font-14" action="" :limit="limit" :on-exceed="handleExceed" :on-change="handleChange" :auto-upload="false" :show-file-list="!!value">
+   <!-- :show-file-list="!!value" -->
+  <el-upload v-model:file-list="fileList" :show-file-list="false" ref="upload" class="upload font-14" action="" :limit="limit" :on-remove="handleRemove" :on-exceed="handleExceed" :on-change="handleChange" :auto-upload="false">
     <!-- <template #tip>
       <div v-if="tips" class="el-upload__tip color-info font-16">{{ tips }}</div>
     </template> -->
@@ -45,6 +46,8 @@ function handleChange(e: any) {
   emits('update:value', e.raw)
   emits('change', e)
 }
+
+function handleRemove(e: any) {}
 
 // function submitUpload() {
 //   upload.value!.submit()

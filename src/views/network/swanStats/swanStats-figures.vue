@@ -2,7 +2,7 @@
   <div class="font-24 mt-32 mb-16 flex flex-ai-center">
     <span class="font-bold">Network Summary</span>
 
-    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(ELINK.MAINNETEXPLORER)">
+    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(currentNetwork === 'Mainnet' ? ELINK.MAINNETEXPLORER:ELINK.PROXIMAEXPLORER)">
       View in exolorer
 
       <svg class="ml-8" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,8 +15,8 @@
   <el-row :gutter="16">
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
-        <p class="font-16">Total Address</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.counters.smart_contracts) }}</p>
+        <p class="font-16">Wallet Address</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.value.total_addresses) }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -52,13 +52,13 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Market Cap</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.value.market_cap) }}</p>
+        <p class="font-20 color">{{ statsData.value.market_cap !== '0' ? replaceFormat(statsData.value.market_cap) : 'Not Available' }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
-        <p class="font-16">Wallet Address</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.value.total_addresses) }}</p>
+        <p class="font-16">Total accounts</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.stats_counters.total_accounts) }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -93,15 +93,16 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Fog Computing Provider</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_online_computers) }}</p>
+        <p class="font-20 color" v-if="currentNetwork === 'Proxima'">{{ replaceFormat(statsData.overViewArchiveData.total_online_computers) }}</p>
+        <p class="font-20 color" v-else>{{ replaceFormat(statsData.overViewData.total_online_computers) }}</p>
       </div>
     </el-col>
-    <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
+    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16" v-if="currentNetwork === 'Proxima'">
       <div class="grid-content">
-        <p class="font-16">ECP</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.ECPData.cp.total) }}</p>
+        <p class="font-16">Edge Computing Provider</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.ECPData.providers.count) }}</p>
       </div>
-    </el-col> -->
+    </el-col>
     <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Marketing Provider</p>
@@ -117,8 +118,8 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Locations</p>
-        <!-- <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations + statsData.ECPData.location.total) }}</p> -->
-        <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations) }}</p>
+        <p class="font-20 color" v-if="currentNetwork === 'Proxima'">{{ replaceFormat(statsData.overViewData.total_cp_locations + (statsData.ECPData.location.total || 0)) }}</p>
+        <p class="font-20 color" v-else>{{ replaceFormat(statsData.overViewData.total_cp_locations) }}</p>
       </div>
     </el-col>
     <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -133,31 +134,37 @@
         <p class="font-20 color">{{ replaceFormat(statsData.generalData.total_task) }}</p>
       </div>
     </el-col>
-    <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
+    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16" v-if="currentNetwork === 'Proxima'">
       <div class="grid-content">
         <p class="font-16">Total reward</p>
         <p class="font-20 color">{{ replaceFormat(statsData.ECPData.rewards.total) }} SWAN</p>
       </div>
-    </el-col> -->
+    </el-col>
   </el-row>
 </template>
 
 <script setup lang="ts">
-import { getExplorerStats, getExplorerCounters, getGeneralFCP, getOverViewFCP, getOverViewECP } from '@/api/stats';
+import { getExplorerStats, getExplorerCounters, getGeneralFCP, getOverViewFCP, getOverViewArchivedFCP, getOverViewECP, getStatsCounters } from '@/api/stats';
 import { ELINK } from '@/constant/envLink';
 import { openPage } from '@/hooks/router';
 import { millisecondsToHMS, replaceFormat } from '@/utils/common';
+import { currentNetwork } from '@/utils/storage'
 
 const statsData = reactive({
   value: {},
   generalData: {},
   overViewData: {},
+  overViewArchiveData: {},
   ECPData: {
     cp: {},
     location: {},
-    rewards: {}
+    rewards: {},
+    providers: {}
   },
-  counters: {}
+  counters: {},
+  stats_counters: {
+    total_accounts: '0'
+  }
 })
 
 async function getGeneralData() {
@@ -173,6 +180,15 @@ async function getOverViewData() {
   try {
     const statsRes = await getOverViewFCP()
     statsData.overViewData = statsRes?.data
+  } catch { 
+    console.error
+  }
+}
+
+async function getOverViewArchivedData() {
+  try {
+    const statsRes = await getOverViewArchivedFCP()
+    statsData.overViewArchiveData = statsRes?.data
   } catch { 
     console.error
   }
@@ -205,12 +221,41 @@ async function getCountersData() {
   }
 }
 
+async function getStatsCountersData() {
+  try {
+    const statsRes = await getStatsCounters()
+    if (statsRes?.counters) {
+      statsRes.counters.forEach(element => {
+        if(element.id === "totalAccounts") statsData.stats_counters.total_accounts = element?.value ?? '0'
+      });
+    }
+  } catch { 
+    console.error
+  }
+}
+
 onMounted(async () => {
   getStatsData()
   getCountersData()
   getGeneralData()
   getOverViewData()
-  // getECPData()
+  getStatsCountersData()
+  if (currentNetwork.value === 'Proxima') {
+    getOverViewArchivedData()
+    getECPData()
+  }
+})
+
+watch(() => currentNetwork.value, () => {
+  getStatsData()
+  getCountersData()
+  getGeneralData()
+  getOverViewData()
+  getStatsCountersData()
+  if (currentNetwork.value === 'Proxima') {
+    getOverViewArchivedData()
+    getECPData()
+  }
 })
 </script>
 
