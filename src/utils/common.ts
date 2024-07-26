@@ -87,3 +87,21 @@ export function debounce(fn:any, delay = 700) {
     }, delay);
   };
 }
+
+export function base64ToFile(base64Data:string, filename:string) {
+  const parts = base64Data.split(';base64,');
+  const contentType = parts[0].split(':')[1];
+  const raw = window.atob(parts[1]);
+  
+  const rawLength = raw.length;
+  const uInt8Array = new Uint8Array(rawLength);
+  for (let i = 0; i < rawLength; ++i) {
+      uInt8Array[i] = raw.charCodeAt(i);
+  }
+  
+  const blob = new Blob([uInt8Array], {type: contentType});
+  
+  const file = new File([blob], filename, {type: contentType});
+  
+  return file;
+}

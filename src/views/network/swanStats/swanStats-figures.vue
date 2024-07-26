@@ -2,7 +2,7 @@
   <div class="font-24 mt-32 mb-16 flex flex-ai-center">
     <span class="font-bold">Network Summary</span>
 
-    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(ELINK.MAINNETEXPLORER)">
+    <div class="ex-link font-14 flex flex-ai-center ml-10 pointer" @click="openPage(currentNetwork === 'Mainnet' ? ELINK.MAINNETEXPLORER:ELINK.PROXIMAEXPLORER)">
       View in exolorer
 
       <svg class="ml-8" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,8 +15,8 @@
   <el-row :gutter="16">
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
-        <p class="font-16">Total Address</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.counters.smart_contracts) }}</p>
+        <p class="font-16">Wallet Address</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.value.total_addresses) }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -52,13 +52,13 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Market Cap</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.value.market_cap) }}</p>
+        <p class="font-20 color">{{ statsData.value.market_cap !== '0' ? replaceFormat(statsData.value.market_cap) : 'Not Available' }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
-        <p class="font-16">Wallet Address</p>
-        <p class="font-20 color">{{ replaceFormat(statsData.value.total_addresses) }}</p>
+        <p class="font-16">Total accounts</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.stats_counters.total_accounts) }}</p>
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -143,10 +143,11 @@
 </template>
 
 <script setup lang="ts">
-import { getExplorerStats, getExplorerCounters, getGeneralFCP, getOverViewFCP, getOverViewECP } from '@/api/stats';
+import { getExplorerStats, getExplorerCounters, getGeneralFCP, getOverViewFCP, getOverViewECP, getStatsCounters } from '@/api/stats';
 import { ELINK } from '@/constant/envLink';
 import { openPage } from '@/hooks/router';
 import { millisecondsToHMS, replaceFormat } from '@/utils/common';
+import { currentNetwork } from '@/utils/storage'
 
 const statsData = reactive({
   value: {},
@@ -157,7 +158,10 @@ const statsData = reactive({
     location: {},
     rewards: {}
   },
-  counters: {}
+  counters: {},
+  stats_counters: {
+    total_accounts: '0'
+  }
 })
 
 async function getGeneralData() {
@@ -205,12 +209,34 @@ async function getCountersData() {
   }
 }
 
+async function getStatsCountersData() {
+  try {
+    const statsRes = await getStatsCounters()
+    if (statsRes?.counters) {
+      statsRes.counters.forEach(element => {
+        if(element.id === "totalAccounts") statsData.stats_counters.total_accounts = element?.value ?? '0'
+      });
+    }
+  } catch { 
+    console.error
+  }
+}
+
 onMounted(async () => {
   getStatsData()
   getCountersData()
   getGeneralData()
   getOverViewData()
+  getStatsCountersData()
   // getECPData()
+})
+
+watch(() => currentNetwork.value, () => {
+  getStatsData()
+  getCountersData()
+  getGeneralData()
+  getOverViewData()
+  getStatsCountersData()
 })
 </script>
 
