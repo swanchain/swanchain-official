@@ -91,9 +91,9 @@ const caseList = ref([
     peopleDesc: 'Head of Operations',
     link: '',
     projectContent:
-      "Leading Web3 infrastructure provider, offering comprehensive hosting solutions for the Web3 ecosystem.",
+      "Premier World-Class Infrastructure as a Service Provider Offering comprehensive hosting solutions to make computing resources accessible to everyone.",
     content:
-      "Swan Chain has revolutionized our business model. It enables us to effectively monetize our GPU resources, opening new revenue streams. This partnership maximizes our infrastructure's utility while meeting the growing demand for decentralized computing power."
+      "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power."
   },
   {
     title: 'Oort',

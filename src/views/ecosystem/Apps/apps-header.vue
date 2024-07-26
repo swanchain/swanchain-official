@@ -84,7 +84,7 @@ async function getListData() {
 }
 
 onMounted(() => {
-  getListData()
+  // getListData()
 })
 </script>
 

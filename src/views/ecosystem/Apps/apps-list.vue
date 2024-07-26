@@ -9,20 +9,20 @@
               placeholder="Search"
               clearable
               :prefix-icon="Search"
+              @input="() => searchProvider()"
             />
           </div>
 
           <div class="w-100">
-            <template v-for="(item, index) in tags" :key="index">
-              <a :href="`#${item}`" class="w-100 card-categories-tabs font-14 font-bold color-subtitle mb-8 pointer">{{ item }} ({{ crmForm.data.length }})</a>
-              <!-- <div @click="getID(item)" class="w-100 card-categories-tabs font-14 font-bold color-subtitle mb-8 pointer">{{ item }} ({{ crmForm.data.length }})</div> -->
+            <template v-for="(item, index) in crmForm.categoryTag" :key="index">
+              <a :href="`#${item.name}`" class="w-100 card-categories-tabs font-14 font-bold color-subtitle mb-8 pointer">{{ item.name }} ({{ item.project_cnt }})</a>
             </template>
           </div>
         </div>
       </el-col>
       <el-col :xs="24" :sm="14" :md="16" :lg="18">
-        <div class="font-24 font-bold mb-16">Featured</div>
-        <el-row :gutter="21">
+        <div class="font-24 font-bold mb-16" v-if="!crmForm.searchLoad">Featured</div>
+        <el-row :gutter="21" v-if="!crmForm.searchLoad">
           <template v-for="(item, index) in listFeatured" :key="index">
             <el-col :xs="24" :sm="12" :md="8" :lg="6" class="mb-16 pointer" @click="openPage(item.link)">
               <div class="card-item border-radius-16 font-16">
@@ -41,11 +41,11 @@
           </template>
         </el-row>
 
-        <template v-for="l in tags" :key="l">
-          <div class="font-24 font-bold mt-16 mb-16" :id="l">{{l}}</div>
+        <template v-for="(value, key) in crmForm.testData" :key="key">
+          <div class="font-24 font-bold mt-16 mb-16" :id="key">{{key}}</div>
           <el-row :gutter="16" v-loading="crmForm.loading" element-loading-text="Loading...">
-            <template v-for="(item, index) in crmForm.data" :key="index">
-              <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mb-16 pointer" @click="openPage(item.website)">
+            <template v-for="(item, index) in value.list" :key="index">
+              <el-col v-show="value.show_all?true:index<6" :xs="24" :sm="12" :md="8" :lg="8" class="mb-16 pointer" @click="openPage(item.website)">
                 <div class="card-item border-radius-16 font-16">
                   <div class="card-item-logo flex flex-jc-between flex-ai-start mb-16">
                     <div class="flex flex-ai-center font-18 font-bold">
@@ -57,13 +57,10 @@
                 </div>
               </el-col>
             </template>
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" class="mb-16 pointer">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" class="mb-16 pointer" v-if="!crmForm.searchLoad && (value.list && value.list.length>6)">
               <div class="flex flex-ai-center flex-jc-right">
-                <div class="view-btn btn font-16 flex flex-ai-center">
-                  View all ({{crmForm.data.length}})
-                  <svg viewBox="0 0 8 14" class="ml-16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
+                <div class="view-btn btn font-16 flex flex-ai-center" @click="value.show_all = !value.show_all">
+                  {{ !value.show_all ? `View all (${value.list_projects_cnt})` : 'View Less' }}
                 </div>
               </div>
             </el-col>
@@ -80,25 +77,11 @@ import XyIcon from '@/base-ui/xy-icon.vue'
 import { EIcon } from '@/constant/icon'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
-import { getCRMFormList } from '@/api/apps';
+import { categorySearchList, getCRMFormList, getCategoryList } from '@/api/apps';
 import { openPage } from '@/hooks/router';
 import { Search } from '@element-plus/icons-vue'
 import { ELINK } from '@/constant/envLink';
-
-const tags = ref([
-  'Gaming',
-  'Pos Validator',
-  'Dev Tool',
-  'Privacy',
-  'Smart Contracts',
-  'AI & ML',
-  'Memes',
-  'Dao',
-  'Defi',
-  'Mining',
-  'Nft',
-  'Dapp'
-]);
+import { debounce, throttle } from '@/utils/common'
 
 const tabsInput = ref('')
 const listFeatured = ref([
@@ -138,20 +121,68 @@ const listFeatured = ref([
 
 const crmForm = reactive({
   loading: false,
-  data: []
+  categoryLoad: false,
+  categoryTag: [],
+  testData: {},
+  searchLoad: false
 })
 
 async function getListData() { 
   try {
+    crmForm.searchLoad = false
     crmForm.loading = true
     const params = {
-      limit: 500,
-      offse:0
+      limit: 1000,
+      offset:0
     }
     const res = await getCRMFormList(params)
-    crmForm.data = res?.data ?? []
+    crmForm.testData = res?.data ?? {}
   } catch {
     console.error
+  } finally {
+    crmForm.loading = false
+  }
+}
+
+async function getCategoryData() { 
+  try {
+    crmForm.categoryLoad = true
+    const res = await getCategoryList()
+    crmForm.categoryTag = res?.data ?? []
+  } catch {
+    console.error
+  } finally {
+    crmForm.categoryLoad = false
+  }
+}
+
+const searchProvider = debounce(() => {
+  if (tabsInput.value) searchData()
+  else getListData()
+}, 700)
+    
+async function searchData() { 
+  try {
+    crmForm.searchLoad = true
+    crmForm.loading = true
+    const params = {
+      // limit: 20,
+      // score: 60,
+      name: tabsInput.value
+    }
+    const res = await categorySearchList(params)
+    if (res?.data) {
+      crmForm.testData = {}
+      const keyData = `${res?.list_projects_cnt ?? 0} results for matching "${tabsInput.value}"`
+      const results = {
+        list: res?.data ?? [],
+        list_projects_cnt: res?.list_projects_cnt ?? 0
+      }
+      crmForm.testData[keyData] = results
+    }
+  } catch {
+    console.error
+    crmForm.searchLoad = false
   } finally {
     crmForm.loading = false
   }
@@ -168,6 +199,7 @@ function getID (key:string) {
 }
 onMounted(() => {
   getListData()
+  getCategoryData()
 })
 </script>
 
