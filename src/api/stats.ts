@@ -33,6 +33,14 @@ export function getOverViewFCP() {
   })
 }
 
+export function getOverViewArchivedFCP() {
+  return request({
+      headers: {},
+      url: `${currentNetwork.value === 'Mainnet' ? import.meta.env.VITE_BASEAPI : import.meta.env.VITE_BASEAPI_PROXIMA}v2/cp/overview_archived`,
+      method: 'get'
+  })
+}
+
 export function getOverViewECP() {
   return request({
       headers: {},
