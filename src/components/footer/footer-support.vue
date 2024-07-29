@@ -75,7 +75,7 @@ const columns = ref([
       { label: 'Term Of Use', value: '/terms' },
       { label: 'Careers', value: '', link: 'https://www.linkedin.com/company/swancloud/jobs/' },
       { label: 'Contact Us', value: '', link: 'https://discord.com/invite/swanchain' },
-      { label: 'Brand Kit', value: '', link:  'https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link' }
+      { label: 'Brand Kit', value: '', link:  'https://drive.google.com/drive/folders/1R-qxHukeprc13nQ5WSuZgmrGCiUWHN07?usp=sharing' }
     ]
   }
 ])
