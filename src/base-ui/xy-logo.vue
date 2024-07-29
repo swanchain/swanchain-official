@@ -111,7 +111,7 @@ const props = withDefaults(
   // background-color: var(--color-dark-opacity);
 }
 .daliy-card{
-  width: 60%;
+  width: 94%;
   min-width: 320px;
   max-width: 600px;
   min-height: 320px;

@@ -104,6 +104,9 @@ function link(url: string) {}
   background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
   &-logo {
     padding: 0.42rem 1.28rem;
+    @media screen and (max-width: 992px) {
+      padding: 0.42rem 0.9rem;
+    }
     @media screen and (max-width: 768px) {
       padding: 0.7rem 0.6rem 0.35rem;
     }
@@ -154,6 +157,9 @@ function link(url: string) {}
     text-align: center;
     padding: 0.49rem 1.28rem 0.56rem 1.28rem;
     color: var(--color-info);
+    @media screen and (max-width: 992px) {
+      padding: 0.49rem 0.9rem 0.56rem 0.9rem;
+    }
     @media screen and (max-width: 768px) {
       padding: 0.49rem 0.6rem 0.56rem 0.6rem;
     }

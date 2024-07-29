@@ -23,6 +23,15 @@ import { anchor } from '../config'
   top: 1rem;
   width: 25%;
   max-width: 280px;
+  @media screen and (max-width: 1366px) {
+    max-width: 220px;
+  }
+  @media screen and (max-width: 1024px) {
+    max-width: 200px;
+  }
+  @media screen and (max-width: 992px) {
+    max-width: 180px;
+  }
   @media screen and (max-width: 767px) {
     position: relative !important;
     top: 0;

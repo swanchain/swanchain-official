@@ -476,6 +476,22 @@
   padding-bottom: 1.28rem;
 }
 
+@media screen and (max-width: 992px) {
+  .plr-128 {
+    padding: 0 0.9rem;
+  }
+  .page-body {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .pr-128 {
+    padding-right: 0.9rem;
+  }
+  .pl-128 {
+    padding-right: 0.9rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .p-8 {
     padding: 5.42px;

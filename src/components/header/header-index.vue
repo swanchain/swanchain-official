@@ -58,6 +58,9 @@ router.beforeEach(to => {
   top: 0;
   &-body{
   padding: 0.26rem 1.28rem;
+  @media screen and (max-width: 992px) {
+    padding: 0.26rem 0.9rem;
+  }
   @media screen and (max-width: 768px) {
     padding: 0.26rem 0.6rem;
   }
