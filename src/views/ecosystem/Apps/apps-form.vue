@@ -265,7 +265,7 @@ watch(() => form.logo, () => {
   overflow-y: auto;
   .form{
     position: relative;
-    width: 60%;
+    width: 94%;
     min-width: 320px;
     max-width: 600px;
     padding: 0.24rem;

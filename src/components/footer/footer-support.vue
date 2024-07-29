@@ -75,7 +75,7 @@ const columns = ref([
       { label: 'Term Of Use', value: '/terms' },
       { label: 'Careers', value: '', link: 'https://www.linkedin.com/company/swancloud/jobs/' },
       { label: 'Contact Us', value: '', link: 'https://discord.com/invite/swanchain' },
-      { label: 'Brand Kit', value: '', link:  'https://drive.google.com/drive/folders/1gGno5tZknzdaVfKsGO7pkXXn5OWcTXyt?usp=drive_link' }
+      { label: 'Brand Kit', value: '', link:  'https://drive.google.com/drive/folders/1R-qxHukeprc13nQ5WSuZgmrGCiUWHN07?usp=sharing' }
     ]
   }
 ])
@@ -104,6 +104,9 @@ function link(url: string) {}
   background: linear-gradient(180deg, var(--color-background-image-top), var(--color-background-image-bottom));
   &-logo {
     padding: 0.42rem 1.28rem;
+    @media screen and (max-width: 992px) {
+      padding: 0.42rem 0.9rem;
+    }
     @media screen and (max-width: 768px) {
       padding: 0.7rem 0.6rem 0.35rem;
     }
@@ -154,6 +157,9 @@ function link(url: string) {}
     text-align: center;
     padding: 0.49rem 1.28rem 0.56rem 1.28rem;
     color: var(--color-info);
+    @media screen and (max-width: 992px) {
+      padding: 0.49rem 0.9rem 0.56rem 0.9rem;
+    }
     @media screen and (max-width: 768px) {
       padding: 0.49rem 0.6rem 0.56rem 0.6rem;
     }

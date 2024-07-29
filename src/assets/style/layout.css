@@ -168,6 +168,9 @@
 .mlr-30 {
   margin: 0 0.3rem;
 }
+.ml-4 {
+  margin-left: 0.04rem;
+}
 .ml-8 {
   margin-left: 0.08rem;
 }
@@ -188,6 +191,9 @@
 }
 .ml-32 {
   margin-left: 0.32rem;
+}
+.mr-4 {
+  margin-right: 0.04rem;
 }
 .mr-8 {
   margin-right: 0.08rem;
@@ -468,6 +474,22 @@
 }
 .pb-128 {
   padding-bottom: 1.28rem;
+}
+
+@media screen and (max-width: 992px) {
+  .plr-128 {
+    padding: 0 0.9rem;
+  }
+  .page-body {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .pr-128 {
+    padding-right: 0.9rem;
+  }
+  .pl-128 {
+    padding-right: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
