@@ -21,9 +21,13 @@ import { anchor } from '../config'
   position: relative;
   position: fixed;
   top: 1rem;
+  width: 25%;
+  max-width: 280px;
   @media screen and (max-width: 767px) {
     position: relative !important;
     top: 0;
+    width: 100%;
+    max-width: none;
   }
 }
 .anchor {
