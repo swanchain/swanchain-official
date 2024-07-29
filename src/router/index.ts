@@ -23,10 +23,7 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 const router = createRouter({
-  history:
-    import.meta.env.MODE === EEnv.TEST
-    ? createWebHashHistory(import.meta.env.BASE_URL)
-      : createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 

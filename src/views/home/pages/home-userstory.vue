@@ -6,7 +6,7 @@
     </div> -->
     <el-row :gutter="32" justify="center">
       <template v-for="(item, index) in caseList" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer">
+        <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer" @click="openPage(item.link)">
           <div class="card-item back-linear swiper-slide-item text-center">
             <div class="card-item-header flex flex-jc-center flex-ai-center">
               <img :src="item.icon" class="w-100" />
@@ -90,25 +90,25 @@ const caseList = ref([
     peopleIcon: peopleIcon02,
     peopleName: 'Jarod',
     peopleDesc: 'Head of Operations',
-    link: '',
+    link: 'https://nebulablock.com/',
     projectContent:
       "Offering comprehensive hosting solutions to make computing resources accessible to everyone.",
     content:
       "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power."
   },
-  // {
-  //   title: 'Oort',
-  //   icon: userStoryImage03,
-  //   avatarIcon: userStoryAvatar03,
-  //   peopleIcon: peopleIcon03,
-  //   peopleName: '',
-  //   peopleDesc: 'Founder & CEO of OORT',
-  //   link: '',
-  //   projectContent:
-  //     "Decentralized, verifiable cloud computing platform for AI applications.",
-  //   content:
-  //     "Swan Chain has significantly enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training and increased value of our providers."
-  // },
+  {
+    title: 'OORT',
+    icon: userStoryImage03,
+    avatarIcon: userStoryAvatar03,
+    peopleIcon: peopleIcon03,
+    peopleName: 'Max Li',
+    peopleDesc: 'Founder & CEO of OORT',
+    link: 'https://www.oortech.com/',
+    projectContent:
+      "OORT: Cloud for Decentralized AI.",
+    content:
+      "Swan Chain has enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training, one service that we offer to achieve our goal - build trustworthy AI for humanity."
+  },
   // {
   //   title: 'Project name',
   //   icon: userStoryImage,

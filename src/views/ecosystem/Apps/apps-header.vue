@@ -97,6 +97,9 @@ onMounted(() => {
   position: relative;
   border-bottom: 1px solid #5c5f66;
   overflow: hidden;
+  @media screen and (max-width: 540px) {
+    flex-wrap: wrap;
+  }
   &-title {
     color: var(--color-light);
   }
@@ -112,12 +115,6 @@ onMounted(() => {
   }
   &-list {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .home-header {
-    padding-top: 3rem;
   }
 }
 </style>

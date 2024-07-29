@@ -16,6 +16,9 @@ import appsList from './apps-list.vue'
 .body {
   padding: 0 1.28rem;
   position: relative;
+  @media screen and (max-width: 992px) {
+    padding: 0 0.9rem;
+  }
   @media screen and (max-width: 768px) {
     padding: 0 0.6rem;
   }

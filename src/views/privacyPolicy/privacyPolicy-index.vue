@@ -193,6 +193,9 @@ const email_link = ELINK.EMAIL
   }
   .principal {
     padding: 0 1.28rem 0.32rem;
+    @media screen and (max-width: 992px) {
+      padding: 0 0.9rem 0.32rem;
+    }
     @media screen and (max-width: 768px) {
       padding: 0 0.6rem 0.32rem;
     }
