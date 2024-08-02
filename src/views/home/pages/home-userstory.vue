@@ -66,7 +66,7 @@ import userStoryAvatar03 from '@/assets/img/index/project-name03.png'
 import peopleIcon from '@/assets/img/index/people-img.jpg'
 import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
 import peopleIcon02 from '@/assets/img/index/people-img03.jpg'
-import peopleIcon03 from '@/assets/img/index/people-img02.png'
+import peopleIcon03 from '@/assets/img/index/people-img02.jpg'
 import { openPage } from '@/hooks/router'
 
 const caseList = ref([
