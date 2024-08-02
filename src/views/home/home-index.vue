@@ -4,7 +4,7 @@
     <div class="body lax-landing">
       <home-components></home-components>
       <home-advantages></home-advantages>
-      <home-funders></home-funders>
+      <home-backed></home-backed>
       <home-thriving></home-thriving>
       <home-showcase></home-showcase>
       <home-userstory></home-userstory>
@@ -18,7 +18,7 @@
 import HomeHeader from './pages/home-header.vue'
 import HomeComponents from './pages/home-components.vue'
 import HomeAdvantages from './pages/home-advantages.vue'
-import HomeFunders from './pages/home-funders.vue'
+import HomeBacked from './pages/home-backed.vue'
 import HomeThriving from './pages/home-thriving.vue'
 import HomeShowcase from './pages/home-showcase.vue'
 import HomeUserstory from './pages/home-userstory.vue'
