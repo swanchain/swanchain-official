@@ -69,7 +69,7 @@ import funded04 from '@/assets/img/powered/Powered-04.png'
     width: 59%;
     max-width: 700px;
     min-width: 320px;
-    padding: 1.2rem 0 1.39rem;
+    padding: 1.2rem 0 1.34rem;
     @media screen and (max-width: 768px) {
       padding: 1.2rem 0 0.7rem;
     }
@@ -93,7 +93,7 @@ import funded04 from '@/assets/img/powered/Powered-04.png'
     }
   }
   .funded{
-    padding: 0 0 0.8rem;
+    padding: 0 0 0.36rem;
     &-list{
       @media screen and (max-width: 600px) {
         flex-wrap: wrap;
