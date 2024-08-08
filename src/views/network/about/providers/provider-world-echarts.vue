@@ -51,6 +51,7 @@ function roamMap (flag: any) {
 function drawChart() {
   const el = document.getElementById('chart-world')
   if (el) {
+    const dataWorld = [...props.dataArrFCP, ...props.dataArrECP]
     chart = echarts.init(el)
     window.addEventListener('resize', function () {
       chart.resize()
@@ -195,7 +196,7 @@ function drawChart() {
             shadowBlur: 2,
             shadowColor: 'transparent'
           },
-          data: props.dataArrFCP,
+          data: dataWorld,
           roam: true,
           symbolSize: 14,
           zlevel: 1

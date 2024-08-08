@@ -25,7 +25,7 @@ const router = useRouter()
 
 function goLink(row: any) {
   if (!row.mainTitle) return
-  toPage(router, row.targetId === 'SWAN-Providers' ? '/network/about-swan/Providers' : '/network/about-swan/General-Information')
+  toPage(router, row.targetId === 'Swan-Providers' ? '/network/about-swan/Providers' : '/network/about-swan/General-Information')
 }
 </script>
 

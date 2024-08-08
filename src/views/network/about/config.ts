@@ -46,7 +46,7 @@ export const anchor = ref([
 export const anchorProvider = ref([
   {
     sourceId: 'source-provider-1',
-    targetId: 'SWAN-Providers',
+    targetId: 'Swan-Providers',
     actived: true,
     mainTitle: true,
     mainTitleText: 'Swan Chain Providers',

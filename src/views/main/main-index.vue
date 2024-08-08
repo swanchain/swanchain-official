@@ -14,7 +14,13 @@
 <script setup lang="ts">
 import HeaderIndex from '@/components/header/header-index.vue'
 import FooterIndex from '@/components/footer/footer-index.vue'
-import { mainRef } from '@/hooks/layout';
+import { mainRef } from '@/hooks/layout'
+import { currentNetwork } from '@/utils/storage';
+
+const route = useRoute()
+watch(route, () => {
+  currentNetwork.value = 'Mainnet'
+})
 </script>
 
 <style lang="less" scoped>

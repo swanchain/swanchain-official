@@ -36,7 +36,7 @@ export function getOverViewFCP() {
 export function getOverViewArchivedFCP() {
   return request({
       headers: {},
-      url: `${currentNetwork.value === 'Mainnet' ? import.meta.env.VITE_BASEAPI : import.meta.env.VITE_BASEAPI_PROXIMA}v2/cp/overview_archived`,
+      url: `${currentNetwork.value === 'Mainnet' ? import.meta.env.VITE_BASEAPI : import.meta.env.VITE_BASEAPI_PROXIMA}v2/cp/overview?for_prod=1`,
       method: 'get'
   })
 }
@@ -44,7 +44,7 @@ export function getOverViewArchivedFCP() {
 export function getOverViewECP() {
   return request({
       headers: {},
-      url: import.meta.env.VITE_UBIAPI + 'v2/stats',
+      url: `${currentNetwork.value === 'Mainnet' ? import.meta.env.VITE_ECP_BASEAPI : import.meta.env.VITE_ECP_BASEAPI_PROXIMA}v2/stats`,
       method: 'get'
   })
 }
