@@ -3,7 +3,7 @@ import { request } from '@/utils/request'
 export function getCRMFormList(params: any) {
     return request({
         headers: {},
-        url: import.meta.env.VITE_APPSAPI + 'crm_project/list',
+        url: import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_project/list',
         method: 'get',
         params
     })
@@ -12,7 +12,7 @@ export function getCRMFormList(params: any) {
 export function getCategoryList() {
   return request({
       headers: {},
-      url: import.meta.env.VITE_APPSAPI + 'crm_category/list',
+      url: import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_category/list',
       method: 'get'
   })
 }
@@ -20,7 +20,7 @@ export function getCategoryList() {
 export function categorySearchList(params: any) {
   return request({
       headers: {},
-      url: import.meta.env.VITE_APPSAPI + 'crm_project/search',
+      url: import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_project/search',
       method: 'get',
       params
   })
@@ -31,7 +31,7 @@ export function createCRMForm(data: any) {
         headers: {
           "Content-Type": "form-data"
         },
-        url: import.meta.env.VITE_APPSAPI + 'crm_project/create',
+        url: import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_project/create',
         method: 'post',
         data
     })

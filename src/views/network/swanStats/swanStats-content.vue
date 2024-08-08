@@ -21,7 +21,7 @@ import swanStatsFigures from './swanStats-figures.vue'
 import { currentNetwork } from '@/utils/storage'
 
 const currentRef = reactive({
-  value: currentNetwork.value || 'Proxima',
+  value: currentNetwork.value || 'Mainnet',
   options: [
     {
       value: 'Mainnet'
@@ -31,7 +31,7 @@ const currentRef = reactive({
     }]
 })
 
-async function currentMethod (key) {
+async function currentMethod (key:string) {
   currentNetwork.value = key
 }
 </script>

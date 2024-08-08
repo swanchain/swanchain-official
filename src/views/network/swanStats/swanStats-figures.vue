@@ -97,7 +97,7 @@
         <p class="font-20 color" v-else>{{ replaceFormat(statsData.overViewData.total_online_computers) }}</p>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16" v-if="currentNetwork === 'Proxima'">
+    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Edge Computing Provider</p>
         <p class="font-20 color">{{ replaceFormat(statsData.ECPData.providers.count) }}</p>
@@ -118,8 +118,7 @@
     <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Locations</p>
-        <p class="font-20 color" v-if="currentNetwork === 'Proxima'">{{ replaceFormat(statsData.overViewData.total_cp_locations + (statsData.ECPData.location.total || 0)) }}</p>
-        <p class="font-20 color" v-else>{{ replaceFormat(statsData.overViewData.total_cp_locations) }}</p>
+        <p class="font-20 color">{{ replaceFormat(statsData.overViewData.total_cp_locations + (statsData.ECPData.location.total || 0)) }}</p>
       </div>
     </el-col>
     <!-- <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
@@ -134,7 +133,7 @@
         <p class="font-20 color">{{ replaceFormat(statsData.generalData.total_task) }}</p>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16" v-if="currentNetwork === 'Proxima'">
+    <el-col :xs="12" :sm="12" :md="8" :lg="6" :xl="6" class="mt-16">
       <div class="grid-content">
         <p class="font-16">Total reward</p>
         <p class="font-20 color">{{ replaceFormat(statsData.ECPData.rewards.total) }} SWAN</p>
@@ -240,9 +239,9 @@ onMounted(async () => {
   getGeneralData()
   getOverViewData()
   getStatsCountersData()
+  getECPData()
   if (currentNetwork.value === 'Proxima') {
     getOverViewArchivedData()
-    getECPData()
   }
 })
 
@@ -252,9 +251,9 @@ watch(() => currentNetwork.value, () => {
   getGeneralData()
   getOverViewData()
   getStatsCountersData()
+  getECPData()
   if (currentNetwork.value === 'Proxima') {
     getOverViewArchivedData()
-    getECPData()
   }
 })
 </script>

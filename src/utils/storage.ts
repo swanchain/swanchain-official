@@ -1,7 +1,7 @@
 import { EStorage } from '@/constant/storage'
 
 export const token = ref(getToken())
-export const currentNetwork = ref('Proxima')
+export const currentNetwork = ref('Mainnet')
 export const isLogin = computed(() => !!token.value)
 
 export function removeStorage(key: string) {
