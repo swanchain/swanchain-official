@@ -2,14 +2,7 @@
   <div class="carousel-container page-body w-100 pt-48 pb-32">
     <div class="card-title linear-title font-24 font-bold text-center mb-32">Partners</div>
     <el-row class="row-bg" :gutter="32" justify="center">
-      <template v-for="list in slideList.slice(0, 6)" :key="list">
-        <el-col class="mb-32 flex">
-          <img :src="list.img" class="partnet-img" />
-        </el-col>
-      </template>
-    </el-row>
-    <el-row class="row-bg" :gutter="32" justify="center">
-      <template v-for="list in slideList.slice(6, 20)" :key="list">
+      <template v-for="list in slideList" :key="list">
         <el-col class="mb-32 flex">
           <img :src="list.img" class="partnet-img" />
         </el-col>
@@ -32,6 +25,7 @@ import partnetPage10 from '@/assets/img/partnets/partnet-10.png'
 import partnetPage11 from '@/assets/img/partnets/partnet-11.png'
 import partnetPage12 from '@/assets/img/partnets/partnet-12.png'
 import partnetPage13 from '@/assets/img/partnets/partnet-13.png'
+import partnetPage14 from '@/assets/img/partnets/partnet-14.png'
 
 const slideList = ref([
   {
@@ -72,6 +66,9 @@ const slideList = ref([
   },
   {
     img: partnetPage13
+  },
+  {
+    img: partnetPage14
   }
 ])
 </script>
