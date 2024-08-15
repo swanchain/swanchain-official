@@ -5,14 +5,14 @@
         <div class="home-header-title font-30 font-bold">{{ title }}</div>
         <div class="font-20 color-subtitle">Discover and explore the applications built on Swan Chain.</div>
       </div>
-      <div class="flex flex-ai-center mt-16">
+      <!-- <div class="flex flex-ai-center mt-16">
         <div class="home-header-btn btn font-16 flex flex-ai-center" @click="formDialog=true">
           Add Your App
           <svg viewBox="0 0 8 14" class="ml-16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="home-header-list mt-80">
         <xy-swiper-app :list="crmForm.data" :item-width="windowSize === EWindowSize.XS ? '50%' : '20%'"></xy-swiper-app>
       </div> -->
