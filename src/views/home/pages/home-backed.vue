@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-container page-body w-100 pt-48 pb-16">
     <div class="card-title linear-title font-24 font-bold text-center mb-32">Backed By</div>
-    <div v-for="(row, rowIndex) in chunkedPoweredImagesList" :key="rowIndex" class="funded-list flex flex-ai-center flex-jc-center mb-32">
+    <div v-for="(row, rowIndex) in chunkedBackedImagesList" :key="rowIndex" class="funded-list flex flex-ai-center flex-jc-center mb-32">
       <img 
         v-for="(item, index) in row" 
         :key="index" 
@@ -51,28 +51,28 @@
 
 import { ref, onMounted } from 'vue';
 
-interface PoweredImage {
+interface BackedImage {
   url: string;
 }
 
-const poweredImagesList = ref<PoweredImage[]>([]);
+const backedImagesList = ref<BackedImage[]>([]);
 
 onMounted(async () => {
   try {
     const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_backed/list'); 
     const data = await response.json();
 
-    poweredImagesList.value = data.data;
-    console.log(poweredImagesList.value)
+    backedImagesList.value = data.data;
+    console.log(backedImagesList.value)
   } catch (error) {
     console.error('Error fetching images:', error);
   }
 });
 
-const chunkedPoweredImagesList = computed(() => {
+const chunkedBackedImagesList = computed(() => {
   const chunks = [];
-  for (let i = 0; i < poweredImagesList.value.length; i += 4) {
-    chunks.push(poweredImagesList.value.slice(i, i + 4));
+  for (let i = 0; i < backedImagesList.value.length; i += 4) {
+    chunks.push(backedImagesList.value.slice(i, i + 4));
   }
   return chunks;
 });
