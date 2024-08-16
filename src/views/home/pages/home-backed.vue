@@ -71,8 +71,8 @@ onMounted(async () => {
 
 const chunkedBackedImagesList = computed(() => {
   const chunks = [];
-  for (let i = 0; i < backedImagesList.value.length; i += 4) {
-    chunks.push(backedImagesList.value.slice(i, i + 4));
+  for (let i = 0; i < backedImagesList.value.length; i += 6) {
+    chunks.push(backedImagesList.value.slice(i, i + 6));
   }
   return chunks;
 });
