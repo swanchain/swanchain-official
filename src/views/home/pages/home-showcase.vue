@@ -26,127 +26,156 @@ import lagrangeShowcase12 from '@/assets/img/index/showcase-Uniswap.jpg'
 import lagrangeShowcase13 from '@/assets/img/index/showcase-Llama3-8B-LLM-Chat.jpg'
 import lagrangeShowcase14 from '@/assets/img/index/showcase-Llama2-13B-LLM-Chat.jpg'
 
-const caseList = ref([
-  {
-    title: 'Llama2-13B-LLM-Chat LDL',
-    icon: lagrangeShowcase14,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama2-13B-LLM-Chat/app',
-    content:
-      'Explore Meta’s latest large language models (LLM), which has wide applications and great influence.'
-  },
-  {
-    title: 'Llama3-8B-LLM-Chat',
-    icon: lagrangeShowcase13,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama3-8B-LLM-Chat/app',
-    content:
-      'Meta’s Llama 3, the next iteration of the open-access Llama family.'
-  },
-  {
-    title: 'Stable Diffusion',
-    icon: lagrangeShowcase01,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Stable-Diffusion-Base-LoRA/app',
-    content:
-      'Stable Diffusion：a picture generator where you can use text, image or other information to create your own unique picture.'
-  },
-  {
-    title: 'MusicGen',
-    icon: lagrangeShowcase02,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/MusicGen/app',
-    content:
-      'The model will generate a up to 30 seconds music extract based on the description you provided.'
-  },
-  {
-    title: 'Text-to-Speech',
-    icon: lagrangeShowcase03,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Text-to-Speech/app',
-    content:
-      'Generate speech based on text and you can change the configurations to make the speech unique.'
-  },
-  {
-    title: 'ComfyUI',
-    icon: lagrangeShowcase04,
-    btn: [{ name: 'AI' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/ComfyUI/app',
-    content:
-      'Use various figures and descriptions to generate images.'
-  },
+// const caseList = ref([
+//   {
+//     title: 'Llama2-13B-LLM-Chat LDL',
+//     icon: lagrangeShowcase14,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama2-13B-LLM-Chat/app',
+//     content:
+//       'Explore Meta’s latest large language models (LLM), which has wide applications and great influence.'
+//   },
+//   {
+//     title: 'Llama3-8B-LLM-Chat',
+//     icon: lagrangeShowcase13,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Llama3-8B-LLM-Chat/app',
+//     content:
+//       'Meta’s Llama 3, the next iteration of the open-access Llama family.'
+//   },
+//   {
+//     title: 'Stable Diffusion',
+//     icon: lagrangeShowcase01,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Stable-Diffusion-Base-LoRA/app',
+//     content:
+//       'Stable Diffusion：a picture generator where you can use text, image or other information to create your own unique picture.'
+//   },
+//   {
+//     title: 'MusicGen',
+//     icon: lagrangeShowcase02,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/MusicGen/app',
+//     content:
+//       'The model will generate a up to 30 seconds music extract based on the description you provided.'
+//   },
+//   {
+//     title: 'Text-to-Speech',
+//     icon: lagrangeShowcase03,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Text-to-Speech/app',
+//     content:
+//       'Generate speech based on text and you can change the configurations to make the speech unique.'
+//   },
+//   {
+//     title: 'ComfyUI',
+//     icon: lagrangeShowcase04,
+//     btn: [{ name: 'AI' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/ComfyUI/app',
+//     content:
+//       'Use various figures and descriptions to generate images.'
+//   },
 
 
-  {
-    title: 'Jupyter',
-    icon: lagrangeShowcase05,
-    btn: [{ name: 'Tools' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Jupyter-Labs/app',
-    content:
-      'Jupyter is a web-based interactive computing platform that integrates code, equations, text, visualizations, and more.'
-  },
-  {
-    title: 'Terminal',
-    icon: lagrangeShowcase06,
-    btn: [{ name: 'Tools' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Terminal/app',
-    content:
-      'A virtual machine terminal with standard Ubuntu OS.'
-  },
-  {
-    title: 'Json-view',
-    icon: lagrangeShowcase07,
-    btn: [{ name: 'Tools' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Json-view/app',
-    content:
-      'A viewer where you can view every component of a JSON string.'
-  },
+//   {
+//     title: 'Jupyter',
+//     icon: lagrangeShowcase05,
+//     btn: [{ name: 'Tools' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Jupyter-Labs/app',
+//     content:
+//       'Jupyter is a web-based interactive computing platform that integrates code, equations, text, visualizations, and more.'
+//   },
+//   {
+//     title: 'Terminal',
+//     icon: lagrangeShowcase06,
+//     btn: [{ name: 'Tools' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Terminal/app',
+//     content:
+//       'A virtual machine terminal with standard Ubuntu OS.'
+//   },
+//   {
+//     title: 'Json-view',
+//     icon: lagrangeShowcase07,
+//     btn: [{ name: 'Tools' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Json-view/app',
+//     content:
+//       'A viewer where you can view every component of a JSON string.'
+//   },
 
 
 
-  {
-    title: 'Tetris',
-    icon: lagrangeShowcase08,
-    btn: [{ name: 'Game' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/tetris/app',
-    content:
-      'Classic tetris game, have fun.'
-  },
-  {
-    title: 'Mario',
-    icon: lagrangeShowcase09,
-    btn: [{ name: 'Game' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Mario/app',
-    content:
-      'Infinite Mario bros is an action platform game.'
-  },
-  {
-    title: 'Pac-Man',
-    icon: lagrangeShowcase10,
-    btn: [{ name: 'Game' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/pac-man/app',
-    content:
-      'Pac-Man is an arcade game developed by Namco.'
-  },
+//   {
+//     title: 'Tetris',
+//     icon: lagrangeShowcase08,
+//     btn: [{ name: 'Game' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/tetris/app',
+//     content:
+//       'Classic tetris game, have fun.'
+//   },
+//   {
+//     title: 'Mario',
+//     icon: lagrangeShowcase09,
+//     btn: [{ name: 'Game' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/Mario/app',
+//     content:
+//       'Infinite Mario bros is an action platform game.'
+//   },
+//   {
+//     title: 'Pac-Man',
+//     icon: lagrangeShowcase10,
+//     btn: [{ name: 'Game' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/pac-man/app',
+//     content:
+//       'Pac-Man is an arcade game developed by Namco.'
+//   },
 
 
-  {
-    title: 'Chainnode-RPC',
-    icon: lagrangeShowcase11,
-    btn: [{ name: 'Blockchain' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/chainnode-rpc/app',
-    content:
-      "Lightning-fast downloads of the up-to-date snapshots to empower nodes' deployment for multiple chains seamless perpetual storage of archive snapshots."
-  },
-  {
-    title: 'Uniswap',
-    icon: lagrangeShowcase12,
-    btn: [{ name: 'Blockchain' }],
-    link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/uniswap/app',
-    content:
-      'Traders can perform trustless swaps of Ethereum tokens on Uniswap.'
+//   {
+//     title: 'Chainnode-RPC',
+//     icon: lagrangeShowcase11,
+//     btn: [{ name: 'Blockchain' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/chainnode-rpc/app',
+//     content:
+//       "Lightning-fast downloads of the up-to-date snapshots to empower nodes' deployment for multiple chains seamless perpetual storage of archive snapshots."
+//   },
+//   {
+//     title: 'Uniswap',
+//     icon: lagrangeShowcase12,
+//     btn: [{ name: 'Blockchain' }],
+//     link: 'https://lagrangedao.org/spaces/0x231fe9090f4d45413474BDE53a1a0A3Bd5C0ef03/uniswap/app',
+//     content:
+//       'Traders can perform trustless swaps of Ethereum tokens on Uniswap.'
+//   }
+// ])
+
+interface ShowcaseDataRow {
+  title: string;
+  icon: string;
+  btn: Array<{ name: string }>;
+  link: string;
+  content: string;
+}
+
+const caseList = ref<Array<ShowcaseDataRow>>([]);
+
+onMounted(async () => {
+  try {
+    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_showcase/list'); 
+    const data = await response.json();
+
+    console.log(data)
+    caseList.value = data.data.map((item: any) => ({
+      title: item.title,
+      icon: item.url_background,
+      btn: [{ name: item.showcase_category }],
+      link: item.link,
+      content: item.detail,
+    }));
+    console.log(caseList)
+  } catch (error) {
+    console.error('Failed to fetch showcases:', error);
   }
-])
+});
 </script>
 
 <style scoped lang="less">
