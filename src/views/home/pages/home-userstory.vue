@@ -69,46 +69,46 @@ import peopleIcon02 from '@/assets/img/index/people-img03.jpg'
 import peopleIcon03 from '@/assets/img/index/people-img02.jpg'
 import { openPage } from '@/hooks/router'
 
-const caseList = ref([
-  {
-    title: 'Apus Network',
-    icon: userStoryImage01,
-    avatarIcon: userStoryAvatar01,
-    peopleIcon: peopleIcon01,
-    peopleName: 'Jason',
-    peopleDesc: 'Core Contributor of Apus Network',
-    link: 'https://www.apus.network/',
-    projectContent:
-      "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
-    content:
-      "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO."
-  },
-  {
-    title: 'Nebula Block',
-    icon: userStoryImage02,
-    avatarIcon: userStoryAvatar02,
-    peopleIcon: peopleIcon02,
-    peopleName: 'Jarod',
-    peopleDesc: 'Head of Operations',
-    link: 'https://nebulablock.com/',
-    projectContent:
-      "Offering comprehensive hosting solutions to make computing resources accessible to everyone.",
-    content:
-      "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power."
-  },
-  {
-    title: 'OORT',
-    icon: userStoryImage03,
-    avatarIcon: userStoryAvatar03,
-    peopleIcon: peopleIcon03,
-    peopleName: 'Max Li',
-    peopleDesc: 'Founder & CEO of OORT',
-    link: 'https://www.oortech.com/',
-    projectContent:
-      "OORT: Cloud for Decentralized AI.",
-    content:
-      "Swan Chain has enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training, one service that we offer to achieve our goal - build trustworthy AI for humanity."
-  },
+// const caseList = ref([
+//   {
+//     title: 'Apus Network',
+//     icon: userStoryImage01,
+//     avatarIcon: userStoryAvatar01,
+//     peopleIcon: peopleIcon01,
+//     peopleName: 'Jason',
+//     peopleDesc: 'Core Contributor of Apus Network',
+//     link: 'https://www.apus.network/',
+//     projectContent:
+//       "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO.",
+//     content:
+//       "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO."
+//   },
+//   {
+//     title: 'Nebula Block',
+//     icon: userStoryImage02, // background,
+//     avatarIcon: userStoryAvatar02, // icon
+//     peopleIcon: peopleIcon02, // avatar
+//     peopleName: 'Jarod', // name
+//     peopleDesc: 'Head of Operations',
+//     link: 'https://nebulablock.com/',
+//     projectContent:
+//       "Offering comprehensive hosting solutions to make computing resources accessible to everyone.",
+//     content:
+//       "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power."
+//   },
+//   {
+//     title: 'OORT',
+//     icon: userStoryImage03,
+//     avatarIcon: userStoryAvatar03,
+//     peopleIcon: peopleIcon03,
+//     peopleName: 'Max Li',
+//     peopleDesc: 'Founder & CEO of OORT',
+//     link: 'https://www.oortech.com/',
+//     projectContent:
+//       "OORT: Cloud for Decentralized AI.",
+//     content:
+//       "Swan Chain has enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training, one service that we offer to achieve our goal - build trustworthy AI for humanity."
+//   },
   // {
   //   title: 'Project name',
   //   icon: userStoryImage,
@@ -122,7 +122,41 @@ const caseList = ref([
   //   content:
   //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
   // }
-])
+// ])
+interface StoryDataRow {
+  title: string,
+  icon: string,
+  avatarIcon: string,
+  peopleIcon: string,
+  peopleName: string,
+  peopleDesc: string,
+  link: string,
+  projectContent: string,
+  content: string,
+}
+
+const caseList = ref<Array<StoryDataRow>>([]);
+
+onMounted(async () => {
+  try {
+    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_user_story/list'); 
+    const data = await response.json();
+
+    caseList.value = data.data.map((item: any) => ({
+      title: item.title,
+      icon: item.banner,
+      avatarIcon: item.project_logo,
+      peopleIcon: item.avatar,
+      peopleName: item.person_in_charge_name,
+      peopleDesc: item.person_in_charge_position,
+      link: item.link,
+      projectContent: item.project_summary,
+      content: item.project_description,
+    }));
+  } catch (error) {
+    console.error('Failed to fetch showcases:', error);
+  }
+});
 </script>
 
 <style scoped lang="less">
