@@ -63,7 +63,6 @@ onMounted(async () => {
     const data = await response.json();
 
     backedImagesList.value = data.data;
-    console.log(backedImagesList.value)
   } catch (error) {
     console.error('Error fetching images:', error);
   }
