@@ -163,7 +163,6 @@ onMounted(async () => {
     const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_showcase/list'); 
     const data = await response.json();
 
-    console.log(data)
     caseList.value = data.data.map((item: any) => ({
       title: item.title,
       icon: item.url_background,
@@ -171,7 +170,6 @@ onMounted(async () => {
       link: item.link,
       content: item.detail,
     }));
-    console.log(caseList)
   } catch (error) {
     console.error('Failed to fetch showcases:', error);
   }
