@@ -25,11 +25,14 @@
     </div>
     <div class="funded">
       <div class="font-24 font-bold text-center">Powered By</div>
-      <div class="funded-list flex flex-ai-center flex-jc-center">
-        <img :src="funded01" class="pointer" @click="openPage('https://www.bnbchain.org/en')" />
-        <img :src="funded02" class="pointer" @click="openPage('https://chain.link/')" />
-        <img :src="funded03" class="pointer" @click="openPage('https://optimism.io/')" />
-        <img :src="funded04" class="pointer" @click="openPage('https://filecoin.io/')" />
+      <div v-for="(row, rowIndex) in chunkedPoweredImagesList" :key="rowIndex" class="funded-list flex flex-ai-center flex-jc-center">
+        <img 
+          v-for="(item, index) in row" 
+          :key="index" 
+          :src="item.url" 
+          class="pointer" 
+          @click="openPage(item.link_url)" 
+        />
       </div>
     </div>
   </div>
@@ -37,10 +40,34 @@
 
 <script setup lang="ts">
 import { openPage } from '@/hooks/router';
-import funded01 from '@/assets/img/powered/Powered-01.png'
-import funded02 from '@/assets/img/powered/Powered-02.png'
-import funded03 from '@/assets/img/powered/Powered-03.png'
-import funded04 from '@/assets/img/powered/Powered-04.png'
+import { ref, onMounted } from 'vue';
+
+interface PoweredImage {
+  url: string;
+  link_url: string;
+}
+
+const poweredImagesList = ref<PoweredImage[]>([]);
+
+onMounted(async () => {
+  try {
+    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_powered/list'); 
+    const data = await response.json();
+
+    poweredImagesList.value = data.data;
+  } catch (error) {
+    console.error('Error fetching images:', error);
+  }
+});
+
+const chunkedPoweredImagesList = computed(() => {
+  const chunks = [];
+  for (let i = 0; i < poweredImagesList.value.length; i += 6) {
+    chunks.push(poweredImagesList.value.slice(i, i + 6));
+  }
+  return chunks;
+});
+
 </script>
 
 <style lang="less" scoped>
