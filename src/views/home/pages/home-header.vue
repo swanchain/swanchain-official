@@ -40,10 +40,6 @@
 
 <script setup lang="ts">
 import { openPage } from '@/hooks/router';
-// import funded01 from '@/assets/img/powered/Powered-01.png'
-// import funded02 from '@/assets/img/powered/Powered-02.png'
-// import funded03 from '@/assets/img/powered/Powered-03.png'
-// import funded04 from '@/assets/img/powered/Powered-04.png'
 import { ref, onMounted } from 'vue';
 
 interface PoweredImage {
