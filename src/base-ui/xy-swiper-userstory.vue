@@ -5,7 +5,7 @@
     }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
-        <div class="card-item back-linear swiper-slide-item text-center">
+        <div class="card-item back-linear swiper-slide-item text-center pointer" @click="openPage(item.link)">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
             <img :src="item.icon" class="w-100 card-item-header-background" />
             <div class="card-item-header-body">
