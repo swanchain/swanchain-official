@@ -1,7 +1,7 @@
 <template>
-  <swiper :modules="modules" :navigation="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  <swiper ref="swiperUserstory" :modules="modules" :navigation="{
+      nextEl: '.swiper-userstory-next',
+      prevEl: '.swiper-userstory-prev'
     }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
@@ -46,8 +46,8 @@
       </swiper-slide>
     </template>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-userstory-prev"></div>
+    <div class="swiper-button-next swiper-userstory-next"></div>
     <!-- <div class="shelter"></div> -->
   </swiper>
 </template>
