@@ -89,9 +89,9 @@ const listFeatured = ref([
     title: 'Lagrange',
     link: ELINK.LAGRANGE,
     label: 'Lagrange',
-    domain: 'lagrangedao.org',
+    domain: 'lagrange.computer',
     content:
-      'Lagrange DAO provides data sharing and analytic spaces for Decentralized Science (DeSci).'
+      'Lagrange provides data sharing and analytic spaces for Decentralized Science (DeSci).'
   },
   {
     title: 'Multi-Chain Storage',

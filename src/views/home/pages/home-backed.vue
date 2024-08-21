@@ -46,8 +46,8 @@ const chunkedBackedImagesList = computed(() => {
     max-width: auto;
     flex: 0 0 auto;
     @media screen and (max-width: 992px) {
-      max-width: 33.33%;
-      flex: 0 0 33.33%;
+      max-width: 25%;
+      flex: 0 0 25%;
     }
     @media screen and (max-width: 540px) {
       max-width: 50%;
