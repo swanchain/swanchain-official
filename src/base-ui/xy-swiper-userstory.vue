@@ -171,6 +171,15 @@ SwiperCore.use([Navigation]);
         }
         &-background {
           height: 2.3rem;
+          @media screen and (max-width: 992px) {
+            height: 2.6rem;
+          }
+          @media screen and (max-width: 768px) {
+            height: 3.5rem;
+          }
+          @media screen and (max-width: 600px) {
+            height: 4rem;
+          }
         }
       }
       &-introduce{
