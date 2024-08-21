@@ -1,14 +1,14 @@
 <template>
    <!-- :autoplay="autoplay" :looped-slides="list.length + 2" loop -->
-  <swiper class="swiper-showcase" :modules="modules" :navigation="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  <swiper ref="swiperShowcase" class="swiper-showcase" :modules="modules" :navigation="{
+      nextEl: '.swiper-showcase-next',
+      prevEl: '.swiper-showcase-prev'
     }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
         <div class="card-item back-linear swiper-slide-item text-center">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
-            <img :src="item.icon" class="w-100" />
+            <img :src="item.icon" class="w-100 card-item-header-background" />
             <div class="card-item-header-logo pt-20 pb-20 flex flex-ai-center flex-jc-center">
               <img :src="lagrangeLogo" />
             </div>
@@ -43,8 +43,8 @@
       </swiper-slide>
     </template>
 
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
+    <!-- <div class="swiper-button-prev swiper-showcase-prev"></div>
+    <div class="swiper-button-next swiper-showcase-next"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">
@@ -120,6 +120,21 @@ SwiperCore.use([Navigation, Pagination]);
           z-index: 3;
           img{
             height: 0.24rem;
+            @media screen and (max-width: 768px) {
+              height: 20px;
+            }
+            @media screen and (max-width: 600px) {
+              height: 24px;
+            }
+          }
+        }
+        &-background{
+          height: 1.95rem;
+          @media screen and (max-width: 768px) {
+            height: 2.5rem;
+          }
+          @media screen and (max-width: 600px) {
+            height: 4.5rem;
           }
         }
       }

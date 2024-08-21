@@ -8,7 +8,7 @@ export enum ELINK {
   EMAIL = 'contact@swanchain.io',
   PROXIMAEXPLORER = 'https://proxima-explorer.swanchain.io',
   MAINNETEXPLORER = 'https://mainnet-explorer.swanchain.io/',
-  LAGRANGE = 'https://lagrangedao.org/',
+  LAGRANGE = 'https://lagrange.computer/',
   MCS = 'https://multichain.storage/',
   METAARK = 'https://www.fogmetalabs.com/metaark',
   CHAINNODE = 'https://chainnode.io/',

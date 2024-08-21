@@ -33,8 +33,7 @@ onMounted(async () => {
 
 const chunkedPartnerImagesList = computed(() => {
   const chunks = [];
-  chunks.push(partneredImagesList.value.slice(0, 6));
-  chunks.push(partneredImagesList.value.slice(6, 20));
+  chunks.push(partneredImagesList.value);
   return chunks;
 });
 </script>

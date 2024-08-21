@@ -6,10 +6,10 @@
     </div> -->
     <el-row :gutter="32" justify="center">
       <template v-for="(item, index) in caseList" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer" @click="openPage(item.link)">
+        <el-col :xs="24" :sm="12" :md="6" :lg="6" class="mt-32 pointer" @click="openPage(item.link)">
           <div class="card-item back-linear swiper-slide-item text-center">
             <div class="card-item-header flex flex-jc-center flex-ai-center">
-              <img :src="item.icon" class="w-100" />
+              <img :src="item.icon" class="w-100 card-item-header-background" />
               <div class="card-item-header-body">
                 <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
                   <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
@@ -52,6 +52,9 @@
 </template>
 
 <script setup lang="ts">
+import XySwiperUserstory from '@/base-ui/xy-swiper-userstory.vue'
+import { windowSize } from '@/hooks/layout'
+import { EWindowSize } from '@/constant/common'
 import { openPage } from '@/hooks/router'
 
 interface StoryDataRow {
@@ -74,7 +77,7 @@ onMounted(async () => {
     const data = await response.json();
 
     caseList.value = data.data.map((item: any) => ({
-      title: item.title,
+      title: item.project_name,
       icon: item.banner,
       avatarIcon: item.project_logo,
       peopleIcon: item.avatar,
@@ -172,6 +175,18 @@ onMounted(async () => {
                   height: 14px;
                 }
               }
+            }
+          }
+          &-background {
+            height: 2.3rem;
+            @media screen and (max-width: 992px) {
+              height: 3.6rem;
+            }
+            @media screen and (max-width: 768px) {
+              height: 4.5rem;
+            }
+            @media screen and (max-width: 600px) {
+              height: 5rem;
             }
           }
         }

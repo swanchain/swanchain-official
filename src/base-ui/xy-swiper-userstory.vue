@@ -1,19 +1,19 @@
 <template>
-  <swiper :modules="modules" :navigation="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  <swiper ref="swiperUserstory" :modules="modules" :navigation="{
+      nextEl: '.swiper-userstory-next',
+      prevEl: '.swiper-userstory-prev'
     }" slides-per-view="auto" :looped-slides="list.length + 2" :autoplay="autoplay" loop>
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
-        <div class="card-item back-linear swiper-slide-item text-center">
+        <div class="card-item back-linear swiper-slide-item text-center pointer" @click="openPage(item.link)">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
-            <img :src="item.icon" class="w-100" />
+            <img :src="item.icon" class="w-100 card-item-header-background" />
             <div class="card-item-header-body">
               <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
                 <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
               </div>
               <div class="card-item-body-content font-14 line-2 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
-              <div class="flex flex-ai-center flex-js-left">
+              <!-- <div class="flex flex-ai-center flex-js-left">
                 <div @click="openPage(item.link)" :class="`card-item-header-body-try ${item.link?'':'is-disabled'} font-14 font-bold2 flex flex-ai-center flex-js-center pointer`">
                   Try It Now
 
@@ -29,7 +29,7 @@
                     </defs>
                   </svg>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="card-item-introduce back-linear">
@@ -46,8 +46,8 @@
       </swiper-slide>
     </template>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-userstory-prev"></div>
+    <div class="swiper-button-next swiper-userstory-next"></div>
     <!-- <div class="shelter"></div> -->
   </swiper>
 </template>
@@ -120,7 +120,7 @@ SwiperCore.use([Navigation]);
         }
         &-body{
           position: absolute;
-          bottom: 0;
+          bottom: -1px;
           left: 0;
           right: 0;
           padding: 0.16rem;
@@ -167,6 +167,18 @@ SwiperCore.use([Navigation]);
                 height: 14px;
               }
             }
+          }
+        }
+        &-background {
+          height: 2.3rem;
+          @media screen and (max-width: 992px) {
+            height: 2.6rem;
+          }
+          @media screen and (max-width: 768px) {
+            height: 3.5rem;
+          }
+          @media screen and (max-width: 600px) {
+            height: 4rem;
           }
         }
       }
