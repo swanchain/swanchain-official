@@ -2,7 +2,14 @@
   <div class="carousel-container page-body w-100 pt-48 pb-32">
     <div class="card-title linear-title font-24 font-bold text-center mb-32">Partners</div>
     <el-row class="row-bg" :gutter="32" justify="center">
-      <template v-for="list in slideList" :key="list">
+      <template v-for="list in slideList.slice(0, 6)" :key="list">
+        <el-col class="mb-32 flex">
+          <img :src="list.img" class="partnet-img" />
+        </el-col>
+      </template>
+    </el-row>
+    <el-row class="row-bg" :gutter="32" justify="center">
+      <template v-for="list in slideList.slice(6, 20)" :key="list">
         <el-col class="mb-32 flex">
           <img :src="list.img" class="partnet-img" />
         </el-col>
@@ -67,9 +74,9 @@ const slideList = ref([
   {
     img: partnetPage13
   },
-  {
-    img: partnetPage14
-  }
+  // {
+  //   img: partnetPage14
+  // }
 ])
 </script>
 
