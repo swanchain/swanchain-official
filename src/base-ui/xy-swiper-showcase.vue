@@ -1,8 +1,8 @@
 <template>
    <!-- :autoplay="autoplay" :looped-slides="list.length + 2" loop -->
-  <swiper class="swiper-showcase" :modules="modules" :navigation="{
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  <swiper ref="swiperShowcase" class="swiper-showcase" :modules="modules" :navigation="{
+      nextEl: '.swiper-showcase-next',
+      prevEl: '.swiper-showcase-prev'
     }" :pagination="{ clickable: true }" slides-per-view="auto" :autoplay="autoplay">
     <template v-for="(item, index) in list" :key="index">
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
@@ -43,8 +43,8 @@
       </swiper-slide>
     </template>
 
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
+    <!-- <div class="swiper-button-prev swiper-showcase-prev"></div>
+    <div class="swiper-button-next swiper-showcase-next"></div> -->
   </swiper>
 </template>
 <script setup lang="ts">

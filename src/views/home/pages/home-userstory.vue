@@ -1,15 +1,15 @@
 <template>
   <div class="card page-body pt-48 pb-48">
     <div class="card-title linear-title font-24 font-bold text-center">User Story</div>
-    <div class="home-header-list mt-32">
+    <!-- <div class="home-header-list mt-32">
       <xy-swiper-userstory :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '45%' : windowSize === EWindowSize.XS ? '75%' : '30%'"></xy-swiper-userstory>
-    </div>
-    <el-row v-if="false" :gutter="32" justify="center">
+    </div> -->
+    <el-row :gutter="32" justify="center">
       <template v-for="(item, index) in caseList" :key="index">
-        <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer" @click="openPage(item.link)">
+        <el-col :xs="24" :sm="12" :md="6" :lg="6" class="mt-32 pointer" @click="openPage(item.link)">
           <div class="card-item back-linear swiper-slide-item text-center">
             <div class="card-item-header flex flex-jc-center flex-ai-center">
-              <img :src="item.icon" class="w-100" />
+              <img :src="item.icon" class="w-100 card-item-header-background" />
               <div class="card-item-header-body">
                 <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
                   <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
@@ -175,6 +175,18 @@ onMounted(async () => {
                   height: 14px;
                 }
               }
+            }
+          }
+          &-background {
+            height: 2.3rem;
+            @media screen and (max-width: 992px) {
+              height: 3.6rem;
+            }
+            @media screen and (max-width: 768px) {
+              height: 4.5rem;
+            }
+            @media screen and (max-width: 600px) {
+              height: 5rem;
             }
           }
         }
