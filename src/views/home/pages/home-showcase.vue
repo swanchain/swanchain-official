@@ -24,7 +24,7 @@ const caseList = ref<Array<ShowcaseDataRow>>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_showcase/list'); 
+    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_showcase/list'); 
     const data = await response.json();
 
     caseList.value = data.data.map((item: any) => ({
