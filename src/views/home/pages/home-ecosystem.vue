@@ -42,13 +42,13 @@ import { ELINK } from '@/constant/envLink';
 
 const list = ref([
   {
-    title: 'Lagrange Dao',
+    title: 'Lagrange',
     live: 'Live on Pacific',
     link: ELINK.LAGRANGE,
     label: 'Lagrange',
     btn: [{ name: 'DeFi/Payments' }, { name: 'Social' }],
     content:
-      'Lagrange DAO provides data sharing and analytic spaces for Decentralized Science (DeSci) where researchers can equitably using the Web3 stack.'
+      'Lagrange provides data sharing and analytic spaces for Decentralized Science (DeSci) where researchers can equitably using the Web3 stack.'
   },
   {
     title: 'Multi-Chain Storage',

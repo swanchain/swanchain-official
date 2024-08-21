@@ -1,10 +1,10 @@
 <template>
   <div class="card page-body pt-48 pb-48">
     <div class="card-title linear-title font-24 font-bold text-center">User Story</div>
-    <!-- <div class="home-header-list mt-32">
+    <div class="home-header-list mt-32">
       <xy-swiper-userstory :list="caseList" :item-width="windowSize === EWindowSize.SM ?  '45%' : windowSize === EWindowSize.XS ? '75%' : '30%'"></xy-swiper-userstory>
-    </div> -->
-    <el-row :gutter="32" justify="center">
+    </div>
+    <el-row v-if="false" :gutter="32" justify="center">
       <template v-for="(item, index) in caseList" :key="index">
         <el-col :xs="24" :sm="12" :md="8" :lg="8" class="mt-32 pointer" @click="openPage(item.link)">
           <div class="card-item back-linear swiper-slide-item text-center">
@@ -52,6 +52,9 @@
 </template>
 
 <script setup lang="ts">
+import XySwiperUserstory from '@/base-ui/xy-swiper-userstory.vue'
+import { windowSize } from '@/hooks/layout'
+import { EWindowSize } from '@/constant/common'
 import { openPage } from '@/hooks/router'
 
 interface StoryDataRow {
@@ -74,7 +77,7 @@ onMounted(async () => {
     const data = await response.json();
 
     caseList.value = data.data.map((item: any) => ({
-      title: item.title,
+      title: item.project_name,
       icon: item.banner,
       avatarIcon: item.project_logo,
       peopleIcon: item.avatar,

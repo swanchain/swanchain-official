@@ -91,7 +91,7 @@ const listFeatured = ref([
     label: 'Lagrange',
     domain: 'lagrange.computer',
     content:
-      'Lagrange DAO provides data sharing and analytic spaces for Decentralized Science (DeSci).'
+      'Lagrange provides data sharing and analytic spaces for Decentralized Science (DeSci).'
   },
   {
     title: 'Multi-Chain Storage',

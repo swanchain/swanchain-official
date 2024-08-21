@@ -7,13 +7,13 @@
       <swiper-slide class="swiper-slide" :style="{ width: itemWidth, height: itemHeight }">
         <div class="card-item back-linear swiper-slide-item text-center">
           <div class="card-item-header flex flex-jc-center flex-ai-center">
-            <img :src="item.icon" class="w-100" />
+            <img :src="item.icon" class="w-100 card-item-header-background" />
             <div class="card-item-header-body">
               <div class="card-item-header-body-project font-16 flex flex-ai-center flex-jc-left">
                 <img :src="item.avatarIcon" class="mr-10" /> {{item.title}}
               </div>
               <div class="card-item-body-content font-14 line-2 mt-8 mb-8 text-left">{{ item.projectContent }}</div>
-              <div class="flex flex-ai-center flex-js-left">
+              <!-- <div class="flex flex-ai-center flex-js-left">
                 <div @click="openPage(item.link)" :class="`card-item-header-body-try ${item.link?'':'is-disabled'} font-14 font-bold2 flex flex-ai-center flex-js-center pointer`">
                   Try It Now
 
@@ -29,7 +29,7 @@
                     </defs>
                   </svg>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="card-item-introduce back-linear">
@@ -120,7 +120,7 @@ SwiperCore.use([Navigation]);
         }
         &-body{
           position: absolute;
-          bottom: 0;
+          bottom: -1px;
           left: 0;
           right: 0;
           padding: 0.16rem;
@@ -168,6 +168,9 @@ SwiperCore.use([Navigation]);
               }
             }
           }
+        }
+        &-background {
+          height: 2.3rem;
         }
       }
       &-introduce{

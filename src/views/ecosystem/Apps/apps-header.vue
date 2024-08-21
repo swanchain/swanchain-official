@@ -32,10 +32,10 @@ import { getCRMFormList } from '@/api/apps';
 const title = ref('Swan Chain Apps')
 const recommendList = ref([
   {
-    title: 'Lagrange Dao',
+    title: 'Lagrange',
     label: 'Lagrange',
     value: '/index',
-    btn: [{ name: 'Dao' }, { name: 'AI & ML' }]
+    btn: [{ name: 'AI & ML' }]
   },
   {
     title: 'Multi-Chain Storage',
