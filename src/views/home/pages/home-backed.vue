@@ -13,22 +13,55 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import backedImage01 from '@/assets/img/Backed/Backed-01.png'
+import backedImage02 from '@/assets/img/Backed/Backed-02.png'
+import backedImage03 from '@/assets/img/Backed/Backed-03.png'
+import backedImage04 from '@/assets/img/Backed/Backed-04.png'
+import backedImage05 from '@/assets/img/Backed/Backed-05.png'
+import backedImage06 from '@/assets/img/Backed/Backed-06.png'
+import backedImage07 from '@/assets/img/Backed/Backed-07.png'
+import backedImage08 from '@/assets/img/Backed/Backed-08.png'
 
 interface BackedImage {
   url: string;
 }
 
-const backedImagesList = ref<BackedImage[]>([]);
+const backedImagesList = ref<BackedImage[]>([
+  {
+      "url": backedImage01
+  },
+  {
+      "url": backedImage02
+  },
+  {
+      "url": backedImage03
+  },
+  {
+      "url": backedImage04
+  },
+  {
+      "url": backedImage05
+  },
+  {
+      "url": backedImage06
+  },
+  {
+      "url": backedImage07
+  },
+  {
+      "url": backedImage08
+  },
+]);
 
 onMounted(async () => {
-  try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_backed/list'); 
-    const data = await response.json();
+  // try {
+  //   const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_backed/list'); 
+  //   const data = await response.json();
 
-    backedImagesList.value = data.data;
-  } catch (error) {
-    console.error('Error fetching images:', error);
-  }
+  //   backedImagesList.value = data.data;
+  // } catch (error) {
+  //   console.error('Error fetching images:', error);
+  // }
 });
 
 const chunkedBackedImagesList = computed(() => {

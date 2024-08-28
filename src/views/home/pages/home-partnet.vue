@@ -13,19 +13,76 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import partnetPage01 from '@/assets/img/partnets/partnet-01.png'
+import partnetPage02 from '@/assets/img/partnets/partnet-02.png'
+import partnetPage03 from '@/assets/img/partnets/partnet-03.png'
+import partnetPage04 from '@/assets/img/partnets/partnet-04.png'
+import partnetPage05 from '@/assets/img/partnets/partnet-05.png'
+import partnetPage06 from '@/assets/img/partnets/partnet-06.png'
+import partnetPage07 from '@/assets/img/partnets/partnet-07.png'
+import partnetPage08 from '@/assets/img/partnets/partnet-08.png'
+import partnetPage09 from '@/assets/img/partnets/partnet-09.png'
+import partnetPage10 from '@/assets/img/partnets/partnet-10.png'
+import partnetPage11 from '@/assets/img/partnets/partnet-11.png'
+import partnetPage12 from '@/assets/img/partnets/partnet-12.png'
+import partnetPage13 from '@/assets/img/partnets/partnet-13.png'
+import partnetPage14 from '@/assets/img/partnets/partnet-14.png'
 
 interface PartneredImage {
   url: string;
 }
 
-const partneredImagesList = ref<PartneredImage[]>([]);
+const partneredImagesList = ref<PartneredImage[]>([
+  {
+      "url": partnetPage01
+  },
+  {
+      "url": partnetPage02
+  },
+  {
+      "url": partnetPage03
+  },
+  {
+      "url": partnetPage04
+  },
+  {
+      "url": partnetPage05
+  },
+  {
+      "url": partnetPage06
+  },
+  {
+      "url": partnetPage07
+  },
+  {
+      "url": partnetPage08
+  },
+  {
+      "url": partnetPage09
+  },
+  {
+      "url": partnetPage10
+  },
+  {
+      "url": partnetPage11
+  },
+  {
+      "url": partnetPage12
+  },
+  {
+      "url": partnetPage13
+  },
+  {
+      "url": partnetPage14
+  }
+]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_partner/list'); 
-    const data = await response.json();
+    // const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_partner/list'); 
+    // const data = await response.json();
 
-    partneredImagesList.value = data.data;
+    // partneredImagesList.value = data.data;
   } catch (error) {
     console.error('Error fetching images:', error);
   }

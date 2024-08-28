@@ -41,23 +41,44 @@
 <script setup lang="ts">
 import { openPage } from '@/hooks/router';
 import { ref, onMounted } from 'vue';
+import powerImages01 from '@/assets/img/powered/Powered-01.png'
+import powerImages02 from '@/assets/img/powered/Powered-02.png'
+import powerImages03 from '@/assets/img/powered/Powered-03.png'
+import powerImages04 from '@/assets/img/powered/Powered-04.png'
 
 interface PoweredImage {
   url: string;
   link_url: string;
 }
 
-const poweredImagesList = ref<PoweredImage[]>([]);
+const poweredImagesList = ref<PoweredImage[]>([
+  {
+      "link_url": "https://www.bnbchain.org/en",
+      "url": powerImages01
+  },
+  {
+      "link_url": "https://chain.link/",
+      "url": powerImages02
+  },
+  {
+      "link_url": "https://optimism.io/",
+      "url": powerImages03
+  },
+  {
+      "link_url": "https://filecoin.io/",
+      "url": powerImages04
+  }
+]);
 
 onMounted(async () => {
-  try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_powered/list'); 
-    const data = await response.json();
+  // try {
+  //   const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_powered/list'); 
+  //   const data = await response.json();
 
-    poweredImagesList.value = data.data;
-  } catch (error) {
-    console.error('Error fetching images:', error);
-  }
+  //   poweredImagesList.value = data.data;
+  // } catch (error) {
+  //   console.error('Error fetching images:', error);
+  // }
 });
 
 const chunkedPoweredImagesList = computed(() => {

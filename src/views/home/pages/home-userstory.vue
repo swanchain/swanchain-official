@@ -56,6 +56,17 @@ import XySwiperUserstory from '@/base-ui/xy-swiper-userstory.vue'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { openPage } from '@/hooks/router'
+import userStoryImage01 from '@/assets/img/index/user-story-header-image01.jpg'
+import userStoryImage02 from '@/assets/img/index/user-story-header-image02.jpg'
+import userStoryImage03 from '@/assets/img/index/user-story-header-image03.jpg'
+import userStoryImage04 from '@/assets/img/index/user-story-header-image04.jpg'
+import userStoryAvatar01 from '@/assets/img/index/project-name01.png'
+import userStoryAvatar02 from '@/assets/img/index/project-name02.png'
+import userStoryAvatar03 from '@/assets/img/index/project-name03.png'
+import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
+import peopleIcon02 from '@/assets/img/index/people-img03.jpg'
+import peopleIcon03 from '@/assets/img/index/people-img02.jpg'
+import peopleIcon04 from '@/assets/img/index/people-img04.jpg'
 
 interface StoryDataRow {
   title: string,
@@ -69,24 +80,69 @@ interface StoryDataRow {
   content: string,
 }
 
-const caseList = ref<Array<StoryDataRow>>([]);
+const caseList = ref<Array<StoryDataRow>>([
+  {
+      "peopleIcon": peopleIcon01,
+      "icon": userStoryImage01,
+      "link": "https://www.apus.network/",
+      "peopleName": "Jason",
+      "peopleDesc": "Core Contributor of Apus Network",
+      "content": "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO.",
+      "avatarIcon": userStoryAvatar01,
+      "title": "Apus Network",
+      "projectContent": "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO."
+  },
+  {
+      "peopleIcon": peopleIcon02,
+      "icon": userStoryImage02,
+      "link": "https://nebulablock.com/",
+      "peopleName": "Jarod",
+      "peopleDesc": "Head of Operations",
+      "content": "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power.",
+      "avatarIcon": userStoryAvatar02,
+      "title": "Nebula Block",
+      "projectContent": "Offering comprehensive hosting solutions to make computing resources accessible to everyone."
+  },
+  {
+      "peopleIcon": peopleIcon03,
+      "icon": userStoryImage03,
+      "link": "https://www.oortech.com/",
+      "peopleName": "Max Li",
+      "peopleDesc": "Founder & CEO of OORT",
+      "content": "Swan Chain has enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training, one service that we offer to achieve our goal - build trustworthy AI for humanity.",
+      "avatarIcon": userStoryAvatar03,
+      "title": "OORT",
+      "projectContent": "OORT: Cloud for Decentralized AI."
+  },
+  {
+      "peopleIcon": peopleIcon04,
+      "icon": userStoryImage04,
+      "link": "https://kaisar.io/",
+      "peopleName": "Phuong Pham",
+      "peopleDesc": "Co-founder and COO",
+      "content": "Swan Chain's scalable blockchain infrastructure enhances Kaisar's GPU resource access by integrating with a vast, distributed network, ensuring reliable and scalable computing power to meet the growing demands of AI model training, rendering, and high-performance tasks.",
+      "avatarIcon": userStoryImage04,
+      "title": "Kaisar",
+      "projectContent": "The leading GPU-as-a-service protocol incentivizing both GPU providers and end-users."
+  }
+]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_user_story/list'); 
-    const data = await response.json();
+    // const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_user_story/list'); 
+    // const data = await response.json();
 
-    caseList.value = data.data.map((item: any) => ({
-      title: item.project_name,
-      icon: item.banner,
-      avatarIcon: item.project_logo,
-      peopleIcon: item.avatar,
-      peopleName: item.person_in_charge_name,
-      peopleDesc: item.person_in_charge_position,
-      link: item.link,
-      projectContent: item.project_summary,
-      content: item.project_description,
-    }));
+    // caseList.value = data.data.map((item: any) => ({
+    //   title: item.project_name,
+    //   icon: item.banner,
+    //   avatarIcon: item.project_logo,
+    //   peopleIcon: item.avatar,
+    //   peopleName: item.person_in_charge_name,
+    //   peopleDesc: item.person_in_charge_position,
+    //   link: item.link,
+    //   projectContent: item.project_summary,
+    //   content: item.project_description,
+    // }));
   } catch (error) {
     console.error('Failed to fetch showcases:', error);
   }
