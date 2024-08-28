@@ -51,7 +51,7 @@ const poweredImagesList = ref<PoweredImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_powered/list'); 
+    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_powered/list'); 
     const data = await response.json();
 
     poweredImagesList.value = data.data;

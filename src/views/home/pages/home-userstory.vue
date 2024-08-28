@@ -73,7 +73,7 @@ const caseList = ref<Array<StoryDataRow>>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_user_story/list'); 
+    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_user_story/list'); 
     const data = await response.json();
 
     caseList.value = data.data.map((item: any) => ({

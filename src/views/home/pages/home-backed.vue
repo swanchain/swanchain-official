@@ -22,7 +22,7 @@ const backedImagesList = ref<BackedImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_backed/list'); 
+    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_backed/list'); 
     const data = await response.json();
 
     backedImagesList.value = data.data;

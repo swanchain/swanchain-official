@@ -22,7 +22,7 @@ const partneredImagesList = ref<PartneredImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_PROXIMA + 'crm_partner/list'); 
+    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_partner/list'); 
     const data = await response.json();
 
     partneredImagesList.value = data.data;
