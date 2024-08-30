@@ -105,3 +105,10 @@ export function base64ToFile(base64Data:string, filename:string) {
   
   return file;
 }
+
+export function sortBoole(arr:any, field: string) {
+  if (!arr) return null
+  if(field === 'lowest') return arr.sort((a:any, b:any) => a['hardware_price'] - b['hardware_price'])
+  else if(field === 'high') return arr.sort((a:any, b:any) => b['hardware_price'] - a['hardware_price'])
+  else return arr.sort((a:any, b:any) => b[field] - a[field])
+}

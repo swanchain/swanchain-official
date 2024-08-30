@@ -24,6 +24,7 @@ export const menus = ref<IOption[]>([
         ]
       },
       { label: 'Computing Provider', value: '', link: 'https://orchestrator.swanchain.io/provider-status' },
+      { label: 'Swan Provider Dashboard', value: '', link: 'https://provider.swanchain.io' },
       { label: 'Apps', value: '/ecosystem/Apps' },
       { label: 'Blog', value: '', link: 'https://swanchain.medium.com/' }
     ]
@@ -35,6 +36,7 @@ export const menus = ref<IOption[]>([
     children: [
       { label: 'Status', value: '', link: 'https://status.swanchain.io/status/orchestrator' },
       { label: 'Swan chain Faucet', value: '', link: 'https://faucet.swanchain.io/' },
+      { label: 'Swan SDK', value: '', link: 'https://docs.swanchain.io/tools-and-applications/swan-sdk/1-quick-start' },
       { label: 'Documentation', value: '', link: 'https://docs.swanchain.io/' },
       {
         label: 'Explorer', value: '/Explorer',
@@ -44,5 +46,9 @@ export const menus = ref<IOption[]>([
         ]
       }
     ]
+  },
+  {
+    label: 'Pricing', value: '/Pricing',
+    children: []
   }
 ])

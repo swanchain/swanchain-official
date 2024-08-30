@@ -7,8 +7,8 @@
       </div>
       <div class="font-16">Swan Chain, initiated in 2021, is a full toolset AI blockchain infrastructure accelerating AI adoption. Utilizing OP Stack's Ethereum Layer 2 technology, it pioneers in merging Web3 with AI by providing comprehensive solutions across storage, computing, bandwidth, and payments.</div>
       <div class="flex flex-ai-center">
-        <div class="learn-more font-14 uppercase mt-20 mr-16 flex flex-ai-center flex-jc-center" @click="openPage('https://docs.swanchain.io/development-resource/quickstarts')">
-          Build on Swan Chain
+        <div class="learn-more font-14 uppercase mt-20 mr-16 flex flex-ai-center flex-jc-center" @click="openPage(ELINK.SWANCONSOLE)">
+          Get started
           
           <svg class="ml-8" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.5 4L11.5 8L7.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -41,6 +41,7 @@
 <script setup lang="ts">
 import { openPage } from '@/hooks/router';
 import { ref, onMounted } from 'vue';
+import { ELINK } from '@/constant/envLink';
 
 interface PoweredImage {
   url: string;

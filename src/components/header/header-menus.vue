@@ -37,6 +37,7 @@
         </el-menu-item>
       </template>
     </el-menu>
+    <div class="console font-14 font-bold ml-32 pointer" @click="openPage(ELINK.SWANCONSOLE)">Console</div>
   </div>
 
   <el-menu v-else background-color="transparent" color="#fff" popper-class="menu-popper" class="menu-popper font-14" collapse unique-opened router>
@@ -84,6 +85,7 @@
           </div>
         </el-menu-item>
       </template>
+      <li class="el-menu-item console font-bold color-dark">Console</li>
     </el-sub-menu>
   </el-menu>
 
@@ -107,6 +109,7 @@ import { windowSize } from '@/hooks/layout'
 import { menus, activeMenuPath } from '@/hooks/menus'
 import { openPage, toPage } from '@/hooks/router'
 import type { IOption } from 'types/common';
+import { ELINK } from '../../constant/envLink';
 
 defineProps<{
   light?: boolean
@@ -127,6 +130,11 @@ function changeMenu(item: IOption) {
 .menu {
   margin: 0 0.12rem;
   cursor: pointer;
+}
+.console {
+  padding: 0.08rem 0.11rem;
+  background: url(../../assets/img/mask-group.png) no-repeat center;
+  background-size: 100% 100%;
 }
 // .menu:hover {
 //   color: var(--color-primary);
