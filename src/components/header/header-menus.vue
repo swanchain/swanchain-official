@@ -85,7 +85,9 @@
           </div>
         </el-menu-item>
       </template>
-      <li class="el-menu-item console font-bold color-dark">Console</li>
+      <li class="el-menu-item">
+        <div class="console font-bold color-dark">Console</div>
+      </li>
     </el-sub-menu>
   </el-menu>
 
