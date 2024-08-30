@@ -331,6 +331,9 @@
 .p-128 {
   padding: 1.28rem;
 }
+.ptb-7 {
+  padding: 0.07rem 0;
+}
 .ptb-10 {
   padding: 0.1rem 0;
 }
@@ -339,6 +342,9 @@
 }
 .ptb-20 {
   padding: 0.2rem 0;
+}
+.ptb-24 {
+  padding: 0.24rem 0;
 }
 .ptb-30 {
   padding: 0.3rem 0;

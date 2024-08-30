@@ -33,5 +33,8 @@ export enum EIcon {
   FairIncentives = 'Fair Incentives',
   EdgeComputingProvider = 'Edge Computing Provider',
   FogComputingProvider = 'Fog Computing Provider',
-  MarketProvider = 'Market Provider'
+  MarketProvider = 'Market Provider',
+  CPSTORAGE = 'CP-Storage',
+  CPMEMORY = 'CP-Memory',
+  CPCPU = 'CP-CPU'
 }

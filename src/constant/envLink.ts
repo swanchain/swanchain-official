@@ -12,5 +12,6 @@ export enum ELINK {
   MCS = 'https://multichain.storage/',
   METAARK = 'https://www.fogmetalabs.com/metaark',
   CHAINNODE = 'https://chainnode.io/',
-  Superbridge = 'https://superbridge.app/'
+  Superbridge = 'https://superbridge.app/',
+  SWANCONSOLE = 'https://console.swanchain.io'
 }

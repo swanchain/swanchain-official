@@ -102,5 +102,14 @@ export default [
           keepAlive: true,
           title: 'Swan Chain | About Us'
       }
+  },
+  {
+      path: '/Pricing',
+      name: 'Pricing',
+      component: () => import('../views/pricing/pricing-index.vue'),
+      meta: {
+          keepAlive: true,
+          title: 'Swan Chain | Pricing'
+      }
   }
 ]

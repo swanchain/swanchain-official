@@ -1,0 +1,151 @@
+.el-container {
+  .el-table {
+    margin: 0 auto;
+    background-color: transparent;
+    border-radius: 0.1rem;
+    tr {
+      margin: 0 0 0.08rem;
+      background-color: transparent;
+      border-radius: 0.16rem;
+      th {
+        word-break: break-word;
+        padding: 0.04rem 0;
+        background-color: transparent;
+        border: 0 !important;
+        line-height: 20px;
+        &:first-child {
+          padding-left: 0.24rem;
+        }
+        &:last-child {
+          padding-right: 0.24rem;
+        }
+        .cell {
+          padding: 0 0.06rem;
+          font-family: gilroy-Medium;
+          font-size: var(--font-16);
+          color: var(--color-light) !important;
+        }
+      }
+      td {
+        padding: 0.16rem 0;
+        background-color: var(--color-dark-black);
+        color: var(--color-light);
+        border: 0 !important;
+        line-height: 20px;
+        &:first-child {
+          padding-left: 0.24rem;
+        }
+        &:last-child {
+          padding-right: 0.24rem;
+        }
+        .cell{
+          padding: 0 0.06rem;
+          font-size: var(--font-16);
+          color: var(--color-light);
+          .el-table__expand-icon{
+            &.el-table__expand-icon--expanded{
+              .el-icon {
+                transform: rotate(180deg);
+              }
+            }
+            .el-icon {
+              width: 18px;
+              height: 18px;
+              font-size: var(--font-16);
+              color: var(--color-light);
+              transform: rotate(90deg);
+              @media screen and (max-width: 1024px) {
+                width: 16px;
+                height: 16px;
+              }
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .gpu-images {
+            height: 0.22rem;
+          }
+        }
+        .service-body {
+          padding: 0.24rem 0;
+          border-top: 1px solid #212529;
+          .working-status, .payment-history {
+            padding: 0.16rem;
+            background-color: var(--color-black);
+            border-radius: 0.16rem;
+            .el-row {
+              .el-col {
+                &.point {
+                  position: relative;
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    right: 16px;
+                    top: 6px;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 100%;
+                    background-color: var(--color-success);
+                  }
+                }
+                .label {
+                  min-width: 1.2rem;
+                }
+                .url {
+                  max-width: calc(100% - 1.3rem);
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .box-card {
+                  padding: 0.16rem;
+                  background-color: var(--color-line);
+                  border-radius: 0.08rem;
+                }
+              }
+            }
+            .table-border {
+              margin: 0;
+              border-bottom: 1px solid #212529;
+              tr {
+                margin: 0;
+                th, td {
+                  padding-top: 0.16rem;
+                  padding-bottom: 0.16rem;
+                  background-color: transparent !important;
+                  border-top: 1px solid #212529 !important;
+                }
+              }
+            }
+          }
+        }
+        &.el-table__expanded-cell {
+          padding: 0 0.24rem;
+          // border: 1px solid var(--color-light);
+          &:hover {
+            background-color: var(--color-dark-black) !important;
+          }
+        }
+      }
+      &.expanded,
+      &:hover {
+        td, td.el-table__cell {
+          background-color: var(--color-dark-black) !important;
+        }
+      }
+      &.expanded {
+        border: 1px solid var(--color-light);
+        border-collapse: collapse;
+      }
+    }
+  }
+  .el-table--border .el-table__inner-wrapper::after,
+  .el-table--border::after,
+  .el-table--border::before,
+  .el-table__inner-wrapper::before {
+    background-color: rgb(38, 39, 47);
+    height: 0;
+  }
+}
