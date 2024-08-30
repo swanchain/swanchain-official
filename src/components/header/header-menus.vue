@@ -86,7 +86,7 @@
         </el-menu-item>
       </template>
       <li class="el-menu-item">
-        <div class="console font-bold color-dark">Console</div>
+        <div class="console font-bold color-dark" @click="openPage(ELINK.SWANCONSOLE)">Console</div>
       </li>
     </el-sub-menu>
   </el-menu>
