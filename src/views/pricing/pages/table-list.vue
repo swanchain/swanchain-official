@@ -36,7 +36,7 @@
           <div class="text-center text-center">Price</div>
         </template>
         <template #default="scope">
-          <div class="font-bold color-primary text-center">{{scope.row.hardware_price}} SWAN/hr</div>
+          <div class="font-bold color-primary text-center">{{scope.row.hardware_price}} SWANC/hr</div>
         </template>
       </el-table-column>
       <el-table-column label="">
@@ -106,6 +106,7 @@ async function getListData() {
         available_resource: available_resource
       }
     })
+    instanceData.value = instanceData.value.filter((item:any) => item.hardware_type !== 'CPU')
     instanceData.value = sortBoole(instanceData.value, props.filterSort)
     pagin.total = res?.data?.total ?? 0
     const totalQuantity = instanceData.value.reduce((sum, item) => sum + item.available_resource, 0);

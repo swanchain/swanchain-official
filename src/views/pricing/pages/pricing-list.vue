@@ -75,7 +75,7 @@
               <img :src="swanSmallLogo" class="swan-logo" />
               <div class="cont ml-16">
                 <div class="font-14 font-medium color-subtitle">Swan Chain</div>
-                <div class="font-20 font-bold color-primary">{{ replaceFormat(instanceList.value?.price_hour*24*30) }} SWAN</div>
+                <div class="font-20 font-bold color-primary">{{ replaceFormat(instanceList.value?.price_hour*24*30) }} SWANC</div>
               </div>
             </div>
             <div class="btn deploy-btn flex flex-ai-center pointer" @click="openPage(ELINK.LAGRANGE)">
