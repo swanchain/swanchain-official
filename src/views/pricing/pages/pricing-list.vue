@@ -150,10 +150,10 @@ function selectData() {
   try{
     const gpuNewArray = [...new Set(hardwareAll.map(item => item.gpu))];
     gpuList.options = gpuNewArray ?? []
-    gpuList.value = gpuNewArray[0] ?? ''
+    gpuList.value = 'Nvidia H100' ?? gpuNewArray[0] ?? ''
 
     selectInstanceData()
-  } finally {
+  } catch {
     gpuLoad.value = false
   }
 }
