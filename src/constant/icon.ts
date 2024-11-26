@@ -36,5 +36,6 @@ export enum EIcon {
   MarketProvider = 'Market Provider',
   CPSTORAGE = 'CP-Storage',
   CPMEMORY = 'CP-Memory',
-  CPCPU = 'CP-CPU'
+  CPCPU = 'CP-CPU',
+  YOUTUBE = 'youtube'
 }

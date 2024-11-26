@@ -89,7 +89,8 @@ const rows = ref([
       { label: EIcon.T, value: ELINK.T },
       { label: EIcon.GITHUB, value: ELINK.GITHUB },
       { label: EIcon.IN, value: ELINK.IN },
-      { label: EIcon.MEDIUM, value: ELINK.MEDIUM }
+      { label: EIcon.MEDIUM, value: ELINK.MEDIUM },
+      { label: EIcon.YOUTUBE, value: ELINK.YOUTUBE }
     ]
   }
 ])
