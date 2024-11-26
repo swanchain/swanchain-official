@@ -13,5 +13,6 @@ export enum ELINK {
   METAARK = 'https://www.fogmetalabs.com/metaark',
   CHAINNODE = 'https://chainnode.io/',
   Superbridge = 'https://superbridge.app/',
-  SWANCONSOLE = 'https://console.swanchain.io'
+  SWANCONSOLE = 'https://console.swanchain.io',
+  YOUTUBE = 'https://www.youtube.com/@swan_chain'
 }
