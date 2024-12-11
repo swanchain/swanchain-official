@@ -52,7 +52,7 @@ export const menus = ref<IOption[]>([
     children: []
   },
   {
-    label: 'Whitepaper', value: '', link: 'https://chaindata.swanchain.org/Swan%20Chain%20White%20Paper_%20Nov.%202024.pdf',
+    label: 'Whitepaper', value: '', link: '/files/Swan_Chain_White_Paper_Nov_2024.pdf',
     children: []
   }
 ])
