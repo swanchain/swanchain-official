@@ -36,7 +36,7 @@
           <div class="text-center text-center">Price</div>
         </template>
         <template #default="scope">
-          <div class="font-bold color-primary text-center">{{scope.row.hardware_price}} SWANC/hr</div>
+          <div class="font-bold color-primary text-center">{{scope.row.hardware_price}} SWAN/hr</div>
         </template>
       </el-table-column>
       <el-table-column label="">
