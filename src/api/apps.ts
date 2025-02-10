@@ -36,3 +36,11 @@ export function createCRMForm(data: any) {
         data
     })
 }
+
+export function getRetrieveSwanNews() {
+  return request({
+      headers: {},
+      url: import.meta.env.VITE_BASEAPI_CRM + 'news/retrieve_swan_news',
+      method: 'get'
+  })
+}
