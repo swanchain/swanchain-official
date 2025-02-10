@@ -2,9 +2,21 @@
   <div :class="`header ${abs ? 'abs' : ''}`">
     <el-alert center class="alert-body" v-if="route.name === 'index' || route.name === 'privacy-policy' || route.name === 'terms' || route.name === 'aboutUs'" :light="isLight">
       <template #title>
-        <span @click="openPage('https://docs.swanchain.io/swan-chain/swan-chain-mainnet')" class="font-14">
-          Swan Chain Mainnet is LIVE! Join now to earn SWAN tokens!
-        </span>
+        <swiper
+          class="news-swiper"
+          :modules="modules"
+          direction="vertical"
+          :autoplay="autoplay"
+          :loop="true"
+          :slides-per-view="1"
+          :space-between="10"
+          :freeMode="true"
+          :mousewheel="true"
+        >
+          <swiper-slide v-for="(news, index) in newsList" :key="index" class="news-item" @click="openPage(news.url)">
+            {{ news.name }}
+          </swiper-slide>
+        </swiper>
       </template>
     </el-alert>
     <!-- ${!isMargin ? 'header-body-m': ''} -->
@@ -18,9 +30,17 @@
 </template>
 
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, FreeMode, Mousewheel } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/free-mode'
+import 'swiper/css/mousewheel'
+
 import HeaderLogo from './header-logo.vue'
 import HeaderMenus from './header-menus.vue'
 import { openPage } from '@/hooks/router'
+import { getRetrieveSwanNews } from '@/api/apps'
 
 const ROUTE_WHITE = []
 const isLight = ref(false)
@@ -49,6 +69,29 @@ router.beforeEach(to => {
 //     bgColor.value = `RGBA(35, 42, 146, ${main.scrollTop / 1000})`
 //   })
 // })
+
+const newsList = ref<{ name: string; url: string }[]>([])
+
+onMounted(async () => {
+  try {
+    const response = await getRetrieveSwanNews()
+    if (response?.data?.length) {
+      newsList.value = response.data.map(item => ({
+        name: item.name,
+        url: item.url
+      }))
+    }
+  } catch (error) {
+    console.error('Failed to fetch news:', error)
+  }
+})
+
+const modules = ref([Autoplay, FreeMode, Mousewheel])
+const autoplay = reactive({
+  delay: 3000,
+  disableOnInteraction: false,
+  pauseOnMouseEnter: false
+})
 </script>
 
 <style lang="less" scoped>
@@ -88,12 +131,6 @@ router.beforeEach(to => {
   }
   .el-alert__content {
     display: flex;
-    span{
-      cursor: pointer;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
   }
   .el-alert__title {
     line-height: 1;
@@ -136,5 +173,17 @@ router.beforeEach(to => {
 }
 .header.abs {
   position: absolute;
+}
+.news-swiper {
+  height: 18px;
+  overflow: hidden;
+}
+
+:deep(.news-item) {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  &:hover{
+    text-decoration: underline;}
 }
 </style>
