@@ -51,7 +51,5 @@ export const menus = ref<IOption[]>([
     label: 'Pricing', value: '/Pricing',
     children: []
   },
-  {
-    label: 'Whitepaper', value: '', link: '/files/Swan_Chain_White_Paper_Nov_2024.pdf',
-  }
+  { label: 'White Paper', value: '', link: '/files/Swan_Chain_White_Paper_Nov_2024.pdf' }
 ])
