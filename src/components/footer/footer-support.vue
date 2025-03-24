@@ -74,7 +74,7 @@ const columns = ref([
       { label: 'Privacy Policy', value: '/privacy-policy' },
       { label: 'Term Of Use', value: '/terms' },
       { label: 'Careers', value: '', link: 'https://www.linkedin.com/company/swancloud/jobs/' },
-      { label: 'Contact Us', value: '', link: 'https://discord.com/invite/swanchain' },
+      { label: 'Contact Us', value: '', link: ELINK.DISCORD },
       { label: 'Brand Kit', value: '', link:  'https://drive.google.com/drive/folders/1R-qxHukeprc13nQ5WSuZgmrGCiUWHN07?usp=sharing' }
     ]
   }

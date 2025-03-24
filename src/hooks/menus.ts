@@ -34,9 +34,9 @@ export const menus = ref<IOption[]>([
   {
     label: 'Developer', value: '/Developer',
     children: [
-      { label: 'Status', value: '', link: 'https://status.swanchain.io/status/orchestrator' },
-      { label: 'Swan chain Faucet', value: '', link: 'https://faucet.swanchain.io/' },
-      { label: 'Swan SDK', value: '', link: 'https://docs.swanchain.io/tools-and-applications/swan-sdk/1-quick-start' },
+      { label: 'Status', value: '', link: 'https://provider.swanchain.io/overview' },
+      // { label: 'Swan chain Faucet', value: '', link: 'https://faucet.swanchain.io/' },
+      { label: 'Swan SDK', value: '', link: 'https://docs.swanchain.io/bulders/tools/swan-sdk' },
       { label: 'Documentation', value: '', link: 'https://docs.swanchain.io/' },
       {
         label: 'Explorer', value: '/Explorer',

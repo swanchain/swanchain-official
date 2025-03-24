@@ -18,7 +18,7 @@
           <div class="title font-24 font-bold">Need Further Help?</div>
           <div class="font-14 mt-16 mb-16">Can't find the proper solution? Don't hesitate to contact us.</div>
           <div class="flex flex-ai-center flex-js-left">
-            <div @click="openPage('https://discord.com/invite/swanchain')" class="help-container-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">
+            <div @click="openPage(ELINK.DISCORD)" class="help-container-try font-14 font-bold2 flex flex-ai-center flex-js-center pointer">
               Contact Us
 
               <svg class="ml-10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
