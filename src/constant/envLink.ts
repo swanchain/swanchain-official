@@ -3,7 +3,7 @@ export enum ELINK {
   IN = 'https://www.linkedin.com/company/swancloud',
   MEDIUM = 'https://medium.com/@swanchain',
   GITHUB = 'https://github.com/swanchain',
-  DISCORD = 'https://discord.gg/swanchain',
+  DISCORD = 'https://discord.com/invite/2Fqbs9JhEg',
   T = 'https://t.me/swan_chain/1',
   EMAIL = 'contact@swanchain.io',
   PROXIMAEXPLORER = 'https://proxima-explorer.swanchain.io',
