@@ -4,7 +4,7 @@
     <el-row class="row-bg" :gutter="32" justify="center" v-for="(row, rowIndex) in chunkedPartnerImagesList" :key="rowIndex">
       <template v-for="(item, index) in row" :key="index">
         <el-col :xs="12" :sm="6" :md="6" :lg="6" class="mb-32 flex">
-          <img :src="item.url" class="partnet-img" />
+          <img :src="item.img" class="partnet-img" />
         </el-col>
       </template>
     </el-row>
@@ -13,19 +13,75 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import partnetPage01 from '@/assets/img/partnets/partnet-01.png'
+import partnetPage02 from '@/assets/img/partnets/partnet-02.png'
+import partnetPage03 from '@/assets/img/partnets/partnet-03.png'
+import partnetPage04 from '@/assets/img/partnets/partnet-04.png'
+import partnetPage05 from '@/assets/img/partnets/partnet-05.png'
+import partnetPage06 from '@/assets/img/partnets/partnet-06.png'
+import partnetPage07 from '@/assets/img/partnets/partnet-07.png'
+import partnetPage08 from '@/assets/img/partnets/partnet-08.png'
+import partnetPage09 from '@/assets/img/partnets/partnet-09.png'
+import partnetPage10 from '@/assets/img/partnets/partnet-10.png'
+import partnetPage11 from '@/assets/img/partnets/partnet-11.png'
+import partnetPage12 from '@/assets/img/partnets/partnet-12.png'
+import partnetPage13 from '@/assets/img/partnets/partnet-13.png'
+import partnetPage14 from '@/assets/img/partnets/partnet-14.png'
 
 interface PartneredImage {
-  url: string;
+  img: string;
 }
 
 const partneredImagesList = ref<PartneredImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_partner/list'); 
-    const data = await response.json();
+    const data = [
+  {
+    img: partnetPage01
+  },
+  {
+    img: partnetPage02
+  },
+  {
+    img: partnetPage03
+  },
+  {
+    img: partnetPage04
+  },
+  {
+    img: partnetPage05
+  },
+  {
+    img: partnetPage06
+  },
+  {
+    img: partnetPage07
+  },
+  {
+    img: partnetPage08
+  },
+  {
+    img: partnetPage09
+  },
+  {
+    img: partnetPage10
+  },
+  {
+    img: partnetPage11
+  },
+  {
+    img: partnetPage12
+  },
+  {
+    img: partnetPage13
+  },
+  // {
+  //   img: partnetPage14
+  // }
+    ]
 
-    partneredImagesList.value = data.data;
+    partneredImagesList.value = data
   } catch (error) {
     console.error('Error fetching images:', error);
   }

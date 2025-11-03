@@ -56,6 +56,18 @@ import XySwiperUserstory from '@/base-ui/xy-swiper-userstory.vue'
 import { windowSize } from '@/hooks/layout'
 import { EWindowSize } from '@/constant/common'
 import { openPage } from '@/hooks/router'
+import userStoryImage from '@/assets/img/index/user-story.jpg'
+import userStoryImage01 from '@/assets/img/index/user-story-header-image01.jpg'
+import userStoryImage02 from '@/assets/img/index/user-story-header-image02.jpg'
+import userStoryImage03 from '@/assets/img/index/user-story-header-image03.jpg'
+import userStoryAvatar from '@/assets/img/index/project-name.png'
+import userStoryAvatar01 from '@/assets/img/index/project-name01.png'
+import userStoryAvatar02 from '@/assets/img/index/project-name02.png'
+import userStoryAvatar03 from '@/assets/img/index/project-name03.png'
+import peopleIcon from '@/assets/img/index/people-img.jpg'
+import peopleIcon01 from '@/assets/img/index/people-img01.jpg'
+import peopleIcon02 from '@/assets/img/index/people-img03.jpg'
+import peopleIcon03 from '@/assets/img/index/people-img02.jpg'
 
 interface StoryDataRow {
   title: string,
@@ -73,10 +85,54 @@ const caseList = ref<Array<StoryDataRow>>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_user_story/list'); 
-    const data = await response.json();
+    const data = [
+  {
+    "avatar": userStoryAvatar01,
+    "banner": userStoryImage01,
+    "link": "https://www.apus.network/",
+    "person_in_charge_name": "Jason",
+    "person_in_charge_position": "Core Contributor of Apus Network",
+    "project_description": "By integrating Swan Chain's SDK, Apus Network leverages Swan Chain's computational resources, enhancing our ability to provide efficient GPU power for AI inference. This integration has been crucial in building our scalable, trustless GPU network on AO.",
+    "project_logo": peopleIcon01,
+    "project_name": "Apus Network",
+    "project_summary": "Apus Network is building a decentralized, trustless GPU network for efficient AI computation on AO."
+  },
+  {
+    "avatar": userStoryAvatar02,
+    "banner": userStoryImage02,
+    "link": "https://nebulablock.com/",
+    "person_in_charge_name": "Jarod",
+    "person_in_charge_position": "Co-founder of Nebula Block",
+    "project_description": "Swan Chain has transformed our business model by enabling us to effectively monetize our GPU resources, creating new revenue streams. This partnership maximizes the utility of our infrastructure while addressing the increasing demand for distributed computing power.",
+    "project_logo": peopleIcon02,
+    "project_name": "Nebula Block",
+    "project_summary": "Offering comprehensive hosting solutions to make computing resources accessible to everyone."
+  },
+  {
+    "avatar": userStoryAvatar03,
+    "banner": userStoryImage03,
+    "link": "https://www.oortech.com/",
+    "person_in_charge_name": "Max Li",
+    "person_in_charge_position": "Founder & CEO of OORT",
+    "project_description": "Swan Chain has enhanced OORT's capabilities. By leveraging Swan Chain's computing resources, we've expanded our decentralized AI platform's capacity and reach. This partnership has significantly driven our competency in AI model training, one service that we offer to achieve our goal - build trustworthy AI for humanity.",
+    "project_logo": peopleIcon03,
+    "project_name": "OORT",
+    "project_summary": "OORT: Cloud for Decentralized AI."
+  },
+  {
+    "avatar": userStoryAvatar,
+    "banner": userStoryImage,
+    "link": "https://kaisar.io/",
+    "person_in_charge_name": "Phuong Pham",
+    "person_in_charge_position": "Co-founder and COO",
+    "project_description": "Swan Chain's scalable blockchain infrastructure enhances Kaisar's GPU resource access by integrating with a vast, distributed network, ensuring reliable and scalable computing power to meet the growing demands of AI model training, rendering, and high-performance tasks.",
+    "project_logo": peopleIcon,
+    "project_name": "Kaisar",
+    "project_summary": "The leading GPU-as-a-service protocol incentivizing both GPU providers and end-users."
+  }
+]
 
-    caseList.value = data.data.map((item: any) => ({
+    caseList.value = data.map((item: any) => ({
       title: item.project_name,
       icon: item.banner,
       avatarIcon: item.project_logo,

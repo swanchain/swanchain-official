@@ -42,6 +42,10 @@
 import { openPage } from '@/hooks/router';
 import { ref, onMounted } from 'vue';
 import { ELINK } from '@/constant/envLink';
+import funded01 from '@/assets/img/powered/Powered-01.png'
+import funded02 from '@/assets/img/powered/Powered-02.png'
+import funded03 from '@/assets/img/powered/Powered-03.png'
+import funded04 from '@/assets/img/powered/Powered-04.png'
 
 interface PoweredImage {
   url: string;
@@ -52,10 +56,26 @@ const poweredImagesList = ref<PoweredImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_powered/list'); 
-    const data = await response.json();
+    const response = [
+  {
+    "link_url": "https://www.bnbchain.org/en",
+    "url": funded01
+  },
+  {
+    "link_url": "https://chain.link/",
+    "url": funded02
+  },
+  {
+    "link_url": "https://optimism.io/",
+    "url": funded03
+  },
+  {
+    "link_url": "https://filecoin.io/",
+    "url": funded04
+  }
+]
 
-    poweredImagesList.value = data.data;
+    poweredImagesList.value = response
   } catch (error) {
     console.error('Error fetching images:', error);
   }
