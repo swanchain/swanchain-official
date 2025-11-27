@@ -13,6 +13,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import powerPage01 from '@/assets/img/Backed/Backed-01.png'
+import powerPage02 from '@/assets/img/Backed/Backed-02.png'
+import powerPage03 from '@/assets/img/Backed/Backed-03.png'
+import powerPage04 from '@/assets/img/Backed/Backed-04.png'
+import powerPage05 from '@/assets/img/Backed/Backed-05.png'
+import powerPage06 from '@/assets/img/Backed/Backed-06.png'
+import powerPage07 from '@/assets/img/Backed/Backed-07.png'
+import powerPage08 from '@/assets/img/Backed/Backed-08.png'
 
 interface BackedImage {
   url: string;
@@ -22,10 +30,34 @@ const backedImagesList = ref<BackedImage[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASEAPI_CRM + 'crm_backed/list'); 
-    const data = await response.json();
+    const response = [
+  {
+    "url": powerPage01
+  },
+  {
+    "url": powerPage02
+  },
+  {
+    "url": powerPage03
+  },
+  {
+    "url": powerPage04
+  },
+  {
+    "url": powerPage05
+  },
+  {
+    "url": powerPage06
+  },
+  {
+    "url": powerPage07
+  },
+  {
+    "url": powerPage08
+  }
+]
 
-    backedImagesList.value = data.data;
+    backedImagesList.value = response
   } catch (error) {
     console.error('Error fetching images:', error);
   }
